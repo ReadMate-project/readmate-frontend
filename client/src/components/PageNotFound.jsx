@@ -1,3 +1,4 @@
+// 오류 뜨면 가는 페이지
 import React from 'react';
 
 const PageNotFound = () => {
