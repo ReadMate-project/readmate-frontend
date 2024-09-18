@@ -1,12 +1,12 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const BookRecordPage = () => {
+const UpdateProfilePage = () => {
   return (
     <div>
-      <h1>Book Record Page</h1>
+      <h1>Update Profile Page</h1>
     </div>
   );
 };
 
-export default BookRecordPage;
+export default UpdateProfilePage;
