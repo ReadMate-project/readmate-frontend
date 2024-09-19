@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import PageNotFound from "../pages/error/PageNotFound";
-import LogIn from "../pages/login/LogIn";
-import Layout from "../pages/layout/Layout";
+import PageNotFound from "../components/PageNotFound";
+import LogIn from "../pages/loginpage/LoginPage";
+import Layout from "../components/layout/Layout";
+import MainPage from "../pages/mainpage/MainPage";
 
 const router = createBrowserRouter([
     {
