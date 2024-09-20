@@ -1,7 +1,45 @@
-// import { createBrowserRouter, RouterProvider, Route, Navigate, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Route, Navigate, Outlet } from "react-router-dom";
 
 import Layout from "../components/layout/Layout";
 import MainPage from "../pages/mainpage/MainPage";
+
+import LoginPage from "../pages/loginpage/LoginPage";
+import SignUpPage from "../pages/loginpage/signuppage/SignUpPage";
+
+import LibraryPage from "../pages/librarypage/LibraryPage";
+import BookInfoPage from "../pages/librarypage/bookinfopage/BookInfoPage";
+
+import FeedPage from "../pages/feedpage/FeedPage";
+
+import BookClubPage from "../pages/bookclubpage/BookClubPage";
+import BookClubDetailPage from "../pages/bookclubpage/bookclubdetailpage/BookClubDetailPage";
+
+import PostPage from "../pages/postpage/PostPage";
+import PostDetailPage from "../pages/postpage/postdetailpage/PostDetailPage";
+
+import SearchPage from "../pages/searchpage/SearchPage";
+
+
+// 로그인 필요 페이지 
+import { isAuthenticated } from "../auth";
+
+import MyPage from "../pages/mypage(Auth)/MyPage";
+import UpdateProfilePage from "../pages/mypage(Auth)/updateprofilepage(Auth)/UpdateProfilePage";
+
+import MyLibraryPage from "../pages/mylibrarypage(Auth)/MyLibraryPage";
+import BookRecordPage from "../pages/mylibrarypage(Auth)/bookrecordpage(Auth)/BookRecordPage";
+import PostingPage from "../pages/mylibrarypage(Auth)/postingpage(Auth)/PostingPage";
+
+
+import MyBookClubPage from "../pages/mybookclubpage(Auth)/MyBookClubPage";
+import MakingBookClubPage from "../pages/mybookclubpage(Auth)/makingbookclubpage(Auth)/MakingBookClubPage";
+// 로그인 필요 페이지
+
+import PageNotFound from "../components/PageNotFound";
+
+const ProtectedRoute = ({ element }) => {
+    return isAuthenticated() ? element : <Navigate to="/login" />;
+  };
 
 const router = createBrowserRouter([
     {
@@ -17,12 +55,7 @@ const router = createBrowserRouter([
         {
             path: "/login",
             element: <LoginPage />,
-            children: [
-                {
-                  path: "signup",
-                  element: <SignUpPage />,
-                },
-              ],
+            
         },
     
         {
