@@ -10,10 +10,10 @@ const Layout = () => {
             <S.Background>
                 <S.Top>
                     <S.Logo>read mate</S.Logo>
-                    <NavigationBar/>
+                    <NavigationBar />
                 </S.Top>
                 <S.Main>
-                    <Outlet/>
+                    <Outlet />
                 </S.Main>
             </S.Background>
         </div>
