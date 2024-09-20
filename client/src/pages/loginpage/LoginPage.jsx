@@ -7,7 +7,6 @@ const LoginPage = () => {
     <div>
       <h1>Login Page</h1>
       {/* Login form */}
-      <Outlet />
     </div>
   );
 };
