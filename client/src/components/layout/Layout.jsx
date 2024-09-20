@@ -14,8 +14,8 @@ const Layout = () => {
                 </S.Top>
                 <S.Main>
                     <Outlet/>
-                </S.Main>
-            </S.Background>
+                </S.Main> 
+            </S.Background> 
         </div>
     );
 };

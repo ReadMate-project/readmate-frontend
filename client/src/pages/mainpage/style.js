@@ -3,36 +3,51 @@ import styled from 'styled-components'
 const S={};
 
 S.SliderContainer = styled.div`
-    /* 로고와 네비게이션보다 위에 오도록 설정 */
-    /* width: 100%;
+    width: 100%;
+    position:relative;
     overflow: hidden;
-
-    .slick-slide {
-        box-sizing: border-box;
+    
+    .slick-dots {
+        bottom: 15%;
     }
 
-    .slick-list {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    .slick-dots li {
+        margin: 0 12px;
     }
 
-    .slick-track {
-        display: flex;
-        align-items: center;
+    .slick-dots li button {
+        padding:0;
+        width: 27px;
+        height: 8px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.37);
+        cursor: pointer;
+    }
+    
+        .slick-dots li button:before {
+        content: none;
     }
 
-    .slick-slide > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .slick-dots li.slick-active button {
+        background: white;
     }
-
-    .slick-slide h3 {
-        margin: 0;
-        padding: 20px;
-        text-align: center;
-    } */
 `;
 
+S.PageIndicator = styled.div`
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+  color: white;
+`;
+
+S.Slider=styled.div`
+    width:100%;
+    img {
+        width: 100%; 
+        height: auto; 
+        object-fit: cover; 
+  }
+`
 export default S;

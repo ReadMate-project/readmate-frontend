@@ -8,9 +8,8 @@ S.Background = styled.div`
     width: 100%;
     height: 100vh;
     background-color: ${theme.PALETTE.background};
-    /* ${flexCenterColumn}; */
     position: relative;
-`;
+`; 
 
 S.Top=styled.div`
     width: 100%;
@@ -19,25 +18,23 @@ S.Top=styled.div`
     position:absolute;
     top:5%;
     z-index: 10;
-
-`
+` 
 // main
 S.Main = styled.main`
     /* overflow-y: scroll; */
     /* scrollbar-width: none; */
     /* overflow: hidden; */
     position: fixed;
-    top: 0;
-    left: 0;
+    top:0;
     width: 100%;
-    height:200px;
-    background-color: white;
-    /* z-index: 10;  */
 `;
 
 S.Logo=styled.div`
-    ${h1};
+    font-family: 'TransformaScript';
+    font-size:30px;
+    color:white;
     margin-left: 10%;
+    cursor:pointer;
     
 `
 // navigation
@@ -47,6 +44,9 @@ S.Nav = styled.nav`
     display: flex;
     justify-content: space-evenly;
     margin-right: 10%;
+    & a {
+        color:white;
+    }
    
 `;
 
