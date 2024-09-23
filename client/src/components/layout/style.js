@@ -21,12 +21,12 @@ S.Top=styled.div`
 ` 
 // main
 S.Main = styled.main`
-    /* overflow-y: scroll; */
-    /* scrollbar-width: none; */
+    overflow-y: scroll;
+    scrollbar-width: none;
     /* overflow: hidden; */
-    position: fixed;
-    top:0;
+    position: absolute;
     width: 100%;
+    height:100%;
 `;
 
 S.Logo=styled.div`

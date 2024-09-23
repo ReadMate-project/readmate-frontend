@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { flexCenter, flexCenterColumn } from '../../global/common';
 
 const S={};
 
@@ -12,10 +13,14 @@ S.SliderContainer = styled.div`
     }
 
     .slick-dots li {
+        
         margin: 0 12px;
+        
     }
 
     .slick-dots li button {
+        position:relative;
+        right:3.5px;
         padding:0;
         width: 27px;
         height: 8px;
@@ -26,6 +31,7 @@ S.SliderContainer = styled.div`
     
         .slick-dots li button:before {
         content: none;
+        
     }
 
     .slick-dots li.slick-active button {
@@ -48,6 +54,7 @@ S.Slider=styled.div`
         width: 100%; 
         height: auto; 
         object-fit: cover; 
-  }
+    }
+    
 `
 export default S;
