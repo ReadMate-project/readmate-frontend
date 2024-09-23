@@ -4,7 +4,6 @@ import Layout from "../components/layout/Layout";
 import MainPage from "../pages/mainpage/MainPage";
 
 import LoginPage from "../pages/loginpage/LoginPage";
-import SignUpPage from "../pages/loginpage/signuppage/SignUpPage";
 
 import LibraryPage from "../pages/librarypage/LibraryPage";
 import BookInfoPage from "../pages/librarypage/bookinfopage/BookInfoPage";
@@ -36,6 +35,7 @@ import MakingBookClubPage from "../pages/mybookclubpage(Auth)/makingbookclubpage
 // 로그인 필요 페이지
 
 import PageNotFound from "../components/PageNotFound";
+import KakaoRedirect from "../pages/loginpage/KakaoRedirect";
 
 const ProtectedRoute = ({ element }) => {
     return isAuthenticated() ? element : <Navigate to="/login" />;
@@ -55,14 +55,13 @@ const router = createBrowserRouter([
         {
             path: "/login",
             element: <LoginPage />,
-            children: [
-                {
-                  path: "signup",
-                  element: <SignUpPage />,
-                },
-              ],
+            
         },
-    
+        {
+            path: "/oauth2/kakao/code",
+            element: <KakaoRedirect />,
+            
+        },
         {
             path: "/bookclubs",
             element: <BookClubPage />,
@@ -157,8 +156,4 @@ const router = createBrowserRouter([
         ]
     }
 ])
-
-
-
-
 export default router;

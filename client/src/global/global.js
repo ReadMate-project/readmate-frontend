@@ -28,6 +28,13 @@ const GlobalStyle = createGlobalStyle`
         font-style: normal;
     }
 
+    /* 폰트 파일 적용 */
+    @font-face {//Medium
+        font-family: 'TransformaScript';
+        src: url('/global/fonts/TRANSFORMASCRIPT_TRIAL-MEDIUM.TTF') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+    }
     * {
         font-family: 'Pretendard';
         box-sizing: border-box;
