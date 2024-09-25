@@ -18,35 +18,38 @@ S.Top=styled.div`
     position:absolute;
     top:5%;
     z-index: 10;
+    padding: 0 10%;
 ` 
 // main
 S.Main = styled.main`
-    overflow-y: scroll;
-    scrollbar-width: none;
-    /* overflow: hidden; */
-    position: absolute;
     width: 100%;
-    height:100%;
+    
+    
 `;
 
 S.Logo=styled.div`
+    font-size:2vw;
+    font-weight:800;
+    /* ${h1}; */
     font-family: 'TransformaScript';
-    font-size:30px;
     color:white;
-    margin-left: 10%;
     cursor:pointer;
     
 `
 // navigation
 S.Nav = styled.nav`
     ${b1};
-    width: 30%;
     display: flex;
     justify-content: space-evenly;
-    margin-right: 10%;
+    
     & a {
-        color:white;
+        color: inherit; 
+        padding: 0 15px; 
+        &.active {
+            color: ${theme.PALETTE.green};
+        }
     }
+    
    
 `;
 

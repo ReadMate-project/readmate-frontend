@@ -4,7 +4,7 @@ import { flexCenter, flexCenterColumn } from '../../global/common';
 const S={};
 
 S.SliderContainer = styled.div`
-    width: 100%;
+    width: 100vw; 
     position:relative;
     overflow: hidden;
     
@@ -49,11 +49,12 @@ S.PageIndicator = styled.div`
 `;
 
 S.Slider=styled.div`
-    width:100%;
+    
+    
     img {
         width: 100%; 
-        height: auto; 
-        object-fit: cover; 
+        /* height: auto;  */
+        /* object-fit: cover;  */
     }
     
 `

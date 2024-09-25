@@ -1,13 +1,12 @@
 // 어떤 형식인지 지정하고 만들면 될 것 같아요
 import React, { useEffect, useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import S from './style';
 import NavigationBar from '../NavigationBar';
 
 const Layout = () => {
     const location = useLocation();
     const [textColor, setTextColor] = useState('white');
-
     useEffect(() => {
         // 페이지 이동 시 글자색을 변경
         if (location.pathname === '/') {
@@ -20,8 +19,10 @@ const Layout = () => {
     return (
         <div>
             <S.Background>
-                <S.Top style={{color:textColor}}>
-                    <S.Logo>read mate</S.Logo>
+                <S.Top>
+                    <NavLink to={"/"}>
+                        <S.Logo style={{color:textColor}}>read mate</S.Logo>
+                    </NavLink>
                     <NavigationBar />
                 </S.Top>
                 <S.Main>
