@@ -7,13 +7,13 @@ theme.PALETTE = {
 };
 
 theme.FONT_SIZE = {
-    h1:"26px",
-    h2:"24px",
-    h3:"20px",
-    b1:"20px",
-    b2:"17px",
-    b3:"15px",
-    b4:"15px",
+    h1:"1.81vw", //26px
+    h2:"1.67vw", //24px
+    h3:"1.39vw", //20px
+    b1:"1.39vw", //20px
+    b2:"1.18vw", //17px
+    b3:"1.04vw", //17px
+    b4:"1.04vw", //15px
 }
 
 theme.FONT_WEIGHT = {

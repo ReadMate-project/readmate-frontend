@@ -15,43 +15,43 @@ export const flexCenterColumn = css`
 
 export const h1=css`
     font-family: 'Pretendard';
-    font-size: 26px;
+    font-size: 1.81vw; //26px
     font-weight: 800;
 
 `
 export const h2=css`
     font-family: 'Pretendard';
-    font-size: 24px;
+    font-size: 1.67vw; //24px
     font-weight: 700;
 
 `
 export const h3=css`
     font-family: 'Pretendard';
-    font-size: 20px;
+    font-size: 1.39vw; //24px
     font-weight: 700;
 
 `
 export const b1=css`
     font-family: 'Pretendard';
-    font-size: 20px;
+    font-size: 1.39vw; //20px
     font-weight: 500;
 
 `
 export const b2=css`
     font-family: 'Pretendard';
-    font-size: 17px;
+    font-size: 1.18vw; //17px
     font-weight: 500;
 
 `
 export const b3=css`
     font-family: 'Pretendard';
-    font-size: 15px;
+    font-size: 1.04vw; //15px
     font-weight: 800;
 
 `
 export const b4=css`
     font-family: 'Pretendard';
-    font-size: 15px;
+    font-size: 1.04vw; //15px
     font-weight: 500;
 
 `
