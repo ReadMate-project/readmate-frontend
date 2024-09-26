@@ -52,5 +52,39 @@ S.Nav = styled.nav`
     
    
 `;
+S.SearchFormWrapper = styled.div`
+  position: absolute;
+  top: -5vh;
+  right: 11vw;
+`;
+
+S.SearchForm = styled.form`
+  display: flex;
+  align-items: center;
+`;
+
+S.SearchInput = styled.input`
+  ${b1};
+  width: 15vw;
+  height: 4vh;
+  padding: 0 1vw;
+  border: 1px solid ${theme.PALETTE.green};
+  border-radius: 2vh 0 0 2vh;
+`;
+
+S.SearchButton = styled.button`
+  ${b1};
+  height: 4vh;
+  padding: 0 1vw;
+  background-color: ${theme.PALETTE.green};
+  color: white;
+  border: 1px solid ${theme.PALETTE.green};
+  border-radius: 0 2vh 2vh 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${theme.PALETTE.darkGreen};
+  }
+`;    
 
 export default S;
