@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { flexCenter, flexCenterColumn } from '../../global/common';
+import { b3, b4, flexCenter, flexCenterColumn } from '../../global/common';
 
 const S={};
 
@@ -22,8 +22,10 @@ S.SliderContainer = styled.div`
         position:relative;
         right:3.5px;
         padding:0;
-        width: 27px;
-        height: 8px;
+        /* width: 27px; */
+        width: 1.9vw;
+        /* height:8px; */
+        height: 1.2vh;
         border-radius: 28px;
         background: rgba(255, 255, 255, 0.37);
         cursor: pointer;
@@ -44,18 +46,40 @@ S.PageIndicator = styled.div`
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 15px;
+  ${b4};
   color: white;
 `;
 
 S.Slider=styled.div`
-    
-    
     img {
         width: 100%; 
-        /* height: auto;  */
-        /* object-fit: cover;  */
     }
     
 `
+// Feataured Books
+
+S.FB_Container=styled.div`
+    width:100%;
+    height:auto;
+    border:1px solid green;
+
+`
+
+S.Title=styled.div`
+    
+
+`
+
+S.Text=styled.div`
+    
+
+`
+S.ShowMoreButton=styled.div`
+
+`
+S.FB_Component=styled.div`
+    
+
+`
+
 export default S;
