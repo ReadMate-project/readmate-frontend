@@ -27,7 +27,7 @@ export const h2=css`
 `
 export const h3=css`
     font-family: 'Pretendard';
-    font-size: 1.39vw; //24px
+    font-size: 1.39vw; //20px
     font-weight: 700;
 
 `

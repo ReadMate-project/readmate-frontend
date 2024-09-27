@@ -16,7 +16,7 @@ const LoginPage = () => {
         <>
         <S.Background>
         <S.LoginComponent>
-            <div>LOGIN</div>
+            <div>로그인</div>
             <div></div>
             <div>카카오 로그인으로 쉽고 빠르게!</div>
             <div><span>Read Mate</span> 회원이 되어 북클럽에 참여해보세요!</div>
