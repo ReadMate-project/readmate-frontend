@@ -25,16 +25,16 @@ const MainSlider = () => {
             <S.SliderContainer>
                 <Slider {...settings}>
                     <S.Slider>
-                        <img src={process.env.PUBLIC_URL + '/global/images/slider1.png'}/>
+                        <img src={process.env.PUBLIC_URL + '/global/images/mainpage/slider1.png'}/>
                     </S.Slider>
                     <S.Slider>
-                        <img src={process.env.PUBLIC_URL + '/global/images/slider2.png'}/>
+                        <img src={process.env.PUBLIC_URL + '/global/images/mainpage/slider2.png'}/>
                     </S.Slider>
                     <S.Slider>
-                        <img src={process.env.PUBLIC_URL + '/global/images/slider3.png'}/>
+                        <img src={process.env.PUBLIC_URL + '/global/images/mainpage/slider3.png'}/>
                     </S.Slider>
                     <S.Slider>
-                        <img src={process.env.PUBLIC_URL + '/global/images/slider4.png'}/>
+                        <img src={process.env.PUBLIC_URL + '/global/images/mainpage/slider4.png'}/>
                     </S.Slider>
                 </Slider>
                 <S.PageIndicator>
