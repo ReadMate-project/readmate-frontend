@@ -52,10 +52,11 @@ S.LoginComponent=styled.div`
 S.kakaoLoginButton=styled.div`
     /* width:100%; */
     position: absolute;
-    top:80%;
+    top:75%;
     cursor: pointer;
+    /* width:10% */
     img {
-        width: 100%; 
+        width: 25vw; 
         /* height: auto;  */
         /* object-fit: cover;  */
     }
