@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import S from './style';
 import NavigationBar from '../NavigationBar';
+import SearchForm from '../../pages/searchpage/SearchForm';
+
 
 const Layout = () => {
     const location = useLocation();
     const [textColor, setTextColor] = useState('white');
+
     useEffect(() => {
         // 페이지 이동 시 글자색을 변경
         if (location.pathname === '/') {
@@ -24,6 +27,9 @@ const Layout = () => {
                         <S.Logo style={{color:textColor}}>read mate</S.Logo>
                     </NavLink>
                     <NavigationBar />
+                    <S.SearchFormWrapper>
+                        <SearchForm />
+                    </S.SearchFormWrapper>
                 </S.Top>
                 <S.Main>
                     <Outlet />
