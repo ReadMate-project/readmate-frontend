@@ -22,9 +22,11 @@ const SearchForm = ({ onSearch }) => {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search books..."
+                placeholder="Search in site"
             />
-            <S.SearchButton type="submit">Search</S.SearchButton>
+            <S.SearchButton type="submit">
+            <img src={'../../global/images/searchpage/ic-search.png'} />
+            </S.SearchButton>
         </S.SearchForm>
     );
 };
