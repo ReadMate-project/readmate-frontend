@@ -40,11 +40,11 @@ S.Logo=styled.div`
 S.Nav = styled.nav`
     ${b1};
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     
     & a {
         color: inherit; 
-        padding: 0 15px; 
+        padding: 0 1vw; 
         &.active {
             color: ${theme.PALETTE.green};
         }
@@ -54,36 +54,41 @@ S.Nav = styled.nav`
 `;
 S.SearchFormWrapper = styled.div`
   position: absolute;
-  top: -5vh;
+  top: -4vh;
   right: 11vw;
+  height: 3vh;
 `;
 
 S.SearchForm = styled.form`
   display: flex;
   align-items: center;
+  
 `;
 
 S.SearchInput = styled.input`
   ${b1};
-  width: 15vw;
-  height: 4vh;
-  padding: 0 1vw;
-  border: 1px solid ${theme.PALETTE.green};
-  border-radius: 2vh 0 0 2vh;
+  width: 22vw;
+  height: 3vh;
+  
+  opacity: 0.3;
+  text-size: 0.5vw;
 `;
 
 S.SearchButton = styled.button`
   ${b1};
-  height: 4vh;
+  width: 4vw;
+  height: 3vh;
   padding: 0 1vw;
-  background-color: ${theme.PALETTE.green};
-  color: white;
-  border: 1px solid ${theme.PALETTE.green};
+  background-color: transparent;
+  border: 1px solid transparent;
   border-radius: 0 2vh 2vh 0;
+  img {
+    width: 1.5vw;
+  }
   cursor: pointer;
-
+  
   &:hover {
-    background-color: ${theme.PALETTE.darkGreen};
+    background-color: transparent;
   }
 `;    
 
