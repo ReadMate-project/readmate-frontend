@@ -53,8 +53,10 @@ S.Nav = styled.nav`
    
 `;
 S.SearchFormWrapper = styled.div`
-  positon: flex;
-  
+  position: absolute;
+  top: -4vh;
+  right: 11vw;
+  height: 3vh;
 `;
 
 S.SearchForm = styled.form`
@@ -65,24 +67,26 @@ S.SearchForm = styled.form`
 
 S.SearchInput = styled.input`
   ${b1};
-  width: 13vw;
-  height: 4vh;
-  padding: 0 1vw;
-  border: 1px solid  ${theme.PALETTE.background};
-  background-color: transparent;
+  width: 22vw;
+  height: 3vh;
   
-  
+  opacity: 0.3;
+  text-size: 0.5vw;
 `;
 
 S.SearchButton = styled.button`
   ${b1};
-  height: 4vh;
+  width: 4vw;
+  height: 3vh;
   padding: 0 1vw;
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 0 2vh 2vh 0;
+  img {
+    width: 1.5vw;
+  }
   cursor: pointer;
-
+  
   &:hover {
     background-color: transparent;
   }

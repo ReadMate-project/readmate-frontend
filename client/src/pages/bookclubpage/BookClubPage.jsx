@@ -6,9 +6,7 @@ import S from './style'
 const BookClubPage = () => {
     return (
         <div>
-        <S.Container>
-            <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/topbackground.png'}/>
-        </S.Container>
+        
         
         <S.Container>
             <S.HeroSection>
