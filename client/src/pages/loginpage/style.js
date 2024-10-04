@@ -12,10 +12,10 @@ S.LoginComponent=styled.div`
     font-family: 'Pretandard';
     ${h3};
     position:relative;
-    width:50%;
-    height:70%;
+    width:40%;
+    height:50%; 
     margin:auto;
-    transform: translate(0, 30%);
+    transform: translate(0, 50%);
     border-radius: 20px;
     background-color:white;  
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
@@ -68,10 +68,10 @@ S.NickNameComponent=styled.div`
     font-family: 'Pretandard';
     ${h3};
     position:relative;
-    width:50%;
-    height:70%;
+    width:40%;
+    height:50%;
     margin:auto;
-    transform: translate(0, 30%);
+    transform: translate(0, 50%);
     border-radius: 20px;
     background-color:white;  
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
@@ -105,10 +105,10 @@ S.NickName=styled.div`
     top:30%;
     input{
         position:relative;
-        left: 4.5%;
+        left: 5%;
         background-color: rgba(233, 232, 228, 0.55);  
         border: none;               
-        padding: 2%;              
+        padding: 1.5%;              
         width: 40%;                
         /* box-sizing: border-box;       */
         border-radius: 10px;          

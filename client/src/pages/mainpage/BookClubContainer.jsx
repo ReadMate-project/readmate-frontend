@@ -25,7 +25,8 @@ const BookClubContainer = () => {
 
                 </S.BookClubClip>
                 <S.BC_Component>
-                    
+                    <div></div>
+                    <div></div>
                 </S.BC_Component>
             </S.Container>
         </div>

@@ -24,7 +24,9 @@ const FeaturedBooksContainer = () => {
                 </S.ShowMoreButton>
                 
                 <S.FB_Component>
-
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </S.FB_Component>
             </S.Container>
         </div>

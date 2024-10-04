@@ -5,7 +5,7 @@ import S from './style';
 
 const LoginPage = () => {
     const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-    const REDIRECT_URI = 'http://localhost:3000/oauth2/kakao/code';
+    const REDIRECT_URI = 'http://localhost:3000/api/v1/auth/oauth2/kakao/code';
     const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   
     const loginHandler = () => {

@@ -21,12 +21,9 @@ S.SliderContainer = styled.div`
 
     .slick-dots li button {
         position:relative;
-        /* right:3.5px; */
         transform:translateX(-15%);
         padding:0;
-        /* width: 27px; */
         width: 1.9vw;
-        /* height:8px; */
         height: 1.2vh;
         border-radius: 28px;
         background: rgba(255, 255, 255, 0.37);
@@ -63,7 +60,7 @@ S.Slider=styled.div`
 
 S.Container=styled.div`
     width:100%;
-    /* height:50%; */
+    height:auto;
     overflow: hidden;
     background-color: ${theme.PALETTE.background};
     position:relative;
@@ -89,10 +86,29 @@ S.Text=styled.div`
 `
 S.ShowMoreButton=styled.div`
    img{
+        position:relative;
+        z-index: 10;
         width: 8.9%;
     }
 `
 S.FB_Component=styled.div`
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top:0%;
+    left:15%;
+    div {
+        width: 15%; 
+        height: 70%; 
+        background-color: white;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); 
+        border-radius: 30px; 
+        margin-right: 3%;
+        
+    }
     
 
 `
@@ -108,53 +124,123 @@ S.ShowMoreButton2=styled.div`
     left:80%;
     width:100%;
     img{
+        position:relative;
+        z-index: 10;
         width:8%;
     }
 `
 S.BookClubClip=styled.div`
     img{
-        width:10%;
+        width:13%;
         display: block;
     }
     img:first-child {
-        
         position:relative;
-        /* margin-top:1%; */
-        left:-5%;
+        /* padding-top:1%; */
+        top:10%;
+        transform: translate(0, -10%);
+        left:-8%;
+        z-index: 10;
     }
     img:nth-child(2) {
-        
+        width:11%;
         bottom:0%;
-        left:88%; 
+        left:85%; 
         position:relative;
-        transform: translate(0, 50%);
-        
+        transform: translate(0, 55%);
+        z-index: 10;
+        /* margin-bottom: 5%; */
     }
 `
 
 S.BC_Component=styled.div`
-    
+    display: flex;
+    justify-content: center; /* 자식 div들 사이의 간격 조정 */
+    align-items: center; /* 수직 중앙 정렬 */
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top:15%;
+    right:0%;
+    div {
+        width: 36%; 
+        height:42%;
+        background-color: white;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); 
+        border-radius: 30px; 
+        /* margin-right: 3%; */
+        margin: 0px 5%;
+    }
 
 `
 //hotpost
 S.Text3=styled.div`
     position: absolute;
     ${b1};
-    top:55%;
+    top:30%;
     /* transform: translate(0, -100%); */
-    
+    margin-bottom: 30%;
 `
 S.ShowMoreButton3=styled.div`
     position:absolute;
-    top:27%;
+    top:15%;
     left:80%;
     width:100%;
     img{
+        position:relative;
+        z-index: 10;
         width:8%;
     }
 `
+// S.HiddenComponent=styled.div`
+//     width:100%;
+//     height:30%;
+//     background-color: blue;
+// `
 S.HP_Component=styled.div`
+    display: flex;
+    justify-content: center; /* 자식 div들 사이의 간격 조정 */
+    align-items: center; /* 수직 중앙 정렬 */
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top:15%;
+    right:0%;
+    div {
+        width: 36%; 
+        height:42%;
+        background-color: white;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); 
+        border-radius: 30px; 
+        /* margin-right: 3%; */
+        margin: 0px 5%;
+    }
+        
     
 
+`
+S.BookClubClip2=styled.div`
+    img{
+        width:13%;
+        display: block;
+        visibility: hidden;
+    }
+    img:first-child {
+        position:relative;
+        /* padding-top:1%; */
+        top:10%;
+        transform: translate(0, -10%);
+        left:-8%;
+        z-index: 10;
+    }
+    img:nth-child(2) {
+        width:11%;
+        bottom:0%;
+        left:85%; 
+        position:relative;
+        transform: translate(0, 55%);
+        z-index: 10;
+        /* margin-bottom: 5%; */
+    }
 `
 export default S;

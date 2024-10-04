@@ -13,6 +13,7 @@ const KakaoRedirect = () => {
             method: "GET", 
         }).then((response) => response.json())
         .then((data) => {
+            console.log("sdfser")
             console.log(data);
             console.log(data.data.name);
             navigate('/');

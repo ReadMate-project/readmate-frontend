@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             
         },
         {
-            path: "/oauth2/kakao/code",
+            path: "/api/v1/auth/oauth2/kakao/code",
             element: <KakaoRedirect />,
             
         },
