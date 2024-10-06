@@ -1,4 +1,4 @@
-// pages/bookclubpage/bookclubinfo/BookClubInfoPage.js
+// pages/bookclubpage/bookclubdetailpage/BookClubDetailPage.jsx
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
