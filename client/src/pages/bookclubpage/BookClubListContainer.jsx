@@ -8,7 +8,7 @@ const BookClubListContainer = () => {
 return(
         <S.Container className='lightGreenBg'>
 
-            <S.CardSection>
+            <S.CardSection >
                 {[
                     { 
                         title: "Current Read", 
@@ -39,6 +39,7 @@ return(
                     },
                     ].map((card, index) => (
                         <S.Card key={index}>
+                            <S.ImageSection className='type2'>
                         
                           {card.imageUrl.map((image, imgIndex) => (
                             
@@ -49,11 +50,13 @@ return(
                               
                             />
                           ))}
-                        
+                            </S.ImageSection>
                         <h2>{card.title}</h2>
                         <p>{card.text}</p>
                         <a href="#!">Learn More</a>
+                            
                       </S.Card>
+                          
             ))}
             </S.CardSection>
         </S.Container>

@@ -64,6 +64,15 @@ S.ImageSection = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
+  }
+  &.type2{
+    width: 100vw;
+    height: 20vh;
+    border-radius: 2vw;
+    background-color: #D9D9D9;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }  
 `;
 
@@ -114,10 +123,11 @@ S.Card = styled.div`
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 2vw;
   padding: 1.25vw;
+  background-color: #EDEDED;
+
   display: flex;
   h2 {
     width: 100%;
-    
     font-size: 1.25vw;
     margin-bottom: 0.75vw;
   }
@@ -127,7 +137,7 @@ S.Card = styled.div`
     margin-bottom: 1vw;
   }
   a {
-    
+    width: 100%;
     padding: 0.375vw 0.75vw;
     background-color: #D9D9D9;
     color: #717171;
@@ -135,8 +145,8 @@ S.Card = styled.div`
     border-radius: 0.25vw;
   }
   img{
-    width: 10%;
-    height: 100%;
+    width: 30%;
+    height: 80%;
     border-radius: 0.25vw;
   }
 `;
