@@ -5,7 +5,7 @@ import S from './style'
 const HotBookClubContainer = () => {
     return (
         <S.Container className='darkGreyBg' >
-        <S.Top>인기있는 북클럽</S.Top>    
+        <S.Top >인기있는 북클럽</S.Top>    
         <S.CardSection  className='lightGreyBg'>
             <S.HeroSection>
                 <S.ImageSection className='type1'>

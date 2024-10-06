@@ -7,7 +7,7 @@ const BookClubListContainer = () => {
 
 return(
         <S.Container className='lightGreenBg'>
-
+            <S.Top >모집 중인 북클럽</S.Top>
             <S.CardSection >
                 {[
                     { 

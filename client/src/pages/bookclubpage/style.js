@@ -5,7 +5,7 @@ import { b1, flexCenter, flexCenterColumn, h1 } from "../../global/common";
 const S = {};
 
 S.Container = styled.div`
-    width:100vw;
+    width:100%;
     /* height:50%; */
     display: flex;
     overflow-x: hidden;
@@ -33,6 +33,7 @@ S.Container = styled.div`
 S.Top=styled.div`
     color: #FFFFFF;
     font-family: 'Roboto';
+    font-weight: bold;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -40,7 +41,7 @@ S.Top=styled.div`
     top:5%;
     z-index: 10;
     
-`
+`;
 
 S.HeroSection = styled.div`
   display: flex;
@@ -123,7 +124,7 @@ S.Card = styled.div`
   padding: 1.25vw;
   gap: 1vw;
   background-color: #EDEDED;
-  margin-bottom: 2vw;
+  margin-top: 4vw;
   display: flex;
   h2 {
     width: 100%;
