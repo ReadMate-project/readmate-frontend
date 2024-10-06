@@ -31,14 +31,15 @@ S.Container = styled.div`
 `;
 
 S.Top=styled.div`
-    font-color: #FFFFFF;
+    color: #FFFFFF;
+    font-family: 'Roboto';
     width: 100%;
     display: flex;
     justify-content: space-between;
     position:absolute;
     top:5%;
     z-index: 10;
-    padding: 0 10%;
+    
 `
 
 S.HeroSection = styled.div`
@@ -66,7 +67,7 @@ S.ImageSection = styled.div`
   display: flex;
   }
   &.type2{
-    width: 100vw;
+    width: 30vw;
     height: 20vh;
     border-radius: 2vw;
     background-color: #D9D9D9;
@@ -106,9 +107,6 @@ font-family: 'Roboto';
 
 
 S.CardSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 3vw;
   width: 100%;
   justify-content: space-between;
   border-radius: 5vw;
@@ -123,31 +121,38 @@ S.Card = styled.div`
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 2vw;
   padding: 1.25vw;
+  gap: 1vw;
   background-color: #EDEDED;
-
+  margin-bottom: 2vw;
   display: flex;
   h2 {
     width: 100%;
     font-size: 1.25vw;
-    margin-bottom: 0.75vw;
+    margin-bottom: 2vw;
+    
   }
   p {
     width: 100%;
+    margin-bottom: 2vw;
     
-    margin-bottom: 1vw;
   }
   a {
-    width: 100%;
+    width: 5vw;
     padding: 0.375vw 0.75vw;
     background-color: #D9D9D9;
     color: #717171;
     text-decoration: none;
     border-radius: 0.25vw;
+    margin-bottom: 2vw;
   }
   img{
-    width: 30%;
-    height: 80%;
+    width: 40vw;
+    height: 90%;
     border-radius: 0.25vw;
+  }
+  div
+  {
+  padding: 1vw;
   }
 `;
 

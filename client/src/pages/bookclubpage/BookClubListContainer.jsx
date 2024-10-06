@@ -51,10 +51,11 @@ return(
                             />
                           ))}
                             </S.ImageSection>
+                        <div>
                         <h2>{card.title}</h2>
                         <p>{card.text}</p>
                         <a href="#!">Learn More</a>
-                            
+                        </div>    
                       </S.Card>
                           
             ))}
