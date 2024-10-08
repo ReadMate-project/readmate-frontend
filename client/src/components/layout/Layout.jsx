@@ -34,6 +34,7 @@ const Layout = () => {
                 <S.Main>
                     <Outlet />
                 </S.Main>
+                
             </S.Background>
         </div>
     );

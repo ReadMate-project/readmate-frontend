@@ -26,10 +26,9 @@ const HotPostContainer = () => {
                     <div></div>
                     <div></div>
                 </S.HP_Component>
-                {/* <S.HiddenComponent>
-                    <div></div>
-                </S.HiddenComponent> */}
+                
             </S.Container>
+            
         </div>
     );
 };

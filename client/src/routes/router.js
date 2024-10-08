@@ -37,6 +37,7 @@ import MakingBookClubPage from "../pages/mybookclubpage(Auth)/makingbookclubpage
 import PageNotFound from "../components/PageNotFound";
 import KakaoRedirect from "../pages/loginpage/KakaoRedirect";
 import CreateNickNamePage from "../pages/loginpage/CreateNickNamePage";
+import CreatePostPage from "../pages/postpage/createpostpage/CreatePostPage";
 
 const ProtectedRoute = ({ element }) => {
     return isAuthenticated() ? element : <Navigate to="/login" />;
@@ -63,10 +64,10 @@ const router = createBrowserRouter([
             element: <KakaoRedirect />,
             
         },
-        {
-            path: "/login/createNickName",
-            element: <CreateNickNamePage />,
-        },
+        // {
+        //     path: "/login/createNickName",
+        //     element: <CreateNickNamePage />,
+        // },
         {
             path: "/bookclubs",
             element: <BookClubPage />,
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
                   element: <PostDetailPage />,
                 },
               ],
+        },
+        {
+            path: "/posts/createPost",
+            element: <CreatePostPage />,
         },
 
         {

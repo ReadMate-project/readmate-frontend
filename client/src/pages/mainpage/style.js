@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { b1, b3, b4, flexCenter, flexCenterColumn } from '../../global/common';
+import { b1, b3, b4, flexCenter, flexCenterColumn, h3 } from '../../global/common';
 import theme from '../../global/theme';
 
 const S={};
@@ -61,10 +61,12 @@ S.Slider=styled.div`
 S.Container=styled.div`
     width:100%;
     height:auto;
+    
     overflow: hidden;
     background-color: ${theme.PALETTE.background};
     position:relative;
     padding: 5% 0% 5% 10%;
+    /* ${flexCenterColumn} */
     /* border: 1px solid black; */
     &.lightGreenBg{
         background-color: ${theme.PALETTE.lightGreen};
@@ -243,4 +245,19 @@ S.BookClubClip2=styled.div`
         /* margin-bottom: 5%; */
     }
 `
+S.Bottom=styled.div`
+    width:100%;
+    /* margin:auto; */
+    position:absolute;
+    /* left:50%; */
+    background-color: ${theme.PALETTE.background};
+    ${h3}
+    font-family: 'TransFormaScript';
+    padding-top:3%;
+    padding-bottom: 2%;
+    font-weight:500;
+    text-align: center;
+    
+`
+
 export default S;

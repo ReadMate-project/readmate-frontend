@@ -20,12 +20,11 @@ S.Top=styled.div`
     z-index: 10;
     padding: 0 10%;
 ` 
+
 // main
 S.Main = styled.main`
     width: 100%;
-    
-    
-`;
+   `;
 
 S.Logo=styled.div`
     font-size:2vw;
@@ -44,7 +43,8 @@ S.Nav = styled.nav`
     
     & a {
         color: inherit; 
-        padding: 0 1vw; 
+        /* padding: 0 1vw;  */
+        padding-left: 2vw;
         &.active {
             color: ${theme.PALETTE.green};
         }

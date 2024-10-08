@@ -6,6 +6,7 @@ const S={};
 S.Background=styled.div`
     width:100vw;
     height:100vh;
+    ${flexCenterColumn};
 `
 S.LoginComponent=styled.div`
     ${flexCenterColumn};
@@ -15,7 +16,7 @@ S.LoginComponent=styled.div`
     width:40%;
     height:50%; 
     margin:auto;
-    transform: translate(0, 50%);
+    transform: translate(0, 10%);
     border-radius: 20px;
     background-color:white;  
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
@@ -71,7 +72,7 @@ S.NickNameComponent=styled.div`
     width:40%;
     height:50%;
     margin:auto;
-    transform: translate(0, 50%);
+    transform: translate(0, 10%);
     border-radius: 20px;
     background-color:white;  
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
@@ -169,5 +170,14 @@ S.SignUp=styled.div`
     padding: 1.8%;
     cursor: pointer;
 `
-
+S.Bottom=styled.div`
+    
+    /* margin:auto; */
+    ${h3}
+    font-family: 'TransFormaScript';
+    padding-top:2%;
+    padding-bottom: 2%;
+    font-weight:500;
+    
+`
 export default S;

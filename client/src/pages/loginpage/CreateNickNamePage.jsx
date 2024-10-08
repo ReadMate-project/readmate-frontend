@@ -26,6 +26,7 @@ const CreateNickNamePage = () => {
                         회원가입
                     </S.SignUp>
                 </S.NickNameComponent>
+                <S.Bottom>Read Mate</S.Bottom>
             </S.Background>
         </div>
     );

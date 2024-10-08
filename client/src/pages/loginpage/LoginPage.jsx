@@ -14,17 +14,19 @@ const LoginPage = () => {
   
     return (
         <>
-        <S.Background>
-        <S.LoginComponent>
-            <div>로그인</div>
-            <div></div>
-            <div>카카오 로그인으로 쉽고 빠르게!</div>
-            <div><span>Read Mate</span> 회원이 되어 북클럽에 참여해보세요!</div>
-            <S.kakaoLoginButton onClick={loginHandler}>
-                <img src={process.env.PUBLIC_URL + '/global/images/loginpage/kakaoLoginButton.png'}/>
-            </S.kakaoLoginButton>
-        </S.LoginComponent>
-        </S.Background>
+            <S.Background>
+            <S.LoginComponent>
+                <div>로그인</div>
+                <div></div>
+                <div>카카오 로그인으로 쉽고 빠르게!</div>
+                <div><span>Read Mate</span> 회원이 되어 북클럽에 참여해보세요!</div>
+                <S.kakaoLoginButton onClick={loginHandler}>
+                    <img src={process.env.PUBLIC_URL + '/global/images/loginpage/kakaoLoginButton.png'}/>
+                </S.kakaoLoginButton>
+            </S.LoginComponent>
+            <S.Bottom>Read Mate</S.Bottom>
+            
+            </S.Background>
         </>
     );
   };
