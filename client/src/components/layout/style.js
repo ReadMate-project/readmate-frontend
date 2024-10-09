@@ -1,38 +1,51 @@
 import styled from "styled-components";
 import theme from "../../global/theme";
-import { b1, flexCenter, flexCenterColumn, h1 } from "../../global/common";
+import { b1, b2, b3, b4, flexCenter, flexCenterColumn, h1, h3, logo } from "../../global/common";
 
 const S = {};
 
-S.Background = styled.div`
-    width: 100%;
-    height: 100vh;
+S.Container = styled.div`
+    ${flexCenterColumn};
     background-color: ${theme.PALETTE.background};
-    position: relative;
+    height:auto;
+    min-height: 100vh;
 `; 
-
-S.Top=styled.div`
+S.Header=styled.div`
     width: 100%;
+    /* height: 5%; */
+    background-color: white;
     display: flex;
     justify-content: space-between;
-    position:absolute;
-    top:5%;
+    align-items: center;
     z-index: 10;
-    padding: 0 10%;
+    padding: 1% 5% 1% 5%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+
 ` 
+S.Footer=styled.div`
+    width:100%;
+    /* height:5%; */
+    background-color: white;
+    ${h3}
+    font-family: 'TransFormaScript';
+    font-weight:500;
+    padding-top:1.6%;
+    padding-bottom: 1.4%;
+    text-align: center;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+`
 // main
 S.Main = styled.main`
     width: 100%;
+    flex-grow: 1; //main에 오는 페이지가 헤더와 푸터 사이의 남은 공간을 차지하도록 함
+    /* min-height: 90%; */
     
-    
-`;
+   `;
 
 S.Logo=styled.div`
-    font-size:2vw;
+    width:16vw;
+    ${logo}
     font-weight:800;
-    /* ${h1}; */
-    font-family: 'TransformaScript';
-    color:white;
     cursor:pointer;
     
 `
@@ -40,11 +53,10 @@ S.Logo=styled.div`
 S.Nav = styled.nav`
     ${b1};
     display: flex;
-    justify-content: flex-end;
     
     & a {
-        color: inherit; 
-        padding: 0 1vw; 
+        
+        margin:0 1.5vw;
         &.active {
             color: ${theme.PALETTE.green};
         }
@@ -52,38 +64,36 @@ S.Nav = styled.nav`
     
    
 `;
-S.SearchFormWrapper = styled.div`
-  position: absolute;
-  top: -4vh;
-  right: 11vw;
-  height: 3vh;
-`;
 
 S.SearchForm = styled.form`
   display: flex;
   align-items: center;
-  
+  ::placeholder {
+    color: #999999;
+   
+  }
 `;
 
 S.SearchInput = styled.input`
-  ${b1};
-  width: 22vw;
-  height: 3vh;
   
-  opacity: 0.3;
-  text-size: 0.5vw;
+  width: 15vw;
+  padding: 1.5%;
+  padding-left: 3%;
+  border-radius: 10px;
+  border:2px solid #999999;
+  outline: none;
+  ${b2} 
+  
 `;
 
 S.SearchButton = styled.button`
   ${b1};
-  width: 4vw;
-  height: 3vh;
-  padding: 0 1vw;
+  padding-left:2%;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 0 2vh 2vh 0;
+  display: flex;
   img {
-    width: 1.5vw;
+    width: 2vw;
   }
   cursor: pointer;
   
@@ -93,3 +103,4 @@ S.SearchButton = styled.button`
 `;    
 
 export default S;
+
