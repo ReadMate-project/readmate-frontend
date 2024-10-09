@@ -18,15 +18,13 @@ const CreateNickNamePage = () => {
 
                     <S.Category>
                         <div>관심 카테고리</div> 
-                        <div> 관심 카테고리를 검색해보세요.
-                            <img src={process.env.PUBLIC_URL + '/global/images/loginpage/search_icon.png'}/>
-                        </div> 
+                        <input type="text" placeholder='관심 카테고리를 검색해보세요.'/>
+                        <img src={process.env.PUBLIC_URL + '/global/images/loginpage/search_icon.png'}/>
                     </S.Category>
                     <S.SignUp>
                         회원가입
                     </S.SignUp>
                 </S.NickNameComponent>
-                <S.Bottom>Read Mate</S.Bottom>
             </S.Background>
         </div>
     );

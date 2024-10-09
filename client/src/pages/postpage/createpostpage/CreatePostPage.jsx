@@ -129,9 +129,6 @@ const CreatePostPage = () => {
 
                 </S.BodyContainer>
                 <S.Line></S.Line>
-                <S.Bottom>
-                    Read Mate
-                </S.Bottom>
             </S.Container>
         </div>
     );

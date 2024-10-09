@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { b1, b2, b3, b4, flexCenter, flexCenterColumn, h1, h2, h3 } from '../../global/common';
-import theme from '../../global/theme';
+import { b1, b2, b3, b4, flexCenter, flexCenterColumn, h1, h2, h3, logo } from '../../../global/common';
+import theme from '../../../global/theme';
 
 const S={};
 
 S.Container=styled.div`
     width: 100%;
-    height:100%;
+    height:auto;
     background-color:${theme.PALETTE.background};
     /* height:100%; */
     display: flex;
@@ -14,40 +14,45 @@ S.Container=styled.div`
     flex-direction: column;
 `
 S.TitleContainer = styled.div`
-    ${h1}; 
+    ${logo}; 
     width: 100%;
-    padding: 7% 10% 5% 10%;
+    padding: 7% 10% 3% 10%;
     display: flex;
     justify-content: space-between;
-    
-    
-   
-    
+               
 `
  
 S.TitleText = styled.div`
     padding:1%;
+    
            
 `
 S.TitleButtonContainer=styled.div`
     display: flex;
+    /* ${flexCenter} */
     justify-content: space-between;
-    /* width:40%; */
-    /* width:5%; */
-    /* padding:1%; */
-    /* background-color:#A2B29F; */
-    width:40%;
+    width:25%;
 `
 
 S.TitleButton=styled.div`
     ${h3};
-    width:30%;
-    padding: 3%;
+    width:45%;
+    padding: 4%;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 10px;
     color:white;
-    background-color:#A2B29F;
+    /* background-color:#A2B29F; */
+    background-color:#2AA871;
+    border:2px solid ${theme.PALETTE.green};
+
+    line-height: 130%;
     cursor: pointer;
+    &.goToWrite{
+        background-color: white;
+        color:#2AA871;
+        border:2px solid ${theme.PALETTE.green};
+
+    }
 `
 
 S.HotPostContainer=styled.div`
@@ -98,7 +103,7 @@ S.UnderTitleContainer=styled.div`
 S.PostInfo = styled.div`
     padding-left: 1%;
     font-size: ${b4};
-    color: #777;
+    color: ${theme.PALETTE.darkGray};
 `;
 S.LikeContainer = styled.div`
   display: flex;
@@ -106,6 +111,7 @@ S.LikeContainer = styled.div`
   gap: 5px; /* 아이콘과 좋아요 개수 사이 간격 */
     cursor: pointer;
   font-size: ${b4};
+  color: ${theme.PALETTE.gray};
   svg {
     font-size: ${b2};
     transition: color 0.3s ease;
@@ -116,9 +122,8 @@ S.LikeContainer = styled.div`
     font-weight: bold;
   }
 
-  &:hover svg {
-    color: red; 
-  }
+ 
+ 
 `;
 
 S.LatestPostContainer = styled.div`
@@ -155,14 +160,5 @@ S.PageButton = styled.button`
         cursor: not-allowed;
     } */
 `;
-S.Bottom=styled.div`
-    
-    /* margin:auto; */
-    ${h3}
-    font-family: 'TransFormaScript';
-    padding-top:2%;
-    padding-bottom: 2%;
-    font-weight:500;
-    
-`
+
 export default S;

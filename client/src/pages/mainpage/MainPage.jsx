@@ -16,8 +16,6 @@ const MainPage = () => {
       <FeaturedBooksContainer/>
       <BookClubContainer/>
       <HotPostContainer/>
-      <S.Bottom>Read Mate</S.Bottom>
-      
       
     </div>
   );

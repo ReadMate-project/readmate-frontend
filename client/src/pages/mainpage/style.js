@@ -40,13 +40,14 @@ S.SliderContainer = styled.div`
     }
 `;
 
+//화면 줄였을 때 중간 안맞음
 S.PageIndicator = styled.div`
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  ${b4};
-  color: white;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    ${b4};
+    color: white;
 `;
 
 S.Slider=styled.div`
@@ -61,13 +62,10 @@ S.Slider=styled.div`
 S.Container=styled.div`
     width:100%;
     height:auto;
-    
     overflow: hidden;
     background-color: ${theme.PALETTE.background};
     position:relative;
     padding: 5% 0% 5% 10%;
-    /* ${flexCenterColumn} */
-    /* border: 1px solid black; */
     &.lightGreenBg{
         background-color: ${theme.PALETTE.lightGreen};
 
@@ -245,19 +243,6 @@ S.BookClubClip2=styled.div`
         /* margin-bottom: 5%; */
     }
 `
-S.Bottom=styled.div`
-    width:100%;
-    /* margin:auto; */
-    position:absolute;
-    /* left:50%; */
-    background-color: ${theme.PALETTE.background};
-    ${h3}
-    font-family: 'TransFormaScript';
-    padding-top:3%;
-    padding-bottom: 2%;
-    font-weight:500;
-    text-align: center;
-    
-`
+
 
 export default S;

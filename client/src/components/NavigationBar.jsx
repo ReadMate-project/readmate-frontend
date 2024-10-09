@@ -4,19 +4,10 @@ import { NavLink, useLocation } from 'react-router-dom';
 import S from './layout/style';
 
 const NavigationBar = () => {
-    const location = useLocation();
-    const [textColor, setTextColor] = useState('white');
-    useEffect(() => {
-        // 페이지 이동 시 글자색을 변경
-        if (location.pathname === '/') {
-            setTextColor('white');  // 메인 페이지: 흰색
-        } else {
-            setTextColor('black');  // 다른 페이지: 검정색
-        }
-    }, [location.pathname]);
+
     return (
         <>
-            <S.Nav style={{color:textColor}}>
+            <S.Nav >
                 <NavLink to={"/bookclubs"}>
                     북클럽
                 </NavLink>

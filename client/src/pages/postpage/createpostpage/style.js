@@ -1,34 +1,21 @@
 import styled from "styled-components";
-import { b1, flexCenter, flexCenterColumn, h1, h2, h3 } from "../../../global/common";
+import { b1, flexCenter, flexCenterColumn, h1, h2, h3, logo } from "../../../global/common";
 import theme from "../../../global/theme";
 
 const S={};
 
 S.Container=styled.div`
     width: 100%;
-    /* height:100%; */
     height:auto;
-    /* overflow: hidden; */
     background-color: ${theme.PALETTE.background};
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* ${flexCenterColumn}; */
-    /* overflow-y: auto; */
     position: relative;
 `
-S.Bottom=styled.div`
-    
-    /* margin:auto; */
-    ${h3}
-    font-family: 'TransFormaScript';
-    padding-top:2%;
-    padding-bottom: 2%;
-    font-weight:500;
-    
-`
+
 S.TitleContainer = styled.div`
-    ${h1}; 
+    ${logo};
     width: 100%;
     padding: 7% 10% 0% 10%;
     display: flex;
@@ -56,7 +43,7 @@ S.Button=styled.div`
     text-align: center;
     border-radius: 8px;
     color:white;
-    background-color:#A2B29F;
+    background-color:${theme.PALETTE.darkGray};
     cursor: pointer;
 `
 S.Line=styled.div`

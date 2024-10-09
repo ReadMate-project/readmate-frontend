@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider, Route, Navigate, Outlet } from "re
 import Layout from "../components/layout/Layout";
 import MainPage from "../pages/mainpage/MainPage";
 
-import LoginPage from "../pages/loginpage/LoginPage";
+import LoginPage from "../pages/loginpage/loginPage/LoginPage";
 
 import LibraryPage from "../pages/librarypage/LibraryPage";
 import BookInfoPage from "../pages/librarypage/bookinfopage/BookInfoPage";
@@ -13,7 +13,7 @@ import FeedPage from "../pages/feedpage/FeedPage";
 import BookClubPage from "../pages/bookclubpage/BookClubPage";
 import BookClubDetailPage from "../pages/bookclubpage/bookclubdetailpage/BookClubDetailPage";
 
-import PostPage from "../pages/postpage/PostPage";
+import PostPage from "../pages/postpage/postlistpage/PostPage";
 import PostDetailPage from "../pages/postpage/postdetailpage/PostDetailPage";
 
 import SearchPage from "../pages/searchpage/SearchPage";
@@ -35,12 +35,14 @@ import MakingBookClubPage from "../pages/mybookclubpage(Auth)/makingbookclubpage
 // 로그인 필요 페이지
 
 import PageNotFound from "../components/PageNotFound";
-import KakaoRedirect from "../pages/loginpage/KakaoRedirect";
-import CreateNickNamePage from "../pages/loginpage/CreateNickNamePage";
+import KakaoRedirect from "../pages/loginpage/loginPage/KakaoRedirect";
+import CreateNickNamePage from "../pages/loginpage/loginPage/CreateNickNamePage";
 import CreatePostPage from "../pages/postpage/createpostpage/CreatePostPage";
+import PostMain from "../pages/postpage/PostMain";
+import LoginMain from "../pages/loginpage/LoginMain";
 
 const ProtectedRoute = ({ element }) => {
-    return isAuthenticated() ? element : <Navigate to="/login" />;
+    return isAuthenticated() ? element : <Navigate to="/api" />;
   };
 
 const router = createBrowserRouter([
@@ -53,21 +55,24 @@ const router = createBrowserRouter([
             path: "/",
             element: <MainPage />,
         },
+        {
+            path: "/api",
+            element: <LoginMain />,
+            children:[
+                {
+                    path: "/api",
+                    element: <LoginPage />,
+                    
+                },
+                {
+                    path: "/api/v1/auth/oauth2/kakao/code",
+                    element: <KakaoRedirect />,
+                    
+                },
+            ]
+            
+        },
         
-        {
-            path: "/login",
-            element: <LoginPage />,
-            
-        },
-        {
-            path: "/api/v1/auth/oauth2/kakao/code",
-            element: <KakaoRedirect />,
-            
-        },
-        // {
-        //     path: "/login/createNickName",
-        //     element: <CreateNickNamePage />,
-        // },
         {
             path: "/bookclubs",
             element: <BookClubPage />,
@@ -97,17 +102,21 @@ const router = createBrowserRouter([
 
         {
             path: "/posts",
-            element: <PostPage />,
+            element: <PostMain />,
             children: [
+                {
+                    path: "/posts",
+                    element: <PostPage />,
+                },
                 {
                   path: "postinfo/:postid",
                   element: <PostDetailPage />,
                 },
+                {
+                    path: "/posts/createPost",
+                    element: <CreatePostPage />,
+                },
               ],
-        },
-        {
-            path: "/posts/createPost",
-            element: <CreatePostPage />,
         },
 
         {

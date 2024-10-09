@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import { b1, b2, flexCenter, flexCenterColumn, h1, h2, h3 } from "../../global/common";
-import theme from "../../global/theme";
+import { b1, b2, b3, b4, flexCenter, flexCenterColumn, h1, h2, h3 } from "../../../global/common";
+import theme from "../../../global/theme";
 
 const S={};
 S.Background=styled.div`
-    width:100vw;
+    /* width:100vw; 가로 스크롤바 생김*/
+    width:100%;
     height:100vh;
     ${flexCenterColumn};
+    overflow: hidden;
+
 `
 S.LoginComponent=styled.div`
     ${flexCenterColumn};
@@ -16,7 +19,7 @@ S.LoginComponent=styled.div`
     width:40%;
     height:50%; 
     margin:auto;
-    transform: translate(0, 10%);
+    /* transform: translate(0, -30%); */
     border-radius: 20px;
     background-color:white;  
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
@@ -30,7 +33,7 @@ S.LoginComponent=styled.div`
     }
     div:nth-child(2) {
         position: absolute;
-        top:18%;
+        top:20%;
         width:70%;
         height:2px;
         background-color: black;
@@ -67,12 +70,11 @@ S.kakaoLoginButton=styled.div`
 S.NickNameComponent=styled.div`
     ${flexCenterColumn};
     font-family: 'Pretandard';
-    ${h3};
     position:relative;
     width:40%;
     height:50%;
     margin:auto;
-    transform: translate(0, 10%);
+    /* transform: translate(0, 10%); */
     border-radius: 20px;
     background-color:white;  
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
@@ -83,12 +85,11 @@ S.Title=styled.div`
      div:first-child {
         position: absolute;
         top:10%;
-        font-size: ${theme.FONT_SIZE.h1};
-        font-weight: 800;
+        ${h1};
     }
     div:nth-child(2) {
         position: absolute;
-        top:18%;
+        top:20%;
         width:70%;
         height:2px;
         background-color: black;
@@ -113,7 +114,7 @@ S.NickName=styled.div`
         width: 40%;                
         /* box-sizing: border-box;       */
         border-radius: 10px;          
-        font-size: 1rem;
+        ${b3}
         outline: none;
     }
     div:nth-child(3) {
@@ -138,23 +139,25 @@ S.Category=styled.div`
     position: absolute;
     top:45%;
     
-    div:first-child {
-        
-        
-    }
-    div:nth-child(2) {
-        ${flexCenter};
-        justify-content: space-between;
-        ${b2};
+    input{
+        position:relative;
         background-color: rgba(233, 232, 228, 0.55);  
         border: none;               
-        padding: 0.8% 0.8% 0.8% 2%;              
-        width: 70%;                
-        border-radius: 10px;
-        img{
-            width:10%;
-            cursor: pointer;
+        padding: 1.5%;
+        padding-left: 3%;              
+        width: 60%;                
+        border-radius: 10px;          
+        ${b4}
+        outline: none;
+        
+    }
+    input::placeholder {
+            color: #999999;  
+            ${b4}  
         }
+    img {
+        width:7%;
+        cursor: pointer;
     }
 
 `
@@ -170,14 +173,5 @@ S.SignUp=styled.div`
     padding: 1.8%;
     cursor: pointer;
 `
-S.Bottom=styled.div`
-    
-    /* margin:auto; */
-    ${h3}
-    font-family: 'TransFormaScript';
-    padding-top:2%;
-    padding-bottom: 2%;
-    font-weight:500;
-    
-`
+
 export default S;

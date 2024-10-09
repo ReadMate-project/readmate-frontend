@@ -165,11 +165,10 @@ const formatDate = (dateString) => {
     <div>
       <S.Container>
         <S.TitleContainer>
-          <S.TitleText>자유게시판</S.TitleText>
+          <S.TitleText>게시판</S.TitleText>
           <S.TitleButtonContainer>
-            <S.TitleButton onClick={goToCreatePost}>글쓰기</S.TitleButton>
+            <S.TitleButton className='goToWrite' onClick={goToCreatePost}>글쓰기</S.TitleButton>
             <S.TitleButton>내가 쓴 글</S.TitleButton>
-            <S.TitleButton>댓글 단 글</S.TitleButton>
           </S.TitleButtonContainer>
         </S.TitleContainer>
 
@@ -186,10 +185,9 @@ const formatDate = (dateString) => {
                   <FontAwesomeIcon
                     icon={post.isLiked ? filledHeart : emptyHeart}
                     onClick={() => handleLikeClick(post.boardId, post.isLiked)}
-                    style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
+                    // style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
                   />
-                   <div>{post.likeCount}</div> 
-                  {/* <div>{post.likes}</div> */} 
+                   <div >{post.likeCount}</div> 
                   </S.LikeContainer>
 
                   <S.PostInfo>
@@ -242,8 +240,6 @@ const formatDate = (dateString) => {
             </S.PageButton>
           ))}
         </S.PaginationContainer>
-
-        <S.Bottom>Read Mate</S.Bottom>
       </S.Container>
     </div>
   );

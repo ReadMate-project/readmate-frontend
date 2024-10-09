@@ -12,6 +12,12 @@ export const flexCenterColumn = css`
     justify-content: center;
     align-items: center;
 `;
+export const logo=css`
+    font-family: 'TransformaScript';
+    font-size: 2.08vw; //30px
+    font-weight: 800;
+
+`
 
 export const h1=css`
     font-family: 'Pretendard';
