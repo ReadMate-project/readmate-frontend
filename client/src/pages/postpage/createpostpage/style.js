@@ -5,52 +5,49 @@ import theme from "../../../global/theme";
 const S={};
 
 S.Container=styled.div`
-    width: 100%;
+    width: 80%;
     height:auto;
     background-color: ${theme.PALETTE.background};
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
+    padding-bottom: 10%;
+    margin: 0 auto;
 `
-
+S.TitleHightlight = styled.div`
+    position:relative;
+    width:100%;
+    height:100%;
+    img{
+        position:relative;
+        /* top:-3vh; */
+        width:25%;
+        
+    }          
+`
 S.TitleContainer = styled.div`
+    
     ${logo};
     width: 100%;
     padding: 7% 10% 0% 10%;
-    display: flex;
-    justify-content: space-between;
                
 `
  
 S.TitleText = styled.div`
+    position:relative;
+    top:7vh;
     padding:1%;
            
 `
-S.ButtonContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width:20%;
-    text-align: center;
-`
-S.Button=styled.div`
-    ${h3};
-    width:80%;
-    margin-left: 10%;
-    ${flexCenter}
-    height:70%;
-    text-align: center;
-    border-radius: 8px;
-    color:white;
-    background-color:${theme.PALETTE.darkGray};
-    cursor: pointer;
-`
+
 S.Line=styled.div`
     width:80%;
     height:1px;
     margin-bottom: 2%;
     background-color:black;
+    position:relative;
+    top:7vh;
 `
 
 S.BodyContainer=styled.div`
@@ -60,7 +57,9 @@ S.BodyContainer=styled.div`
     margin-bottom: 2%;
     border-radius: 20px;
     padding:2%;
-    
+    position:relative;
+    top:7vh;
+    overflow-y: auto;
     & #title{
         width:100%;
         height:15%;
@@ -87,20 +86,28 @@ S.ImagePreviewContainer = styled.div`
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 10px;
+    
 `;
 
+S.ImageButtonContainer=styled.div`
+    width:100%;
+    img{
+        width:15%;
+    }
+`
 S.ImagePreview = styled.div`
     position: relative;
-    /* width: 7vw;
-    height: 10vh; */
-    width:100px;
-    height:100px;
+    /* margin:auto; */
+    width:140px;
+    height:140px;
+    /* width:100%;
+    height:100%; */
     img{
         position:absolute;
         /* top:-100%; */
         width:100%;
         height:100%;
-        border-radius: 10px;
+        border-radius: 0.5rem;
     }
 `;
 
@@ -108,14 +115,34 @@ S.RemoveButton = styled.button`
     position: absolute;
     top: 5px;
     right: 5px;
-    background-color: black;
+    background-color: #717171;
     color: white;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     font-size: 12px;
 `;
-
+S.ButtonContainer = styled.div`
+    display: flex;
+    width:20%;
+    text-align: center;
+    position:relative;
+    top:7vh;
+    left:30%;
+`
+S.Button=styled.div`
+    ${h3};
+    width:80%;
+    padding:4% 0;
+    margin-left: 10%;
+    ${flexCenter}
+    height:70%;
+    text-align: center;
+    border-radius: 0.5rem;
+    color:white;
+    background-color:${theme.PALETTE.darkGray};
+    cursor: pointer;
+`
 export default S;

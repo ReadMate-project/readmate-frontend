@@ -77,11 +77,11 @@ const CreatePostPage = () => {
         <div>
             <S.Container>
                 <S.TitleContainer>
+                <S.TitleHightlight><img 
+                    src={process.env.PUBLIC_URL + '/global/images/postpage/board.png'}  alt="게시판"/>
+                </S.TitleHightlight>
                     <S.TitleText>글쓰기</S.TitleText>
-                    <S.ButtonContainer>
-                        <S.Button onClick={handleSubmit} >저장</S.Button>
-                        <S.Button onClick={handleCancle}>취소</S.Button>
-                    </S.ButtonContainer>
+                    
                     
                 </S.TitleContainer>
                 <S.Line></S.Line>
@@ -92,15 +92,16 @@ const CreatePostPage = () => {
                             onChange={(e) => setTitle(e.target.value)} />
                     <textarea id="body"
                             value={content} 
-                            onChange={(e) => setContent(e.target.value)}></textarea>
-                    
+                            onChange={(e) => setContent(e.target.value)}>
+                    </textarea>
+                    <S.ImageButtonContainer>
                     <div onClick={handleImageClick} style={{ cursor: 'pointer' }}>
                         <img 
-                            src={process.env.PUBLIC_URL + '/global/images/postpage/pictureButton.png'} // 커스텀 이미지 경로
+                            src={process.env.PUBLIC_URL + '/global/images/postpage/pictureButton.png'} 
                             alt="Upload"
                         />
                     </div>
-
+                    </S.ImageButtonContainer>
                     {/* 이미지 업로드 영역 */}
                     <input
                         type="file"
@@ -128,7 +129,12 @@ const CreatePostPage = () => {
                     </S.ImagePreviewContainer>
 
                 </S.BodyContainer>
+                
                 <S.Line></S.Line>
+                <S.ButtonContainer>
+                        <S.Button onClick={handleSubmit} >저장</S.Button>
+                        <S.Button onClick={handleCancle}>취소</S.Button>
+                </S.ButtonContainer>
             </S.Container>
         </div>
     );
