@@ -1,5 +1,9 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import classNames from "classnames/bind";
 import S from './style';
+import { useNavigate } from 'react-router-dom';
+
+const cx = classNames.bind(S);
 
 const BookCalendar = () => {
 
@@ -10,7 +14,7 @@ const BookCalendar = () => {
         day: new Date().getDay(), //오늘 요일
     };
 
-    const week = ["일", "월", "화", "수", "목", "금", "토"]; //일주일
+    const week = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]; //일주일
     const [selectedYear, setSelectedYear] = useState(today.year); //현재 선택된 연도
     const [selectedMonth, setSelectedMonth] = useState(today.month); //현재 선택된 달
     const dateTotalCount = new Date(selectedYear, selectedMonth, 0).getDate(); 
@@ -174,37 +178,49 @@ const BookCalendar = () => {
     return (
         <div>
             <S.Background>
+                {/* <S.LineWrapper>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                </S.LineWrapper> */}
                 <S.Title>
                     <S.TitleHightLight>
                     <img src={process.env.PUBLIC_URL + '/global/images/bookcalendar/bookCalendarHightlight.png'}/>
                     </S.TitleHightLight>
                     <div></div>
                 </S.Title>
-
+                
                 <S.CalendarContainer>
                     
                     <S.CalendarHeadContainer>
                             
-                    <S.SelectWrapper>
-                        {yearControl()} {monthControl()}
-                    </S.SelectWrapper>
+                        <S.SelectWrapper>
+                            {yearControl()} {monthControl()}
+                        </S.SelectWrapper>
+                                
+                        <S.ArrowsWrapper >
                             
-                    <S.ArrowsWrapper >
-                        <div>
-                        <button onClick={prevMonth}>◀</button>
-                        <button onClick={nextMonth}>▶</button>
-                        </div>
-                    </S.ArrowsWrapper>
+                                <button onClick={prevMonth}>&lt; </button>
+                                <div>ㅣ</div>
+                                <button onClick={nextMonth}>&gt;</button>
+                            
+                        </S.ArrowsWrapper>
                         
                     </S.CalendarHeadContainer>
-                
-                    <S.WeekWrapper>
-                    <div className="week">{returnWeek()}</div>
-                    </S.WeekWrapper>
-                            
-                    <S.DateWrapper>
-                    <div className="date">{returnDay()}</div>
-                    </S.DateWrapper>
+                    
+                    <S.CalendarBodyContainer>
+                    
+                        <S.WeekWrapper>
+                        <div className="week">{returnWeek()}</div>
+                        </S.WeekWrapper>
+                        
+                        <S.DateWrapper>
+                        <div className="date">{returnDay()}</div>
+                        </S.DateWrapper>
+                    </S.CalendarBodyContainer>
+                    
                         
                 </S.CalendarContainer>
 
