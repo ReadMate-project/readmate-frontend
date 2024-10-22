@@ -149,16 +149,16 @@ const router = createBrowserRouter([
 
         {
             path: "/mylibrary",
-            element: <ProtectedRoute element={<MyLibraryPage />} />,
+            element: <MyLibraryPage />,
             children: [
                 {
-                    path: "bookrecord",
-                    element: <ProtectedRoute element={<BookRecordPage />} />,
+                    path: "/mylibrary",
+                    element: <BookRecordPage />,
                 },
 
                 {
-                    path: "posting",
-                    element: <ProtectedRoute element={<PostingPage />} />,
+                    path: "/mylibrary/createEssay",
+                    element: <PostingPage />,
                 },
             ],
         },

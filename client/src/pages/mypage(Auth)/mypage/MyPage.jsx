@@ -15,6 +15,11 @@ const MyPage = () => {
   const goToBookCalendar=()=>{
     navigate('/bookcalendar');
   }
+
+  const goToMyLibrary=()=>{
+    navigate('/myLibrary');
+  }
+
   const handleDeleteClick = () => {
     setShowDeleteAccount(true); // 탈퇴하기 버튼 클릭 시 DeleteAccount 컴포넌트를 보여줌
   };
@@ -38,7 +43,7 @@ const MyPage = () => {
           <S.Introduce>한 줄 소개 안녕하세요.</S.Introduce>
           
           <S.ImageContainer>
-            <S.IconWrapper>
+            <S.IconWrapper onClick={goToMyLibrary}>
               <img src={process.env.PUBLIC_URL + '/global/images/mypage/myLibrary.png'}/>
               <S.ImageTitle>내 서재</S.ImageTitle>
               <S.ImageCount>3</S.ImageCount>

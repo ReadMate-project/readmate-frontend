@@ -5,9 +5,9 @@ const S={};
 
 S.Background=styled.div`
     width:100%;
-    height:188vh;
+    height:100vh;
     /* height: 100%; */
-    
+    margin-bottom: 40%;
     /* height: 100vh; */
     position: relative;
     /* overflow: auto; */
@@ -24,6 +24,7 @@ S.Title=styled.div`
         width:60%;
         height:2px;
         background-color: black;
+
         
     }
 
@@ -46,7 +47,8 @@ S.CalendarContainer = styled.div`
   margin: auto;
   height: auto;
   position: absolute;
-  top:20%;
+  top:10%;
+  padding-top: 4%;
   
 `
 S.CalendarHeadContainer=styled.div`
@@ -55,7 +57,7 @@ S.CalendarHeadContainer=styled.div`
     position: relative;
     /* width:90%; */
     height:10%;
-    margin:5% 2%;
+    margin:3% 2%;
     padding-top: 5%;
     `
 S.ArrowsWrapper=styled.div`

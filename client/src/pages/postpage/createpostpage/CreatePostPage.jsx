@@ -81,8 +81,6 @@ const CreatePostPage = () => {
                     src={process.env.PUBLIC_URL + '/global/images/postpage/board.png'}  alt="게시판"/>
                 </S.TitleHightlight>
                     <S.TitleText>글쓰기</S.TitleText>
-                    
-                    
                 </S.TitleContainer>
                 <S.Line></S.Line>
                 <S.BodyContainer>
