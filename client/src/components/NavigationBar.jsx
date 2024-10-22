@@ -18,7 +18,7 @@ const NavigationBar = () => {
                     도서
                 </NavLink>
                 <NavLink to={"/feeds"}>
-                    피드
+                    에세이
                 </NavLink>
                 <NavLink to={"/myPage"}>
                     마이페이지

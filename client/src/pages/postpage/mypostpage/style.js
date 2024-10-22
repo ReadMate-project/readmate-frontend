@@ -15,77 +15,25 @@ S.Container=styled.div`
     overflow-x: hidden;
 `
 S.TitleContainer = styled.div`
-     
+    ${logo}; 
     width: 100%;
-    padding: 3% 10% 3% 10%;
+    padding: 7% 10% 3% 10%;
     display: flex;
     justify-content: space-between;
                
 `
  
 S.TitleHightlight = styled.div`
-   
+    position:relative;
     width:100%;
     height:100%;
     img{
         position:relative;
-        
-        width:15%;
-        margin-left:10%;
-        margin-top: 5%;
-    }             
-`
-S.TitleButtonContainer=styled.div`
-    display: flex;
-    justify-content: space-between;
-    width:20%;
-    position: absolute;
-    right:10%;
-    /* top:5vh; */
+        top:-3vh;
+        width:25%;
+    }          
 `
 
-S.TitleButton=styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    ${h3};
-    width:45%;
-    padding: 4%;
-    border-radius: 0.5rem;
-    color:white;
-    background-color:#2AA871;
-    border:2px solid ${theme.PALETTE.green};
-    line-height: 130%;
-    cursor: pointer;
-    &.goToWrite{
-        background-color: white;
-        color:#2AA871;
-        border:2px solid ${theme.PALETTE.green};
-
-    }
-`
-S.HotPostContainer=styled.div`
-    position: relative;
-    top:5vh;
-    width:80%;
-    height:auto;
-    border-radius:0.5rem;
-    /* border-radius: 20px; */
-    padding:2%;
-    background-color: #CFDEC8 ;
-`
-S.HotPostTitle=styled.div`
-    position:relative;
-    width:100%;
-    height:100%;
-    left: 10.5%;
-    top:5.3vh;
-    
-    img{
-        width:20%;
-    }
-    
-`
 //
 S.PostList = styled.div`
     width: 100%;
@@ -99,6 +47,7 @@ S.PostItem = styled.div`
     padding: 1.5%;
     background-color: white;
     border-radius: 0.5rem;
+    
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     /* height:100%; */
@@ -164,11 +113,11 @@ S.LikeContainer = styled.div`
 
 S.LatestPostContainer = styled.div`
     position: relative;
-    top:5vh;
+    /* top:4vh; */
     width: 80%;
     height:auto;
     /* height:100vh; */
-    margin-top: 3%;
+    margin-top: 1%;
     padding: 2%;
     background-color: #D9D9D9;
     border-radius: 0.5rem;

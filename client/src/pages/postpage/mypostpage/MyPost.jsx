@@ -5,8 +5,8 @@ import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
 import S from './style';
 
-const PostPage = () => {
-  const navigate = useNavigate();
+const MyPost = () => {
+    const navigate = useNavigate();
   // const [posts, setPosts] = useState([]); // 전체 게시글 목록 상태
   // const [page, setPage] = useState(0); // 현재 페이지
   const [size, setSize] = useState(8); // 페이지당 게시글 수
@@ -82,14 +82,7 @@ const formatDate = (dateString) => {
 };
 
   
-  //글쓰기 버튼 클릭 시 
-  const goToCreatePost = () => {
-    navigate('/posts/createPost');
-  };
-
-  const goToMyPost=()=>{
-    navigate('/posts/myPost');
-  }
+  
   // 게시글 데이터를 서버에서 가져오는 함수
   const getPosts = (page, size, boardType) => {
     fetch(`/api/v1/posts/hot?page=${boardType}&${page}&size=${size}`, {
@@ -169,106 +162,66 @@ const formatDate = (dateString) => {
     getPosts(currentPage, size, boardType);
   }, [currentPage, size]);
 
-  return (
-    <div>
-      <S.Container>
-      <S.TitleHightlight><img 
-           src={process.env.PUBLIC_URL + '/global/images/postpage/board.png'}  alt="게시판"/>
-        </S.TitleHightlight>
-        <S.TitleContainer>
-          
-          <S.TitleButtonContainer>
-            <S.TitleButton className='goToWrite' onClick={goToCreatePost}>글쓰기</S.TitleButton>
-            <S.TitleButton onClick={goToMyPost}>내가 쓴 글</S.TitleButton>
-          </S.TitleButtonContainer>
-        </S.TitleContainer>
-
-        {/* HOT 게시글 리스트 */}
-       
-        <S.HotPostTitle><img 
-           src={process.env.PUBLIC_URL + '/global/images/postpage/hotboard.png'}  alt="게시판"
-        /></S.HotPostTitle>
-        <S.HotPostContainer>
-        
-          <S.PostList>
-            {/* {hotPosts.map((post) => ( */}
-            {posts.map((post) => ( //더미데이터 대신함
-              <S.PostItem key={post.boardId}>
-                <S.TitleBody>
-                <S.PostTitle>{post.title}</S.PostTitle> <S.PostContent>{post.content}</S.PostContent>
-                </S.TitleBody>
-                <S.UnderTitleContainer>
-                <S.LikeContainer>
-                  <FontAwesomeIcon
-                    icon={post.isLiked ? filledHeart : emptyHeart}
-                    onClick={() => handleLikeClick(post.boardId, post.isLiked)}
-                    // style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
-                  />
-                   <div >{post.likeCount}</div> 
-                  </S.LikeContainer>
-
-                  <S.PostInfo>
-                      {post.userId} | {formatDate(post.createdAt)}
-                  </S.PostInfo>
-                </S.UnderTitleContainer>
+    return (
+        <div>
+            <S.Container>
+                <S.TitleContainer>
+                    <S.TitleHightlight><img 
+                    src={process.env.PUBLIC_URL + '/global/images/postpage/board.png'}  alt="게시판"/>
+                    </S.TitleHightlight>
+                </S.TitleContainer>
                 
-              </S.PostItem>
-            ))}
-          </S.PostList>
-        </S.HotPostContainer>
-        
-        
-        {/* 최신 게시글 리스트 */}
-        <S.LatestPostContainer>
-          <S.PostList>
-            {/* {latestPosts.map((post) => ( */}
-            {posts.map((post) => (
-              <S.PostItem key={post.boardId}>
-                <S.TitleBody>
-                  <S.PostTitle>{post.title}</S.PostTitle>
-                  <S.PostContent>{post.content}</S.PostContent>
-                  </S.TitleBody>
-                <S.UnderTitleContainer>
-                <S.LikeContainer>
-                  <FontAwesomeIcon
-                    icon={post.isLiked ? filledHeart : emptyHeart}
-                    onClick={() => handleLikeClick(post.boardId, post.isLiked)}
-                    style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
-                  />
-                   <div>{post.likeCount}</div> 
-                  {/* <div>{post.likes}</div> */} 
-                  </S.LikeContainer>
+                {/* 최신 게시글 리스트 */}
+                <S.LatestPostContainer>
+                <S.PostList>
+                    {/* {latestPosts.map((post) => ( */}
+                    {posts.map((post) => (
+                    <S.PostItem key={post.boardId}>
+                        <S.TitleBody>
+                        <S.PostTitle>{post.title}</S.PostTitle>
+                        <S.PostContent>{post.content}</S.PostContent>
+                        </S.TitleBody>
+                        <S.UnderTitleContainer>
+                        <S.LikeContainer>
+                        <FontAwesomeIcon
+                            icon={post.isLiked ? filledHeart : emptyHeart}
+                            onClick={() => handleLikeClick(post.boardId, post.isLiked)}
+                            style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
+                        />
+                        <div>{post.likeCount}</div> 
+                        {/* <div>{post.likes}</div> */} 
+                        </S.LikeContainer>
 
-                  <S.PostInfo>
-                      {post.userId} | {formatDate(post.createdAt)}
-                  </S.PostInfo>
-                </S.UnderTitleContainer>
-              </S.PostItem>
-            ))}
-          </S.PostList>
-        </S.LatestPostContainer>
+                        <S.PostInfo>
+                            {post.userId} | {formatDate(post.createdAt)}
+                        </S.PostInfo>
+                        </S.UnderTitleContainer>
+                    </S.PostItem>
+                    ))}
+                </S.PostList>
+                </S.LatestPostContainer>
 
-        {/* 페이지네이션 */}
-        <S.PaginationContainer>
-          <S.PageButton onClick={() => handlePageChange(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>
-            &lt;
-          </S.PageButton>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <S.PageButton
-              key={index}
-              onClick={() => handlePageChange(index)}
-              disabled={index === currentPage}
-            >
-              {index + 1}
-            </S.PageButton>
-          ))}
-          <S.PageButton onClick={() => handlePageChange(Math.min(totalPages - 1, currentPage + 1))} disabled={currentPage === totalPages - 1}>
-            &gt;
-          </S.PageButton>
-        </S.PaginationContainer>
+                {/* 페이지네이션 */}
+                <S.PaginationContainer>
+                <S.PageButton onClick={() => handlePageChange(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>
+                    &lt;
+                </S.PageButton>
+                {Array.from({ length: totalPages }, (_, index) => (
+                    <S.PageButton
+                    key={index}
+                    onClick={() => handlePageChange(index)}
+                    disabled={index === currentPage}
+                    >
+                    {index + 1}
+                    </S.PageButton>
+                ))}
+                <S.PageButton onClick={() => handlePageChange(Math.min(totalPages - 1, currentPage + 1))} disabled={currentPage === totalPages - 1}>
+                    &gt;
+                </S.PageButton>
+                </S.PaginationContainer>
       </S.Container>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default PostPage;
+export default MyPost;
