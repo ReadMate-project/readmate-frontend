@@ -12,7 +12,7 @@ const BookInfoPage = () => {
   useEffect(() => {
     const fetchBookDetails = async () => {
       try {
-        const response = await axios.get(`http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${process.env.REACT_APP_ALADIN_API_KEY}&ItemId=${isbn}&itemIdType=ISBN13&output=JS&Version=20131101`);
+        const response = await axios.get(`http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${process.env.ALADIN_API_KEY}&ItemId=${isbn}&itemIdType=ISBN13&output=JS&Version=20131101`);
         setBookDetails(response.data.item[0]);
         setIsLoading(false);
       } catch (error) {
