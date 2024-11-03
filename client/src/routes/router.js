@@ -99,7 +99,7 @@ const router = createBrowserRouter([
            element: <LibraryPage />,
             children: [
                 {
-                  path: "bookinfo/:bookid",
+                  path: "bookinfo/:isbn",
                  element: <BookInfoPage />,
               },
              ],
