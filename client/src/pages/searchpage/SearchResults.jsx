@@ -22,6 +22,7 @@ const SearchResults = ({ books = [] }) => {
               <h3>{book.title}</h3>
               <p>{book.author}</p>
               <p>{book.publisher}</p>
+              <p>{book.description}</p>
             </div>
           </Link>
         </div>

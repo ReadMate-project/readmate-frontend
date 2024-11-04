@@ -25,7 +25,6 @@
     "xml2js": "^0.6.2"
   },
   "proxy": "http://localhost:8080",
-  
   "scripts": {
     "dev": "concurrently \"yarn run frontend\" \"yarn run backend\"",
     "frontend": "react-scripts start",
