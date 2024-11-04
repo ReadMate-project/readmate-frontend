@@ -1,31 +1,66 @@
+// SearchPage.jsx
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
-import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 
 const SearchPage = () => {
   const [books, setBooks] = useState([]);
-  const location = useLocation();
-
-  const handleSearch = async (query) => {
-      try {
-          const response = await axios.get(`http://localhost:5000/api/search`, {
-              params: { query }
-          });
-          setBooks(response.data.item);
-      } catch (error) {
-          console.error('Error fetching data:', error);
-      }
-  };
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-      const searchParams = new URLSearchParams(location.search);
-      const query = searchParams.get('q');
-      if (query) {
-          handleSearch(query);
+    const query = searchParams.get('q');
+    if (query) {
+      handleSearch(query);
+    }
+  }, [searchParams]);
+
+  const handleSearch = async (query) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.get(`http://localhost:5000/api/search`, {
+        params: { query: query.trim() }
+      });
+      console.log("API Response:", response.data); // API 응답 데이터 확인
+      // const searchResults = response.data?.item || []; 여기서 문제 발생
+      const searchResults = response.data.object?.item || []; // object에서 item 배열을 추출
+      console.log("Search Results:", searchResults); // 검색 결과 확인
+      setBooks(searchResults);
+      if (searchResults.length === 0) {
+        setError('No books found matching your search.');
       }
-  }, [location.search]);
+    } catch (err) {
+      console.error('Search error:', err);
+      setError('An error occurred while searching. Please try again.');
+      setBooks([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+  return (
+    <div>
+      {error && <div className="error-message">{error}</div>}
+      {loading ? (
+        <div className="loading">Searching...</div>
+      ) : (
+        <SearchResults books={books} />
+      )}
+    </div>
+  );
+};
+
+export default SearchPage;
+
+
+
+
+
+
     
     // lambda를 대비한 코드
     
@@ -49,14 +84,7 @@ const SearchPage = () => {
     //     }
     // };
     
-    return (
-        < div>
-            <SearchResults books={books} />
-        </div>
-    );
-};
 
-export default SearchPage;
 
 
 

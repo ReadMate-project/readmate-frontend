@@ -10,7 +10,7 @@ const SearchResults = ({ books = [] }) => {
     <div className="search-results">
       {books.map((book, index) => (
         <div key={index} className="book-item">
-          <Link to={`/book/${book.isbn}`}>
+          <Link to={`/books/bookinfo/${book.isbn}`}>
             <img 
               src={book.cover} 
               alt={book.title} 

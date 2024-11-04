@@ -8,7 +8,7 @@ const SearchForm = ({ onSearch }) => {
     
     // eslint-disable-next-line no-restricted-globals
     const imageSrc = location.pathname === '/' || location.pathname.startsWith('/home')
-  ? '../../global/images/searchpage/ic-search.png'
+  ? '../../global/images/loginpage/search_icon.png'
   : '../../global/images/loginpage/search_icon.png';
 
     const handleSubmit = (e) => {
@@ -24,7 +24,7 @@ const SearchForm = ({ onSearch }) => {
     return (
         <S.SearchForm onSubmit={handleSubmit}>
             <S.SearchInput
-                type="search"
+                type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="검색어 입력"
