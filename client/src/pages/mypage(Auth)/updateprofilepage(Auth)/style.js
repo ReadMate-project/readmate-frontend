@@ -8,10 +8,12 @@ S.Component=styled.div`
     font-family: 'Pretandard';
     ${h3};
     position:relative;
-    width:600px;
-    height:370px;
+    width:800px;
+    height:550px;
     margin:auto;
-    padding: 3% 5% 2% 5%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    padding: 3% 5% 2% 7%;
     border-radius: 1rem;
     background-color:white;
     /* background-color: ${({ isOverlay }) => (isOverlay ? 'rgba(0, 0, 0, 0.3)' : 'white')}; */
@@ -34,7 +36,7 @@ S.Component=styled.div`
     }
 `
 S.Title=styled.div`
-    ${flexCenterColumn};
+    /* ${flexCenterColumn}; */
      div:first-child {
         position: absolute;
         top:10%;
@@ -44,7 +46,7 @@ S.Title=styled.div`
     div:nth-child(2) {
         position: absolute;
         top:20%;
-        width:75%;
+        width:70%;
         height:2px;
         background-color: black;
       
@@ -55,7 +57,7 @@ S.Title=styled.div`
 S.Button=styled.div`
     position:absolute;
     top:8%;
-    right:12.5%;
+    right:17%;
     ${b1};
     width:14%;
     padding:2.5%;
@@ -149,7 +151,7 @@ S.Introduce=styled.div`
         border-radius: 10px;          
         ${b4}
         outline: none;
-        margin-left: 8%;
+        margin-left: 5%;
         
     }
     input::placeholder {
@@ -172,7 +174,7 @@ S.NickName=styled.div`
     top:60%;
     input{
         position:relative;
-        left: 5%;
+        left: 1%;
         background-color: rgba(233, 232, 228, 0.55);  
         border: none;               
         padding: 1.5%;              

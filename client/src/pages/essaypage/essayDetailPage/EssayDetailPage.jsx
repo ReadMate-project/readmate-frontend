@@ -2,9 +2,9 @@ import React, { useRef, useState } from 'react';
 import S from './style';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Comment from './comment/Comment';
-import DeletePost from './DeletePost';
+import DeleteEssay from './DeleteEssay';
 
-const PostDetailPage = () => {
+const EssayDetailPage = () => {
     const location = useLocation();
     const { post } = location.state || {}; // PostPage에서 전달된 post 정보
     const [visible, setVisible] = useState(false);
@@ -33,7 +33,7 @@ const PostDetailPage = () => {
                 </S.TitleContainer>
                 <S.Line></S.Line>
                 <S.BodyContainer>
-                {visible && <DeletePost visible={visible} setVisible={setVisible} />}
+                {visible && <DeleteEssay visible={visible} setVisible={setVisible} />}
                     <S.PostTitle>{post.title}</S.PostTitle>
                     <S.PostContent>{post.content}</S.PostContent>
                     <S.ImageContainer>
@@ -50,5 +50,5 @@ const PostDetailPage = () => {
     );
 };
 
-export default PostDetailPage;
+export default EssayDetailPage;
 

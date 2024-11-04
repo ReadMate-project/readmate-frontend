@@ -40,7 +40,7 @@ S.TitleButtonContainer=styled.div`
     justify-content: space-between;
     width:20%;
     position: absolute;
-    right:10%;
+    right:0%;
     /* top:5vh; */
 `
 
@@ -49,20 +49,14 @@ S.TitleButton=styled.div`
     align-items: center;
     justify-content: center;
     ${h3};
-    width:45%;
+    width:50%;
     padding: 4%;
     border-radius: 0.5rem;
-    color:white;
-    background-color:#2AA871;
+    background-color: white;
+    color:#2AA871;
     border:2px solid ${theme.PALETTE.green};
     line-height: 130%;
     cursor: pointer;
-    &.goToWrite{
-        background-color: white;
-        color:#2AA871;
-        border:2px solid ${theme.PALETTE.green};
-
-    }
 `
 S.HotPostContainer=styled.div`
     position: relative;
@@ -87,12 +81,40 @@ S.HotPostTitle=styled.div`
     
 `
 //
+S.PostContainer=styled.div`
+    display: flex;
+    justify-content: flex-start;
+    width:100%;
+`
+S.TextContainer = styled.div`
+    width:86%;
+    margin-left: 2%;
+    padding:1% 0;
+`;
+S.BookContainer=styled.div`
+    width:12%;
+    line-height: 1.3;
+`
+S.BookImage=styled.div`
+    width:100%;
+    img{
+        width:100%;
+    }
+`
+S.BookTitle=styled.div`
+    ${b2}
+    padding-left: 3%;
+`
+S.Writer=styled.div`
+    ${b4}
+    padding-left: 3%;
+    color:#717171;
+`
 S.PostList = styled.div`
     width: 100%;
     margin-top: 2%;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
     gap: 15px; /* 게시글 사이의 간격 */
 `;
 
@@ -102,15 +124,14 @@ S.PostItem = styled.div`
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    /* height:100%; */
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    position: relative;
+    position:relative;
 `;
 S.TitleBody = styled.div`
-    display: flex;
-    align-items: center;
+   
     
 `;
 
@@ -123,45 +144,53 @@ S.PostTitle = styled.div`
 
 S.PostContent = styled.div`
     ${b4}; 
-    padding-left: 0.5%;
     color: #717171;
-    white-space: nowrap; 
+    /* white-space: nowrap;  */
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    max-height:60%;
+    padding-left: 0.1%;
+    padding-top: 1%;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* 원하는 줄 수로 변경 가능 */
+    -webkit-box-orient: vertical;
 `;
 
 S.UnderTitleContainer=styled.div`
     display: flex;
-    align-items: center; 
-    position:relative;
+    /* align-items: center;  */
+    
+    position:absolute;
+    bottom:10%;
     
 `
 
 S.PostInfo = styled.div`
-    padding-left: 1%;
-    font-size: ${b4};
+    padding-left: 5%;
+    /* width:50%; */
+    ${b4}
     color: ${theme.PALETTE.darkGray};
+    white-space: nowrap; 
 `;
 S.LikeContainer = styled.div`
 
-  display: flex;
-  align-items: center;
-  gap: 3px; /* 아이콘과 좋아요 개수 사이 간격 */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 아이콘과 좋아요 개수 사이 간격 */
     cursor: pointer;
-  font-size: ${b4};
-  color: ${theme.PALETTE.gray};
-  svg {
-    font-size: ${b2};
-    transition: color 0.3s ease;
-  }
-
-  span {
-    font-size: 1rem;
-    font-weight: bold;
-  }
+    ${b4};
+    color: ${theme.PALETTE.gray};
+    svg {
+        font-size: ${b2};
+        transition: color 0.3s ease;
+    }
+    span {
+        font-size: 1rem;
+        font-weight: bold;
+    }
 
 `;
-
 S.CommentContainer = styled.div`
   
   display: flex;
@@ -176,29 +205,6 @@ S.CommentContainer = styled.div`
 
 `;
 
-S.PostImage=styled.div`
-    /* width:80px;
-    height:80px; */
-    width:8%;
-    
-    /* position: absolute; */
-    right:1%;
-    img{
-        width:100%;
-    }
-`
-S.LatestPostContainer = styled.div`
-    position: relative;
-    top:5vh;
-    width: 80%;
-    height:auto;
-    /* height:100vh; */
-    margin-top: 3%;
-    padding: 2%;
-    background-color: #D9D9D9;
-    border-radius: 0.5rem;
-  
-`;
 
 
 S.PaginationContainer = styled.div`

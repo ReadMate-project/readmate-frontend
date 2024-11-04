@@ -8,28 +8,44 @@ const S={};
 S.Background=styled.div`
     width:100%;
     height:100%;
+   
+    & .grayBackground{
+        background-color: #8C9094;
+        height:100%;
+        position:absolute;
+        z-index: 1000;
+        
+    }
 
 `
-// S.Overlay = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   z-index: 2; /* 컴포넌트보다 위에 오도록 설정 */
-//   background-color: rgba(0, 0, 0, 0.5);
-// `;
+S.GrayBackground=styled.div`
+    position:relative;
+    z-index: 1000;
+    /* width:800px; */
+    width:100%;
+    height:100%;
+    position:absolute;
+    /* .grayBackground{
+        width:50%;
+        background-color: #8C9094;
+        height:100%;
+        position:relative;
+        z-index: 99;
+        
+    } */
+`
+
 S.Component=styled.div`
-    /* ${flexCenterColumn}; */
+    position: relatve;
+    z-index:1;
     font-family: 'Pretandard';
     ${h3};
     position:relative;
-    width:600px;
-    height:370px;
+    width:800px;
+    height:550px;
     margin:auto;
+    margin-bottom: 10%;
+    margin-top: 5%;
     padding: 3% 5% 2% 5%;
     border-radius: 1rem;
     background-color:white;
@@ -65,8 +81,8 @@ S.NickNameContainer=styled.div`
     width:62%;
     position:absolute ;
     /* right:5%; */
-    top:15%;
-    left:25%;
+    top:13%;
+    left:23%;
 `
 S.NickName=styled.div`
     ${h3}
@@ -76,14 +92,14 @@ S.Introduce=styled.div`
     ${b4}
     position:absolute ;
     /* right:5%; */
-    top:21.5%;
-    left:25%;
+    top:19%;
+    left:23%;
 `
 S.ModifyButton=styled.span`
     /* width:13%; */
     ${b4}
     background-color: ${theme.PALETTE.lightGray };
-    padding:0.5% 2%;
+    padding:1% 3%;
     border-radius: 1rem;
     cursor: pointer;
 `
@@ -91,10 +107,10 @@ S.ImageContainer=styled.div`
     ${flexCenter}
     justify-content: space-evenly;
     width:100%;
-    height:55%;
+    height:45%;
     margin: auto;
     padding:0 10%;
-    margin-top: 3%;
+    margin-top: 5%;
     background-color: rgba(207, 221, 200, 0.3);
     border-radius: 1rem;
     /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
@@ -162,29 +178,15 @@ S.Button=styled.div`
 //DeleteAccount
 S.DeleteAccountContainer=styled.div`
     position:absolute;
-    width:452px;
-    height:220px;
+    z-index: 999;
+    width:90%;
+    height:90%;
     background-color:#E9E8E4 ;
-    top:35%;
+    right:5%;
+    bottom:5%;
     ${flexCenterColumn}
     border-radius: 1rem;
 
-    @media (max-width: 1024px) {
-        width: 350px;
-        height: 155px;
-    }
-
-    /* 스마트폰 크기 (768px 이하) */
-    @media (max-width: 768px) {
-        width: 250px;
-        height: 110px;
-    }
-
-    /* 작은 스마트폰 크기 (480px 이하) */
-    @media (max-width: 480px) {
-        width: 200px;
-        height: 100px;
-    }
 ` 
 S.DeleteText=styled.div`
     position:absolute;

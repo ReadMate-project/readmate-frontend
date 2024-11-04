@@ -7,9 +7,6 @@ import LoginPage from "../pages/loginpage/loginPage/LoginPage";
 
 import LibraryPage from "../pages/librarypage/LibraryPage";
 import BookInfoPage from "../pages/librarypage/bookinfopage/BookInfoPage";
-
-import FeedPage from "../pages/feedpage/FeedPage";
-
 import BookClubPage from "../pages/bookclubpage/BookClubPage";
 import BookClubDetailPage from "../pages/bookclubpage/bookclubdetailpage/BookClubDetailPage";
 
@@ -44,6 +41,11 @@ import MyPost from "../pages/postpage/mypostpage/MyPost";
 import MyPageMain from "../pages/mypage(Auth)/MyPageMain";
 import BookCalendarMain from "../pages/bookcalendarpage/BookCalendarMain";
 import BookCalendar from "../pages/bookcalendarpage/Main/BookCalendar";
+import EssayMain from "../pages/essaypage/EssayMain";
+import EssayList from "../pages/essaypage/essayListPage/EssayList";
+import ModifyPost from "../pages/postpage/modifyPostPage/ModifyPost";
+import EssayDetailPage from "../pages/essaypage/essayDetailPage/EssayDetailPage";
+import BookCalendarDetail from "../pages/bookcalendarpage/Detail/BookCalendarDetail";
 
 
 const ProtectedRoute = ({ element }) => {
@@ -70,7 +72,8 @@ const router = createBrowserRouter([
                     
                 },
                 {
-                    path: "/api/v1/auth/oauth2/kakao/code",
+                    // path: "/api/v1/auth/oauth2/kakao/code",
+                    path:"/api/created",
                     element: <KakaoRedirect />,
                     
                 },
@@ -90,8 +93,22 @@ const router = createBrowserRouter([
         },
 
         {
-           path: "/feeds",
-           element: <FeedPage />,
+           path: "/essay",
+           element: <EssayMain/>,
+           children:[
+            {
+                path:"/essay",
+                element:<EssayList/>
+            },
+            {
+                path:"/essay/essaydetail",
+                element:<EssayDetailPage/>
+            },
+            {
+                path: "/essay/createEssay",
+                element: <PostingPage />,
+            },
+           ]
         },
     
         {
@@ -114,9 +131,14 @@ const router = createBrowserRouter([
                     element: <PostPage />,
                 },
                 {
-                  path: "postinfo/:postid",
-                  element: <PostDetailPage />,
+                //   path: "postinfo/:postid",
+                    path:"/posts/postdetail",
+                    element: <PostDetailPage />,
                 },
+                {
+                        path:"/posts/postdetail/modifypost",
+                        element: <ModifyPost />,
+                    },
                 {
                     path: "/posts/createPost",
                     element: <CreatePostPage />,
@@ -156,10 +178,7 @@ const router = createBrowserRouter([
                     element: <BookRecordPage />,
                 },
 
-                {
-                    path: "/mylibrary/createEssay",
-                    element: <PostingPage />,
-                },
+                
             ],
         },
         {
@@ -173,7 +192,7 @@ const router = createBrowserRouter([
 
                 {
                     path: "/bookcalendar/detail",
-                    element: <BookClubDetailPage/>,
+                    element: <BookCalendarDetail/>,
                 },
             ],
         },

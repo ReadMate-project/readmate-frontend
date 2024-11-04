@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as emptyHeart, faComment } from '@fortawesome/free-regular-svg-icons';
 import S from './style';
 
 const PostPage = () => {
@@ -24,6 +24,8 @@ const PostPage = () => {
       userId: 'user1',
       createdAt: '2024-09-30T20:09:59.989724',
       likeCount: 10,
+      comment:5,
+      imageUrl:'https://img.freepik.com/premium-vector/abstract-square-pixel-colour-pattern-21_615845-1013.jpg', 
     },
     {
       boardId: 2,
@@ -32,6 +34,7 @@ const PostPage = () => {
       userId: 'user2',
       createdAt: '2024-10-07T09:24:33.002345',
       likeCount: 5,
+      comment:2,
     },
     {
       boardId: 3,
@@ -40,6 +43,7 @@ const PostPage = () => {
       userId: 'user3',
       createdAt: '2024-10-06T18:30:00',
       likeCount: 8,
+      comment:0,
     },
     
   ];
@@ -86,10 +90,17 @@ const formatDate = (dateString) => {
   const goToCreatePost = () => {
     navigate('/posts/createPost');
   };
-
+  
+  //내가 쓴 글 보기
   const goToMyPost=()=>{
     navigate('/posts/myPost');
   }
+
+  //게시글 상세보기
+  const goToPostDetail=(post)=>{
+    navigate('/posts/postdetail', { state: { post } });
+  }
+
   // 게시글 데이터를 서버에서 가져오는 함수
   const getPosts = (page, size, boardType) => {
     fetch(`/api/v1/posts/hot?page=${boardType}&${page}&size=${size}`, {
@@ -193,11 +204,15 @@ const formatDate = (dateString) => {
           <S.PostList>
             {/* {hotPosts.map((post) => ( */}
             {posts.map((post) => ( //더미데이터 대신함
-              <S.PostItem key={post.boardId}>
+              <S.PostItem key={post.boardId} onClick={() => goToPostDetail(post)}>
                 <S.TitleBody>
                 <S.PostTitle>{post.title}</S.PostTitle> <S.PostContent>{post.content}</S.PostContent>
                 </S.TitleBody>
+                {post.imageUrl && <S.PostImage>
+                  <img src={post.imageUrl}/>
+                </S.PostImage>}
                 <S.UnderTitleContainer>
+                
                 <S.LikeContainer>
                   <FontAwesomeIcon
                     icon={post.isLiked ? filledHeart : emptyHeart}
@@ -206,7 +221,12 @@ const formatDate = (dateString) => {
                   />
                    <div >{post.likeCount}</div> 
                   </S.LikeContainer>
-
+                  
+                  <S.CommentContainer>
+                    <FontAwesomeIcon icon={faComment} />
+                    <div>{post.comment}</div> 
+                  </S.CommentContainer>
+                  
                   <S.PostInfo>
                       {post.userId} | {formatDate(post.createdAt)}
                   </S.PostInfo>
@@ -228,6 +248,9 @@ const formatDate = (dateString) => {
                   <S.PostTitle>{post.title}</S.PostTitle>
                   <S.PostContent>{post.content}</S.PostContent>
                   </S.TitleBody>
+                  {post.imageUrl && <S.PostImage>
+                  <img src={post.imageUrl}/>
+                </S.PostImage>}
                 <S.UnderTitleContainer>
                 <S.LikeContainer>
                   <FontAwesomeIcon
@@ -238,6 +261,10 @@ const formatDate = (dateString) => {
                    <div>{post.likeCount}</div> 
                   {/* <div>{post.likes}</div> */} 
                   </S.LikeContainer>
+                  <S.CommentContainer>
+                    <FontAwesomeIcon icon={faComment} />
+                    <div>{post.comment}</div> 
+                  </S.CommentContainer>
 
                   <S.PostInfo>
                       {post.userId} | {formatDate(post.createdAt)}
