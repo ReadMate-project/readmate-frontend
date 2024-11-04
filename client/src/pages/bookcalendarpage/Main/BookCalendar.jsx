@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const cx = classNames.bind(S);
 
 const BookCalendar = () => {
-
+    const navigate = useNavigate();
     const today = {
         year: new Date().getFullYear(), //오늘 연도
         month: new Date().getMonth()+1, //오늘 월
@@ -128,6 +128,14 @@ const BookCalendar = () => {
         return weekArr;
       }, []);
 
+      
+      const handleDateClick = (date) => {
+        const formattedDate = `${selectedYear}-${selectedMonth}-${date}`;
+        navigate(`/bookcalendar/detail?date=${formattedDate}`);
+    };
+      
+      
+      
       //선택된 달의 날짜들 반환 함수
       const returnDay = useCallback(() => {
         let dayArr = [];
@@ -148,9 +156,10 @@ const BookCalendar = () => {
             for (let i = 0; i < dateTotalCount; i++) {
               const formattedDate = `${selectedYear}-${selectedMonth}-${i + 1}`;
               const hasData = calendarData.some(data => data.createdAt === formattedDate);
-            
+              const isBookDate = selectedMonth === 11 && i + 1 === 1; // 11월 1일 조건
               dayArr.push(
-                <div key={`day-${i + 1}`} className={cx(
+                <div key={`day-${i + 1}`} 
+                className={cx(
                   'weekday',
                     {
                       //오늘 날짜일 때 표시할 스타일 클라스네임
@@ -159,11 +168,16 @@ const BookCalendar = () => {
                     }
                     
                    )}
-                //    onClick={() => handleClick(i+1)} // 날짜 클릭 핸들러
+                  //  onClick={() => handleClick(i+1)} // 날짜 클릭 핸들러
 
                 >
                   {i + 1}
-                  {hasData && <div className="dot" />}
+                  {/* {hasData && <div className="dot" />} */}
+                  {isBookDate && (
+                  <S.BookImage onClick={() => handleDateClick(i + 1)}>
+                    <img src='https://image.aladin.co.kr/product/33861/97/cover150/8930107850_1.jpg' alt="Book" />
+                  </S.BookImage>
+                )}
                 </div>
               );
             }
@@ -187,7 +201,7 @@ const BookCalendar = () => {
                 </S.LineWrapper> */}
                 <S.Title>
                     <S.TitleHightLight>
-                    <img src={process.env.PUBLIC_URL + '/global/images/bookcalendar/bookCalendarHightlight.png'}/>
+                      <img src={process.env.PUBLIC_URL + '/global/images/bookcalendar/bookCalendarHightlight.png'}/>
                     </S.TitleHightLight>
                     <div></div>
                 </S.Title>

@@ -6,6 +6,7 @@ const S={};
 S.Background=styled.div`
     width: 80%;
     height:100%;
+    /* height:100vh; */
     background-color: ${theme.PALETTE.background};
     display: flex;
     align-items: center;
@@ -43,36 +44,61 @@ S.BookCount=styled.div`
     color:#717171;
     ${h2}
     position: relative;
-    right: 0;
-    padding-right: 10%;
+    right: 5%;
+    /* padding-right: 10%; */
+ `
+ S.Container=styled.div`
+    display: flex;
+    justify-content: center;
  `
  S.BookShelf=styled.div`
     margin-top: 3%;
     width:100%;
-    height:100vh;
-    /* height: auto;  */
-    /* min-height: 300px; */
-    /* max-height: 1000px; */
-    background-image: url(${process.env.PUBLIC_URL}/global/images/mylibrarypage/bookShelf.png); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center; 
     position: relative; 
     display: flex;
     justify-content: center;
     img{
-        width:100%;
-       
-    } 
+        width:90%;
+    }
+    
  `
 S.BookComponent=styled.div`
     position:absolute;
-    width:50%;
-    height:30%;
+    width:11%;
+    height:28%;
     background-color: white;
-    top:10%;
-    transform: perspective(300px)  rotateY(-30deg);
-
+    top:14.7%;
+    box-shadow: 13px 12px 4px rgba(0,0,0,0.25);
+    &.book1{
+        left:15%;
+    }
+    &.book2{
+        left:35%;
+    }
+    &.book3{
+        left:55%;
+    }
+    &.book4{
+        left:75%;
+    }
+    &.book5{
+        top: 57.4%;
+        left:15%;
+    }
+    &.book6{
+        top: 57.4%;
+        left:35%;
+    }
+    &.book7{
+        top: 57.4%;
+        left:55%;
+    }
+    &.book8{
+        top: 57.4%;
+        left:75%;
+    }
+    
+    
 `
 //Essay
 

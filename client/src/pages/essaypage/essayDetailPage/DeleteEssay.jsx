@@ -1,7 +1,7 @@
 import React from 'react';
 import S from './style';
 
-const DeleteAccount = ({visible,setVisible}) => {
+const DeleteEssay = ({visible,setVisible}) => {
     return (
         <div>
             {visible&&
@@ -20,4 +20,4 @@ const DeleteAccount = ({visible,setVisible}) => {
     );
 };
 
-export default DeleteAccount;
+export default DeleteEssay;

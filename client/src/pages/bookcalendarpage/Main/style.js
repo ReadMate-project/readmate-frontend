@@ -5,7 +5,7 @@ const S={};
 
 S.Background=styled.div`
     width:100%;
-    height:100vh;
+    height:120vh;
     /* height: 100%; */
     margin-bottom: 40%;
     /* height: 100vh; */
@@ -20,7 +20,7 @@ S.Title=styled.div`
     ${flexCenterColumn};
     div:nth-child(2) {
         position: absolute;
-        top:20%;
+        top:22%;
         width:60%;
         height:2px;
         background-color: black;
@@ -33,11 +33,10 @@ S.TitleHightLight=styled.div`
         position: absolute;
         top:13%;
         left:20%;
-        width:10%;
+        width:28%;
         img{
             width:100%
         }
-
 `
 //calendar
 
@@ -115,23 +114,23 @@ S.SelectWrapper=styled.h3`
 S.CalendarBodyContainer=styled.div`
     background-color: white;
     width:100%;
-    height:850px;
+    height:1050px;
     padding:7% 3%;
     border-radius: 1.5rem;
     position:relative;
    
     @media (max-width: 1024px) {
-        height: 600px;
+        height: 700px;
     }
 
     
     @media (max-width: 768px) {
-        height: 440px;
+        height: 570px;
     }
 
 
     @media (max-width: 480px) {
-        height: 400px;
+        height: 500px;
     }
 `
 S.LineWrapper=styled.div`
@@ -149,7 +148,7 @@ S.LineWrapper=styled.div`
         z-index: 999;
        
     }
-    div:nth-child(1) {
+    /* div:nth-child(1) {
    
         top:-20%;
     }
@@ -168,7 +167,7 @@ S.LineWrapper=styled.div`
     div:nth-child(5) {
        
         top:90%;
-    }
+    } */
 
 `
 S.WeekWrapper=styled.div`
@@ -194,20 +193,20 @@ S.DateWrapper=styled.div`
             width: calc(100% / 7);
             float: left;
             text-align: center;
-            height: 140px;
+            height: 185px;
             position:relative;
             @media (max-width: 1024px) {
-                height: 100px;
+                height: 120px;
             }
 
             
             @media (max-width: 768px) {
-                height: 80px;
+                height: 100px;
             }
 
 
             @media (max-width: 480px) {
-                height: 60px;
+                height: 80px;
             }
         }
         & .weekday.hasData::after {
@@ -224,6 +223,14 @@ S.DateWrapper=styled.div`
         & .weekday.today{
             color:${theme.PALETTE.green};
         }
+    }
+`
+
+S.BookImage=styled.div`
+    /* width:50%; */
+    img{
+        width:80%;
+        max-height: 155px;
     }
 `
 export default S;
