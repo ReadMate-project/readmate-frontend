@@ -72,8 +72,8 @@ const router = createBrowserRouter([
                     
                 },
                 {
-                    // path: "/api/v1/auth/oauth2/kakao/code",
-                    path:"/api/created",
+                    path: "http://3.35.193.132:3000/api/v1/auth/oauth2/kakao/code",
+                    // path:"/api/created",
                     element: <KakaoRedirect />,
                     
                 },
