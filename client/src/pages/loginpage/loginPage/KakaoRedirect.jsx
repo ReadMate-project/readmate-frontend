@@ -13,10 +13,11 @@ const KakaoRedirect = () => {
     const [category, setCategory] = useState('');
 
     
-
+    http://3.35.193.132:3000/api/v1/auth/oauth2/kakao/code
     useEffect(() => {
         // 카카오 로그인 요청
-        fetch(`/api/v1/auth/oauth2/kakao?code=${code}`, {
+        fetch(`http://3.35.193.132:3000/api/v1/auth/oauth2/kakao?code=${code}`, {
+        // fetch(`/api/v1/auth/oauth2/kakao?code=${code}`, {
         // fetch(`/api/v1/auth/login/kakao?code=${code}`, {
             method: "GET",
         })
@@ -37,7 +38,7 @@ const KakaoRedirect = () => {
                         category: '카테고리 선택'
                     };
 
-                    fetch('/api/v1/auth/oauth2/kakao?code=${code}', {
+                    fetch('http://3.35.193.132:3000/api/v1/auth/oauth2/kakao?code=${code}', {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
