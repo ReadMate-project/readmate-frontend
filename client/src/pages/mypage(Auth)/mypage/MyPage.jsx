@@ -7,6 +7,7 @@ const MyPage = () => {
   
   const navigate=useNavigate();
   const [showDeleteAccount, setShowDeleteAccount] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const goToUpdateProfile=()=>{
     navigate('/mypage/updateprofile');
@@ -30,8 +31,14 @@ const MyPage = () => {
 
   return (
     <div>
+      
       <S.Background >
+        
+      {/* <S.GrayBackground className={visible ? "grayBackground" : ""}> */}
         <S.Component>
+        
+       
+        {visible && <DeleteAccount visible={visible} setVisible={setVisible} />}
           <S.Profile>
             <img src={process.env.PUBLIC_URL + '/global/images/mypage/defaultProfile.png'}/>
           </S.Profile>
@@ -61,12 +68,14 @@ const MyPage = () => {
           </S.ImageContainer>
           <S.ButtonContainer>
             <S.Button>로그아웃</S.Button>
-            <S.Button onClick={handleDeleteClick}>탈퇴하기</S.Button>
+            <S.Button  onClick={() => { setVisible(!visible);}}>탈퇴하기</S.Button>
           </S.ButtonContainer>
           {showDeleteAccount && (
           <DeleteAccount onCancel={handleCancelClick} />  
         )}
+        
         </S.Component>
+        {/* </S.GrayBackground> */}
         
       </S.Background>
       
