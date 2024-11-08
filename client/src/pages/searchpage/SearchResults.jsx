@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SearchResults = ({ books = [] }) => {
   if (!books || books.length === 0) {
-    return <div>No books found.</div>;
+    return <div></div>;
   }
 
   return (
@@ -21,7 +21,7 @@ const SearchResults = ({ books = [] }) => {
             <div className="book-info">
               <h3>{book.title}</h3>
               <p>{book.author}</p>
-              <p>{book.publisher}</p>
+              <p>{book.publisher}</p>   
               <p>{book.description}</p>
             </div>
           </Link>
