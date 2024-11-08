@@ -3,6 +3,7 @@ import S from './style';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Comment from './comment/Comment';
 import DeleteEssay from './DeleteEssay';
+import SimpleBook from '../../../components/book/SimpleBook';
 
 const EssayDetailPage = () => {
     const location = useLocation();
@@ -10,6 +11,7 @@ const EssayDetailPage = () => {
     const [visible, setVisible] = useState(false);
     const navigate=useNavigate();
 
+    
     return (
         <div>
             <S.Container>
@@ -31,7 +33,14 @@ const EssayDetailPage = () => {
                     </S.ButtonContainer>
                     </S.TitleHeader>
                 </S.TitleContainer>
+                
                 <S.Line></S.Line>
+                
+                <S.BookContainer>
+                  <SimpleBook/>
+                    
+                </S.BookContainer>
+                
                 <S.BodyContainer>
                 {visible && <DeleteEssay visible={visible} setVisible={setVisible} />}
                     <S.PostTitle>{post.title}</S.PostTitle>

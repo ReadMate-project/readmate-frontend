@@ -28,7 +28,7 @@
   "proxy": "http://localhost:8080",
   "scripts": {
     "dev": "concurrently \"yarn run frontend\" \"yarn run backend\"",
-    "frontend": "react-scripts start",
+    "frontend": "react-scripts --max-http-header-size=8192 start",
     "backend": "node server.mjs"
   },
   "eslintConfig": {

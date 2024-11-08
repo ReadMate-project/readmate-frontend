@@ -7,7 +7,6 @@ import HotPostContainer from './HotPostContainer';
 import S from './style';
 
 const MainPage = () => {
-    console.log(window.innerWidth);
 
   return (
     <div>
