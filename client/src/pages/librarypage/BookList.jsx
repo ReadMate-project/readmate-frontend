@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import BookDetails from './BookDetails';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const BookList = ({ books }) => {
-  const [bookDetails, setBookDetails] = useState([]);
-
-  useEffect(() => {
-    const fetchBookDetails = async () => {
-      const details = await Promise.all(
-        books.map(async (book) => {
-          const response = await axios.get(`http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${process.env.ALADIN_API_KEY}&ItemId=${book.isbn}&itemIdType=ISBN13&output=JS&Version=20131101`);
-          return response.data.item[0];
-        })
-      );
-      setBookDetails(details);
-    };
-
-    if (books.length > 0) {
-      fetchBookDetails();
-    }
-  }, [books]);
+const BookList = ({ books = [] }) => {
+  if (!books || books.length === 0) {
+    return <div>No books available.</div>;
+  }
 
   return (
-    <div>
-      {bookDetails.map((detail, index) => (
-        <BookDetails key={index} book={detail} />
-      ))}
+    <div className="book-list">
+      {books.map((book, index) => (
+        <div key={index} className="book-item">
+          <Link to={`/books/bookinfo/${book.isbn}`}>
+            <img 
+              src={book.cover} 
+              alt={book.title} 
+              onError={(e) => {
+                e.target.src = '/placeholder-book.png'; // Placeholder image
+              }}
+            />
+            <div className="book-info">
+              <h3>{book.title}</h3>
+              <p>{book.author}</p>
+              <p>{book.publisher}</p>
+              <p>{book.description}</p>
+            </div>
+          </Link>
+        </div>
+      ))} 
     </div>
   );
 };

@@ -48,23 +48,51 @@ async function searchBooks(query) {
 }
 
 // 책 상세 정보 함수
-async function getBookDetails(id) {
+async function getBookDetails(isbn) {
     const apiUrl = `${BASE_URL}ItemLookUp.aspx`;
 
     try {
         const response = await axios.get(apiUrl, {
             params: {
                 ttbkey: API_KEY,
-                ItemId: id,
+                itemIdType: 'ISBN13',
+                ItemId: isbn,
+                output: 'xml',  // 'js' 대신 'xml' 사용
+                Version: '20131101',
+                OptResult: ebookList,usedList,reviewList
+            }
+        });
+        const data = await parseXml(response.data);
+        console.log('Parsed XML Data:', data);
+        return data;
+    } catch (error) {
+        console.error('Error in getBookDetails function:', error);
+        throw new Error(`상세 정보 조회 중 오류 발생: ${error.message}`);
+    }
+}
+
+async function getItemList(){
+    const apiUrl = `${BASE_URL}ItemList.aspx`;
+
+    try {
+        const response = await axios.get(apiUrl, {
+            params: {
+                ttbkey: API_KEY,
+                QueryType: 'ItemNewAll',
+                MaxResults: 20,
+                start: 1,
+                SearchTarget: 'Book',
                 output: 'xml',  // 'js' 대신 'xml' 사용
                 Version: '20131101'
             }
         });
         const data = await parseXml(response.data);
+        console.log('Parsed XML Data:',data);
         return data;
     } catch (error) {
-        throw new Error(`상세 정보 조회 중 오류 발생: ${error.message}`);
+        throw new Error(`검색 중 오류 발생: ${error.message}`);
     }
 }
 
-export { searchBooks, getBookDetails };
+
+export { searchBooks, getBookDetails, getItemList };
