@@ -13,6 +13,7 @@ S.Container=styled.div`
     align-items: center;
     flex-direction: column;
     overflow-x: hidden;
+    /* margin:5% 0; */
 `
 S.TitleContainer = styled.div`
      
@@ -87,12 +88,12 @@ S.PostContainer=styled.div`
     width:100%;
 `
 S.TextContainer = styled.div`
-    width:86%;
+    width:90%;
     margin-left: 2%;
     padding:1% 0;
 `;
 S.BookContainer=styled.div`
-    width:12%;
+    width:8%;
     line-height: 1.3;
 `
 S.BookImage=styled.div`
@@ -148,12 +149,12 @@ S.PostContent = styled.div`
     /* white-space: nowrap;  */
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height:60%;
+    max-height:40%;
     padding-left: 0.1%;
     padding-top: 1%;
     line-height: 1.3;
     display: -webkit-box;
-    -webkit-line-clamp: 7; /* 원하는 줄 수로 변경 가능 */
+    -webkit-line-clamp: 3; /* 원하는 줄 수로 변경 가능 */
     -webkit-box-orient: vertical;
 `;
 
@@ -204,7 +205,6 @@ S.CommentContainer = styled.div`
   }
 
 `;
-
 
 
 S.PaginationContainer = styled.div`

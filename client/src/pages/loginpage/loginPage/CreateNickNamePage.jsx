@@ -5,11 +5,29 @@ import Category from './category/Category';
 
 const CreateNickNamePage = () => {
     const [visible,setVisible]=useState(false);
-    
+    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [nickname, setNickname] = useState('');
+    const navigate=useNavigate();
+
     const toggleCategory = () => {
         setVisible(!visible);
     };
+
+    const applySelectedCategories = (categories) => {
+        setSelectedCategories(categories);
+        setVisible(false); // 적용 후 Category 컴포넌트 숨기기
+    };
    
+    const handleNicknameChange = (e) => {
+        const input = e.target.value;
+        if (input.length <= 10) { // 10글자 제한
+            setNickname(input);
+        }
+    };
+
+    const goToAccount=()=>{
+        navigate('/created/kakaoLogin/account', { state: { nickname, selectedCategories } });
+    }
     return (
         <div>
             <S.Background>
@@ -20,19 +38,26 @@ const CreateNickNamePage = () => {
                     </S.Title>
                     <S.NickName>
                         <div>닉네임</div>
-                        <input type="text"/>
-                        <div>중복 확인</div>
+                        <input type="text"
+                        value={nickname} 
+                        onChange={handleNicknameChange}/>
+                        <div>{nickname.length}/10</div>
                     </S.NickName>
-                    {visible && <Category />}
+                    {visible && <Category applySelectedCategories={applySelectedCategories} />}
                     <S.Category>
-                        <div>관심 카테고리</div> 
-                        <input type="text" placeholder='관심 카테고리를 검색해보세요.'/>
-                        <img src={process.env.PUBLIC_URL + '/global/images/loginpage/search_icon.png'}
-                        onClick={toggleCategory} 
-                        />
+                        <div>관심 카테고리</div>
+                        <S.SelectedContainer>
+                            {selectedCategories.map(category => (
+                                <S.SelectedButton key={category}>
+                                    {category}
+                                </S.SelectedButton>
+                            ))}
+                    </S.SelectedContainer>
+                        <S.SelectCategoryButton onClick={toggleCategory}>선택</S.SelectCategoryButton>
                     </S.Category>
-                    <S.SignUp>
-                        회원가입
+                    
+                    <S.SignUp onClick={goToAccount}>
+                        등록
                     </S.SignUp>
                 </S.NickNameComponent>
             </S.Background>

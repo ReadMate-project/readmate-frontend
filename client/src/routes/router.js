@@ -63,24 +63,26 @@ const router = createBrowserRouter([
             element: <MainPage />,
         },
         {
-            path: "/api",
+            path: "/created",
             element: <LoginMain />,
             children:[
                 {
-                    path: "/api",
+                    path: "/created/kakaoLogin",
                     element: <LoginPage />,
                     
                 },
                 {
-                    path: "http://3.35.193.132:3000/api/v1/auth/oauth2/kakao/code",
-                    // path:"/api/created",
-                    element: <KakaoRedirect />,
+                    path:"/created/kakaoLogin/account",
+                    element: <CreateNickNamePage />,
                     
                 },
             ]
             
         },
-        
+        {
+            path:"/api/v1/auth/oauth2/kakao/code",
+            element:<KakaoRedirect/>
+        },
         {
             path: "/bookclubs",
             element: <BookClubPage />,

@@ -66,9 +66,13 @@ S.Container=styled.div`
     background-color: ${theme.PALETTE.background};
     position:relative;
     padding: 5% 0% 5% 10%;
+    
     &.lightGreenBg{
         background-color: ${theme.PALETTE.lightGreen};
 
+    }
+    &.hotpost{
+        margin-bottom: 8%;
     }
 
 `
@@ -81,6 +85,7 @@ S.Title=styled.div`
 `
 S.Text=styled.div`
     padding-bottom: 5%;
+    line-height: 1.3;
     ${b1};
     
 `
@@ -105,7 +110,7 @@ S.FB_Component=styled.div`
         height: 70%; 
         background-color: white;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); 
-        border-radius: 30px; 
+        border-radius: 2vw; 
         margin-right: 3%;
         
     }
@@ -121,7 +126,7 @@ S.Text2=styled.div`
 S.ShowMoreButton2=styled.div`
     position:absolute;
     top:15%;
-    left:80%;
+    left:83%;
     width:100%;
     img{
         position:relative;
@@ -167,7 +172,7 @@ S.BC_Component=styled.div`
         height:42%;
         background-color: white;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); 
-        border-radius: 30px; 
+        border-radius: 2vw; 
         /* margin-right: 3%; */
         margin: 0px 5%;
     }
@@ -184,7 +189,7 @@ S.Text3=styled.div`
 S.ShowMoreButton3=styled.div`
     position:absolute;
     top:15%;
-    left:80%;
+    left:83%;
     width:100%;
     img{
         position:relative;
@@ -206,18 +211,7 @@ S.HP_Component=styled.div`
     position:absolute;
     top:15%;
     right:0%;
-    div {
-        width: 36%; 
-        height:42%;
-        background-color: white;
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); 
-        border-radius: 30px; 
-        /* margin-right: 3%; */
-        margin: 0px 5%;
-    }
-        
-    
-
+    margin-top: 5%;
 `
 S.BookClubClip2=styled.div`
     img{
@@ -244,5 +238,32 @@ S.BookClubClip2=styled.div`
     }
 `
 
+S.Crown=styled.div`
+   width:7%;
+   position: absolute;
+   top:13%;
+   left: 10%;
+   &.crown1 { // 첫 번째 크라운
+        left: 10%;
+    }
 
+    &.crown2 { // 두 번째 크라운
+        left: 60%; // 오른쪽으로 옮기기
+    }
+    img{
+        /* position: relative; */
+        /* left: 60%; */
+        width:100%;
+    }
+    
+`
+S.Box=styled.div`
+        width: 36%; 
+        height:42%;
+        background-color: white;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); 
+        border-radius: 2vw; 
+        /* margin-right: 3%; */
+        margin: 0px 5%;
+`
 export default S;

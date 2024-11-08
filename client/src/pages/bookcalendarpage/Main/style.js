@@ -31,12 +31,22 @@ S.Title=styled.div`
 `
 S.TitleHightLight=styled.div`
         position: absolute;
-        top:13%;
+        top: 7.5%;
         left:20%;
         width:28%;
         img{
             width:100%
         }
+    /* width:100%;
+    height:100%;
+    
+    img{
+        position:relative;
+        
+        width:15%;
+        margin-left:10%;
+        margin-top: 5%;
+    }   */
 `
 //calendar
 

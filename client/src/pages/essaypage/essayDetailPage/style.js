@@ -86,6 +86,12 @@ S.BodyContainer=styled.div`
     
     
 `
+S.BookContainer=styled.div`
+    /* width:120%; */
+    position: relative;
+    left:-58%;
+    top:7.3vh;
+`
 S.PostTitle=styled.div`
     ${h1}
     padding-top: 1%;

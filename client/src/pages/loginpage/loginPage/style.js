@@ -148,23 +148,29 @@ S.NickName=styled.div`
         background-color: rgba(233, 232, 228, 0.55);  
         border: none;               
         padding: 1.5%;              
-        width: 40%;                
+        width: 60%;                
         /* box-sizing: border-box;       */
         border-radius: 10px;          
         ${b3}
         outline: none;
     }
     div:nth-child(3) {
-        ${b1};
-        font-weight: 700;
-        border:2px solid ${theme.PALETTE.green};
-        color:${theme.PALETTE.green};
+        ${b4};
+        color:#717171;
         padding:2%;
-        border-radius: 10px ;
-        cursor: pointer;
+        
     }
         
 
+`
+S.SelectCategoryButton=styled.div`
+     ${b1};
+    font-weight: 700;
+    border:2px solid ${theme.PALETTE.green};
+    color:${theme.PALETTE.green};
+    padding:2%;
+    border-radius: 10px ;
+    cursor: pointer;
 `
 S.Category=styled.div`
     width:70%;
@@ -176,7 +182,7 @@ S.Category=styled.div`
     position: absolute;
     top:45%;
     
-    input{
+    /* input{
         position:relative;
         background-color: rgba(233, 232, 228, 0.55);  
         border: none;               
@@ -195,7 +201,7 @@ S.Category=styled.div`
     img {
         width:7%;
         cursor: pointer;
-    }
+    } */
 
 `
 S.SignUp=styled.div`
@@ -210,5 +216,42 @@ S.SignUp=styled.div`
     padding: 1.8%;
     cursor: pointer;
 `
+S.CategoryButton = styled.button`
+    padding: 2px 7px;
+    ${b4}
+    background-color: ${({ isSelected }) => (isSelected ? 'green' : 'white')};
+    /* color: ${({ isSelected }) => (isSelected ? '#fff' : '#333')}; */
+    color:#717171;
+    border: 1px solid #717171;
+    cursor: pointer;
+    border-radius: 30px;
+
+    &:hover {
+        background-color: ${({ isSelected }) => (isSelected ? 'green' : '#e0e0e0')};
+    }
+`;
+S.SelectedButton = styled(S.CategoryButton)`
+    padding: 2px 7px;
+    background-color:rgba(42, 168, 113, 0.09);
+    border: 1px solid #2AA871;
+    color: #2AA871;
+    border-radius: 30px;
+    cursor: pointer;
+    margin:1%;
+`;
+
+S.SelectedContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width:60%;
+    /* gap: 10px; */
+    /* margin-bottom: 20px; */
+    /* position: absolute; */
+    /* top:56%; */
+    height:1%;
+    padding-left: 2%;
+    overflow-y: auto;
+`;
+
 
 export default S;

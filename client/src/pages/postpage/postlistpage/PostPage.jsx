@@ -35,6 +35,7 @@ const PostPage = () => {
       createdAt: '2024-10-07T09:24:33.002345',
       likeCount: 5,
       comment:2,
+      imageUrl:'https://img.freepik.com/premium-vector/abstract-square-pixel-colour-pattern-21_615845-1013.jpg', 
     },
     {
       boardId: 3,
@@ -196,9 +197,12 @@ const formatDate = (dateString) => {
 
         {/* HOT 게시글 리스트 */}
        
-        <S.HotPostTitle><img 
+        <S.HotPostTitle>
+          <img 
            src={process.env.PUBLIC_URL + '/global/images/postpage/hotboard.png'}  alt="게시판"
-        /></S.HotPostTitle>
+          />
+        </S.HotPostTitle>
+        
         <S.HotPostContainer>
         
           <S.PostList>
