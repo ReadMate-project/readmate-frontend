@@ -112,15 +112,16 @@ const router = createBrowserRouter([
         },
     
         {
-           path: "/books",
-           element: <LibraryPage />,
-            children: [
-                {
-                  path: "bookinfo/:isbn",
-                 element: <BookInfoPage />,
-              },
-             ],
+            path: "/books",
+            element: <LibraryPage />,
+        }, 
+        
+        {
+            path: "/books/bookinfo/:isbn",
+            element: <BookInfoPage />,
+              
         },
+             
 
         {
             path: "/posts",

@@ -59,7 +59,7 @@ async function getBookDetails(isbn) {
                 ItemId: isbn,
                 output: 'xml',  // 'js' 대신 'xml' 사용
                 Version: '20131101',
-                OptResult: ebookList,usedList,reviewList
+                OptResult: 'ebookList,usedList,reviewList'
             }
         });
         const data = await parseXml(response.data);

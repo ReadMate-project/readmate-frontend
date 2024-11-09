@@ -6,7 +6,7 @@ const BookInfoHeader = ({ title }) => {
 
   return (
     <div>
-      <h1>Book Information</h1>
+      
       <h2>{title}</h2>
       <button onClick={() => navigate(-1)}>Back to Library</button>
     </div>

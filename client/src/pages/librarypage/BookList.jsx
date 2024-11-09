@@ -10,7 +10,7 @@ const BookList = ({ books = [] }) => {
     <div className="book-list">
       {books.map((book, index) => (
         <div key={index} className="book-item">
-          <Link to={`/books/bookinfo/${book.isbn}`}>
+          <Link to={`/books/bookinfo/${book.isbn13}`}>
             <img 
               src={book.cover} 
               alt={book.title} 
