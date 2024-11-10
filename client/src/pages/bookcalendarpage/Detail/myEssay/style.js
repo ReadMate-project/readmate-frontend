@@ -97,9 +97,29 @@ S.BookContainer=styled.div`
     line-height: 1.3;
 `
 S.BookImage=styled.div`
-    width:100%;
+    /* width:100%;
     img{
         width:100%;
+    } */
+    img{
+        width:90px;
+        height:140px;
+        object-fit: cover;
+        
+        @media (max-width: 1024px) {
+            width:50px;
+            height:85px;
+        }
+
+        @media (max-width: 768px) {
+            width:30px;
+            height:50px;
+        }
+
+        @media (max-width: 480px) {
+            width:20px;
+            height:35px;
+        }
     }
 `
 S.BookTitle=styled.div`
@@ -163,7 +183,7 @@ S.UnderTitleContainer=styled.div`
     /* align-items: center;  */
     
     position:absolute;
-    bottom:10%;
+    bottom:13%;
     
 `
 

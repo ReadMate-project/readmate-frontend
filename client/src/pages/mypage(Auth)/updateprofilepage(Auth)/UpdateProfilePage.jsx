@@ -1,20 +1,46 @@
 import React, { useState, useRef } from 'react';
 import S from './style';
 import { useNavigate } from 'react-router';
+import Category from '../../loginpage/loginPage/category/Category';
+import { useUser } from '../../../context/UserContext';
 
 const UpdateProfilePage = () => {
   const [profileImage, setProfileImage] = useState(null); // 프로필 이미지 상태
   const fileInputRef = useRef(null);
   const [introduceText, setIntroduceText] = useState(""); // 한 줄 소개 입력 값
+  const [nickname, setNickname] = useState("");
+  const [visible,setVisible]=useState(false);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const { user, setUser } = useUser(); 
+  console.log(user);
+    const toggleCategory = () => {
+        setVisible(!visible);
+    };
+
+    const applySelectedCategories = (categories) => {
+        setSelectedCategories(categories);
+        setVisible(false); 
+      
+    };
+
   const navigate=useNavigate();
   
-  // 글자 수 변경 핸들러
+  // 한 줄 소개 글자 수 변경 
   const handleIntroduceChange = (e) => {
     const inputText = e.target.value;
     if (inputText.length <= 20) {
       setIntroduceText(inputText); // 글자 수가 20 이하일 때만 상태 업데이트
     }
   }
+
+   // 닉네임 글자 수 변경 
+   const handleNicknameChange = (e) => {
+    const inputText = e.target.value;
+    if (inputText.length <= 10) {
+      setNickname(inputText);
+    }
+  };
+
   const handleImageClick = () => {
     fileInputRef.current.click(); // 이미지 클릭 시 input 클릭
   };
@@ -74,27 +100,44 @@ const UpdateProfilePage = () => {
         <S.Introduce>
           <div>한 줄 소개</div>
           <input 
-          type="text" 
-          // placeholder='나를 한 줄로 소개해보세요.'
-          value={introduceText}
-          onChange={handleIntroduceChange} />
-          <div id='count'>{introduceText.length}/20</div>
+            type="text" 
+            value={introduceText}
+            onChange={handleIntroduceChange} 
+          />
+          <div className='count'>{introduceText.length}/20</div>
         </S.Introduce>
 
         <S.NickName>
           <div>닉네임</div>
-          <input type="text" />
-          <div>중복 확인</div>
+          <input 
+            type="text" 
+            value={nickname}
+            onChange={handleNicknameChange}
+          />
+          <div className='count'>{nickname.length}/10</div> 
         </S.NickName>
 
-        <S.Category>
+        {visible && <Category applySelectedCategories={applySelectedCategories} />}
+            <S.Category>
+                <div>관심 카테고리</div>
+                 <S.SelectedContainer>
+                     {selectedCategories.map(category => (
+                    <S.SelectedButton key={category}>
+                       {category}
+                         </S.SelectedButton>
+                       ))}
+                    </S.SelectedContainer>
+                  <S.SelectCategoryButton onClick={toggleCategory}>선택</S.SelectCategoryButton>
+            </S.Category>
+
+        {/* <S.Category>
           <div>관심 카테고리</div>
           <input type="text" placeholder='관심 카테고리를 검색해보세요.' />
           <img
             src={process.env.PUBLIC_URL + '/global/images/loginpage/search_icon.png'}
             alt="Search"
           />
-        </S.Category>
+        </S.Category> */}
       </S.Component>
     </div>
   );

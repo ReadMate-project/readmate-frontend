@@ -13,8 +13,8 @@ const CreatePostPage = () => {
     const files = Array.from(e.target.files);
         
 
-        if (files.length + images.length > 10) {
-            alert('최대 10개의 이미지만 업로드할 수 있습니다.');
+        if (files.length + images.length > 5) {
+            alert('최대 5개의 이미지만 업로드할 수 있습니다.');
             return;
         }
 
@@ -32,25 +32,33 @@ const CreatePostPage = () => {
     const handleCancle=()=>{
         navigate('/posts')
     }
+    
+    // 제목 입력 시 10글자 제한
+    const handleTitleChange = (e) => {
+        const input = e.target.value;
+        if (input.length <= 10) {
+            setTitle(input);
+        }
+    };
     //저장 버튼 클릭 시 서버에 POST 요청 보내기
     const handleSubmit = () => {
         
         const requestData = {
-            userId: '', //정해야함 
             title: title,
             content: content,
             boardType: "BOARD" 
         };
 
-        fetch('/api/v1/board', {
+        fetch('http://3.35.193.132:8080/api/v1/board', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}` //로컬스토리지 할건지 리덕스할건지 정해야함
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}` //로컬스토리지 할건지 리덕스할건지 정해야함
             },
             body: JSON.stringify(requestData)
         })
         .then(response => {
+            console.log(response);
             if (!response.ok) {
                 return response.json().then(data => {
                     // 401(로그인을 진행해주세요) 403(해당 북클럽의 회원이 아닙니다)
@@ -84,10 +92,12 @@ const CreatePostPage = () => {
                 </S.TitleContainer>
                 <S.Line></S.Line>
                 <S.BodyContainer>
-                    <input type="text" 
-                            placeholder='제목' 
-                            id="title" value={title} 
-                            onChange={(e) => setTitle(e.target.value)} />
+                    <input 
+                        type="text" 
+                        placeholder='제목' 
+                        id="title" value={title} 
+                        onChange={handleTitleChange} 
+                    />
                     <textarea id="body"
                             value={content} 
                             onChange={(e) => setContent(e.target.value)}>

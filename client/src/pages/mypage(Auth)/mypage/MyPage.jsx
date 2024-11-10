@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Outlet, Link } from 'react-router-dom';
 import S from './style';
 import DeleteAccount from './DeleteAccount';
+import { useUser } from '../../../context/UserContext';
 
 const MyPage = () => {
-  
+
+  const { user } = useUser();
   const navigate=useNavigate();
   const [showDeleteAccount, setShowDeleteAccount] = useState(false);
   const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // user 정보가 변경될 때마다 콘솔에 출력
+    console.log("User info from context:", user);
+  }, [user]);
 
   const goToUpdateProfile=()=>{
     navigate('/mypage/updateprofile');

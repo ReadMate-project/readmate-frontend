@@ -111,8 +111,8 @@ S.BookImage=styled.div`
         }
 
         @media (max-width: 768px) {
-            width:40px;
-            height:65px;
+            width:30px;
+            height:50px;
         }
 
         @media (max-width: 480px) {
@@ -182,7 +182,7 @@ S.UnderTitleContainer=styled.div`
     /* align-items: center;  */
     
     position:absolute;
-    bottom:10%;
+    bottom:12.5%;
     
 `
 

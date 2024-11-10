@@ -182,7 +182,7 @@ S.UnderTitleContainer=styled.div`
     /* align-items: center;  */
     
     position:absolute;
-    bottom:10%;
+    bottom:13%;
     
 `
 

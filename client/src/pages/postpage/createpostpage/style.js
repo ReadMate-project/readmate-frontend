@@ -72,7 +72,7 @@ S.BodyContainer=styled.div`
 
     & #body{
         width:100%;
-        height:65%;
+        height:60%;
         resize: none;
         border: none; 
         border-bottom: 1px solid gray;
@@ -84,7 +84,7 @@ S.BodyContainer=styled.div`
 S.ImagePreviewContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5%;
     margin-top: 10px;
     
 `;
