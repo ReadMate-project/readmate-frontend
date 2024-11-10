@@ -7,7 +7,7 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null); // 유저 정보 상태
     const accessToken = localStorage.getItem('accessToken'); 
 
-    useEffect(() => {
+    
         const fetchUserInfo = async () => {
             try {
                 
@@ -36,13 +36,22 @@ export const UserProvider = ({ children }) => {
             }
         };
 
-        if (accessToken) {
-            fetchUserInfo();
-        }
-    }, [accessToken]);
+        useEffect(() => {
+            if (accessToken) {
+                fetchUserInfo();
+            }
+        }, [accessToken]);  
+
+    // 로그아웃 함수 
+    const logout = () => {
+        setUser(null); // 유저 정보 초기화
+        localStorage.removeItem('accessToken'); // 토큰 삭제
+        localStorage.removeItem('isMember'); // isMember 정보 삭제
+    };
+
 
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setUser, logout, fetchUserInfo }}>
             {children}
         </UserContext.Provider>
     );

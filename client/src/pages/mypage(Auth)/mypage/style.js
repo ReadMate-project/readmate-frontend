@@ -72,7 +72,8 @@ S.Component=styled.div`
 S.Profile=styled.div`
     width:100%;
     img{
-        width:15%;
+        width:12%;
+        border-radius: 50%;
     }
 `
 S.NickNameContainer=styled.div`
@@ -81,8 +82,8 @@ S.NickNameContainer=styled.div`
     width:62%;
     position:absolute ;
     /* right:5%; */
-    top:13%;
-    left:23%;
+    top:12%;
+    left:21%;
 `
 S.NickName=styled.div`
     ${h3}
@@ -92,8 +93,8 @@ S.Introduce=styled.div`
     ${b4}
     position:absolute ;
     /* right:5%; */
-    top:19%;
-    left:23%;
+    top:17.5%;
+    left:21%;
 `
 S.ModifyButton=styled.span`
     /* width:13%; */

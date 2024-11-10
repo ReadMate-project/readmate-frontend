@@ -3,8 +3,10 @@ import S from './style';
 import { useNavigate } from 'react-router-dom';
 import Category from './category/Category';
 import axios from 'axios';
+import { useUser } from '../../../context/UserContext';
 
 const CreateNickNamePage = () => {
+    const { setUser, fetchUserInfo } = useUser();
     const [visible,setVisible]=useState(false);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [nickname, setNickname] = useState('');
@@ -77,8 +79,11 @@ const CreateNickNamePage = () => {
             console.log(accessToken );
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("isMember", "true");
-        
-            navigate('/created/kakaoLogin/account', { state: { nickname, selectedCategories } });
+            
+            // 바로 사용자 정보를 가져오도록 fetchUserInfo 실행
+            // await fetchUserInfo();
+            window.location.href = '/';
+            // navigate('/');
         } catch (error) {
             console.error("Error:", error);
         }
