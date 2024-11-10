@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const SearchResults = ({ books = [] }) => {
   if (!books || books.length === 0) {
-    return <div>No books found.</div>;
+    return <div></div>;
   }
 
   return (
     <div className="search-results">
       {books.map((book, index) => (
         <div key={index} className="book-item">
-          <Link to={`/books/bookinfo/${book.isbn}`}>
+          <Link to={`/books/bookinfo/${book.isbn13}`}>
             <img 
               src={book.cover} 
               alt={book.title} 
@@ -21,7 +21,7 @@ const SearchResults = ({ books = [] }) => {
             <div className="book-info">
               <h3>{book.title}</h3>
               <p>{book.author}</p>
-              <p>{book.publisher}</p>
+              <p>{book.publisher}</p>   
               <p>{book.description}</p>
             </div>
           </Link>
