@@ -47,8 +47,8 @@ const Category = ({ applySelectedCategories }) => {
             setSelectedCategories(selectedCategories.filter(item => item !== category));
             setErrorMessage(''); // 선택 해제 시 에러 메시지 초기화
         } else {
-            if (selectedCategories.length >= 5) {
-                setErrorMessage('최대 5개 카테고리까지만 선택할 수 있습니다.'); // 에러 메시지 설정
+            if (selectedCategories.length >= 3) {
+                setErrorMessage('최대 3개 카테고리까지만 선택할 수 있습니다.'); // 에러 메시지 설정
                 return;
             }
             setSelectedCategories([...selectedCategories, category]);

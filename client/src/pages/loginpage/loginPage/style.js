@@ -148,7 +148,7 @@ S.NickName=styled.div`
         background-color: rgba(233, 232, 228, 0.55);  
         border: none;               
         padding: 1.5%;              
-        width: 60%;                
+        width: 55%;                
         /* box-sizing: border-box;       */
         border-radius: 10px;          
         ${b3}
@@ -181,27 +181,6 @@ S.Category=styled.div`
     align-items: center;
     position: absolute;
     top:45%;
-    
-    /* input{
-        position:relative;
-        background-color: rgba(233, 232, 228, 0.55);  
-        border: none;               
-        padding: 1.5%;
-        padding-left: 3%;              
-        width: 60%;                
-        border-radius: 10px;          
-        ${b4}
-        outline: none;
-        
-    }
-    input::placeholder {
-            color: #999999;  
-            ${b4}  
-        }
-    img {
-        width:7%;
-        cursor: pointer;
-    } */
 
 `
 S.SignUp=styled.div`
@@ -223,35 +202,52 @@ S.CategoryButton = styled.button`
     /* color: ${({ isSelected }) => (isSelected ? '#fff' : '#333')}; */
     color:#717171;
     border: 1px solid #717171;
-    cursor: pointer;
+    
     border-radius: 30px;
 
-    &:hover {
-        background-color: ${({ isSelected }) => (isSelected ? 'green' : '#e0e0e0')};
-    }
+    
 `;
 S.SelectedButton = styled(S.CategoryButton)`
     padding: 2px 7px;
-    background-color:rgba(42, 168, 113, 0.09);
+    /* background-color:rgba(42, 168, 113, 0.09); */
     border: 1px solid #2AA871;
     color: #2AA871;
-    border-radius: 30px;
+    /* border-radius: 10px; */
     cursor: pointer;
     margin:1%;
 `;
 
 S.SelectedContainer = styled.div`
+    position: relative;
+    /* min-height: 35.7px; */
+    /* padding: 1.5%;  */
+    right:0.7%;
     display: flex;
     flex-wrap: wrap;
-    width:60%;
-    /* gap: 10px; */
-    /* margin-bottom: 20px; */
-    /* position: absolute; */
-    /* top:56%; */
+    width:55%;
+    
+    background-color: rgba(233, 232, 228, 0.55);
+    /* background-color: white; */
+    /* border:1px solid green; */
+    border-radius: 10px; 
     height:1%;
-    padding-left: 2%;
+    padding-left: 1%;
     overflow-y: auto;
+    
 `;
 
-
+S.ErrorMessage=styled.div`
+    position: absolute;
+    top:40%;
+    left:35%;
+    ${b4}
+    color:#DF4545;
+`
+S.ErrorMessage2=styled.div`
+    position: absolute;
+    top:48.5%;
+    left:35%;
+    ${b4}
+    color:#DF4545;
+`
 export default S;

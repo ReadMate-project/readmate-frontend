@@ -30,7 +30,7 @@ const SearchPage = () => {
       console.log("Search Results:", searchResults); // 검색 결과 확인
       setBooks(searchResults);
       if (searchResults.length === 0) {
-        setError('No books found matching your search.');
+        setError('검색어와 일치하는 책이 없습니다.');
       }
     } catch (err) {
       console.error('Search error:', err);

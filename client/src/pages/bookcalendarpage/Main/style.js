@@ -98,6 +98,8 @@ S.ArrowsWrapper=styled.div`
 `
 S.SelectWrapper=styled.h3`
     position:relative;
+    display: flex;  /* flexbox 사용 */
+    gap: 13%; 
     & select {
         cursor: pointer;
         outline: none;

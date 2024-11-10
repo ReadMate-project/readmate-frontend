@@ -195,8 +195,7 @@ const formatDate = (dateString) => {
                         <S.BookImage>
                             <img src={post.bookImage} alt="BookCover"/>
                         </S.BookImage>
-                        <S.BookTitle>{post.bookTitle}</S.BookTitle>
-                        <S.Writer>{post.writer}</S.Writer>
+                        
                     </S.BookContainer>
 
                     <S.TextContainer>

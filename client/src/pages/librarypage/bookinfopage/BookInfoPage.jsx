@@ -1,32 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import BookInfoHeader from './BookInfoHeader';
 import BookInfoDetails from './BookInfoDetails';
+import useBookDetails from '../../../hooks/Aladin/useBookDetails';
 
 const BookInfoPage = () => {
   const { isbn } = useParams();
-  const [bookDetails, setBookDetails] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchBookDetails = async () => {
-      try {
-        const response = await axios.get(`http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${process.env.REACT_APP_ALADIN_API_KEY}&ItemId=${isbn}&itemIdType=ISBN13&output=JS&Version=20131101`);
-        console.log('API Response:', response.data); // API 응답 데이터 확인
-        setBookDetails(response.data.item[0]);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error fetching book details:', error);
-        setIsLoading(false);
-      }
-    };
-  
-    fetchBookDetails();
-  }, [isbn]);
+  const { bookDetails, isLoading, error } = useBookDetails(isbn);
 
   if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
