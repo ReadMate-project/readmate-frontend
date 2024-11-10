@@ -9,7 +9,7 @@ const FeaturedBooksContainer = () => {
             
             <S.Container>
                 <S.Title>
-                    <img src={process.env.PUBLIC_URL + '/global/images/mainpage/featauredbooks.png'}/>
+                    <img src={process.env.PUBLIC_URL + '/global/images/mainpage/featuredbooks.png'}/>
                 </S.Title>
                 <S.Text>
                     <div>지난 일주일간 사람들이</div>

@@ -19,10 +19,10 @@ const PostPage = () => {
   const dummyPosts = [
     {
       boardId: 1,
-      title: '첫 번째 게시글',
+      title: '첫 번째 게시글 첫 번째 게시글',
       content:"첫 번째 게시글 내용",
       userId: 'user1',
-      createdAt: '2024-09-30T20:09:59.989724',
+      createdAt: '2024-11-08T15:09:59.989724',
       likeCount: 10,
       comment:5,
       imageUrl:'https://img.freepik.com/premium-vector/abstract-square-pixel-colour-pattern-21_615845-1013.jpg', 
@@ -35,11 +35,12 @@ const PostPage = () => {
       createdAt: '2024-10-07T09:24:33.002345',
       likeCount: 5,
       comment:2,
+      imageUrl:'https://img.freepik.com/premium-vector/abstract-square-pixel-colour-pattern-21_615845-1013.jpg', 
     },
     {
       boardId: 3,
       title: '세 번째 게시글',
-      content:"세 번째 게시글 내용",
+      content:"세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용",
       userId: 'user3',
       createdAt: '2024-10-06T18:30:00',
       likeCount: 8,
@@ -196,9 +197,12 @@ const formatDate = (dateString) => {
 
         {/* HOT 게시글 리스트 */}
        
-        <S.HotPostTitle><img 
+        <S.HotPostTitle>
+          <img 
            src={process.env.PUBLIC_URL + '/global/images/postpage/hotboard.png'}  alt="게시판"
-        /></S.HotPostTitle>
+          />
+        </S.HotPostTitle>
+        
         <S.HotPostContainer>
         
           <S.PostList>
@@ -214,13 +218,13 @@ const formatDate = (dateString) => {
                 <S.UnderTitleContainer>
                 
                 <S.LikeContainer>
-                  <FontAwesomeIcon
-                    icon={post.isLiked ? filledHeart : emptyHeart}
-                    onClick={() => handleLikeClick(post.boardId, post.isLiked)}
-                    // style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
-                  />
-                   <div >{post.likeCount}</div> 
-                  </S.LikeContainer>
+                    <FontAwesomeIcon
+                      icon={post.isLiked ? filledHeart : emptyHeart}
+                      onClick={() => handleLikeClick(post.boardId, post.isLiked)}
+                      // style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
+                    />
+                    <div >{post.likeCount}</div> 
+                </S.LikeContainer>
                   
                   <S.CommentContainer>
                     <FontAwesomeIcon icon={faComment} />

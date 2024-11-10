@@ -1,81 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import S from './style';
 import CreateNickNamePage from './CreateNickNamePage';
+import axios from 'axios';
 
 const KakaoRedirect = () => {
     
+    const isMember = localStorage.getItem("isMember");
     const navigate = useNavigate();
-    const code = new URL(window.location.href).searchParams.get("code");
-    console.log(code);
-
-    const [nickname, setNickname] = useState('');
-    const [category, setCategory] = useState('');
-
+    const location = useLocation();
+    const code = new URL(window.location.href).searchParams.get("code");  
     
-    http://3.35.193.132:3000/api/v1/auth/oauth2/kakao/code
     useEffect(() => {
-        // 카카오 로그인 요청
-        fetch(`http://3.35.193.132:3000/api/v1/auth/oauth2/kakao?code=${code}`, {
-        // fetch(`/api/v1/auth/oauth2/kakao?code=${code}`, {
-        // fetch(`/api/v1/auth/login/kakao?code=${code}`, {
-            method: "GET",
-        })
-        .then((response) => {
-            if (response.ok) {
-                // 로그인 성공 시 헤더에서 토큰을 받음
-                const token = response.headers.get('Authorization');
-
-                if (token) {
-                    // 이미 회원인 경우 (로그인)
-                    localStorage.setItem('token', token);
-                    navigate('/');
-                } else {
-                    // 처음 로그인(회원가입)일 경우
-                    // 회원가입 요청 (body에 데이터를 추가해서 요청)
-                    const userData = {
-                        nickname: '새로운 사용자',  // 필요한 데이터를 body에 추가
-                        category: '카테고리 선택'
-                    };
-
-                    fetch('http://3.35.193.132:3000/api/v1/auth/oauth2/kakao?code=${code}', {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(userData)
-                    })
-                    .then((registerResponse) => {
-                        if (registerResponse.ok) {
-                            // 회원가입 성공 시, 회원가입 성공 처리
-                            navigate('/createNickName');
-                        } else {
-                            console.error('회원가입 실패');
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('회원가입 요청 오류:', error);
-                    });
-                }
-            } else {
-                // 로그인 실패 처리 (401 또는 404)
-                return response.json().then((data) => {
-                    if (response.status === 401 || 404) {
-                        console.error(data.message);
-                    }
+        const loginExistingUser = async () => {
+            try {
+                const response = await fetch(`http://3.35.193.132:8080/api/v1/auth/login/kakao?code=${code}`, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: null, // 회원인 경우 body를 비워서 전송
                 });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                
+                // Authorization 헤더에서 토큰 가져오기
+                let accessToken = response.headers.get('authorization') || response.headers.get('Authorization');
+                if (accessToken && accessToken.startsWith("Bearer ")) {
+                    accessToken = accessToken.replace("Bearer ", ""); // "Bearer " 제거
+                }
+                localStorage.setItem("accessToken", accessToken);
+                
+                // 메인 페이지로 리다이렉트
+                window.location.href = '/';
+            } catch (error) {
+                console.error("Error during login:", error);
             }
-        })
-        .catch((error) => {
-            console.error("오류 발생", error);
-        });
-    }, [code, navigate]);
-    
+        };
+
+        if (isMember === "true") {
+            loginExistingUser(); // 이미 회원인 경우 바로 로그인 요청
+        }
+    }, [isMember, navigate, location.state, code]);
+
     return (
-        <div>
-            <CreateNickNamePage/>
-        </div>
+        <>
+           {isMember !== "true" && <CreateNickNamePage />}
+        </>
     );
 };
 
 export default KakaoRedirect;
+

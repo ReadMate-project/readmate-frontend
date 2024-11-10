@@ -148,17 +148,13 @@ S.Introduce=styled.div`
         padding: 1.5%;
         padding-left: 3%;              
         width: 60%;                
-        border-radius: 10px;          
+        border-radius: 0.5vw;           
         ${b4}
         outline: none;
-        margin-left: 5%;
+        /* margin-left: 5%; */
         
     }
-    input::placeholder {
-            color: #999999;  
-            ${b4}  
-        }
-    & #count{
+    & .count{
         ${b4}
         color: #999999;
     }
@@ -174,27 +170,32 @@ S.NickName=styled.div`
     top:60%;
     input{
         position:relative;
-        left: 1%;
         background-color: rgba(233, 232, 228, 0.55);  
         border: none;               
-        padding: 1.5%;              
-        width: 40%;                
-        /* box-sizing: border-box;       */
-        border-radius: 10px;          
-        ${b3}
+        padding: 1.5%;
+        padding-left: 3%;              
+        width: 60%;                
+        border-radius: 0.5vw;           
+        ${b4}
         outline: none;
+        margin-left: 4.5%;
     }
-    div:nth-child(3) {
-        ${b1};
-        font-weight: 700;
-        border:2px solid ${theme.PALETTE.green};
-        color:${theme.PALETTE.green};
-        padding:2%;
-        border-radius: 10px ;
-        cursor: pointer;
+    & .count{
+        ${b4}
+        color: #999999;
     }
         
 
+`
+S.SelectCategoryButton=styled.div`
+     ${b1};
+    font-weight: 700;
+    border:2px solid ${theme.PALETTE.green};
+    color:${theme.PALETTE.green};
+    padding:2%;
+    border-radius: 1vw ;
+    
+    cursor: pointer;
 `
 S.Category=styled.div`
     width:70%;
@@ -205,28 +206,88 @@ S.Category=styled.div`
     align-items: center;
     position: absolute;
     top:75%;
-    
-    input{
-        position:relative;
-        background-color: rgba(233, 232, 228, 0.55);  
-        border: none;               
-        padding: 1.5%;
-        padding-left: 3%;              
-        width: 60%;                
-        border-radius: 10px;          
-        ${b4}
-        outline: none;
-        
-    }
-    input::placeholder {
-            color: #999999;  
-            ${b4}  
-        }
-    img {
-        width:7%;
-        cursor: pointer;
-    }
 
 `
+S.CategoryButton = styled.button`
+    padding: 2px 7px;
+    ${b4}
+    background-color: ${({ isSelected }) => (isSelected ? 'green' : 'white')};
+    /* color: ${({ isSelected }) => (isSelected ? '#fff' : '#333')}; */
+    color:#717171;
+    border: 1px solid #717171;
+    
+    border-radius: 30px;
+
+    
+`;
+S.SelectedButton = styled(S.CategoryButton)`
+    padding: 2px 7px;
+    /* background-color:rgba(42, 168, 113, 0.09); */
+    border: 1px solid #2AA871;
+    color: #2AA871;
+    /* border-radius: 10px; */
+    cursor: pointer;
+    margin:1%;
+`;
+
+S.SelectedContainer = styled.div`
+    position: relative;
+    /* padding: 1.5%;  */
+    /* right:0.7%; */
+    display: flex;
+    flex-wrap: wrap;
+    width:60%;
+    background-color: rgba(233, 232, 228, 0.55);
+    border-radius: 0.5vw; 
+    padding:0.5%;
+    height:100%;
+    min-height:40px;
+    overflow-y: auto;
+     @media (max-width: 1024px) {
+        min-height:30px;
+    }
+
+    @media (max-width: 768px) {
+        min-height:20px;
+    }
+
+    @media (max-width: 480px) {
+        min-height:10px;
+    }
+    
+`;
+
+// S.Category=styled.div`
+//     width:70%;
+//     display:flex;
+//     ${b1};
+//     font-weight: 700;
+//     justify-content: space-between;
+//     align-items: center;
+//     position: absolute;
+//     top:75%;
+    
+//     input{
+//         position:relative;
+//         background-color: rgba(233, 232, 228, 0.55);  
+//         border: none;               
+//         padding: 1.5%;
+//         padding-left: 3%;              
+//         width: 60%;                
+//         border-radius: 10px;          
+//         ${b4}
+//         outline: none;
+        
+//     }
+//     input::placeholder {
+//             color: #999999;  
+//             ${b4}  
+//         }
+//     img {
+//         width:7%;
+//         cursor: pointer;
+//     }
+
+// `
 
 export default S;

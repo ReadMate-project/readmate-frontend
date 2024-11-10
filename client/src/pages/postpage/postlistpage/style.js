@@ -98,6 +98,7 @@ S.PostList = styled.div`
 
 S.PostItem = styled.div`
     padding: 1.5%;
+    padding-right: 7%;
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -179,12 +180,13 @@ S.CommentContainer = styled.div`
 S.PostImage=styled.div`
     /* width:80px;
     height:80px; */
-    width:8%;
-    
-    /* position: absolute; */
+    width:6%;
+    top:10%;
+    position: absolute;
     right:1%;
     img{
         width:100%;
+        
     }
 `
 S.LatestPostContainer = styled.div`
