@@ -1,32 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import S from './style';
 
 const BookList = ({ books = [] }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const booksPerPage = 3;
+
   if (!books || books.length === 0) {
     return <div>No books available.</div>;
   }
 
+  const totalPages = Math.ceil(books.length / booksPerPage);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => (prevPage - 1 + totalPages) % totalPages);
+  };
+
+  const startIndex = currentPage * booksPerPage;
+  const selectedBooks = books.slice(startIndex, startIndex + booksPerPage);
+
   return (
-    <div className="book-list">
-      {books.map((book, index) => (
-        <div key={index} className="book-item">
-          <Link to={`/books/bookinfo/${book.isbn13}`}>
-            <img 
-              src={book.cover} 
-              alt={book.title} 
-              onError={(e) => {
-                e.target.src = '/placeholder-book.png'; // Placeholder image
-              }}
-            />
-            <div className="book-info">
-              <h3>{book.title}</h3>
-              <p>{book.author}</p>
-              <p>{book.publisher}</p>
-              <p>{book.description}</p>
-            </div>
-          </Link>
-        </div>
-      ))} 
+    <div>
+      <S.Container>
+        <S.TitleHightlight>
+          <img src={process.env.PUBLIC_URL + '/global/images/librarypage/BESTSELLER.png'} alt="Library Board" />
+        </S.TitleHightlight>
+        <S.BestsellerContainer>
+          <S.BookList>
+            {selectedBooks.map((book, index) => {
+              const { isbn13, cover, title, author, categoryName } = book;
+              const categories = categoryName ? categoryName.split(/>|\/+/) : [];
+
+              return (
+                <S.BookSection key={index} className="type1">
+                  <Link to={`/books/bookinfo/${isbn13}`}>
+                    <img 
+                      src={cover} 
+                      alt={title} 
+                      onError={(e) => {
+                        e.target.src = '/placeholder-book.png'; // Placeholder image
+                      }}
+                    />
+                    <div className="book-info">
+                      <h3>{title}</h3>
+                      <p>{author}</p>
+                      <ul>
+                        {categories.map((category, index) => (
+                          <li key={index}>{category}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Link>
+                </S.BookSection>
+              );
+            })}
+          </S.BookList>
+          <button onClick={handlePrevPage} disabled={currentPage === 0}>
+            {'<'}
+          </button>
+          <button onClick={handleNextPage} disabled={currentPage === totalPages - 1}>
+            {'>'}
+          </button>
+        </S.BestsellerContainer>
+      </S.Container>
     </div>
   );
 };

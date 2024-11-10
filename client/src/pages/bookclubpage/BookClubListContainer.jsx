@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate, Outlet } from 'react-router-dom';
-import S from './style'
+import S from './style';
 
 
 const BookClubListContainer = () => {

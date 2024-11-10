@@ -78,7 +78,7 @@ async function getItemList(){
         const response = await axios.get(apiUrl, {
             params: {
                 ttbkey: API_KEY,
-                QueryType: 'ItemNewAll',
+                QueryType: 'BestSeller',
                 MaxResults: 20,
                 start: 1,
                 SearchTarget: 'Book',
