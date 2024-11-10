@@ -93,7 +93,7 @@ S.Introduce=styled.div`
     ${b4}
     position:absolute ;
     /* right:5%; */
-    top:17.5%;
+    top:17%;
     left:21%;
 `
 S.ModifyButton=styled.span`

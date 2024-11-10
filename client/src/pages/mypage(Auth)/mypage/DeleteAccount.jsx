@@ -20,7 +20,7 @@ const DeleteAccount = ({visible,setVisible}) => {
                     },
                 }
             );
-
+            localStorage.removeItem('isMember');
             logout(); // 유저 정보 초기화
             navigate('/'); // 메인 페이지로 리다이렉트
         } catch (error) {

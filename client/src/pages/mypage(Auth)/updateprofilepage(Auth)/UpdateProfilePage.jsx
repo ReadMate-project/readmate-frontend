@@ -15,8 +15,6 @@ const UpdateProfilePage = () => {
   const [visible, setVisible] = useState(false);
   const navigate=useNavigate();
 
-  console.log(user);
-
   useEffect(() => {
     if (user) {
       setProfileImage(user.profileImageUrl || process.env.PUBLIC_URL + '/global/images/mypage/defaultProfile.png');
@@ -73,7 +71,7 @@ const UpdateProfilePage = () => {
   // 사용자 정보 수정 서버에 전송
   const handleSubmit = async () => {
     try {
-      const accessToken = localStorage.getItem('accessToken'); // 인증 토큰 가져오기
+      const accessToken = localStorage.getItem('accessToken'); 
       const response = await axios.patch(
         'http://3.35.193.132:8080/api/v1/auth/user/update',
         {

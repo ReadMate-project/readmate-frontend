@@ -46,7 +46,7 @@ export const UserProvider = ({ children }) => {
     const logout = () => {
         setUser(null); // 유저 정보 초기화
         localStorage.removeItem('accessToken'); // 토큰 삭제
-        localStorage.removeItem('isMember'); // isMember 정보 삭제
+        // localStorage.removeItem('isMember');
     };
 
 

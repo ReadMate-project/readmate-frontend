@@ -62,30 +62,18 @@ const CreateNickNamePage = () => {
                 },
                 body: JSON.stringify(userData),
             });
-        
+
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
-        
-            const data = await response.json();
-            console.log("Response Data:", data);
-            console.log(response.headers);
-        
-            // Authorization 헤더에 있는 토큰 가져오기
-            let accessToken = response.headers.get('authorization') || response.headers.get('Authorization');
-            if (accessToken && accessToken.startsWith("Bearer ")) {
-                accessToken = accessToken.replace("Bearer ", ""); // "Bearer " 제거
-            }
-            console.log(accessToken );
-            localStorage.setItem("accessToken", accessToken);
+            console.log(response);
+            console.log("회원가입 성공! 로그인 페이지로 이동합니다.");
+            // 회원가입 성공 후, isMember 플래그 설정 및 KakaoRedirect로 이동
             localStorage.setItem("isMember", "true");
-            
-            // 바로 사용자 정보를 가져오도록 fetchUserInfo 실행
-            // await fetchUserInfo();
-            window.location.href = '/';
-            // navigate('/');
+            navigate("/login");
+            // navigate(`/api/v1/auth/oauth2/kakao?code=${code}`); // KakaoRedirect로 이동
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error during account creation:", error);
         }
     }
     
