@@ -30,6 +30,9 @@ const BookList = ({ books = [] }) => {
           <img src={process.env.PUBLIC_URL + '/global/images/librarypage/BESTSELLER.png'} alt="Library Board" />
         </S.TitleHightlight>
         <S.BestsellerContainer>
+        <button onClick={handlePrevPage} disabled={currentPage === 0}>
+        <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Left.png'} alt="Library Board" />
+          </button>
           <S.BookList>
             {selectedBooks.map((book, index) => {
               const { isbn13, cover, title, author, categoryName } = book;
@@ -59,11 +62,9 @@ const BookList = ({ books = [] }) => {
               );
             })}
           </S.BookList>
-          <button onClick={handlePrevPage} disabled={currentPage === 0}>
-            {'<'}
-          </button>
+          
           <button onClick={handleNextPage} disabled={currentPage === totalPages - 1}>
-            {'>'}
+          <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Right.png'} alt="Library Board" />
           </button>
         </S.BestsellerContainer>
       </S.Container>

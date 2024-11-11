@@ -83,7 +83,8 @@ async function getItemList(){
                 start: 1,
                 SearchTarget: 'Book',
                 output: 'xml',  // 'js' 대신 'xml' 사용
-                Version: '20131101'
+                Version: '20131101',
+                cover:'MidBig'
             }
         });
         const data = await parseXml(response.data);

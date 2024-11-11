@@ -11,7 +11,7 @@ S.Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    overflow-x: hidden;
+    
 `;
 
 S.TitleHightlight = styled.div`
@@ -40,23 +40,27 @@ S.BestsellerContainer = styled.div`
     border-radius: 0.5rem;
     padding: 2%;
     background-color: #CFDEC8;
+    display: flex;
+    justify-content: center;
 `;
 
 S.BookList = styled.div`
-    
+    padding: 2%;
     display: flex;
-    flex-wrap: nowrap; /* 한 줄로 나열 */
+    flex-wrap: rap; /* 한 줄로 나열 */
+    gap: 2%;
    `;
 
 S.BookSection = styled.div`
   &.type1 {
     width: 33%;
-    height: 100%;
+    padding: 0.5%;
     border-radius: 2vw;
     background-color: #FFFFFF;
     display: flex;
-    flex-direction: row; /* 여기를 수정했습니다 */
+    flex-direction: row; 
     align-items: center;
+    justify-content: center;
     margin-right: 2%; /* 책 사이 간격 추가 */
   }
   &.type2 {
