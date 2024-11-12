@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import S from './style';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 const CreatePostPage = () => {
     const [images, setImages] = useState([]);
@@ -13,8 +14,8 @@ const CreatePostPage = () => {
     const files = Array.from(e.target.files);
         
 
-        if (files.length + images.length > 10) {
-            alert('최대 10개의 이미지만 업로드할 수 있습니다.');
+        if (files.length + images.length > 5) {
+            alert('최대 5개의 이미지만 업로드할 수 있습니다.');
             return;
         }
 
@@ -32,45 +33,55 @@ const CreatePostPage = () => {
     const handleCancle=()=>{
         navigate('/posts')
     }
+    
+    // 제목 입력 시 10글자 제한
+    const handleTitleChange = (e) => {
+        const input = e.target.value;
+        if (input.length <= 10) {
+            setTitle(input);
+        }
+    };
     //저장 버튼 클릭 시 서버에 POST 요청 보내기
-    const handleSubmit = () => {
-        
+    const handleSubmit = async () => {
+        const accessToken = localStorage.getItem('accessToken');
+        console.log(accessToken);
         const requestData = {
-            userId: '', //정해야함 
-            title: title,
             content: content,
-            boardType: "BOARD" 
+            title: title,
+            boardType: "BOARD"
         };
-
-        fetch('/api/v1/board', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}` //로컬스토리지 할건지 리덕스할건지 정해야함
-            },
-            body: JSON.stringify(requestData)
-        })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(data => {
-                    // 401(로그인을 진행해주세요) 403(해당 북클럽의 회원이 아닙니다)
-                    if (response.status === 401 || response.status === 403) {
-                        setErrorMessage(data.message);
-                        console.log(errorMessage);
+    
+        try {
+            const response = await axios.post(
+                'http://3.35.193.132:8080/api/v1/board',
+                requestData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`
                     }
-                    throw new Error('Network response was not ok');
-                });
+                }
+            );
+    
+            console.log('Post created successfully:', response.data);
+            navigate('/posts');
+        } catch (error) {
+            if (error.response) {
+                console.log(error);
+                // const status = error.response.status;
+                // const data = error.response.data;
+    
+                // if (status === 401 || status === 403) {
+                //     setErrorMessage(data.message);
+                //     console.log(errorMessage);
+                // } else {
+                //     console.error('Server response error:', data);
+                // }
+            } else {
+                // 네트워크 에러 또는 요청이 전송되지 않았을 경우
+                console.error('Error creating post:', error);
             }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Post created successfully:', data);
-            navigate('/posts'); 
-        })
-        .catch(error => {
-            console.error('Error creating post:', error);
-            
-        });
+        }
     };
 
     return (
@@ -84,10 +95,12 @@ const CreatePostPage = () => {
                 </S.TitleContainer>
                 <S.Line></S.Line>
                 <S.BodyContainer>
-                    <input type="text" 
-                            placeholder='제목' 
-                            id="title" value={title} 
-                            onChange={(e) => setTitle(e.target.value)} />
+                    <input 
+                        type="text" 
+                        placeholder='제목' 
+                        id="title" value={title} 
+                        onChange={handleTitleChange} 
+                    />
                     <textarea id="body"
                             value={content} 
                             onChange={(e) => setContent(e.target.value)}>

@@ -31,12 +31,22 @@ S.Title=styled.div`
 `
 S.TitleHightLight=styled.div`
         position: absolute;
-        top:13%;
+        top: 7.5%;
         left:20%;
         width:28%;
         img{
             width:100%
         }
+    /* width:100%;
+    height:100%;
+    
+    img{
+        position:relative;
+        
+        width:15%;
+        margin-left:10%;
+        margin-top: 5%;
+    }   */
 `
 //calendar
 
@@ -88,6 +98,8 @@ S.ArrowsWrapper=styled.div`
 `
 S.SelectWrapper=styled.h3`
     position:relative;
+    display: flex;  /* flexbox 사용 */
+    gap: 13%; 
     & select {
         cursor: pointer;
         outline: none;

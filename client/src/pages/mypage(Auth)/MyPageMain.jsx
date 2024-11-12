@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Outlet } from 'react-router';
 import S from './style';
+
 const MyPageMain = () => {
+
     return (
         <div>
             <S.Container>

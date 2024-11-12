@@ -25,11 +25,12 @@
     "web-vitals": "^2.1.0",
     "xml2js": "^0.6.2"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://3.35.193.132:8080",
   "scripts": {
     "dev": "concurrently \"yarn run frontend\" \"yarn run backend\"",
-    "frontend": "react-scripts start",
+    "frontend": "react-scripts --max-http-header-size=8192 start",
     "backend": "node server.mjs"
+    
   },
   "eslintConfig": {
     "extends": [

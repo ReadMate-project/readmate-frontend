@@ -49,7 +49,7 @@ import BookCalendarDetail from "../pages/bookcalendarpage/Detail/BookCalendarDet
 
 
 const ProtectedRoute = ({ element }) => {
-    return isAuthenticated() ? element : <Navigate to="/api" />;
+    return isAuthenticated() ? element : <Navigate to="/login" />;
   };
 
 const router = createBrowserRouter([
@@ -63,24 +63,26 @@ const router = createBrowserRouter([
             element: <MainPage />,
         },
         {
-            path: "/api",
+            path: "/login",
             element: <LoginMain />,
             children:[
                 {
-                    path: "/api",
+                    path: "/login",
                     element: <LoginPage />,
                     
                 },
                 {
-                    path: "http://3.35.193.132:3000/api/v1/auth/oauth2/kakao/code",
-                    // path:"/api/created",
-                    element: <KakaoRedirect />,
+                    path:"/login/account",
+                    element: <CreateNickNamePage />,
                     
                 },
             ]
             
         },
-        
+        {
+            path:"/api/v1/auth/oauth2/kakao/code",
+            element:<KakaoRedirect/>
+        },
         {
             path: "/bookclubs",
             element: <BookClubPage />,
@@ -106,7 +108,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/essay/createEssay",
-                element: <PostingPage />,
+                element: <ProtectedRoute element={<PostingPage />} />,
             },
            ]
         },
@@ -136,17 +138,17 @@ const router = createBrowserRouter([
                     path:"/posts/postdetail",
                     element: <PostDetailPage />,
                 },
-                {
+                {//내가 쓴 postdetail일 때만 보이게 해야함
                         path:"/posts/postdetail/modifypost",
-                        element: <ModifyPost />,
-                    },
+                        element: <ProtectedRoute element={<ModifyPost />} />,
+                },
                 {
                     path: "/posts/createPost",
-                    element: <CreatePostPage />,
+                    element: <ProtectedRoute element={<CreatePostPage />} />,
                 },
                 {
                     path: "/posts/myPost",
-                    element: <MyPost/>,
+                    element: <ProtectedRoute element={<MyPost/>} />,
                 },
               ],
         },
@@ -172,11 +174,11 @@ const router = createBrowserRouter([
 
         {
             path: "/mylibrary",
-            element: <MyLibraryPage />,
+            element: <ProtectedRoute element={<MyLibraryPage />} />,
             children: [
                 {
                     path: "/mylibrary",
-                    element: <BookRecordPage />,
+                    element: <ProtectedRoute element={<BookRecordPage />} />,
                 },
 
                 
@@ -184,34 +186,32 @@ const router = createBrowserRouter([
         },
         {
             path: "/bookcalendar",
-            element:<BookCalendarMain/>,
+            element:<ProtectedRoute element={<BookCalendarMain />} />,
             children: [
                 {
                     path: "/bookcalendar",
-                    element:<BookCalendar/>
+                    element:<ProtectedRoute element={<BookCalendar />} />,
                 },
 
                 {
                     path: "/bookcalendar/detail",
-                    element: <BookCalendarDetail/>,
+                    element:  <ProtectedRoute element={<BookCalendarDetail />} />,
                 },
             ],
         },
         
         {
             path: "/mypage",
-            // element: <ProtectedRoute element={<MyPageMain/>} />,
-            element: <MyPageMain/>,
+            element: <ProtectedRoute element={<MyPageMain/>} />,
             children: [
                 {
                     path: "/mypage",
-                    // element: <ProtectedRoute element={<MyPage />} />,
-                    element: <MyPage />
+                    element: <ProtectedRoute element={<MyPage />} />,
+                    
                 },
                 {
                     path: "/mypage/updateprofile",
-                    // element: <ProtectedRoute element={<UpdateProfilePage />} />,
-                    element: <UpdateProfilePage />
+                    element: <ProtectedRoute element={<UpdateProfilePage />} />,
 
                 },
             ],
