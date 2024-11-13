@@ -1,14 +1,11 @@
 // SearchPage.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
 import SearchResults from './SearchResults';
-
+import { useAladinSearch } from '../../hooks/Aladin/useAladinSearch';
 const SearchPage = () => {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [searchParams] = useSearchParams();
+  const { searchResults, isLoading, error, handleSearch } = useAladinSearch();
 
   useEffect(() => {
     const query = searchParams.get('q');
@@ -17,44 +14,20 @@ const SearchPage = () => {
     }
   }, [searchParams]);
 
-  const handleSearch = async (query) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await axios.get(`http://localhost:5000/api/search`, {
-        params: { query: query.trim() }
-      });
-      console.log("API Response:", response.data); // API 응답 데이터 확인
-      // const searchResults = response.data?.item || []; 여기서 문제 발생
-      const searchResults = response.data.object?.item || []; // object에서 item 배열을 추출
-      console.log("Search Results:", searchResults); // 검색 결과 확인
-      setBooks(searchResults);
-      if (searchResults.length === 0) {
-        setError('검색어와 일치하는 책이 없습니다.');
-      }
-    } catch (err) {
-      console.error('Search error:', err);
-      setError('An error occurred while searching. Please try again.');
-      setBooks([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-
   return (
     <div>
       {error && <div className="error-message">{error}</div>}
-      {loading ? (
+      {isLoading ? (
         <div className="loading">Searching...</div>
       ) : (
-        <SearchResults books={books} />
+        <SearchResults books={searchResults} />
       )}
     </div>
   );
 };
 
 export default SearchPage;
+
 
 
 

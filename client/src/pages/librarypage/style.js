@@ -6,7 +6,7 @@ const S = {};
 
 S.Container = styled.div`
     width: 100%;
-    height: auto;
+    height: 100vh
     background-color: ${theme.PALETTE.background};
     display: flex;
     align-items: center;
@@ -45,9 +45,9 @@ S.BestsellerContainer = styled.div`
 `;
 
 S.BookList = styled.div`
-    padding: 2%;
+    padding: 10%;
     display: flex;
-    flex-wrap: rap; /* 한 줄로 나열 */
+     /* 한 줄로 나열 */
     gap: 2%;
    `;
 
@@ -76,31 +76,44 @@ S.BookSection = styled.div`
 
 S.BookImage = styled.img`
   &.type1 {
-    width: 10vw;
-    height: 15vh;
+    padding: 13%;
+    width: 100%;
+   
+    border-radius: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
 S.BookContent = styled.div`
+  padding: 0 0 13% 0;
+
   margin-right: 3vw;
   padding-left: 2vw;
   font-weight: bold;
   font-family: 'Roboto';
-  h1 {
-    margin-bottom: 1vw;
+  h3 {
+    padding: 0 0 0 0;
+    margin: 0 0 10% 0;
   }
   p {
-    margin-bottom: 1vw;
-    font-size: 1.25vw;
+    padding: 0 0 0 0;
+    margin: 0 0 10% 0;
   }
-  a {
-    display: inline-block;
-    padding: 0.375vw 0.75vw;
-    background-color: #D9D9D9;
+  ul {
+    display: flex;
+    justify-content: center;
+    
     color: #717171;
     text-decoration: none;
-    border-radius: 0.25vw;
+    border-radius: 0.25vw;  
+    gap: 0.5vw;
   }
 `;
-
+S.Button = styled.button`
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+  `;
 export default S;
