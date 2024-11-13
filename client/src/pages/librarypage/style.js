@@ -45,10 +45,10 @@ S.BestsellerContainer = styled.div`
 `;
 
 S.BookList = styled.div`
-    padding: 10%;
+    padding: 2%;
     display: flex;
      /* 한 줄로 나열 */
-    gap: 2%;
+    gap: 10%;
    `;
 
 S.BookSection = styled.div`
@@ -112,6 +112,7 @@ S.BookContent = styled.div`
   }
 `;
 S.Button = styled.button`
+  margin: 2%;
   background-color: transparent;
   border: transparent;
   cursor: pointer;
