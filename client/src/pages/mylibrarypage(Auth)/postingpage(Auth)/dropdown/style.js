@@ -38,5 +38,70 @@ S.Dropdown = styled.div`
     width:100%;
   }
 `;
+S.DropdownContainer3 = styled.div`
+  position: absolute;
+  width: 300px;
+  margin: 0 auto;
+`;
 
+S.Input3 = styled.input`
+width: 100%;
+padding: 10px;
+font-size: 1rem;
+border: 1px solid #CCC;
+border-radius: 0.5rem;
+outline: none;
+&:focus {
+    border-color: #BBAB8C;
+}
+`;
+S.ResultsContainer = styled.div`
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+background-color: #FFF;
+border: 1px solid #CCC;
+border-radius: 0.5rem;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+max-height: 200px;
+overflow-y: auto;
+z-index: 1000;
+margin-top: 5px;
+`;
+
+S.ResultItem = styled.div`
+display: flex;
+align-items: center;
+padding: 10px;
+cursor: pointer;
+transition: background-color 0.2s;
+
+&:hover {
+    background-color: #F0F0F0;
+}
+
+img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-right: 10px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+        font-size: 1rem;
+        margin-bottom: 2px;
+    }
+
+    span {
+        font-size: 0.9rem;
+        color: #555;
+    }
+}
+`;
 export default S;

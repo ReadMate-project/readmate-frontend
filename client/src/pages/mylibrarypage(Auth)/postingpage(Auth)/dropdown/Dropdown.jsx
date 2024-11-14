@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import S from './style';
 import Select from 'react-select';
+import Dropdown3 from './Dropdown3';
 
 
 const Dropdown = () => {
@@ -86,7 +87,7 @@ const Dropdown = () => {
         </select>
       </S.Dropdown>
 
-      <S.Dropdown>
+      {/* <S.Dropdown>
         <div className='search'>
             <Select
             id="searchBookDropdown"
@@ -97,8 +98,9 @@ const Dropdown = () => {
             styles={customStyles}
             />
         </div>
-      </S.Dropdown>
+      </S.Dropdown> */}
 
+    <Dropdown3/>
     </S.DropdownContainer>
   );
 };

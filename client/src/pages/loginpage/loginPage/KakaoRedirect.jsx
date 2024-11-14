@@ -1,49 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import S from './style';
 import CreateNickNamePage from './CreateNickNamePage';
-import axios from 'axios';
+import apiClient, { setAccessToken } from '../../../api/apiClient';
 
 const KakaoRedirect = () => {
-    
     const isMember = localStorage.getItem("isMember");
     const navigate = useNavigate();
     const location = useLocation();
-    const code = new URL(window.location.href).searchParams.get("code");  
+    const code = new URL(window.location.href).searchParams.get("code");
     
+
     useEffect(() => {
         const loginExistingUser = async () => {
             try {
-                const response = await fetch(`http://3.35.193.132:8080/api/v1/auth/login/kakao?code=${code}`, {
-                    method: 'POST',
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: null, // 회원인 경우 body를 비워서 전송
-                });
+                // 이전 토큰 삭제
+                localStorage.removeItem("accessToken");
+                localStorage.removeItem("refreshToken");
+                // localStorage.removeItem("isMember");
+                delete apiClient.defaults.headers.common['Authorization'];
 
-                if (!response.ok) {
+                const response = await apiClient.post(`/v1/auth/login/kakao?code=${code}`);
+
+                if (response.status !== 200) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
+
+                // 서버에서 받은 헤더를 분리하여 토큰 가져오기
+                const authHeader = response.headers['authorization'] || response.headers['Authorization'];
                 
-                // Authorization 헤더에서 토큰 가져오기
-                let accessToken = response.headers.get('authorization') || response.headers.get('Authorization');
-                if (accessToken && accessToken.startsWith("Bearer ")) {
-                    accessToken = accessToken.replace("Bearer ", ""); // "Bearer " 제거
-                }
+                // 헤더에서 accessToken과 refreshToken 분리
+                const [accessTokenPart, refreshTokenPart] = authHeader.split(', ');
+                let accessToken = accessTokenPart.replace("Bearer ", "").trim();
+                let refreshToken = refreshTokenPart.replace("Refresh ", "").trim();
+
                 localStorage.setItem("accessToken", accessToken);
-                
+                localStorage.setItem("refreshToken", refreshToken);
+
+                // apiClient의 기본 Authorization 헤더 업데이트
+                setAccessToken(accessToken);
+
                 // 메인 페이지로 리다이렉트
                 window.location.href = '/';
             } catch (error) {
                 console.error("Error during login:", error);
+                alert("로그인에 실패했습니다. 다시 시도해 주세요.");
+                navigate('/login');
             }
         };
 
-        if (isMember === "true") {
-            loginExistingUser(); // 이미 회원인 경우 바로 로그인 요청
+        if (isMember === "true" && code) {
+            loginExistingUser(); // 이미 회원인 경우 로그인 요청 실행
         }
-    }, [isMember, navigate, location.state, code]);
+    }, [isMember, code, navigate]);
 
     return (
         <>
@@ -53,4 +62,3 @@ const KakaoRedirect = () => {
 };
 
 export default KakaoRedirect;
-
