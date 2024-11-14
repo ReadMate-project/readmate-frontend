@@ -55,6 +55,7 @@ const CreateNickNamePage = () => {
             favoriteGenre: selectedCategories,
         };
         try {
+            console.log(selectedCategories);
             const response = await fetch(`http://3.35.193.132:8080/api/v1/auth/login/kakao?code=${code}`, {
                 method: 'POST',
                 headers: {

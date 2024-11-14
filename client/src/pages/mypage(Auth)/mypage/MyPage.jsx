@@ -55,7 +55,7 @@ const MyPage = () => {
 
           if (response.status === 200) {
             logout(); //UserContext 함수: isMember, accessToken 삭제, user 초기화
-            navigate('/login'); 
+            navigate('/'); 
           }
       } catch (error) {
           console.error("Logout error:", error);

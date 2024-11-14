@@ -256,38 +256,19 @@ S.SelectedContainer = styled.div`
     }
     
 `;
+S.ErrorMessage=styled.div`
+    position: absolute;
+    top:90%;
+    ${b4}
+    color:#DF4545;
+`
+S.ErrorMessage2=styled.div`
+    position: absolute;
+    top:90%;
+    /* left:0%; */
+    ${b4}
+    color:#DF4545;
+`
 
-// S.Category=styled.div`
-//     width:70%;
-//     display:flex;
-//     ${b1};
-//     font-weight: 700;
-//     justify-content: space-between;
-//     align-items: center;
-//     position: absolute;
-//     top:75%;
-    
-//     input{
-//         position:relative;
-//         background-color: rgba(233, 232, 228, 0.55);  
-//         border: none;               
-//         padding: 1.5%;
-//         padding-left: 3%;              
-//         width: 60%;                
-//         border-radius: 10px;          
-//         ${b4}
-//         outline: none;
-        
-//     }
-//     input::placeholder {
-//             color: #999999;  
-//             ${b4}  
-//         }
-//     img {
-//         width:7%;
-//         cursor: pointer;
-//     }
-
-// `
 
 export default S;

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import apiClient from '../api/apiClient';
 
 const UserContext = createContext(null);
 
@@ -11,14 +12,10 @@ export const UserProvider = ({ children }) => {
         const fetchUserInfo = async () => {
             try {
                 
-                const response = await axios.post(
-                    'http://3.35.193.132:8080/api/token/user',
+                const response = await apiClient.post(
+                    '/token/user',
                     {accessToken:accessToken},
-                    {
-                        headers: {
-                            'Content-Type': 'application/json', 
-                        },
-                    }
+                    
                 );
                 console.log(response.data);
                 const userData = response.data.data;
@@ -45,8 +42,9 @@ export const UserProvider = ({ children }) => {
     // 로그아웃 함수 
     const logout = () => {
         setUser(null); // 유저 정보 초기화
-        localStorage.removeItem('accessToken'); // 토큰 삭제
-        // localStorage.removeItem('isMember');
+        localStorage.removeItem('accessToken'); 
+        localStorage.removeItem("refreshToken");
+        delete apiClient.defaults.headers.common['Authorization'];
     };
 
 
