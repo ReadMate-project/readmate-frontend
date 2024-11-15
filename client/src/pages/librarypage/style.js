@@ -5,13 +5,31 @@ import { b1, flexCenter, flexCenterColumn, h1 } from "../../global/common";
 const S = {};
 
 S.Container = styled.div`
-    width: 100%;
-    height: 100vh
-    background-color: ${theme.PALETTE.background};
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
+    &.bestSeller {
+      width: 100%;
+      height: 100vh
+      background-color: ${theme.PALETTE.background};
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    &.mostReview {
+      width: 100%;
+      height: 100vh
+      background-color: ${theme.PALETTE.background};
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    &.yourPicks {
+      width: 100%;
+      height: 100vh;
+      background-color: ${theme.PALETTE.background};
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+ 
 `;
 
 S.TitleHightlight = styled.div`
@@ -32,7 +50,8 @@ S.TitleContainer = styled.div`
     justify-content: space-between;
 `;
 
-S.BestsellerContainer = styled.div`
+S.BookListContainer = styled.div`
+  &.bestSeller{
     position: relative;
     top: 5vh;
     width: 80%;
@@ -42,17 +61,50 @@ S.BestsellerContainer = styled.div`
     background-color: #CFDEC8;
     display: flex;
     justify-content: center;
+    margin-bottom: 7%;
+    }
+    &.mostReview{
+      position: relative;
+      top: 5vh;
+      width: 80%;
+      height: auto;
+      border-radius: 0.5rem;
+      padding: 2%;
+      background-color: #CFDEC8;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 7%;
+    }
+    &.yourPicks{
+      position: relative;
+      top: 5vh;
+      width: 80%;
+      height: auto;
+      border-radius: 0.5rem;
+      padding: 2%;
+      background-color: #D9D9D9;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 7%;
+    }  
 `;
 
 S.BookList = styled.div`
-    padding: 2%;
+  &.bestSeller{
+    padding: 1%;
     display: flex;
      /* 한 줄로 나열 */
-    gap: 10%;
+    gap: 5%;
+  }
+  &.mostReview{
+    padding: 1%;
+    display: flex;
+    gap: 1%;
+  }
    `;
 
 S.BookSection = styled.div`
-  &.type1 {
+  &.bestSeller {
     width: 33%;
     padding: 0.5%;
     border-radius: 2vw;
@@ -63,27 +115,39 @@ S.BookSection = styled.div`
     justify-content: center;
     margin-right: 2%; /* 책 사이 간격 추가 */
   }
-  &.type2 {
-    width: 30vw;
-    height: 20vh;
+  &.mostReview {
+    width: 20%;
+    padding: 0.5%;
     border-radius: 2vw;
-    justify-content: center;
-    align-items: center;
+    background-color: #FFFFFF;
     display: flex;
-    flex-direction: row; /* 여기도 추가했습니다 */
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%; /* 책 사이 간격 추가 */
   }
+  &.yourPicks {
+    width: 30%;
+    padding: 0.5%;
+    border-radius: 2vw;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%; /* 책 사이 간격 추가 */
+  }  
 `;
 
 S.BookImage = styled.img`
-  &.type1 {
+  
     padding: 13%;
     width: 100%;
-   
     border-radius: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  
 `;
 
 S.BookContent = styled.div`
@@ -116,5 +180,15 @@ S.Button = styled.button`
   background-color: transparent;
   border: transparent;
   cursor: pointer;
+  
+  &:disabled {
+      
+      opacity: 0.3; // Makes the button appear faded
+      filter: grayscale(0%); // Makes the button grayscale when disabled
+    }
+
+    &:not(:disabled):hover {
+      transform: scale(1.1); // Slight zoom effect on hover when enabled
+    }
   `;
 export default S;

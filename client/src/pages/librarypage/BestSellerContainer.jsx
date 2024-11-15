@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import S from './style';
 
-const BookList = ({ books = [] }) => {
+const BestSellerContainer = ({ books = [] }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const booksPerPage = 3;
 
@@ -25,15 +25,15 @@ const BookList = ({ books = [] }) => {
 
   return (
     <div>
-      <S.Container>
+      <S.Container className='bestSeller'>
         <S.TitleHightlight>
           <img src={process.env.PUBLIC_URL + '/global/images/librarypage/BESTSELLER.png'} alt="Library Board" />
         </S.TitleHightlight>
-        <S.BestsellerContainer>
+        <S.BookListContainer className='bestSeller'>
         <S.Button onClick={handlePrevPage} disabled={currentPage === 0}>
         <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Left.png'} alt="Library Board" />
           </S.Button>
-          <S.BookList>
+          <S.BookList className='bestSeller'>
             {selectedBooks.map((book, index) => {
               const { isbn13, cover, title, author, categoryName } = book;
               
@@ -62,9 +62,9 @@ const BookList = ({ books = [] }) => {
                const categories = categoryName ? Array.from(new Set(categoryName.split(/>|\s+/).filter(category => allowedCategories.includes(category)))) : [];
               
               return (
-                <S.BookSection key={index} className="type1">
+                <S.BookSection key={index} className="bestSeller">
                   <Link to={`/books/bookinfo/${isbn13}`}>
-                    <S.BookImage className='type1' 
+                    <S.BookImage  
                       src={cover} 
                       alt={title} 
                       onError={(e) => {
@@ -89,10 +89,10 @@ const BookList = ({ books = [] }) => {
           <S.Button onClick={handleNextPage} disabled={currentPage === totalPages - 1}>
           <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Right.png'} alt="Library Board" />
           </S.Button>
-        </S.BestsellerContainer>
+        </S.BookListContainer>
       </S.Container>
     </div>
   );
 };
 
-export default BookList;
+export default BestSellerContainer;
