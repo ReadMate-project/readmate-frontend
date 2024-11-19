@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import BookInfoHeader from './BookInfoHeader';
-import BookInfoDetails from './BookInfoDetails';
+import BookInfoDetailsContainer from './BookInfoDetailsContainer';
 import useBookDetails from '../../../hooks/Aladin/useBookDetails';
 
 const BookInfoPage = () => {
@@ -19,8 +18,7 @@ const BookInfoPage = () => {
 
   return (
     <div>
-      <BookInfoHeader title={bookDetails.title} />
-      <BookInfoDetails bookDetails={bookDetails} />
+      <BookInfoDetailsContainer bookDetails={bookDetails} />
     </div>
   );
 };
