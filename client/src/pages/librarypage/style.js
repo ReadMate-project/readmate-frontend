@@ -7,7 +7,7 @@ const S = {};
 S.Container = styled.div`
     &.bestSeller {
       width: 100%;
-      height: 100vh
+      height: 100%;
       background-color: ${theme.PALETTE.background};
       display: flex;
       align-items: center;
@@ -15,7 +15,7 @@ S.Container = styled.div`
     }
     &.mostReview {
       width: 100%;
-      height: 100vh
+      height: 100%
       background-color: ${theme.PALETTE.background};
       display: flex;
       align-items: center;
@@ -23,7 +23,7 @@ S.Container = styled.div`
     }
     &.yourPicks {
       width: 100%;
-      height: 100vh;
+      height: 100%;
       background-color: ${theme.PALETTE.background};
       display: flex;
       align-items: center;
@@ -48,6 +48,7 @@ S.TitleContainer = styled.div`
     padding: 3% 10% 3% 10%;
     display: flex;
     justify-content: space-between;
+    
 `;
 
 S.BookListContainer = styled.div`
@@ -86,7 +87,20 @@ S.BookListContainer = styled.div`
       display: flex;
       justify-content: center;
       margin-bottom: 7%;
+      gap: 5%;
+      
     }  
+`;
+S.YourPicksContainer = styled.div`
+  width: 50%;
+  height: 100%;
+  background-color:#D9D9D9;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  flex-direction: column;
+  
+  
 `;
 
 S.BookList = styled.div`
@@ -100,6 +114,12 @@ S.BookList = styled.div`
     padding: 1%;
     display: flex;
     gap: 1%;
+  }
+  &.yourPicks{
+    padding: 1%;
+    display: flex;
+    gap: 1%;
+    
   }
    `;
 
@@ -127,34 +147,72 @@ S.BookSection = styled.div`
     margin-right: 2%; /* 책 사이 간격 추가 */
   }
   &.yourPicks {
-    width: 30%;
-    padding: 0.5%;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
     border-radius: 2vw;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin-right: 2%; /* 책 사이 간격 추가 */
+    justify-content: flex-start;
+    margin: 0.5%; /* 책 사이 간격 추가 */
+    gap: 5%;
   }  
 `;
 
 S.BookImage = styled.img`
-  
-    padding: 13%;
+  &.bestSeller{
+    padding: 5%;
     width: 100%;
     border-radius: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
-  
+  }
+  &.mostReview{
+    padding: 5%;
+    width: 100%;
+    border-radius: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }    
+  &.yourPicks{
+    width: 100%;
+    height: 20vh;
+    background-color: #D9D9D9;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+`;
+
+S.ImageSection = styled.div`
+  &.yourPicks{
+  width: 20%;
+  height: 20vh;
+  background-color: #D9D9D9;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  }
+  &.type2{
+    width: 30%;
+    height: 20vh;
+    border-radius: 2vw;
+    background-color: #D9D9D9;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }  
 `;
 
 S.BookContent = styled.div`
   padding: 0 0 13% 0;
 
-  margin-right: 3vw;
-  padding-left: 2vw;
+  margin-right: 3%;
+  padding-left: 2%;
   font-weight: bold;
   font-family: 'Roboto';
   h3 {

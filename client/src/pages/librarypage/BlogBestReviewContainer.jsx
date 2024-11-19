@@ -1,27 +1,35 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import S from './style';
+import useBooksFetch from '../../hooks/Aladin/useBooksFetch';
 
-const MostReviewContainer = ({ books = [] }) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const booksPerPage = 5;
 
-  if (!books || books.length === 0) {
-    return <div>No books available.</div>;
-  }
+const BlogBestReviewContainer = () => {
+    const { books, isLoading, error } = useBooksFetch('BlogBest',0, 20); // 최대 2개의 아이템만 가져옴
+    const [currentPage, setCurrentPage] = useState(0);
+    const booksPerPage = 5;
 
-  const totalPages = Math.ceil(books.length / booksPerPage);
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>{error}</p>;
 
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
-  };
+    
 
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => (prevPage - 1 + totalPages) % totalPages);
-  };
+    if (!books || books.length === 0) {
+        return <div>No books available.</div>;
+    }
 
-  const startIndex = currentPage * booksPerPage;
-  const selectedBooks = books.slice(startIndex, startIndex + booksPerPage);
+    const totalPages = Math.ceil(books.length / booksPerPage);
+
+    const handleNextPage = () => {
+        setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
+    };
+
+    const handlePrevPage = () => {
+        setCurrentPage((prevPage) => (prevPage - 1 + totalPages) % totalPages);
+    };
+
+    const startIndex = currentPage * booksPerPage;
+    const selectedBooks = books.slice(startIndex, startIndex + booksPerPage);
 
   return (
     <div>
@@ -64,7 +72,7 @@ const MostReviewContainer = ({ books = [] }) => {
               return (
                 <S.BookSection key={index} className="mostReview">
                   <Link to={`/books/bookinfo/${isbn13}`}>
-                    <S.BookImage  
+                    <S.BookImage className='mostReview'  
                       src={cover} 
                       alt={title} 
                       onError={(e) => {
@@ -95,4 +103,4 @@ const MostReviewContainer = ({ books = [] }) => {
   );
 };
 
-export default MostReviewContainer;
+export default BlogBestReviewContainer;

@@ -1,27 +1,36 @@
 import React, { useState } from 'react';
+import useBooksFetch from '../../hooks/Aladin/useBooksFetch';
 import { Link } from 'react-router-dom';
 import S from './style';
 
-const BestSellerContainer = ({ books = [] }) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const booksPerPage = 3;
+const BestSellerContainer = () => {
+    const { books, isLoading, error } = useBooksFetch('BestSeller', 0, 21); // 최대 2개의 아이템만 가져옴
+    const [currentPage, setCurrentPage] = useState(0);
+    const booksPerPage = 3;
 
-  if (!books || books.length === 0) {
-    return <div>No books available.</div>;
-  }
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>{error}</p>;
 
-  const totalPages = Math.ceil(books.length / booksPerPage);
+    
 
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
-  };
+    if (!books || books.length === 0) {
+        return <div>No books available.</div>;
+    }
 
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => (prevPage - 1 + totalPages) % totalPages);
-  };
+    const totalPages = Math.ceil(books.length / booksPerPage);
 
-  const startIndex = currentPage * booksPerPage;
-  const selectedBooks = books.slice(startIndex, startIndex + booksPerPage);
+    const handleNextPage = () => {
+        setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
+    };
+
+    const handlePrevPage = () => {
+        setCurrentPage((prevPage) => (prevPage - 1 + totalPages) % totalPages);
+    };
+
+    const startIndex = currentPage * booksPerPage;
+    const selectedBooks = books.slice(startIndex, startIndex + booksPerPage);
+
+
 
   return (
     <div>
@@ -64,13 +73,14 @@ const BestSellerContainer = ({ books = [] }) => {
               return (
                 <S.BookSection key={index} className="bestSeller">
                   <Link to={`/books/bookinfo/${isbn13}`}>
-                    <S.BookImage  
+                    <S.BookImage className='bestSeller'  
                       src={cover} 
                       alt={title} 
                       onError={(e) => {
                         e.target.src = '/placeholder-book.png'; // Placeholder image
                       }}
                     />
+                  
                     <S.BookContent >
                       <h3>{title}</h3>
                       <p>{author}</p>

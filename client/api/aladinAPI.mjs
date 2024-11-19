@@ -71,29 +71,33 @@ async function getBookDetails(isbn) {
     }
 }
 
-async function getItemList(){
+async function getItemList(queryType = 'BestSeller', categoryId=0, maxResults = 20) {
     const apiUrl = `${BASE_URL}ItemList.aspx`;
 
+    const params = {
+        ttbkey: API_KEY,
+        QueryType: queryType,
+        MaxResults: maxResults,
+        start: 1,
+        SearchTarget: 'Book',
+        output: 'xml',
+        Version: '20131101',
+        cover: 'Mid',
+        CategoryId: categoryId // categoryId를 직접 Query 파라미터로 설정
+    };
+
     try {
-        const response = await axios.get(apiUrl, {
-            params: {
-                ttbkey: API_KEY,
-                QueryType: 'BestSeller',
-                MaxResults: 20,
-                start: 1,
-                SearchTarget: 'Book',
-                output: 'xml',  // 'js' 대신 'xml' 사용
-                Version: '20131101',
-                cover:'Mid'
-            }
-        });
+        const response = await axios.get(apiUrl, { params });
         const data = await parseXml(response.data);
-        console.log('Parsed XML Data:',data);
+        console.log('Parsed XML Data:', data);
         return data;
     } catch (error) {
         throw new Error(`검색 중 오류 발생: ${error.message}`);
     }
 }
+
+
+
 
 
 export { searchBooks, getBookDetails, getItemList };

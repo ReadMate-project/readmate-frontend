@@ -35,15 +35,18 @@ app.get('/api/details', async (req, res) => {
 });
 
 app.get('/api/itemlist', async (req, res) => {
+    const { queryType = 'BestSeller', categoryId=0, maxResults = 20 } = req.query;  // Default values
     try {
-        const result = await getItemList();
+        const result = await getItemList(queryType, categoryId, maxResults);
         console.log(result);
         res.json(result);
     } catch (error) {
-        console.error('Error in /api/books endpoint:', error);
+        console.error('Error in /api/itemlist endpoint:', error);
         res.status(500).json({ error: error.message });
     }
-})
+});
+
+
 
 
 app.listen(port, () => {
