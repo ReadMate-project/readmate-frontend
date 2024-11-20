@@ -60,9 +60,9 @@ const YourPicksContainer = ({ categoryId1 = 1230, categoryId2 = 1108 }) => {
     return (
         <div>
             <S.Container className='yourPicks'>
-                <S.TitleHightlight>
+                <S.TitleHighlight>
                     <img src={process.env.PUBLIC_URL + '/global/images/librarypage/yourPicks.png'} alt="Library Board" />
-                </S.TitleHightlight>
+                </S.TitleHighlight>
                 <S.BookListContainer className='yourPicks'>
                 <S.YourPicksContainer>
                     {renderBooks(booksCategory1)}

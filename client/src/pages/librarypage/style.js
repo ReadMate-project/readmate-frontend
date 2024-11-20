@@ -32,7 +32,7 @@ S.Container = styled.div`
  
 `;
 
-S.TitleHightlight = styled.div`
+S.TitleHighlight = styled.div`
     width: 100%;
     height: 100%;
     img {

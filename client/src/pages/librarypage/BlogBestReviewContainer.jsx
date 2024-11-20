@@ -34,9 +34,9 @@ const BlogBestReviewContainer = () => {
   return (
     <div>
       <S.Container className='mostReview'>
-        <S.TitleHightlight>
+        <S.TitleHighlight>
           <img src={process.env.PUBLIC_URL + '/global/images/librarypage/REVIEWS.png'} alt="Library Board" />
-        </S.TitleHightlight>
+        </S.TitleHighlight>
         <S.BookListContainer className='mostReview'>
         <S.Button onClick={handlePrevPage} disabled={currentPage === 0}>
         <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Left.png'} alt="Library Board" />

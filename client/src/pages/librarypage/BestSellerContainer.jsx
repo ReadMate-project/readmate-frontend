@@ -35,9 +35,9 @@ const BestSellerContainer = () => {
   return (
     <div>
       <S.Container className='bestSeller'>
-        <S.TitleHightlight>
+        <S.TitleHighlight>
           <img src={process.env.PUBLIC_URL + '/global/images/librarypage/BESTSELLER.png'} alt="Library Board" />
-        </S.TitleHightlight>
+        </S.TitleHighlight>
         <S.BookListContainer className='bestSeller'>
         <S.Button onClick={handlePrevPage} disabled={currentPage === 0}>
         <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Left.png'} alt="Library Board" />
