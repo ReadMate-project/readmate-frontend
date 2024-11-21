@@ -8,13 +8,14 @@ const BookInfoDetailsContainer = ({ bookDetails }) => {
   return (
     <div>
       <S.Container className='bookDetails' >
+      
+      <S.TitleContainer>
       <S.TitleHighlight>
       <img src={process.env.PUBLIC_URL + '/global/images/librarypage/bookdetails.png'}/>
       </S.TitleHighlight>
-      <S.TitleContainer>
       <S.TitleButtonContainer>
-      <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Purchase.png'}/>
-      <img src={process.env.PUBLIC_URL + '/global/images/librarypage/writeEssay.png'}/>
+      <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Purchase.png'} onClick={bookDetails.link}/>
+      <img src={process.env.PUBLIC_URL + '/global/images/librarypage/writeEssay.png'} onclick/>
       <img src={process.env.PUBLIC_URL + '/global/images/librarypage/addbook.png'}/>
       </S.TitleButtonContainer>
       </S.TitleContainer>

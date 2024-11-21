@@ -35,30 +35,34 @@ S.Container = styled.div`
 S.TitleHighlight = styled.div`
     width: 100%;
     height: 100%;
-    
-    img {
-        position: relative;
-        width: 15%;
-        margin-left: 10%;
-        margin-top: 5%;
-        
+    display: flex;
+    margin-bottom: 5%;
+    img{
+        width:80%;
     }
 `;
 
 S.TitleContainer = styled.div`
      
-    width: 100%;
-    padding: 3% 10% 3% 10%;
+    width: 100%; 
     display: flex;
-    justify-content: space-between;
-               
+    justify-content: flex;
+    align-items: center;
+    gap: 10%;
+    margin-top: 10%;
+    padding: 0% 10% 0% 10%;
 `;
 
 S.TitleButtonContainer=styled.div`
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: flex-end;
+    padding: 0% 5% 0% 5%;
+    gap: 3%;
     /* top:5vh; */
+    img{
+        width:40%;
+    }
 `;
 
 S.TitleButton=styled.div`
@@ -66,7 +70,7 @@ S.TitleButton=styled.div`
     align-items: center;
     justify-content: center;
     ${h3};
-    width:45%;
+    width:100%;
     padding: 4%;
     border-radius: 0.5rem;
     color:white;
