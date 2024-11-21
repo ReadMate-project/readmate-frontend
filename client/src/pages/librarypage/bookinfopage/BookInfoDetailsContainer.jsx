@@ -21,12 +21,14 @@ const BookInfoDetailsContainer = ({ bookDetails }) => {
       </S.TitleContainer>
       <S.CardSection>
       <S.HeroSection>
-      <img src={bookDetails.cover} alt={bookDetails.title} />
-      <h2>{bookDetails.title}</h2>
+      <S.Image src={bookDetails.cover} alt={bookDetails.title} />
+      <S.HeroContent>
+      <h1>{bookDetails.title}</h1>
       <p> {authorName} | {bookDetails.publisher} | {bookDetails.pubDate}</p>
       <p>{bookDetails.categoryName}</p>
       <p> 정가  {bookDetails.priceStandard}원</p>
       <p>{bookDetails.description}</p>
+      </S.HeroContent>
       </S.HeroSection>
       </S.CardSection>
       {/*     
