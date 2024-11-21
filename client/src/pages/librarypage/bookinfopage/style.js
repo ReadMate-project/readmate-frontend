@@ -93,7 +93,53 @@ S.CardSection = styled.div`
 S.HeroSection = styled.div`
   display: flex;
   align-items: center;
-  margin: 2vw 2vw 3vw 3vw;
+  margin: 2% 2% 3% 3%;
 `;
+
+S.Image = styled.img`
+  
+  width: 30%;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  
+`;
+
+S.HeroContent = styled.div`
+
+margin-right: 3vw;    
+padding-left: 2vw;
+font-weight: bold;
+font-family: 'Roboto';  
+  h1 {
+    
+    background-color: #CFDDC8;
+    margin-bottom: 1vw;
+  }
+  p {
+    margin-bottom: 1vw;
+    font-size: 1.25vw;
+  }
+  a {
+    
+    display: inline-block;
+    padding: 0.375vw 0.75vw;
+    background-color: #D9D9D9;
+    color: #717171;
+    text-decoration: none;
+    border-radius: 0.25vw;  
+    
+
+  }
+`;
+
+// S.BookTitleContainer = styled.h1`
+  
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   background-color: #CFDDC8;
+// `;
   
 export default S;
