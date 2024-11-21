@@ -130,7 +130,6 @@ S.BookSection = styled.div`
     border-radius: 2vw;
     background-color: #FFFFFF;
     display: flex;
-    flex-direction: row; 
     align-items: center;
     justify-content: center;
     margin-right: 2%; /* 책 사이 간격 추가 */
@@ -208,30 +207,60 @@ S.ImageSection = styled.div`
   }  
 `;
 
-S.BookContent = styled.div`
-  padding: 0 0 13% 0;
+S.BookCategoryList = styled.div`
+  width: 100%;
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3%; /* 카테고리 간 간격 조정 */
+`;
 
-  margin-right: 3%;
-  padding-left: 2%;
+S.BookCategory = styled.div`
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    font-size: 0.75vw;
+    flex-direction: row;
+
+    color: #2AA871;
+    border:0.01vw solid #2AA871;
+    border-radius: 0.25vw;  
+    
+`;
+
+
+
+
+
+S.BookContent = styled.div`
+  width: 100%;
+  padding: 5% 5% 5% 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
   font-weight: bold;
   font-family: 'Roboto';
   h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
     padding: 0 0 0 0;
     margin: 0 0 10% 0;
+    font-size: 1vw;
   }
   p {
-    padding: 0 0 0 0;
-    margin: 0 0 10% 0;
-  }
-  ul {
+    width: 80%;
     display: flex;
+    align-items: center;
     justify-content: center;
-    
-    color: #717171;
-    text-decoration: none;
-    border-radius: 0.25vw;  
-    gap: 0.5vw;
+    font-size: 0.75vw;
+    color: #707070;
   }
+  
 `;
 S.Button = styled.button`
   margin: 2%;

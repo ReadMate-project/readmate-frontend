@@ -7,6 +7,9 @@ const BestSellerContainer = () => {
     const { books, isLoading, error } = useBooksFetch('BestSeller', 0, 21); // 최대 2개의 아이템만 가져옴
     const [currentPage, setCurrentPage] = useState(0);
     const booksPerPage = 3;
+    const cleanAuthorName = (author) => {
+      return author.replace(/(\s*\(지은이\)\s*|\s*\(보험용\)\s*)/g, '');
+    };
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
@@ -45,7 +48,7 @@ const BestSellerContainer = () => {
           <S.BookList className='bestSeller'>
             {selectedBooks.map((book, index) => {
               const { isbn13, cover, title, author, categoryName } = book;
-              
+              const cleanedAuthor = cleanAuthorName(author);
               
               
               
@@ -83,12 +86,13 @@ const BestSellerContainer = () => {
                   
                     <S.BookContent >
                       <h3>{title}</h3>
-                      <p>{author}</p>
-                      
+                      <p>{cleanedAuthor}</p>
+                      <S.BookCategoryList>
                         {categories.map((category, index) => (
-                          <h5 key={index}>{category}</h5>
-                        ))}
-                      
+                        <S.BookCategory key={index}>{category}</S.BookCategory>
+                          ))}
+                      </S.BookCategoryList>
+
                     </S.BookContent>
                   </Link>
                 </S.BookSection>

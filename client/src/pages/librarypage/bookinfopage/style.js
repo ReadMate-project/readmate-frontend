@@ -58,12 +58,18 @@ S.TitleButtonContainer=styled.div`
     display: flex;
     justify-content: flex-end;
     padding: 0% 5% 0% 5%;
-    gap: 3%;
+    gap: 2%;
     /* top:5vh; */
-    img{
-        width:40%;
-    }
+    
+    
 `;
+S.Button=styled.button`
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    
+`;
+    
 
 S.TitleButton=styled.div`
     display: flex;
@@ -88,21 +94,22 @@ S.TitleButton=styled.div`
 
 S.CardSection = styled.div`
   width: 80%;
-  justify-content: space-between;
   border-radius: 2vw 2vw;
   background-color: #FFFFFF;
 
 `;
 
 S.HeroSection = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
-  margin: 2% 2% 3% 3%;
+  margin: 1%;
+  padding: 1%;
 `;
 
 S.Image = styled.img`
   
-  width: 30%;
+  width: 20%;
   display: flex;  
   align-items: center;
   justify-content: center;
@@ -111,18 +118,22 @@ S.Image = styled.img`
 
 S.HeroContent = styled.div`
 
-margin-right: 3vw;    
-padding-left: 2vw;
+margin-right: 2%;    
+padding-left: 2%;
 font-weight: bold;
+flex-direction: column;
+justify-content: flex-start;
 font-family: 'Roboto';  
   h1 {
-    
+    display: inline;
+    font-size: 1.5vw;
     background-color: #CFDDC8;
-    margin-bottom: 1vw;
+    padding: 1% 
   }
   p {
-    margin-bottom: 1vw;
-    font-size: 1.25vw;
+    display: flex;
+    margin: 2% 0% 2% 0%;
+    font-size: 1vw;
   }
   a {
     
@@ -135,6 +146,16 @@ font-family: 'Roboto';
     
 
   }
+`;
+
+S.ContentSection = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 1%;
+  padding: 1%;
+  border-radius: 1vw;
+  background-color:  ${theme.PALETTE.background};;
 `;
 
 // S.BookTitleContainer = styled.h1`
