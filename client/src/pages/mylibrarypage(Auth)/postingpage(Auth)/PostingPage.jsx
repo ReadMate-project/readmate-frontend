@@ -3,20 +3,23 @@ import S from './style';
 import { useNavigate } from 'react-router';
 import Dropdown from './dropdown/Dropdown';
 import SimpleBook from '../../../components/book/SimpleBook';
+import apiClient from '../../../api/apiClient';
+import { useUser } from '../../../context/UserContext';
 
 const PostingPage = () => {
-  const [images, setImages] = useState([]);
+    const [images, setImages] = useState([]);
     const fileInputRef = useRef(null); // input에 접근하기 위한 ref
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+    const [selectedBook, setSelectedBook] = useState(null);
+    const { user } = useUser();
     const navigate=useNavigate();
+    
     const handleImageUpload = (e) => {
-    const files = Array.from(e.target.files);
+        const files = Array.from(e.target.files);
         
-
-        if (files.length + images.length > 10) {
-            alert('최대 10개의 이미지만 업로드할 수 있습니다.');
+        if (files.length + images.length > 5) {
+            alert('최대 5개의 이미지만 업로드할 수 있습니다.');
             return;
         }
 
@@ -34,47 +37,48 @@ const PostingPage = () => {
     const handleCancle=()=>{
         navigate('/posts')
     }
+    
     //저장 버튼 클릭 시 서버에 POST 요청 보내기
-    const handleSubmit = () => {
-        
-        const requestData = {
-            userId: '', //정해야함 
-            title: title,
-            content: content,
-            boardType: "BOARD" 
-        };
+    const handleSubmit = async() => {
+        if (!selectedBook) {
+            alert('책을 선택해주세요.');
+            return;
+        }
+        if (!title.trim()) {
+            alert('제목을 입력해주세요.');
+            return;
+        }
 
-        fetch('/api/v1/board', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}` //로컬스토리지 할건지 리덕스할건지 정해야함
-            },
-            body: JSON.stringify(requestData)
-        })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(data => {
-                    // 401(로그인을 진행해주세요) 403(해당 북클럽의 회원이 아닙니다)
-                    if (response.status === 401 || response.status === 403) {
-                        setErrorMessage(data.message);
-                        console.log(errorMessage);
-                    }
-                    throw new Error('Network response was not ok');
-                });
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Post created successfully:', data);
-            navigate('/posts'); 
-        })
-        .catch(error => {
-            console.error('Error creating post:', error);
+        const requestBody = {
+            userId: user.userId,
+            bookId: selectedBook.book.isbn13,
+            content,
+            title,
+            boardType: "FEED",
+          };
             
-        });
+          const formData = new FormData();
+            formData.append('boardRequest', JSON.stringify(requestBody)); // JSON으로 변환하여 추가
+            images.forEach((image, index) => {
+                formData.append('images', image); // 각 이미지 파일을 추가
+            });
+          try {
+            const accessToken = localStorage.getItem('accessToken');
+            const response = await apiClient.post('/v1/board', formData, {
+              headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'multipart/form-data',              
+            },
+            });
+          
+            navigate('/essay')
+          } catch (error) {
+            console.error('게시물 생성 실패:', error.response || error.message);
+          }
+        
     };
 
+   
     return (
         <div>
             <S.Container>
@@ -85,14 +89,21 @@ const PostingPage = () => {
                   </S.TitleHightlight>
                   {/* <S.Dropdown> */}
                       <S.TitleText>글쓰기</S.TitleText>
-                      <Dropdown/>
+                      <Dropdown setSelectedBook={setSelectedBook}/>
                   {/* </S.Dropdown> */}
                       
                 </S.TitleContainer>
                 <S.Line></S.Line>
                 
                 <S.BookContainer>
-                  <SimpleBook/>
+                    {/* {selectedBook ? (
+                        <SimpleBook book={selectedBook} /> // SimpleBook에 선택된 책 전달
+                    ) : (
+                        <p>책을 선택해주세요.</p>
+                    )} */}
+                    {selectedBook&&
+                        <SimpleBook book={selectedBook} />
+                    }
                 </S.BookContainer>
                 <S.BodyContainer>
                     <input type="text" 
@@ -104,14 +115,13 @@ const PostingPage = () => {
                             onChange={(e) => setContent(e.target.value)}>
                     </textarea>
                     <S.ImageButtonContainer>
-                    <div onClick={handleImageClick} style={{ cursor: 'pointer' }}>
-                        <img 
-                            src={process.env.PUBLIC_URL + '/global/images/postpage/pictureButton.png'} 
-                            alt="Upload"
-                        />
-                    </div>
+                        <div onClick={handleImageClick} style={{ cursor: 'pointer' }}>
+                            <img
+                                src={`${process.env.PUBLIC_URL}/global/images/postpage/pictureButton.png`}
+                                alt="Upload"
+                            />
+                        </div>
                     </S.ImageButtonContainer>
-                    {/* 이미지 업로드 영역 */}
                     <input
                         type="file"
                         accept="image/png, image/jpeg"
@@ -120,19 +130,14 @@ const PostingPage = () => {
                         onChange={handleImageUpload}
                         style={{ display: 'none' }}
                     />
-                    
-                    {/* 미리보기 영역 */}
                     <S.ImagePreviewContainer>
                         {images.map((image, index) => (
                             <S.ImagePreview key={index}>
                                 <img
                                     src={URL.createObjectURL(image)}
                                     alt={`미리보기 ${index + 1}`}
-                                    
                                 />
-                                <S.RemoveButton onClick={() => handleRemoveImage(index)}>
-                                    X
-                                </S.RemoveButton>
+                                <S.RemoveButton onClick={() => handleRemoveImage(index)}>X</S.RemoveButton>
                             </S.ImagePreview>
                         ))}
                     </S.ImagePreviewContainer>

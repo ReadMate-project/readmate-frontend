@@ -58,29 +58,6 @@ S.TitleButton=styled.div`
     line-height: 130%;
     cursor: pointer;
 `
-S.HotPostContainer=styled.div`
-    position: relative;
-    top:5vh;
-    width:80%;
-    height:auto;
-    border-radius:0.5rem;
-    /* border-radius: 20px; */
-    padding:2%;
-    background-color: #CFDEC8 ;
-`
-S.HotPostTitle=styled.div`
-    position:relative;
-    width:100%;
-    height:100%;
-    left: 10.5%;
-    top:5.3vh;
-    
-    img{
-        width:20%;
-    }
-    
-`
-//
 S.PostContainer=styled.div`
     display: flex;
     justify-content: flex-start;
@@ -89,7 +66,7 @@ S.PostContainer=styled.div`
 S.TextContainer = styled.div`
     width:90%;
     margin-left: 2%;
-    padding:1% 0;
+    /* padding:1% 0; */
 `;
 S.BookContainer=styled.div`
     width:8%;
@@ -111,8 +88,8 @@ S.BookImage=styled.div`
         }
 
         @media (max-width: 768px) {
-            width:40px;
-            height:65px;
+            width:30px;
+            height:50px;
         }
 
         @media (max-width: 480px) {
@@ -140,6 +117,7 @@ S.PostList = styled.div`
 
 S.PostItem = styled.div`
     padding: 1.5%;
+    height:150px;
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -168,10 +146,11 @@ S.PostContent = styled.div`
     /* white-space: nowrap;  */
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height:40%;
+    max-height:50%;
     padding-left: 0.1%;
-    padding-top: 1%;
-    line-height: 1.3;
+    padding-top:1%;
+    padding-bottom:1.5%;
+    line-height: 1.2;
     display: -webkit-box;
     -webkit-line-clamp: 3; /* 원하는 줄 수로 변경 가능 */
     -webkit-box-orient: vertical;
@@ -179,10 +158,8 @@ S.PostContent = styled.div`
 
 S.UnderTitleContainer=styled.div`
     display: flex;
-    /* align-items: center;  */
-    
     position:absolute;
-    bottom:13%;
+    bottom:12.5%;
     
 `
 
@@ -217,38 +194,48 @@ S.CommentContainer = styled.div`
     align-items: center;
     margin-left: 7px;
     gap: 3px; /* 아이콘과 좋아요 개수 사이 간격 */
-    font-size: ${b4};
+    ${b4}
     color: ${theme.PALETTE.gray};
     svg {
         font-size: ${b2};
     }
 
 `;
-
-
+S.LatestPostContainer = styled.div`
+    position: relative;
+    top:5vh;
+    width: 80%;
+    height:auto;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    padding: 2%;
+    background-color: #D9D9D9;
+    border-radius: 0.5rem;
+  
+`;
+//페이지네이션
 S.PaginationContainer = styled.div`
     position: relative;
-    /* top:5vh; */
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin:5% 0;
+    left:45%;
+    /* gap: 10px; */
+    margin:3% 0;
+    width:10%;
 `;
 
 S.PageButton = styled.button`
-    padding: 10px 15px;
+    ${b2}
+    padding: 0% 7%;
+    border-radius: 50%;
     border: none;
-    border-radius: 5px;
-    /* background-color: #A2B29F; */
+    background-color: #D9D9D9;
     color: black;
     cursor: pointer;
-    font-size: 1rem;
+     background-color: ${({ isActive}) =>
+    isActive ? '#717171' : 'transparent'};
+    color: ${({ isActive}) =>
+    isActive ? 'white' : 'black'};
     
-    /* 비활성화된 버튼 스타일 */
-    /* &:disabled {
-        background-color: #CFDEC8; 
-        cursor: not-allowed;
-    } */
 `;
-
 export default S;

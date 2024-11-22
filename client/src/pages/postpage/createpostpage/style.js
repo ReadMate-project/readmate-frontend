@@ -52,7 +52,19 @@ S.Line=styled.div`
 
 S.BodyContainer=styled.div`
     width: 80%;
-    height:120vh;
+    height:740px;
+    @media (max-width: 1024px) {
+        
+        height: 400px; 
+    }
+
+    @media (max-width: 768px) {
+        height: 300px;  
+    }
+
+    @media (max-width: 480px) {
+        height: 200px; 
+    }
     background-color: white;
     margin-bottom: 2%;
     border-radius: 20px;
@@ -72,7 +84,7 @@ S.BodyContainer=styled.div`
 
     & #body{
         width:100%;
-        height:60%;
+        height:55%;
         resize: none;
         border: none; 
         border-bottom: 1px solid gray;
@@ -97,14 +109,25 @@ S.ImageButtonContainer=styled.div`
 `
 S.ImagePreview = styled.div`
     position: relative;
-    /* margin:auto; */
     width:140px;
     height:140px;
-    /* width:100%;
-    height:100%; */
+    @media (max-width: 1024px) {
+        
+        width: 90px;
+        height:90px;
+    }
+
+    @media (max-width: 768px) {
+        width: 60px;
+        height:60px;
+    }
+
+    @media (max-width: 480px) {
+        width: 40px; 
+        height:40px;
+    }
     img{
         position:absolute;
-        /* top:-100%; */
         width:100%;
         height:100%;
         border-radius: 0.5rem;

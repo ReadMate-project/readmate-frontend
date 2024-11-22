@@ -4,88 +4,92 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as emptyHeart, faComment } from '@fortawesome/free-regular-svg-icons';
 import S from './style';
+import apiClient from '../../../api/apiClient';
 
 const PostPage = () => {
   const navigate = useNavigate();
-  // const [posts, setPosts] = useState([]); // 전체 게시글 목록 상태
-  // const [page, setPage] = useState(0); // 현재 페이지
-  const [size, setSize] = useState(8); // 페이지당 게시글 수
-  // const [totalPages, setTotalPages] = useState(1); // 전체 페이지 수
-  const [hotPosts, setHotPosts] = useState([]); // Hot 게시글 (좋아요 많은 3개)
-  const [latestPosts, setLatestPosts] = useState([]); // 최신 게시글
-  const boardType="BOARD";
-
-  
-  const dummyPosts = [
-    {
-      boardId: 1,
-      title: '첫 번째 게시글 첫 번째 게시글',
-      content:"첫 번째 게시글 내용",
-      userId: 'user1',
-      createdAt: '2024-11-08T15:09:59.989724',
-      likeCount: 10,
-      comment:5,
-      imageUrl:'https://img.freepik.com/premium-vector/abstract-square-pixel-colour-pattern-21_615845-1013.jpg', 
-    },
-    {
-      boardId: 2,
-      title: '두 번째 게시글',
-      content:"두 번째 게시글 내용 두 번째 게시글 내용 두 번째 게시글 내용 두 번째 게시글 내용 두 번째 게시글 내용 두 번째 게시글 내용 두 번째 게시글 내용 두 번째 게시글 내용",
-      userId: 'user2',
-      createdAt: '2024-10-07T09:24:33.002345',
-      likeCount: 5,
-      comment:2,
-      imageUrl:'https://img.freepik.com/premium-vector/abstract-square-pixel-colour-pattern-21_615845-1013.jpg', 
-    },
-    {
-      boardId: 3,
-      title: '세 번째 게시글',
-      content:"세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용세 번째 게시글 내용",
-      userId: 'user3',
-      createdAt: '2024-10-06T18:30:00',
-      likeCount: 8,
-      comment:0,
-    },
-    
-  ];
-  const [posts, setPosts] = useState(dummyPosts); // 더미 데이터를 게시글로 설정
+  const[hotPosts,setHotposts]=useState([]);
+  const [posts, setPosts] = useState([]); 
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지
-// 페이지
   const [totalPages, setTotalPages] = useState(1); // 전체 페이지 수
- // 페이지가 변경될 때마다 데이터를 다시 로드
- useEffect(() => {
-  setPosts(dummyPosts); // 더미 데이터를 사용
-}, [currentPage]);
+  const [currentPageGroup, setCurrentPageGroup] = useState(0); // 페이지 그룹
+  const pageSize = 10; // 한 페이지에 표시할 게시글 수
+  const pageGroupSize = 5; // 페이지 그룹 크기
 
 
-// 시간 포맷을 처리하는 함수
-const formatDate = (dateString) => {
-  const now = new Date();
-  const postDate = new Date(dateString);
+  // 전체게시글 목록 조회
+  const getAllPosts = (page) => {
+    apiClient
+      .get(`/v1/board/?boardType=BOARD&page=${page}&size=${pageSize}`)
+      .then((response) => {
+        setPosts(response.data.data); // 게시글 설정
+        setTotalPages(response.data.pageInfo.totalPages); // 총 페이지 수 설정
+      })
+      .catch((error) => {
+        console.error('Error fetching posts:', error);
+      });
+  };
 
-  // 현재 날짜와 게시물 날짜를 같은 기준으로 비교하기 위해 시간은 제거하고 비교
-  const nowWithoutTime = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const postDateWithoutTime = new Date(postDate.getFullYear(), postDate.getMonth(), postDate.getDate());
+  useEffect(() => {
+    getAllPosts(currentPage);
+  }, [currentPage]);
 
-  const diffTime = nowWithoutTime - postDateWithoutTime; // 밀리초 단위 차이
-  const diffDays = diffTime / (1000 * 60 * 60 * 24); // 밀리초를 일로 변환
-
-  if (diffDays < 1) {
-    // 하루가 지나지 않았으면 시간만 표시
-    return postDate.toLocaleString('ko-KR', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false, // 24시간 형식
-    });
-  } else {
-    // 하루가 지났으면 연월일만 표시
-    return postDate.toLocaleString('ko-KR', {
-      month: 'numeric',
-      day: 'numeric',
-    });
-  }
+  //핫 게시글 목록 조회
+  const fetchHotPosts = () => {
+    apiClient
+        .get(`/v1/board/hotpost/board?page=${0}&size=${3}`)
+        .then((response) => {
+            console.log(response.data);
+            setHotposts(response.data.data); // 핫 게시글 데이터 설정
+            // setTotalPages(response.data.pageInfo.totalPages); 
+        })
+        .catch((error) => {
+            console.error('Error fetching hot posts:', error);
+        });
 };
 
+  useEffect(() => {
+      fetchHotPosts();  
+  }, [currentPage]);
+ 
+  //하트 클릭 시 색 바뀌게 하고 숫자 업데이트
+  const handleLikeClick = (postId, isLiked) => {
+    apiClient
+      .post(`/v1/like/${postId}`)
+      .then(() => {
+        setPosts((prevPosts) =>
+          prevPosts.map((post) =>
+            post.boardId === postId
+              ? { ...post, isLiked: !isLiked, likeCount: isLiked ? post.likeCount - 1 : post.likeCount + 1 }
+              : post
+          )
+        );
+      })
+      .catch((error) => {
+        console.error('Error liking post:', error);
+      });
+  };
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const handleNextPageGroup = () => {
+    if ((currentPageGroup + 1) * pageGroupSize < totalPages) {
+      setCurrentPageGroup(currentPageGroup + 1);
+      setCurrentPage((currentPageGroup + 1) * pageGroupSize); // 다음 그룹 첫 페이지로 이동
+    }
+  };
+
+  const handlePrevPageGroup = () => {
+    if (currentPageGroup > 0) {
+      setCurrentPageGroup(currentPageGroup - 1);
+      setCurrentPage((currentPageGroup - 1) * pageGroupSize); // 이전 그룹 첫 페이지로 이동
+    }
+  };
+
+  const startPage = currentPageGroup * pageGroupSize;
+  const endPage = Math.min(startPage + pageGroupSize, totalPages);
   
   //글쓰기 버튼 클릭 시 
   const goToCreatePost = () => {
@@ -98,93 +102,16 @@ const formatDate = (dateString) => {
   }
 
   //게시글 상세보기
-  const goToPostDetail=(post)=>{
-    navigate('/posts/postdetail', { state: { post } });
+  const goToPostDetail=(boardId)=>{
+    navigate(`/posts/postdetail?boardId=${boardId}`);
   }
 
-  // 게시글 데이터를 서버에서 가져오는 함수
-  const getPosts = (page, size, boardType) => {
-    fetch(`/api/v1/posts/hot?page=${boardType}&${page}&size=${size}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`, 
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch posts');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setPosts(data.data); // 받아온 전체 게시글 목록 설정
-        setTotalPages(data.pageInfo.totalPages); // 총 페이지 수 설정
-
-        // 게시글 좋아요 수 상위 3개 정렬
-        const sortedByLikes = [...data.data].sort((a, b) => b.likes - a.likes).slice(0, 3);
-        setHotPosts(sortedByLikes);
-
-        // 게시글 최신순 정렬
-        const sortedByDate = [...data.data].sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
-        setLatestPosts(sortedByDate);
-      })
-      .catch((error) => {
-        console.error('Error fetching posts:', error);
-        
-      });
-  };
-
-  // 좋아요 버튼 클릭 핸들러
-  const handleLikeClick = (postId, isLiked) => {
-    fetch(`/api/v1/like/${postId}`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`, 
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to like the post');
-        }
-        return response.json();
-      })
-      .then(() => {
-        // 좋아요 상태를 토글하고 게시글의 좋아요 개수를 업데이트
-        setPosts(prevPosts =>
-          prevPosts.map(post =>
-            post.boardId === postId
-              ? {
-                  ...post,
-                  isLiked: !isLiked,
-                  likes: isLiked ? post.likes - 1 : post.likes + 1,
-                }
-              : post
-          )
-        );
-      })
-      .catch((error) => {
-        console.error('Error liking post:', error);
-      });
-  };
-
-  // 페이지 번호 변경 핸들러
- 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
-  // 페이지가 변경될 때마다 데이터를 다시 로드
-  useEffect(() => {
-    getPosts(currentPage, size, boardType);
-  }, [currentPage, size]);
 
   return (
     <div>
       <S.Container>
-      <S.TitleHightlight><img 
+      <S.TitleHightlight>
+        <img 
            src={process.env.PUBLIC_URL + '/global/images/postpage/board.png'}  alt="게시판"/>
         </S.TitleHightlight>
         <S.TitleContainer>
@@ -204,99 +131,105 @@ const formatDate = (dateString) => {
         </S.HotPostTitle>
         
         <S.HotPostContainer>
-        
           <S.PostList>
-            {/* {hotPosts.map((post) => ( */}
-            {posts.map((post) => ( //더미데이터 대신함
-              <S.PostItem key={post.boardId} onClick={() => goToPostDetail(post)}>
+            {hotPosts.map((hotpost) => (
+              <S.PostItem key={hotpost.boardId} onClick={() => goToPostDetail(hotpost.boardId)}>
                 <S.TitleBody>
-                <S.PostTitle>{post.title}</S.PostTitle> <S.PostContent>{post.content}</S.PostContent>
+                  <S.PostTitle>{hotpost.title}</S.PostTitle>
+                  <S.PostContent>{hotpost.content}</S.PostContent>
                 </S.TitleBody>
-                {post.imageUrl && <S.PostImage>
-                  <img src={post.imageUrl}/>
-                </S.PostImage>}
+                {hotpost.imageUrls[0] && (
+                  <S.PostImage>
+                    <img src={hotpost.imageUrls[0]} />
+                  </S.PostImage>
+                )}
                 <S.UnderTitleContainer>
-                
-                <S.LikeContainer>
+                  <S.LikeContainer>
                     <FontAwesomeIcon
-                      icon={post.isLiked ? filledHeart : emptyHeart}
-                      onClick={() => handleLikeClick(post.boardId, post.isLiked)}
-                      // style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
+                      icon={hotpost.isLiked ? filledHeart : emptyHeart}
+                      onClick={() => handleLikeClick(hotpost.boardId, hotpost.isLiked)}
+                      style={{ cursor: 'pointer', color: hotpost.isLiked ? 'red' : 'gray' }}
                     />
-                    <div >{post.likeCount}</div> 
-                </S.LikeContainer>
-                  
+                    <div>{hotpost.likeCount}</div>
+                  </S.LikeContainer>
+
                   <S.CommentContainer>
                     <FontAwesomeIcon icon={faComment} />
-                    <div>{post.comment}</div> 
+                    <div>{hotpost.commentCount}</div>
                   </S.CommentContainer>
-                  
+
                   <S.PostInfo>
-                      {post.userId} | {formatDate(post.createdAt)}
+                    {hotpost.nickname} |{" "}
+                     {new Date(new Date(hotpost.createdAt).getTime() + 9 * 60 * 60 * 1000).toLocaleString('ko-KR')}
                   </S.PostInfo>
                 </S.UnderTitleContainer>
-                
               </S.PostItem>
             ))}
           </S.PostList>
         </S.HotPostContainer>
+
         
         
         {/* 최신 게시글 리스트 */}
         <S.LatestPostContainer>
           <S.PostList>
-            {/* {latestPosts.map((post) => ( */}
             {posts.map((post) => (
-              <S.PostItem key={post.boardId}>
+              <S.PostItem key={post.boardId} onClick={() => goToPostDetail(post.boardId)}>
                 <S.TitleBody>
                   <S.PostTitle>{post.title}</S.PostTitle>
                   <S.PostContent>{post.content}</S.PostContent>
-                  </S.TitleBody>
-                  {post.imageUrl && <S.PostImage>
-                  <img src={post.imageUrl}/>
-                </S.PostImage>}
+                </S.TitleBody>
+                {post.imageUrls?.[0] && (
+                  <S.PostImage>
+                    <img src={post.imageUrls[0]} />
+                  </S.PostImage>
+                )}
                 <S.UnderTitleContainer>
-                <S.LikeContainer>
-                  <FontAwesomeIcon
-                    icon={post.isLiked ? filledHeart : emptyHeart}
-                    onClick={() => handleLikeClick(post.boardId, post.isLiked)}
-                    style={{ cursor: 'pointer', color: post.isLiked ? 'red' : 'gray' }}
-                  />
-                   <div>{post.likeCount}</div> 
-                  {/* <div>{post.likes}</div> */} 
+                  <S.LikeContainer>
+                    <FontAwesomeIcon
+                      icon={post.isLiked ? filledHeart : emptyHeart}
+                      onClick={() => handleLikeClick(post.boardId, post.isLiked)}
+                    />
+                    <div>{post.likeCount}</div>
                   </S.LikeContainer>
                   <S.CommentContainer>
                     <FontAwesomeIcon icon={faComment} />
-                    <div>{post.comment}</div> 
+                    <div>{post.commentCount}</div>
                   </S.CommentContainer>
 
                   <S.PostInfo>
-                      {post.userId} | {formatDate(post.createdAt)}
+                    {new Date(new Date(post.createdAt).getTime() + 9 * 60 * 60 * 1000).toLocaleString('ko-KR')}
                   </S.PostInfo>
+
                 </S.UnderTitleContainer>
               </S.PostItem>
             ))}
           </S.PostList>
+
+          {/* 페이지네이션 */}
+          <S.PaginationContainer>
+                <S.PageButton onClick={handlePrevPageGroup} disabled={currentPageGroup === 0}>
+                  &lt;
+                </S.PageButton>
+                {Array.from({ length: endPage - startPage }, (_, index) => (
+                  <S.PageButton
+                  key={index}
+                  onClick={() => handlePageChange(startPage + index)}
+                  isActive={currentPage === startPage + index} // 활성 페이지 스타일 적용
+                  
+                >
+                    {startPage + index + 1}
+                  </S.PageButton>
+                ))}
+              <S.PageButton onClick={handleNextPageGroup} disabled={endPage >= totalPages}>
+                &gt;
+              </S.PageButton>
+            </S.PaginationContainer>
+        
         </S.LatestPostContainer>
 
-        {/* 페이지네이션 */}
-        <S.PaginationContainer>
-          <S.PageButton onClick={() => handlePageChange(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>
-            &lt;
-          </S.PageButton>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <S.PageButton
-              key={index}
-              onClick={() => handlePageChange(index)}
-              disabled={index === currentPage}
-            >
-              {index + 1}
-            </S.PageButton>
-          ))}
-          <S.PageButton onClick={() => handlePageChange(Math.min(totalPages - 1, currentPage + 1))} disabled={currentPage === totalPages - 1}>
-            &gt;
-          </S.PageButton>
-        </S.PaginationContainer>
+        
+
       </S.Container>
     </div>
   );

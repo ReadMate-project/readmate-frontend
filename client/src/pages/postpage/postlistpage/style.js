@@ -178,15 +178,29 @@ S.CommentContainer = styled.div`
 `;
 
 S.PostImage=styled.div`
-    /* width:80px;
-    height:80px; */
-    width:6%;
-    top:10%;
     position: absolute;
-    right:1%;
+    border:none;
+    right:1.5%;
+    
     img{
-        width:100%;
+        width:60px;
+        height:55px;
+        object-fit: cover;
         
+        @media (max-width: 1024px) {
+            width:35px;
+            height:35px;
+        }
+
+        @media (max-width: 768px) {
+            width:25px;
+            height:25px;
+        }
+
+        @media (max-width: 480px) {
+            width:20px;
+            height:20px;
+        }
     }
 `
 S.LatestPostContainer = styled.div`
@@ -194,38 +208,38 @@ S.LatestPostContainer = styled.div`
     top:5vh;
     width: 80%;
     height:auto;
-    /* height:100vh; */
     margin-top: 3%;
+    margin-bottom: 10%;
     padding: 2%;
     background-color: #D9D9D9;
     border-radius: 0.5rem;
   
 `;
 
-
 S.PaginationContainer = styled.div`
     position: relative;
-    /* top:5vh; */
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin:5% 0;
+    left:45%;
+    /* gap: 10px; */
+    margin:3% 0;
+    width:10%;
 `;
 
 S.PageButton = styled.button`
-    padding: 10px 15px;
+    ${b2}
+    padding: 0% 7%;
+    border-radius: 50%;
     border: none;
-    border-radius: 5px;
-    /* background-color: #A2B29F; */
+    background-color: #D9D9D9;
     color: black;
     cursor: pointer;
-    font-size: 1rem;
+     background-color: ${({ isActive}) =>
+    isActive ? '#717171' : 'transparent'};
+    color: ${({ isActive}) =>
+    isActive ? 'white' : 'black'};
     
-    /* 비활성화된 버튼 스타일 */
-    /* &:disabled {
-        background-color: #CFDEC8; 
-        cursor: not-allowed;
-    } */
 `;
+
 
 export default S;
