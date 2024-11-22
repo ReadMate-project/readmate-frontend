@@ -33,18 +33,7 @@ const BookReviewContainer = ({ bookDetails }) => {
       bookImage:"https://image.aladin.co.kr/product/33726/97/cover150/k442939542_2.jpg",
 
     },
-    {
-      boardId: 3,
-      title: '소년이 온다를 읽고서',
-      content: '세 번째 에세이 내용',
-      userId: 'user3',
-      createdAt: '2024-10-06T18:30:00',
-      likeCount: 8,
-      comment: 12,
-      isbn13: '9788936434120',
-      bookImage:"https://image.aladin.co.kr/product/33726/97/cover150/k442939542_2.jpg",
-
-    },
+    
   ];
 
   const handleLikeClick = (postId, isLiked) => {
@@ -114,7 +103,18 @@ const BookReviewContainer = ({ bookDetails }) => {
   }, [bookDetails.isbn13]);
 
   return (
-    <S.Container className='bookReviews'>
+    <S.Container className='bookReviews' >
+      <S.TitleContainer>
+          <S.TitleHighlight className='bookReviews'>
+            <img src={process.env.PUBLIC_URL + '/global/images/librarypage/REVIEWS.png'}/>
+          </S.TitleHighlight>
+          <S.TitleButtonContainer className='bookReviews'>
+            <S.Button >
+              <img src={process.env.PUBLIC_URL + '/global/images/librarypage/seeMore.png'} />
+            </S.Button>
+          </S.TitleButtonContainer>
+      </S.TitleContainer>
+
       {essays.length === 0 ? (
         <p>No reviews available for this book.</p>
       ) : (

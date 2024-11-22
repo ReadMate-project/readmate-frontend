@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import BookReviewsContainer from './BookReviewsContainer';
 import BookInfoDetailsContainer from './BookInfoDetailsContainer';
 import useBookDetails from '../../../hooks/Aladin/useBookDetails';
+import BookclubsContainer from './BookClubsContainer';
 
 const BookInfoPage = () => {
   const { isbn } = useParams();
@@ -20,6 +21,8 @@ const BookInfoPage = () => {
     <div>
       <BookInfoDetailsContainer bookDetails={bookDetails} />
       <BookReviewsContainer bookDetails={bookDetails} />
+      <BookclubsContainer bookDetails={bookDetails} />
+
     </div>
   );
 };

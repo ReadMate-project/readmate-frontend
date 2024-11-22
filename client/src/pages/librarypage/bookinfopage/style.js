@@ -7,59 +7,97 @@ const S = {};
 S.Container = styled.div`
     &.bookDetails {
       width: 100%;
-      height: auto;
+      height: 100%;
       background-color: ${theme.PALETTE.background};
       display: flex;
       align-items: center;
       flex-direction: column;
+      margin-bottom: 10%;
     }
     &.bookReviews {
       width: 100%;
-      height: 100%
-      background-color: #D9D9D9;
+      height: 100%;
+      background-color: #CFDDC8;
       display: flex;
       align-items: center;
+      justify-content: center;
       flex-direction: column;
     }
-    &.yourPicks {
+    &.bookClubs {
       width: 100%;
       height: 100%;
       background-color: ${theme.PALETTE.background};
       display: flex;
       align-items: center;
       flex-direction: column;
+      margin-bottom: 10%;
     }
  
 `;
 
 S.TitleHighlight = styled.div`
-    width: 100%;
+    &.bookDetails{
+    width: 45%;
     height: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 5%;
-    img{
-        width:80%;
+    }
+    &.bookDetails{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+    }
+    &.bookClubs{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
     }
 `;
 
 S.TitleContainer = styled.div`
      
-    width: 100%; 
+    width: 80%; 
     display: flex;
     justify-content: flex;
     align-items: center;
     gap: 10%;
     margin-top: 10%;
-    padding: 0% 10% 0% 10%;
+    img {
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 S.TitleButtonContainer=styled.div`
-    width: 100%;
+  &.bookDetails {
+    width: 50%;
     display: flex;
     justify-content: flex-end;
     padding: 0% 5% 0% 5%;
     gap: 2%;
     /* top:5vh; */
+  }  
+  &.bookReviews {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0% 0% 0% 30%;
+    gap: 2%;
+  }
+  &.bookClubs {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0% 0% 0% 30%;
+  }  
     
     
 `;
@@ -67,7 +105,7 @@ S.Button=styled.button`
     width: 100%;
     border: none;
     cursor: pointer;
-    
+    background-color: transparent;
 `;
     
 
@@ -96,7 +134,9 @@ S.CardSection = styled.div`
   width: 80%;
   border-radius: 2vw 2vw;
   background-color: #FFFFFF;
-
+  display: flex;
+  margin-bottom: 1%;
+  margin-top: 1%;
 `;
 
 S.HeroSection = styled.div`
@@ -160,11 +200,12 @@ S.ContentSection = styled.div`
 
 S.PostList = styled.div`
     width: 80%;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-bottom: 3%;
     display: flex;
     flex-direction: column;
     gap: 5vh; /* 게시글 사이의 간격 */
+    margin-bottom: 5%;
 `;
 
 S.PostItem = styled.div`

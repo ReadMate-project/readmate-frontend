@@ -12,10 +12,10 @@ const BookInfoDetailsContainer = ({ bookDetails }) => {
       <S.Container className='bookDetails' >
       
         <S.TitleContainer>
-          <S.TitleHighlight>
+          <S.TitleHighlight className='bookDetails'>
             <img src={process.env.PUBLIC_URL + '/global/images/librarypage/bookdetails.png'}/>
           </S.TitleHighlight>
-          <S.TitleButtonContainer>
+          <S.TitleButtonContainer className='bookDetails'>
           <S.Button onClick={handleRedirect}>
             <img src={process.env.PUBLIC_URL + '/global/images/librarypage/Purchase.png'} />
             </S.Button>
