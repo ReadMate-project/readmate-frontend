@@ -138,14 +138,15 @@ S.UserInfo = styled.div`
     top:42%;
     display: flex;
     align-items: center;
-    /* gap: 3%; */
     ${b1}
-    width:42%;
+    white-space: nowrap;
+    width:10%;
     justify-content: space-between;
     img {
         width: 40px;
         height:40px;
         border-radius: 50%;
+        margin-right: 7px;
         @media (max-width: 1024px) {
             width: 30px; 
             height: 30px; 
@@ -168,7 +169,7 @@ S.InteractionContainer = styled.div`
     top:75%;
     display: flex;
     align-items: center;
-    width:14%;
+    width:55%;
     justify-content: space-between;
     ${b2}
 `;
@@ -186,7 +187,12 @@ S.CommentContainer = styled.div`
     gap: 3%;
     
 `;
+S.TimeContainer=styled.div`
+    display: flex;
+    align-items: center;
+    gap: 3%;
 
+`
 S.PostImage = styled.div`
     width: 30%;
     height:80%;

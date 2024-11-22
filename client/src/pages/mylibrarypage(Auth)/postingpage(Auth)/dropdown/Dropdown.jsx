@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import S from './style';
 import Select from 'react-select';
 import Dropdown3 from './Dropdown3';
+import apiClient from '../../../../api/apiClient';
 
 
-const Dropdown = () => {
-    const [selectedLibraryBook, setSelectedLibraryBook] = useState('');
+const Dropdown = ({ setSelectedBook }) => {
+    const [selectedLibraryBook, setSelectedLibraryBook] = useState([]);
     const [selectedChallenge, setSelectedChallenge] = useState('');
-    const [selectedSearchBook, setSelectedSearchBook] = useState(null);
-
-    const libraryBook = ['book1', 'book2', 'book3', 'book4', 'book5'];
+  
+    
     const challenge = ['bookclub1', 'bookclub2', 'bookclub3'];
-    const bookOptions = libraryBook.map(book => ({ value: book, label: book }));
 
-    const handleLibraryBookChange = (option) => {
-        setSelectedLibraryBook(option);
-    };
+    const handleLibraryBookChange = (bookId) => {
+      const selected = selectedLibraryBook.find((item) => item.myBookId === parseInt(bookId));
+      if (selected) {
+          setSelectedBook(selected); // 부모 컴포넌트로 선택된 책 전달
+          console.log('Selected Book:', selected);
+      }
+  };
 
     const handleChallengeChange = (option) => {
         setSelectedChallenge(option);
     };
 
-    const handleSearchBookChange = (selectedOption) => {
-        setSelectedSearchBook(selectedOption); // 선택된 옵션 저장
-    
-    };
+
     // react-select 커스텀 스타일
     const customStyles = {
         control: (provided) => ({
@@ -53,24 +53,48 @@ const Dropdown = () => {
         
     };
 
+    useEffect(() => {
+      const fetchBooks = async () => {
+          try {
+              const accessToken = localStorage.getItem('accessToken');
+              
+              const response = await apiClient.get('/v1/user/book', {
+                  headers: {
+                      Authorization: `Bearer ${accessToken}`, 
+                  },
+              });
+    
+              console.log('Books fetched successfully:', response.data.data);
+              setSelectedLibraryBook(response.data.data); // 도서 데이터를 상태로 설정
+          } catch (error) {
+              console.error('Error fetching books:', error);
+            
+          }
+      };
+    
+      fetchBooks();
+      }, []); 
+
 
   return (
     <S.DropdownContainer>
       <S.Dropdown>
-      <select
-          id="libraryBookDropdown"
-          value={selectedLibraryBook}
-          onChange={(e) => handleLibraryBookChange(e.target.value)}
-        >
+        <select
+            id="libraryBookDropdown"
+            
+            onChange={(e) => handleLibraryBookChange(e.target.value)}
+          >
           <option value="">서재 책 선택하기</option>
-          {libraryBook.map((book) => (
-            <option key={book} value={book}>
-              {book}
-            </option>
-          ))}
+          {selectedLibraryBook.length > 0 &&
+                        selectedLibraryBook.map((item) => (
+                            <option key={item.myBookId} value={item.myBookId}>
+                                {item.book.title}
+                            </option>
+                        ))}
         </select>
       </S.Dropdown>
-
+      
+       
       {/* 두 번째 드롭다운 (challenge) */}
       <S.Dropdown>
         <select
@@ -86,19 +110,6 @@ const Dropdown = () => {
           ))}
         </select>
       </S.Dropdown>
-
-      {/* <S.Dropdown>
-        <div className='search'>
-            <Select
-            id="searchBookDropdown"
-            value={selectedSearchBook}
-            onChange={handleSearchBookChange}
-            options={bookOptions} // react-select는 옵션을 객체 배열로 받음
-            placeholder="책 검색하기"
-            styles={customStyles}
-            />
-        </div>
-      </S.Dropdown> */}
 
     <Dropdown3/>
     </S.DropdownContainer>

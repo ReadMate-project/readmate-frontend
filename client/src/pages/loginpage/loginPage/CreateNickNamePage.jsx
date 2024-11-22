@@ -5,7 +5,7 @@ import Category from './category/Category';
 import axios from 'axios';
 import { useUser } from '../../../context/UserContext';
 
-const CreateNickNamePage = () => {
+const CreateNickNamePage = ({userEmail}) => {
     const { setUser, fetchUserInfo } = useUser();
     const [visible,setVisible]=useState(false);
     const [selectedCategories, setSelectedCategories] = useState([]);
@@ -14,7 +14,7 @@ const CreateNickNamePage = () => {
     const [errorMessage2, setErrorMessage2] = useState('');
     const navigate=useNavigate();
     const code = new URL(window.location.href).searchParams.get("code");
-
+   
     const toggleCategory = () => {
         setVisible(!visible);
     };
@@ -32,7 +32,7 @@ const CreateNickNamePage = () => {
         if (specialCharRegex.test(input)) {
             setErrorMessage("닉네임에 특수 문자를 포함할 수 없습니다.");
         } else if (input.length > 10) {
-            // setErrorMessage("닉네임은 10글자 이하로 설정해주세요.");
+            setErrorMessage("닉네임은 10글자 이하로 설정해주세요.");
         } else {
             setErrorMessage('');
             setNickname(input);
@@ -49,14 +49,15 @@ const CreateNickNamePage = () => {
             }
             return;
         }
-
+        console.log(userEmail);
         const userData = {
+            email: userEmail,
             nickname: nickname,
             favoriteGenre: selectedCategories,
         };
         try {
-            console.log(selectedCategories);
-            const response = await fetch(`http://3.35.193.132:8080/api/v1/auth/login/kakao?code=${code}`, {
+           
+            const response = await fetch(`http://3.35.193.132:8080/api/v1/auth/signup/kakao/step1`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

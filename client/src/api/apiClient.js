@@ -22,7 +22,7 @@ const refreshAccessToken = async () => {
         });
 
         console.log("Response from refresh:", response); // 디버깅용 로그
-        
+
         const newAccessToken = response.data.accessToken;
         if (newAccessToken) {
             setAccessToken(newAccessToken); // 새 액세스 토큰 설정
@@ -42,7 +42,6 @@ const refreshAccessToken = async () => {
 const handleUnauthorized = () => {
     alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
 
-    // accessToken과 refreshToken을 localStorage에서 삭제
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
 
@@ -55,7 +54,7 @@ const handleUnauthorized = () => {
 
 // 응답 인터셉터 설정
 apiClient.interceptors.response.use(
-    (response) => response,
+    (response) => response, //정상응답 그대로 반환
     async (error) => {
         const originalRequest = error.config;
 
@@ -94,55 +93,3 @@ export const setAccessToken = (newToken) => {
 export default apiClient;
 
 
-// import axios from 'axios';
-
-// // Axios 인스턴스 생성
-// const apiClient = axios.create({
-//     baseURL: 'http://3.35.193.132:8080/api',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-// });
-
-// // 401 에러 발생 시 처리 함수
-// const handleUnauthorized = () => {
-//     alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
-
-//     // accessToken을 localStorage에서 삭제
-//     localStorage.removeItem("accessToken");
-
-//     // Axios 기본 헤더에서 Authorization 제거
-//     delete apiClient.defaults.headers.common['Authorization'];
-
-//     // 로그인 페이지로 이동
-//     window.location.href = '/login';
-// };
-
-// // 인터셉터 설정 - 응답 인터셉터
-// apiClient.interceptors.response.use(
-//     (response) => response,
-//     (error) => {
-//         if (error.response && error.response.status === 401) {
-//             handleUnauthorized();
-//         }
-//         return Promise.reject(error);
-//     }
-// );
-
-// // 인터셉터 설정 - 요청 인터셉터
-// apiClient.interceptors.request.use((config) => {
-//     const token = localStorage.getItem("accessToken");
-//     if (token) {
-//         config.headers.Authorization = `Bearer ${token}`;
-//     }
-//     return config;
-// });
-
-// // 새로운 토큰 설정 함수
-// export const setAccessToken = (newToken) => {
-//     // 새로 로그인한 후 새로운 accessToken을 localStorage에 저장하고, Axios 기본 헤더에 설정
-//     localStorage.setItem("accessToken", newToken);
-//     apiClient.defaults.headers.common['Authorization'] = `Bearer ${newToken}`;
-// };
-
-// export default apiClient;

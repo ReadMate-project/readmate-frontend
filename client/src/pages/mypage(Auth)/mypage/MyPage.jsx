@@ -14,7 +14,7 @@ const MyPage = () => {
     const navigate=useNavigate();
     const [showDeleteAccount, setShowDeleteAccount] = useState(false);
     const [visible, setVisible] = useState(false);
-
+    
     useEffect(() => {
       if (user) {
         setProfileImage(user.profileImageUrl || process.env.PUBLIC_URL + '/global/images/mypage/defaultProfile.png');
@@ -22,7 +22,7 @@ const MyPage = () => {
         setNickname(user.nickname || "");
       }
     }, [user]);
-
+    
     const goToUpdateProfile=()=>{
       navigate('/mypage/updateprofile');
     }
@@ -50,7 +50,12 @@ const MyPage = () => {
 
           const response = await axios.post(
               'http://3.35.193.132:8080/api/v1/auth/logout',
-              {}
+              {},
+              // {
+              //   headers: {
+              //       Authorization: `Bearer ${accessToken}`, // 헤더에 토큰 추가
+              //   },
+              // }
           );
 
           if (response.status === 200) {
