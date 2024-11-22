@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../global/theme';
-import { b1, flexCenter, flexCenterColumn, h3 } from "../../../global/common";
+import { b1, b2, b4, flexCenter, flexCenterColumn, h3 } from "../../../global/common";
 
 const S = {};
 
@@ -13,10 +13,10 @@ S.Container = styled.div`
       align-items: center;
       flex-direction: column;
     }
-    &.mostReview {
+    &.bookReviews {
       width: 100%;
       height: 100%
-      background-color: ${theme.PALETTE.background};
+      background-color: #D9D9D9;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -158,13 +158,145 @@ S.ContentSection = styled.div`
   background-color:  ${theme.PALETTE.background};;
 `;
 
-// S.BookTitleContainer = styled.h1`
-  
+S.PostList = styled.div`
+    width: 80%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh; /* 게시글 사이의 간격 */
+`;
 
-//   display: flex;
-//   align-items: center;
-//   justify-content: flex-start;
-//   background-color: #CFDDC8;
-// `;
+S.PostItem = styled.div`
+    padding: 1.5%;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position:relative;
+`;
+
+S.PostInfo = styled.div`
+    padding-left: 5%;
+    /* width:50%; */
+    ${b4}
+    color: ${theme.PALETTE.darkGray};
+    white-space: nowrap; 
+`;
+
+S.PostContainer=styled.div`
+    display: flex;
+    justify-content: flex-start;
+    width:100%;
+`;
+
+S.BookContainer=styled.div`
+    width:8%;
+    line-height: 1.3;
+`;
+
+S.TextContainer = styled.div`
+    width:90%;
+    margin-left: 2%;
+    padding:1% 0;
+`;
+
+S.BookImage=styled.div`
+    
+    /* width:100%; */
+    
+
+    img{
+        width:90px;
+        height:140px;
+        object-fit: cover;
+        
+        @media (max-width: 1024px) {
+            width:50px;
+            height:85px;
+        }
+
+        @media (max-width: 768px) {
+            width:30px;
+            height:50px;
+        }
+
+        @media (max-width: 480px) {
+            width:20px;
+            height:35px;
+        }
+    }
+`;
+
+S.TitleBody = styled.div`
+   
+    
+`;
+
+S.PostTitle = styled.div`
+    ${h3}; 
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap; 
+`;
+
+S.PostContent = styled.div`
+    ${b4}; 
+    color: #717171;
+    /* white-space: nowrap;  */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height:40%;
+    padding-left: 0.1%;
+    padding-top: 1%;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 원하는 줄 수로 변경 가능 */
+    -webkit-box-orient: vertical;
+`;
+
+S.UnderTitleContainer=styled.div`
+    display: flex;
+    /* align-items: center;  */
+    
+    position:absolute;
+    bottom:12.5%;
+    
+`;
+
+S.LikeContainer = styled.div`
+
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 아이콘과 좋아요 개수 사이 간격 */
+    cursor: pointer;
+    ${b4};
+    color: ${theme.PALETTE.gray};
+    svg {
+        font-size: ${b2};
+        transition: color 0.3s ease;
+    }
+    span {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+`;
+S.CommentContainer = styled.div`
   
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+    gap: 3px; /* 아이콘과 좋아요 개수 사이 간격 */
+    font-size: ${b4};
+    color: ${theme.PALETTE.gray};
+    svg {
+        font-size: ${b2};
+    }
+
+`;
 export default S;
