@@ -59,13 +59,25 @@ S.Line=styled.div`
 S.BookContainer=styled.div`
     /* width:120%; */
     position: relative;
-    left:-58%;
+    left:-55%;
     top:7.3vh;
 `
 
 S.BodyContainer=styled.div`
     width: 80%;
-    height:100vh;
+    height:740px;
+    @media (max-width: 1024px) {
+        
+        height: 400px; 
+    }
+
+    @media (max-width: 768px) {
+        height: 300px;  
+    }
+
+    @media (max-width: 480px) {
+        height: 200px; 
+    }
     background-color: white;
     margin-bottom: 2%;
     border-radius: 20px;
@@ -85,7 +97,7 @@ S.BodyContainer=styled.div`
 
     & #body{
         width:100%;
-        height:65%;
+        height:55%;
         resize: none;
         border: none; 
         border-bottom: 1px solid gray;

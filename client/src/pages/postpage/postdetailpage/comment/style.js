@@ -123,5 +123,68 @@ S.CommentTime = styled.div`
     color:#717171;
     margin-top: 4px;
 `;
+//수정, 삭제 버튼
+S.ButtonContainer = styled.div`
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  text-align: center;
+`;
 
+S.Button = styled.button`
+  ${b4}
+  padding: 0 7px;
+  background-color: #717171;
+  color: white;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  
+ 
+`;
+// S.EditInput=styled.input`
+//   ${b2}
+//   width: 100%;
+//   height:auto;
+//   outline: none;
+// `
+S.EditInput = styled.textarea`
+  ${b2}
+  width: 100%;
+  /* min-height: 10px; 최소 높이 설정 */
+  resize: none; 
+  outline: none;
+  /* overflow: hidden;  */
+`;
+S.PaginationContainer = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left:45%;
+    /* gap: 10px; */
+    margin:3% 0;
+    width:10%;
+`;
+
+S.PageButton = styled.button`
+    ${b2}
+    padding: 0% 8%;
+    border-radius: 50%;
+    border: none;
+    background-color: #D9D9D9;
+    color: black;
+    cursor: pointer;
+     background-color: ${({ isActive}) =>
+    isActive ? '#717171' : 'transparent'};
+    color: ${({ isActive}) =>
+    isActive ? 'white' : 'black'};
+    
+`;
+
+S.EmptyMessage=styled.div`
+  ${b1}
+  margin-top: 2%;
+`
 export default S;

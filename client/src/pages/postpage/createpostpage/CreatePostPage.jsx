@@ -40,6 +40,11 @@ const CreatePostPage = () => {
     };
 
     const handleSubmit = async () => {
+        if (!title.trim()) {
+            alert('제목을 입력해주세요.');
+            return; 
+        }
+
         const requestData = {
             content,
             title,

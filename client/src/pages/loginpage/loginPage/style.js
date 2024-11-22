@@ -72,7 +72,7 @@ S.LoginComponent=styled.div`
 
 S.kakaoLoginButton=styled.div`
     position: absolute;
-    top:75%;
+    top:70%;
     cursor: pointer;
     
     img {
@@ -81,6 +81,14 @@ S.kakaoLoginButton=styled.div`
         
     }
     
+`
+S.SignUpText=styled.div`
+    position: absolute;
+    top:88%;
+    cursor: pointer;
+    ${b2}
+    text-decoration: underline;
+    color:#717171;
 `
 //createnickname
 

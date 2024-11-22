@@ -40,7 +40,8 @@ S.Dropdown = styled.div`
 `;
 S.DropdownContainer3 = styled.div`
   position: absolute;
-  width: 300px;
+  left: 50%;
+  width: 100px;
   margin: 0 auto;
 `;
 

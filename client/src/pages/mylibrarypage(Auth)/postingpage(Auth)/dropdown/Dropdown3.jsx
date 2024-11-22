@@ -26,8 +26,10 @@ const Dropdown3 = () => {
                 title: book.title,
                 author: book.author,
                 cover: book.cover
+                
             }));
             setSearchOptions(options);
+            options.forEach((option) => console.log(option.id));
         } catch (error) {
             console.error('Error fetching search results:', error);
         }

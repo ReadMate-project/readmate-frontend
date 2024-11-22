@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import classNames from "classnames/bind";
 import S from './style';
 import { useNavigate } from 'react-router-dom';
+import apiClient from '../../../api/apiClient';
 
 const cx = classNames.bind(S);
 
@@ -20,30 +21,27 @@ const BookCalendar = () => {
     const dateTotalCount = new Date(selectedYear, selectedMonth, 0).getDate(); 
     const [calendarData, setCalendarData] = useState([]);
 
-    // useEffect(() => {
-      
-    //   const fetchData = async () => {
-        
-    //       try {
-    //           const token = localStorage.getItem('token');
-    //           const response = await fetch(`http://localhost:8000/myMind/getCalendar`,{
-    //             method: 'GET',
-    //             headers: {
-    //               'Content-Type': 'application/json',
-    //               'Authorization': `Bearer ${token}`
-    //             },
-    //           });
-    //           if (!response.ok) {
-    //               throw new Error('데이터를 불러오는 데 실패했습니다.');
-    //           }
-    //           const datas = await response.json();
-    //           setCalendarData(datas); 
-    //       } catch (error) {
-    //           console.error('데이터를 불러오는 중 에러 발생:', error);
-    //       }
-    //   }
-    //   fetchData(); 
-    // }, [selectedYear, selectedMonth]);
+    const fetchCalendarData =useCallback(async () => {
+      const accessToken = localStorage.getItem('accessToken'); 
+  
+      apiClient
+          .get(`/v1/board/calendar/books?year=${selectedYear}&month=${selectedMonth}`, {
+              headers: {
+                  Authorization: `Bearer ${accessToken}` 
+              }
+          })
+          .then((response) => {
+            console.log(response.data);
+              
+          })
+          .catch((error) => {
+              console.error('Error fetching calendar:', error);
+          });
+  }, [selectedYear, selectedMonth]);
+
+useEffect(() => {
+        fetchCalendarData();
+    }, [fetchCalendarData]);
 
       //이전 달 보기 보튼
       const prevMonth = useCallback(() => {
@@ -156,7 +154,7 @@ const BookCalendar = () => {
             for (let i = 0; i < dateTotalCount; i++) {
               const formattedDate = `${selectedYear}-${selectedMonth}-${i + 1}`;
               const hasData = calendarData.some(data => data.createdAt === formattedDate);
-              const isBookDate = selectedMonth === 11 && i + 1 === 1; // 11월 1일 조건
+              // const isBookDate = selectedMonth === 11 && i + 1 === 1; 
               dayArr.push(
                 <div key={`day-${i + 1}`} 
                 className={cx(
@@ -173,11 +171,7 @@ const BookCalendar = () => {
                 >
                   {i + 1}
                   {/* {hasData && <div className="dot" />} */}
-                  {isBookDate && (
-                  <S.BookImage onClick={() => handleDateClick(i + 1)}>
-                    <img src='https://image.aladin.co.kr/product/33861/97/cover150/8930107850_1.jpg' alt="Book" />
-                  </S.BookImage>
-                )}
+                  
                 </div>
               );
             }

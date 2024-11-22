@@ -6,41 +6,38 @@ const S = {};
 
 S.BookComponent = styled.div`
     ${flexCenterColumn};
-   
     background-color:white;
-    padding: 10%;
+    padding: 20px;
     ${b2}
-    width:12vw;
-    height:280px;
+    width:10vw;
+    height:auto;
     border-radius: 1rem;
     position:absolute;
     img{
-        width:80%;
-        height:75%;
+        width:100%;
         margin-bottom: 3%;
         object-fit: cover;
     }
     
     @media (max-width: 1024px) {
+        padding: 15px;
         
-        height: 180px; 
     }
 
     @media (max-width: 768px) {
-        
-        height: 130px; 
+        padding: 10px;
+         
     }
 
     @media (max-width: 480px) {
+        padding: 5px;
         
-        height: 70px;
-        border-radius: 0%;
     }
 `; 
 
 S.TextContianer=styled.div`
     position:relative;
-    width:80%;
+    width:100%;
     div:nth-child(1) {
         ${b2}
         margin-bottom: 3%;

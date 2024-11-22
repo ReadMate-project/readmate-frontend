@@ -37,13 +37,14 @@ export const UserProvider = ({ children }) => {
             if (accessToken) {
                 fetchUserInfo();
             }
-        }, [accessToken]);  
+        }, []);  
 
     // 로그아웃 함수 
     const logout = () => {
         setUser(null); // 유저 정보 초기화
         localStorage.removeItem('accessToken'); 
         localStorage.removeItem("refreshToken");
+        localStorage.removeItem("isMember");
         delete apiClient.defaults.headers.common['Authorization'];
     };
 

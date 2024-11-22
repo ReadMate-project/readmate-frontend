@@ -64,11 +64,30 @@ S.BookCount=styled.div`
  `
 S.BookComponent=styled.div`
     position:absolute;
-    width:11%;
-    height:28%;
     background-color: white;
     top:14.7%;
     box-shadow: 13px 12px 4px rgba(0,0,0,0.25);
+    img{
+        width:120px;
+        height:171px;
+        object-fit: cover;
+        
+        @media (max-width: 1024px) {
+            width:50px;
+            height:80px;
+            /* width:12%; */
+        }
+
+        @media (max-width: 768px) {
+            width:40px;
+            height:65px;
+        }
+
+        @media (max-width: 480px) {
+            width:20px;
+            height:35px;
+        }
+    }
     &.book1{
         left:15%;
     }
@@ -100,6 +119,36 @@ S.BookComponent=styled.div`
     
     
 `
+
+S.NavigationButton = styled.button`
+    position: relative;
+    align-self: center;
+    border: none;
+    color:  rgba(0, 0, 0, 0.5);
+    font-size: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    background-color:${theme.PALETTE.background};
+    margin:0px 2.5%;
+
+  /* 왼쪽 버튼 */
+  &.left {
+    position: absolute;
+    left: 10px;
+  }
+
+  /* 오른쪽 버튼 */
+  &.right {
+    right: 20px;
+  }
+
+  
+`;
+
+
 //Essay
 
 S.EssayTitleContainer=styled.div`

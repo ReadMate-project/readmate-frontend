@@ -60,6 +60,7 @@ S.TitleHeader = styled.div`
         width:7%;
         img{
             width:100%;
+            border-radius: 50%;
         }
     }
 `
@@ -71,12 +72,16 @@ S.Line=styled.div`
     background-color:black;
     position:relative;
     top:7vh;
+    &.line2{
+        top:8vh;
+    }
 `
 
 S.BodyContainer=styled.div`
     width: 80%;
-    height:120vh;
+    /* height:120vh; */
     height: auto;
+    min-height: 300px;
     background-color: white;
     margin-bottom: 2%;
     border-radius: 1rem;
@@ -125,12 +130,56 @@ S.Button=styled.div`
     background-color:${theme.PALETTE.darkGray};
     cursor: pointer;
 `
+S.IconContainer=styled.div`
+    display: flex;
+    align-self: flex-start;
+    position:relative;
+    top:7vh;
+    left:10%;
+    gap:8px;
+`
+S.LikeContainer = styled.div`
 
+    display: flex;
+    align-items: center;
+    gap: 3px; 
+    cursor: pointer;
+    font-size: ${b2};
+    svg {
+    font-size: ${h2};
+    }
+    svg path {
+        fill: red ;
+    }
+    span {
+        color: ${theme.PALETTE.gray};
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+`;
+
+S.CommentContainer = styled.div`
+  
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+  gap: 3px; 
+  font-size: ${b2};
+  color: ${theme.PALETTE.gray};
+  svg {
+    font-size: ${h2};
+  }
+
+`;
+
+// delete
 S.DeleteAccountContainer=styled.div`
     position:absolute;
     z-index: 999;
     width:50%;
     height:20%;
+    min-height: 200px;
     background-color:#E9E8E4 ;
     left:25%;
     /* bottom:5%; */
