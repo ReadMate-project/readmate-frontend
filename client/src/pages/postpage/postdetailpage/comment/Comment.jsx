@@ -196,24 +196,29 @@ const Comment = ({ post, setPost }) => {
     return (
         <>  
             <S.Background1>
-                
-                <S.Profile>
-                    <span><img src={user.profileImageUrl}/> </span>
-                    <S.Username>{user.nickname}</S.Username>
-                </S.Profile>
-                
-                <S.CommentInput
-                    value={comment}
-                    onChange={handleCommentChange}
-                    placeholder="댓글을 작성하세요"
-                    maxLength={maxCharacters}
-                />
+            {user ? (
+                <>
+                    <S.Profile>
+                        <span><img src={user.profileImageUrl} alt="프로필 이미지"/> </span>
+                        <S.Username>{user.nickname}</S.Username>
+                    </S.Profile>
+                    
+                    <S.CommentInput
+                        value={comment}
+                        onChange={handleCommentChange}
+                        placeholder="댓글을 작성하세요"
+                        maxLength={maxCharacters}
+                    />
 
-                <S.CommentFooter>
+                    <S.CommentFooter>
                         <S.CharacterCount>{`${comment.length}/${maxCharacters}`}</S.CharacterCount>
                         <S.RegisterButton onClick={handleRegisterClick}>등록</S.RegisterButton>
-                </S.CommentFooter>
-            </S.Background1>
+                    </S.CommentFooter>
+                </>
+            ) : (
+                <div>로그인 후 댓글을 작성해보세요!</div>
+            )}
+        </S.Background1>
             
             <S.Background2>
                 <S.CommentToggle>

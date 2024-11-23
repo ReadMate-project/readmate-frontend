@@ -73,13 +73,10 @@ S.BookContainer=styled.div`
     line-height: 1.3;
 `
 S.BookImage=styled.div`
-    
-    /* width:100%; */
-    
 
     img{
-        width:90px;
-        height:140px;
+        width:80px;
+        height:120px;
         object-fit: cover;
         
         @media (max-width: 1024px) {

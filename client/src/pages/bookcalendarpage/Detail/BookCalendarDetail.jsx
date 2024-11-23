@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import MyEssay from './myEssay/MyEssay';
 import S from './style';
@@ -16,6 +16,8 @@ const BookCalendarDetail = () => {
         const day = date.getDate();
         return `${year}년 ${month}월 ${day}일`;
     };
+    
+
     return (
         <>
         <S.Background>
@@ -24,7 +26,7 @@ const BookCalendarDetail = () => {
             </S.TitleHightLight>
             <S.Date>{formatDate(dateParam)}</S.Date>
             <S.EssayContainer>
-                <MyEssay/>
+                <MyEssay dateParam={dateParam}/>
             </S.EssayContainer>
         </S.Background>    
         </>

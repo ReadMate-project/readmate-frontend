@@ -160,26 +160,7 @@ S.LineWrapper=styled.div`
         z-index: 999;
        
     }
-    /* div:nth-child(1) {
-   
-        top:-20%;
-    }
-    div:nth-child(2) {
-      
-        top:0%;
-    }
-    div:nth-child(3) {
-       
-        top:50%;
-    }
-    div:nth-child(4) {
-     
-        top:70%;
-    }
-    div:nth-child(5) {
-       
-        top:90%;
-    } */
+    
 
 `
 S.WeekWrapper=styled.div`
@@ -196,53 +177,98 @@ S.WeekWrapper=styled.div`
         }
     }
 `
-S.DateWrapper=styled.div`
+S.DateWrapper = styled.div`
     ${b2}
-    & .date{
-        position: relative;
-        cursor: pointer;
-        & .weekday{
-            width: calc(100% / 7);
-            float: left;
-            text-align: center;
-            height: 185px;
-            position:relative;
+    cursor:pointer;
+    .date {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+
+        .weekday {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width:110px;
+            height: 130px;
+            padding: 5px;
+            overflow: hidden;
+            object-fit: cover;
             @media (max-width: 1024px) {
-                height: 120px;
+                width:50px;
+                height:70px;
             }
 
             
             @media (max-width: 768px) {
-                height: 100px;
+                width:30px;
+                height:40px;
             }
 
 
             @media (max-width: 480px) {
-                height: 80px;
+                width:20px;
+                height:25px;
+            }
+            &.empty {
+                border: none; /* 비어 있는 날짜는 테두리 제거 */
+                background-color: transparent; /* 배경색도 제거 */
+            }
+
+            &.today {
+                border: 2px solid ${theme.PALETTE.green};
+            }
+
+            .day-number {
+                ${b2}
+            }
+
+            img {
+                width: 65px;
+                height: 90px;
+                margin-top: 5px;
+                object-fit: cover;
+                @media (max-width: 1024px) {
+                    width: 30px;
+                    height: 45px;
+                }
+
+                
+                @media (max-width: 768px) {
+                    width: 15px;
+                    height: 23px;
+                }
+
+
+                @media (max-width: 480px) {
+                    width:10px;
+                    height:15px;
+                }
+            }
+
+            .additional-books {
+                position: absolute;
+                bottom: 5px;
+                right: 3px;
+                background: ${theme.PALETTE.green};
+                color: white;
+                font-size: 12px;
+                font-weight: bold;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
-        & .weekday.hasData::after {
-            content: ''; 
-            position: absolute;
-            width: 7px;
-            height: 7px;
-            background-color: #5487D3;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            margin-top: 10px;
-            
-        }
-        & .weekday.today{
-            color:${theme.PALETTE.green};
-        }
     }
-`
+`;
 
-S.BookImage=styled.div`
-    /* width:50%; */
-    img{
-        width:80%;
-        max-height: 155px;
-    }
-`
+
 export default S;

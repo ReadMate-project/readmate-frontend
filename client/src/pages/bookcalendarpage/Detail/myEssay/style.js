@@ -90,20 +90,17 @@ S.PostContainer=styled.div`
 S.TextContainer = styled.div`
     width:90%;
     margin-left: 2%;
-    padding:1% 0;
+   
 `;
 S.BookContainer=styled.div`
     width:8%;
     line-height: 1.3;
 `
 S.BookImage=styled.div`
-    /* width:100%;
+    align-self: flex-start;
     img{
-        width:100%;
-    } */
-    img{
-        width:90px;
-        height:140px;
+        width:80px;
+        height:120px;
         object-fit: cover;
         
         @media (max-width: 1024px) {
@@ -145,6 +142,7 @@ S.PostItem = styled.div`
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
+    height:150px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -169,10 +167,11 @@ S.PostContent = styled.div`
     /* white-space: nowrap;  */
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height:40%;
+    max-height:50%;
     padding-left: 0.1%;
-    padding-top: 1%;
-    line-height: 1.3;
+    padding-top:1%;
+    padding-bottom:1.5%;
+    line-height: 1.2;
     display: -webkit-box;
     -webkit-line-clamp: 3; /* 원하는 줄 수로 변경 가능 */
     -webkit-box-orient: vertical;
@@ -180,10 +179,8 @@ S.PostContent = styled.div`
 
 S.UnderTitleContainer=styled.div`
     display: flex;
-    /* align-items: center;  */
-    
     position:absolute;
-    bottom:13%;
+    bottom:12.5%;
     
 `
 
@@ -214,42 +211,27 @@ S.LikeContainer = styled.div`
 `;
 S.CommentContainer = styled.div`
   
-  display: flex;
-  align-items: center;
-  margin-left: 7px;
-  gap: 3px; /* 아이콘과 좋아요 개수 사이 간격 */
-  font-size: ${b4};
-  color: ${theme.PALETTE.gray};
-  svg {
-    font-size: ${b2};
-  }
-
-`;
-
-
-S.PaginationContainer = styled.div`
-    position: relative;
-    /* top:5vh; */
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin:5% 0;
-`;
+    align-items: center;
+    margin-left: 7px;
+    gap: 3px; /* 아이콘과 좋아요 개수 사이 간격 */
+    ${b4}
+    color: ${theme.PALETTE.gray};
+    svg {
+        font-size: ${b2};
+    }
 
-S.PageButton = styled.button`
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    /* background-color: #A2B29F; */
-    color: black;
-    cursor: pointer;
-    font-size: 1rem;
-    
-    /* 비활성화된 버튼 스타일 */
-    /* &:disabled {
-        background-color: #CFDEC8; 
-        cursor: not-allowed;
-    } */
 `;
-
+S.LatestPostContainer = styled.div`
+    position: relative;
+    top:5vh;
+    width: 80%;
+    height:auto;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    padding: 2%;
+    background-color: #D9D9D9;
+    border-radius: 0.5rem;
+  
+`;
 export default S;
