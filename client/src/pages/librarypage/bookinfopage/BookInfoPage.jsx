@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import BookInfoHeader from './BookInfoHeader';
-import BookInfoDetails from './BookInfoDetails';
+import BookReviewsContainer from './BookReviewsContainer';
+import BookInfoDetailsContainer from './BookInfoDetailsContainer';
 import useBookDetails from '../../../hooks/Aladin/useBookDetails';
+import BookclubsContainer from './BookClubsContainer';
 
 const BookInfoPage = () => {
   const { isbn } = useParams();
@@ -19,8 +19,10 @@ const BookInfoPage = () => {
 
   return (
     <div>
-      <BookInfoHeader title={bookDetails.title} />
-      <BookInfoDetails bookDetails={bookDetails} />
+      <BookInfoDetailsContainer bookDetails={bookDetails} />
+      <BookReviewsContainer bookDetails={bookDetails} />
+      <BookclubsContainer bookDetails={bookDetails} />
+
     </div>
   );
 };

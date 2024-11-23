@@ -5,11 +5,6 @@ import S from '../../components/layout/style';
 const SearchForm = ({ onSearch }) => {
     const [query, setQuery] = useState('');
     const navigate = useNavigate();
-    
-    // eslint-disable-next-line no-restricted-globals
-    const imageSrc = location.pathname === '/' || location.pathname.startsWith('/home')
-  ? '../../global/images/loginpage/search_icon.png'
-  : '../../global/images/loginpage/search_icon.png';
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,7 +25,7 @@ const SearchForm = ({ onSearch }) => {
                 placeholder="검색어 입력"
             />
             <S.SearchButton type="submit">
-            <img src={imageSrc } alt='img' />
+            <img src={process.env.PUBLIC_URL + '/global/images/searchpage/search_icon.png'} alt='img' />
             </S.SearchButton>
         </S.SearchForm>
     );
