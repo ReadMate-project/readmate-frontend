@@ -101,8 +101,8 @@ S.BookImage=styled.div`
     
 
     img{
-        width:90px;
-        height:140px;
+        width:80px;
+        height:120px;
         object-fit: cover;
         
         @media (max-width: 1024px) {

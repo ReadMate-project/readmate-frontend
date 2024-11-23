@@ -31,8 +31,8 @@ const BookCalendar = () => {
               }
           })
           .then((response) => {
-            console.log(response.data);
-              
+            console.log(response.data.data);
+            setCalendarData(response.data.data);
           })
           .catch((error) => {
               console.error('Error fetching calendar:', error);
@@ -128,60 +128,104 @@ useEffect(() => {
 
       
       const handleDateClick = (date) => {
-        const formattedDate = `${selectedYear}-${selectedMonth}-${date}`;
-        navigate(`/bookcalendar/detail?date=${formattedDate}`);
-    };
-      
-      
-      
-      //선택된 달의 날짜들 반환 함수
-      const returnDay = useCallback(() => {
-        let dayArr = [];
-        // const handleClick = (date) => {
-        //   const formattedDate=`${selectedYear}-${selectedMonth}-${date}`
-        //   const hasData = calendarData.some(data => data.createdAt === formattedDate);
-        //   if(hasData){
-        //     navigate(`/calendar/checkMyMind?date=${formattedDate}`);
-        //     return;
-        //   }else{
-        //     console.log(`해당 날짜에 마음일지를 작성하지 않았습니다.`)
-        //   }
-        // };
-        
-        for (const nowDay of week) {
-          const day = new Date(selectedYear, selectedMonth - 1, 1).getDay();
-          if (week[day] === nowDay) {
-            for (let i = 0; i < dateTotalCount; i++) {
-              const formattedDate = `${selectedYear}-${selectedMonth}-${i + 1}`;
-              const hasData = calendarData.some(data => data.createdAt === formattedDate);
-              // const isBookDate = selectedMonth === 11 && i + 1 === 1; 
-              dayArr.push(
-                <div key={`day-${i + 1}`} 
-                className={cx(
-                  'weekday',
-                    {
-                      //오늘 날짜일 때 표시할 스타일 클라스네임
-                      today: today.year === selectedYear &&today.month === selectedMonth &&today.date === i + 1,
-                      hasData: hasData,
-                    }
-                    
-                   )}
-                  //  onClick={() => handleClick(i+1)} // 날짜 클릭 핸들러
-
-                >
-                  {i + 1}
-                  {/* {hasData && <div className="dot" />} */}
-                  
-                </div>
-              );
-            }
-          } else {
-            dayArr.push(<div className="weekday" key={`weekday-${nowDay}`}></div>);
-          }
+        const formattedDate = `${selectedYear}-${String(selectedMonth).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+        const entry = calendarData.find((data) => data.date === formattedDate); // 해당 날짜 데이터 확인
+    
+        if (!entry) {
+            // 에세이가 없는 경우
+            alert('해당 날짜에 에세이를 작성하지 않았습니다.');
+            return;
         }
     
-        return dayArr;
-      }, [selectedYear, selectedMonth, dateTotalCount, calendarData]);
+        // 에세이가 있는 경우 상세 페이지로 이동
+        navigate(`/bookcalendar/detail?date=${formattedDate}`);
+    };
+    
+      
+    const returnDay = useCallback(() => {
+      let dayArr = [];
+      const firstDay = new Date(selectedYear, selectedMonth - 1, 1).getDay(); // 선택한 달의 첫날 요일
+  
+      // 첫째 줄 빈 칸 채우기 (달력 시작 날짜 전의 빈 요일들)
+      for (let i = 0; i < firstDay; i++) {
+          dayArr.push(<div key={`empty-${i}`} className="weekday empty"></div>);
+      }
+  
+      // 달의 모든 날짜를 렌더링
+      for (let i = 1; i <= dateTotalCount; i++) {
+          const formattedDate = `${selectedYear}-${String(selectedMonth).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+          const entry = calendarData.find((data) => data.date === formattedDate); // calendarData에서 날짜 데이터 찾기
+  
+          const hasData = !!entry; // 날짜에 데이터가 있는지 확인
+          const bookCoverUrl = entry?.books[0]?.bookCoverUrl || null; // books[0]의 bookCoverUrl 가져오기
+          const additionalBooks = entry?.books.length > 1 ? entry.books.length - 1 : 0; // 추가 책 개수 계산
+  
+          dayArr.push(
+            <div
+                key={`day-${i}`}
+                className={cx('weekday', {
+                    today: today.year === selectedYear && today.month === selectedMonth && today.date === i,
+                    hasData,
+                })}
+                onClick={() => handleDateClick(i)}
+            >
+                <div className="day-number">{i}</div>
+        
+                {/* 책 이미지 */}
+                {bookCoverUrl && (
+                    <div>
+                        <img src={bookCoverUrl} alt={`Book Cover for ${formattedDate}`} />
+                        {additionalBooks > 0 && <span className="additional-books">+{additionalBooks}</span>}
+                    </div>
+                )}
+            </div>
+        );
+        
+      }
+  
+      return dayArr;
+  }, [selectedYear, selectedMonth, dateTotalCount, calendarData]);
+  
+      
+      //선택된 달의 날짜들 반환 함수
+      // const returnDay = useCallback(() => {
+      //   let dayArr = [];
+       
+        
+      //   for (const nowDay of week) {
+      //     const day = new Date(selectedYear, selectedMonth - 1, 1).getDay();
+      //     if (week[day] === nowDay) {
+      //       for (let i = 0; i < dateTotalCount; i++) {
+      //         const formattedDate = `${selectedYear}-${selectedMonth}-${i + 1}`;
+      //         const hasData = calendarData.some(data => data.createdAt === formattedDate);
+      //         // const isBookDate = selectedMonth === 11 && i + 1 === 1; 
+      //         dayArr.push(
+      //           <div key={`day-${i + 1}`} 
+      //           className={cx(
+      //             'weekday',
+      //               {
+      //                 //오늘 날짜일 때 표시할 스타일 클라스네임
+      //                 today: today.year === selectedYear &&today.month === selectedMonth &&today.date === i + 1,
+      //                 hasData: hasData,
+      //               }
+                    
+      //              )}
+      //             //  onClick={() => handleClick(i+1)} // 날짜 클릭 핸들러
+
+      //           >
+      //             {i + 1}
+      //             {/* {hasData && <div className="dot" />} */}
+                  
+      //           </div>
+      //         );
+      //       }
+      //     } else {
+      //       dayArr.push(<div className="weekday" key={`weekday-${nowDay}`}></div>);
+      //     }
+      //   }
+    
+      //   return dayArr;
+      // }, [selectedYear, selectedMonth, dateTotalCount, calendarData]);
 
     return (
         <div>

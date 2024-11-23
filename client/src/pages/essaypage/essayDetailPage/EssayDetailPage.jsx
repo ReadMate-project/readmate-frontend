@@ -30,32 +30,39 @@ const EssayDetailPage = () => {
         }
     };
 
-    //좋아요 개수만 가져오기
-    const fetchLikeStatus = async () => {
+   //게시글 좋아요 누른 사용자 목록 조회
+   const fetchLikeStatus = async () => {
+    if (!user) {
+    
+        return;
+    }
 
-        try {
-            const response=await apiClient.get(`/v1/like/count/${boardId}`
-             );
-             
-             setIsLiked(response.data.data); 
-             console.log(response);
-             
-             
-         } catch (error) {
-            console.error('Error fetching like status:', error);
-         }
-    };
+    try {
+        const response=await apiClient.get(`/v1/like/list/${boardId}`);
+        const likedUsers = response.data.data;  // 좋아요 누른 사용자 ID 배열
+        
+        console.log(response.data.data);
+        
+        // 현재 사용자가 좋아요를 눌렀는지 확인 
+        const isUserLiked = likedUsers.some(likedUser => likedUser.userId === user.userId);            setIsLiked(isUserLiked);
+        console.log(isUserLiked);
+         
+     } catch (error) {
+        console.error('Error fetching like status:', error);
+     }
+};
 
     useEffect(() => {
         if (boardId) {
             fetchPostDetail();
             fetchLikeStatus();
+            
         }
-    }, []);
+    }, [boardId, user]);
 
     useEffect(() => {
         fetchPostDetail();
-        console.log(`Updated isLiked: ${isLiked}`);
+
     }, [isLiked]);
 
     // 좋아요 버튼 클릭 핸들러
@@ -69,14 +76,17 @@ const EssayDetailPage = () => {
         }
 
         try {
-           const response=await apiClient.post(`/v1/like/${boardId}`, null, {
+        const response=await apiClient.post(`/v1/like/${boardId}`, null, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }
             });
             
             setIsLiked(response.data.data.liked); 
-            
+            setPost((prevPost) => ({
+                ...prevPost,
+                likeCount: response.data.data.likeCount,
+            }));
             
             
         } catch (error) {
