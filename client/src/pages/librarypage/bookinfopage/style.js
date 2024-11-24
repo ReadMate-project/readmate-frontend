@@ -37,15 +37,15 @@ S.Container = styled.div`
 
 S.TitleHighlight = styled.div`
     &.bookDetails{
-    width: 45%;
+    width: 35%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 5%;
     }
-    &.bookDetails{
-    width: 45%;
+    &.bookReviews{
+    width: 30%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -53,7 +53,7 @@ S.TitleHighlight = styled.div`
     margin-bottom: 5%;
     }
     &.bookClubs{
-    width: 45%;
+    width: 55%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -78,7 +78,7 @@ S.TitleContainer = styled.div`
 
 S.TitleButtonContainer=styled.div`
   &.bookDetails {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: flex-end;
     padding: 0% 5% 0% 5%;
@@ -86,10 +86,10 @@ S.TitleButtonContainer=styled.div`
     /* top:5vh; */
   }  
   &.bookReviews {
-    width: 40%;
+    width: 60%;
     display: flex;
     justify-content: flex-end;
-    padding: 0% 0% 0% 30%;
+    padding: 0% 0% 0% 50%;
     gap: 2%;
   }
   &.bookClubs {

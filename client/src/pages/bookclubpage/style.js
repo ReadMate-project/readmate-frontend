@@ -5,156 +5,204 @@ import { b1, flexCenter, flexCenterColumn, h1 } from "../../global/common";
 const S = {};
 
 S.Container = styled.div`
-    width:100%;
-    /* height:50%; */
-    display: flex;
-    overflow-x: hidden;
-    background-color: ${theme.PALETTE.background};
-    position:relative;
-    padding: 5% 10% 5% 10%;
-    /* border: 1px solid black; */
-    &.lightGreenBg{
-        background-color: ${theme.PALETTE.lightGreen};
+    &.HotBookclub {
+      width: 100%;
+      height: 100%;
+      background-color: ${theme.PALETTE.background};
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 10%;
+    }
+    &.BookClubList {
+      width: 100%;
+      height: 100%;
+      background-color: ${theme.PALETTE.background};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-bottom: 10%;
 
     }
-    &.greyBg{
-        background-color: #D9D9D9;
-    
+    &.Notice {
+      width: 100%;
+      height: 100%;
+      background-color: ${theme.PALETTE.background};
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 10%;
     }
-    
-    &.darkGreyBg{
-        background-color: #3B3B3B;
-
-    }
-
-  
+ 
 `;
 
-S.Top=styled.div`
-    color: #FFFFFF;
-    font-family: 'Roboto';
-    font-weight: bold;
-    width: 100%;
+S.TitleHighlight = styled.div`
+  &.main{  
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+  }
+  &.sub{ 
+  display: flex;
+  width: 20%;
+  background-color: #86A789;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  ${h1};
+  padding: 1%;
+  }
+`;
+
+S.TitleContainer = styled.div`
+  &.main{
+    width: 80%; 
     display: flex;
-    justify-content: space-between;
-    position:absolute;
-    top:5%;
-    z-index: 10;
+    justify-content: flex;
+    align-items: center;
+    gap: 10%;
+    margin-top: 10%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &.sub{
+    margin-left:6%;
+    width: 80%; 
+    display: flex;
+    justify-content: flex;
+    align-items: center;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }   
+`; 
+
+S.TitleButtonContainer=styled.div`
     
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0% 0% 0% 50%;
+  gap: 2%; 
+`;
+
+S.Button=styled.button`
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
 `;
 
 S.HeroSection = styled.div`
   display: flex;
   align-items: center;
-  margin: 2vw 2vw 3vw 3vw;
+  justify-content: center;
+  margin: 3%;
+  width: 100%;
+  gap:5%;
 `;
+
 
 S.Image = styled.img`
-  &.type1{
-  width: 10vw;
-  height: 15vh;
-  }
-  
-`;
-
-S.ImageSection = styled.div`
-  &.type1{
-  width: 20vw;
-  height: 20vh;
-  border-radius: 2vw;
-  background-color: #D9D9D9;
-  justify-content: center;
-  align-items: center;
   display: flex;
-  }
-  &.type2{
-    width: 30vw;
-    height: 20vh;
-    border-radius: 2vw;
-    background-color: #D9D9D9;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }  
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20vh;
 `;
-
 
 
 S.HeroContent = styled.div`
-margin-right: 3vw;    
-padding-left: 2vw;
-font-weight: bold;
-font-family: 'Roboto';  
-  h1 {
-    
-    margin-bottom: 1vw;
-  }
-  p {
-    margin-bottom: 1vw;
-    font-size: 1.25vw;
-  }
-  a {
-    
-    display: inline-block;
-    padding: 0.375vw 0.75vw;
-    background-color: #D9D9D9;
-    color: #717171;
-    text-decoration: none;
-    border-radius: 0.25vw;  
-    
-
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  width: 900%;
 `;
 
 
 S.CardSection = styled.div`
-  width: 100%;
-  justify-content: space-between;
-  border-radius: 5vw;
-  &.lightGreyBg{
-    background-color: #EDEDED;
-
+  &.HotBookclub {
+    width: 80%;
+    height: auto;
+    justify-content: space-between;
+    border-radius: 4vw;
+    background-color: #CFDDC8;
+  }
+  &.BookClubList {
+    width: 80%;
+    height: auto;
+    justify-content: space-between;
+    border-radius: 2vw;
+    background-color: #D9D9D9;
   }
   
 `;
 
 S.Card = styled.div`
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: 2vw;
-  padding: 1.25vw;
-  gap: 1vw;
-  background-color: #EDEDED;
-  margin-top: 4vw;
   display: flex;
-  h2 {
-    width: 100%;
-    font-size: 1.25vw;
-    margin-bottom: 2vw;
-    
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 2vw;
+  padding: 1%;
+  background-color: #FFFFFF;
+  
+  &.HotBookclub {
+  margin: 3% 3% 3% 3%; /* 게시글 사이의 간격 */  
   }
-  p {
-    width: 100%;
-    margin-bottom: 2vw;
-    
+  &.BookClubList {
+  margin: 3% 3% 6% 3%; /* 게시글 사이의 간격 */  
   }
-  a {
-    width: 5vw;
-    padding: 0.375vw 0.75vw;
-    background-color: #D9D9D9;
-    color: #717171;
-    text-decoration: none;
-    border-radius: 0.25vw;
-    margin-bottom: 2vw;
-  }
-  img{
-    width: 40vw;
-    height: 90%;
-    border-radius: 0.25vw;
-  }
-  div
-  {
-  padding: 1vw;
+  
+`;
+
+
+S.Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+S.PageNumber = styled.button`
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: ${props => (props.active ? '#4CAF50' : '#D9D9D9')};
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #4CAF50;
   }
 `;
+
+S.PageButton = styled.button`
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #D9D9D9;
+  color: white;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: #A9A9A9;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #4CAF50;
+  }
+`;
+
+
 
 export default S;

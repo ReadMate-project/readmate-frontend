@@ -12,7 +12,7 @@ const YourPicksContainer = ({ categoryId1 = 1230, categoryId2 = 1108 }) => {
 
     const renderBooks = (books) => {
         return books.map((book, index) => {
-            const { isbn13, cover, title, author, categoryName } = book;
+            const { isbn13, cover, title, author, categoryName, description } = book;
 
             const allowedCategories = ['고등학교참고서', '고전', '과학', '금강산 여행 가는 이에게', '달력/기타', '대학교재/전문서적', '만화', '사회과학',
                 '소설/시/희곡', '수험서/자격증', '어린이', '에세이', '여행', '역사', '예술/대중문화', '외국어', '유아', '인문학', '일본 도서', 
@@ -43,8 +43,9 @@ const YourPicksContainer = ({ categoryId1 = 1230, categoryId2 = 1108 }) => {
                         />
                       </Link>
                       </S.ImageSection>  
-                    <S.BookContent>
+                        <S.BookContent>
                             <h3>{title}</h3>
+                            <h3>{description}</h3>
                             <p>{author}</p>
                             {categories.map((category, idx) => (
                                 <h5 key={idx}>{category}</h5>

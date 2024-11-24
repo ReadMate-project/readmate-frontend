@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import S from './style'
-import HotBookClubContainer from './HotBookClubContainer'
 import BookClubListContainer from './BookClubListContainer'
+import HotBookclubContainer from './HotBookClubContainer';
 // import SearchModal from '../searchpage/SearchModal'; // Adjust the path according to your file structure
 // import { Button } from '@mui/material';
 // import SearchIcon from '@mui/icons-material/Search';
@@ -35,12 +35,12 @@ const BookClubPage = () => {
         open={isSearchModalOpen}
         handleClose={handleCloseSearchModal}
       /> */}
-        <S.Container className='greyBg'>
-        </S.Container>
         
-        <HotBookClubContainer/>
-        <BookClubListContainer/>
-        <Outlet />
+        
+        <HotBookclubContainer />
+        <BookClubListContainer />
+        
+        
 
         </div>
     );
