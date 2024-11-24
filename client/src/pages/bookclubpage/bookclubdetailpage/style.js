@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import theme from "../../global/theme";
-import { b1, flexCenter, flexCenterColumn, h1 } from "../../global/common";
+import theme from "../../../global/theme";
+import { b1, flexCenter, flexCenterColumn, h1 } from "../../../global/common";
 
 const S = {};
 
 S.Container = styled.div`
-    &.HotBookclub {
+    &.BookClubDetail {
       width: 100%;
       height: 100%;
       background-color: ${theme.PALETTE.background};
@@ -55,7 +55,7 @@ S.TitleHighlight = styled.div`
   justify-content: center;
   clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
   ${h1};
-  padding: 1%;
+  padding: 2%; /* 사다리꼴 크게하기 */
   }
 `;
 
@@ -86,12 +86,20 @@ S.TitleContainer = styled.div`
 `; 
 
 S.TitleButtonContainer=styled.div`
-    
-  width: 60%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0% 0% 0% 50%;
-  gap: 2%; 
+    &.Host{  
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0% 0% 0% 30%;
+        gap: 2%;
+        }
+    &.Guest{
+        width: 70%;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0% 0% 0% 40%;
+        gap: 6%;
+        }
 `;
 
 S.Button=styled.button`
@@ -164,45 +172,5 @@ S.Card = styled.div`
   }
   
 `;
-
-
-S.Pagination = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-`;
-
-S.PageNumber = styled.button`
-  margin: 0 5px;
-  padding: 5px 10px;
-  border: none;
-  background-color: ${props => (props.active ? '#4CAF50' : '#D9D9D9')};
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #4CAF50;
-  }
-`;
-
-S.PageButton = styled.button`
-  margin: 0 5px;
-  padding: 5px 10px;
-  border: none;
-  background-color: #D9D9D9;
-  color: white;
-  cursor: pointer;
-
-  &:disabled {
-    background-color: #A9A9A9;
-    cursor: not-allowed;
-  }
-
-  &:hover:not(:disabled) {
-    background-color: #4CAF50;
-  }
-`;
-
-
 
 export default S;

@@ -3,6 +3,8 @@ import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import S from './style'
 import BookClubListContainer from './BookClubListContainer'
 import HotBookclubContainer from './HotBookClubContainer';
+import BookClubDetailContainer from './bookclubdetailpage/BookClubDetailContainer';
+import BookClubDetailContainerForHost from './bookclubdetailpage/BookClubDetailContainerForHost';
 // import SearchModal from '../searchpage/SearchModal'; // Adjust the path according to your file structure
 // import { Button } from '@mui/material';
 // import SearchIcon from '@mui/icons-material/Search';
@@ -37,12 +39,15 @@ const BookClubPage = () => {
       /> */}
         
         
-        <HotBookclubContainer />
-        <BookClubListContainer />
+        {/* <HotBookclubContainer />
+        <BookClubListContainer /> */}
         
+        <BookClubDetailContainer />
+        <BookClubDetailContainerForHost />
         
-
         </div>
+
+        
     );
 }
 
