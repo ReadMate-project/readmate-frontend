@@ -41,10 +41,10 @@ const BookClubPage = () => {
       /> */}
         
         
-        {/* <HotBookclubContainer />
+        <HotBookclubContainer />
         <BookClubListContainer />
         
-        <BookClubDetailContainerForHost /> */}
+        <BookClubDetailContainerForHost />
         <BookClubDetailContainer />
         <BookListContainer />
         <BookClubChallengeContainer />
