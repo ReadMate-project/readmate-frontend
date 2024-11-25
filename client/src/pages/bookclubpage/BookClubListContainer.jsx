@@ -7,18 +7,18 @@ const BookClubListContainer = () => {
     const pageSize = 4; // 한 페이지에 표시할 게시글 수
     const pageGroupSize = 5; // 페이지 그룹 크기
     const cards = [
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
-        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/bookcover1.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
+        { title: "Current Read", text: "Join us in reading 'The Great Gatsby' by F. Scott Fitzgerald. Our discussion starts next week!", image: "/global/images/bookclubpage/DefaultLogo.png" },
     ];
     const totalPages = Math.ceil(cards.length / pageSize); // 전체 페이지 수
     const totalPageGroups = Math.ceil(totalPages / pageGroupSize); // 전체 페이지 그룹 수

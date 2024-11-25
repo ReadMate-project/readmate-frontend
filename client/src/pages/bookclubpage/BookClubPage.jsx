@@ -5,6 +5,8 @@ import BookClubListContainer from './BookClubListContainer'
 import HotBookclubContainer from './HotBookClubContainer';
 import BookClubDetailContainer from './bookclubdetailpage/BookClubDetailContainer';
 import BookClubDetailContainerForHost from './bookclubdetailpage/BookClubDetailContainerForHost';
+import BookListContainer from './bookclubdetailpage/BookListContainer';
+import BookClubChallengeContainer from './bookclubdetailpage/BookClubChallengeContainer';
 // import SearchModal from '../searchpage/SearchModal'; // Adjust the path according to your file structure
 // import { Button } from '@mui/material';
 // import SearchIcon from '@mui/icons-material/Search';
@@ -40,11 +42,12 @@ const BookClubPage = () => {
         
         
         {/* <HotBookclubContainer />
-        <BookClubListContainer /> */}
+        <BookClubListContainer />
         
+        <BookClubDetailContainerForHost /> */}
         <BookClubDetailContainer />
-        <BookClubDetailContainerForHost />
-        
+        <BookListContainer />
+        <BookClubChallengeContainer />
         </div>
 
         
