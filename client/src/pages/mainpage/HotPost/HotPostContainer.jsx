@@ -15,7 +15,7 @@ const HotPostContainer = () => {
       //핫 게시글 목록 조회
   const fetchHotPosts = () => {
     apiClient
-        .get(`/v1/board/hotpost?page=${0}&size=${2}`)
+        .get(`/v1/board/hotpost/board?page=${0}&size=${2}`)
         .then((response) => {
             console.log(response.data);
             setHotposts(response.data.data); // 핫 게시글 데이터 설정

@@ -98,7 +98,11 @@ S.PostTitle=styled.div`
 `
 S.PostContent=styled.div`
     ${b1}
+    max-width: 100%;
     padding-bottom: 4%;
+    word-wrap: break-word; /* 텍스트가 박스를 벗어나지 않게 함 */
+    word-break: break-word; /* 긴 단어가 있을 경우 자동으로 줄바꿈 */
+    overflow-wrap: break-word; /* 텍스트가 영역을 넘어가면 줄바꿈 */
 `
 S.ImageContainer=styled.div`
     width:100%;
