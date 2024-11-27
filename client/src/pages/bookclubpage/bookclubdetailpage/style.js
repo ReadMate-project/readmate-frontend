@@ -180,7 +180,18 @@ S.CardSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     margin-right: 2%; /* 책 사이 간격 추가 */
+  }
+  &.Challenger {
+    width: 100%;
+    margin: 2%;
+    border-radius: 2vw;
+    border: 1px solid #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
   }
 `;
 
@@ -221,25 +232,30 @@ S.Button = styled.button`
 
 S.ProgressBarContainer = styled.div`
   width: 100%;
+  height: 30px;
   background-color: #e0e0df;
   border-radius: 2vw;
+  border: 1px solid #999999;
   overflow: hidden;
-  background-image: repeating-linear-gradient(
-   135deg, #e0e0df 0,
-    #e0e0df 5px, 
-    #f5f5f5 5px, 
-    #f5f5f5 10px 
-    );
 `;
 
 S.Filler = styled.div`
   height: 100%;
   width: ${props => props.percentage}%;
   background-color: #feb98e;
-  transition: width 0.5s ease-in-out;
-  border-radius: inherit;
-  text-align: right;
+  transition: width 0.5s ease-in-out, background-position 0.5s ease-in-out;
+  background-image: repeating-linear-gradient(
+    135deg,
+    #feb98e 0,
+    #feb98e 10px,
+    #ffcccc 10px,
+    #ffcccc 20px
+  );
+  background-size: 40px 100%; /* 사선 간격 조정 */
+  background-position: calc(100% - ${props => props.percentage}% * 40px) 0; /* 퍼센티지에 맞춘 사선 채우기 */
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
 `;
+
 
 S.Label = styled.span`
   color: transparent;

@@ -14,6 +14,7 @@ const BookClubChallengeContainer = () => {
             </S.TitleContainer>
 
             <S.CardSection className='Challenge'>
+             
                 <S.Card className='Challenge'>
                     <S.HeroSection>
                         <S.Image className='type1' src="/global/images/bookclubpage/bookcover1.png" alt="Book Club Hero" />
@@ -29,10 +30,15 @@ const BookClubChallengeContainer = () => {
                             </S.ProgressBarContainer>
                         </S.HeroContent>
                     </S.HeroSection>
-                </S.Card>
+                </S.Card>             
 
-                
+                <S.CardSection className='Challenger'>
+                            <h1>책 한 권으로 떠나는 세계 여행, 함께 해요.</h1>
+                            <p>Join our community of book lovers! Discover new books, engage in thoughtful discussions, and connect with fellow readers from around the world.</p>
+                            <a href="#!">Join Now!</a>
 
+                </S.CardSection>
+            
             </S.CardSection>
         </S.Container>
     );
