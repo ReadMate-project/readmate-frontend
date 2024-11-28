@@ -25,17 +25,23 @@ const BookClubChallengeContainer = () => {
                             {`${percentage}%`}
                             <S.ProgressBarContainer>
                                 <S.Filler percentage={percentage}>
+                                <S.FillerOverlay percentage={percentage} />
                                     <S.Label>{`${percentage}%`}</S.Label>
                                 </S.Filler>
                             </S.ProgressBarContainer>
                         </S.HeroContent>
                     </S.HeroSection>
                 </S.Card>             
-
+                
+                <S.left>  성공한 멤버 <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/Congratulation.png'}/>   </S.left>
+                
                 <S.CardSection className='Challenger'>
-                            <h1>책 한 권으로 떠나는 세계 여행, 함께 해요.</h1>
-                            <p>Join our community of book lovers! Discover new books, engage in thoughtful discussions, and connect with fellow readers from around the world.</p>
-                            <a href="#!">Join Now!</a>
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/ID_Image.png'}/>
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/ID_Image.png'}/>
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/ID_Image.png'}/>
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/ID_Image.png'}/>
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/ID_Image.png'}/>
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/ID_Image.png'}/>
 
                 </S.CardSection>
             

@@ -5,7 +5,7 @@ import { b1, flexCenter, flexCenterColumn, h1 } from '../../../global/common';
 const S = {};
 
 S.Container = styled.div`
-  &.BookClubDetail {
+  &.BookClubMVP {
     width: 100%;
     height: 100%;
     background-color: ${theme.PALETTE.background};
@@ -129,41 +129,8 @@ S.Button = styled.button`
   background-color: transparent;
 `;
 
-S.HeroSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 3%;
-  width: 100%;
-  gap: 5%;
-`;
-
-S.Image = styled.img`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 20vh;
-`;
-
-S.HeroContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 900%;
-`;
-
-S.left = styled.p`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 90%;
-  
-`;
-
 S.CardSection = styled.div`
-  &.BookClubDetail {
+  &.BookClubMVP {
     width: 80%;
     height: auto;
     justify-content: space-between;
@@ -225,84 +192,13 @@ S.Card = styled.div`
   }
 `;
 
-S.Button = styled.button`
-  margin: 2%;
-  background-color: transparent;
-  border: transparent;
-  cursor: pointer;
-
-  &:disabled {
-    opacity: 0.3; // Makes the button appear faded
-    filter: grayscale(0%); // Makes the button grayscale when disabled
-  }
-
-  &:not(:disabled):hover {
-    transform: scale(1.1); // Slight zoom effect on hover when enabled
-  }
-`;
-
-
-
-S.ProgressBarContainer = styled.div`
-  width: 100%;
-  height: 30px;
-  background-color: #e0e0df;
-  border-radius: 2vw;
-  border: 1px solid #999999;
-  overflow: hidden;
-  position: relative;
-  background-image: repeating-linear-gradient(
-    135deg,
-    #e0e0df 0,
-    #e0e0df 10px,
-    #f5f5f5 10px,
-    #f5f5f5 20px
-  );
-`;
-
-S.Filler = styled.div`
-  height: 100%;
-  width: ${props => props.percentage}%;
-  background-color: transparent;
-  transition: width 0.5s ease-in-out, background-position 0.5s ease-in-out;
-  text-align: right;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: repeating-linear-gradient(
-    135deg,
-    #feb98e 0,
-    #feb98e 10px,
-    #ffcccc 10px,
-    #ffcccc 20px
-  );
-  background-size: 40px 100%;
-  background-position: 0 0;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
-`;
-
-S.FillerOverlay = styled.div`
-  height: 100%;
-  width: ${props => props.percentage}%;
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
-  clip-path: polygon(calc(100% - 10px) 0, 100% 0, 100% 100%, calc(100% - 10px) 100%);
-  background-image: repeating-linear-gradient(
-    135deg,
-    #feb98e 0,
-    #feb98e 10px,
-    #ffcccc 10px,
-    #ffcccc 20px
-  );
-  background-size: 40px 100%;
-  background-position: 0 0;
-`;
-
-
-S.Label = styled.span`
-  color: transparent;
+S.Image = styled.img`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  height: 20vh;
+  padding-left: 10%;
 `;
 
 export default S;
