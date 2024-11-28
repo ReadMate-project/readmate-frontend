@@ -133,6 +133,7 @@ S.CardSection = styled.div`
   &.BookClubMVP {
     width: 80%;
     height: auto;
+    display: flex;
     justify-content: space-between;
     border-radius: 4vw;
     background-color: #fafef8;
@@ -192,13 +193,37 @@ S.Card = styled.div`
   }
 `;
 
+S.HeroSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5vw;
+  padding: 1%;
+  margin: 3%;
+  margin-left: 7%;
+  margin-right:7%;
+  width: 30%;
+  background-color: #FFFFFF;
+  position: relative;
+`;
+
 S.Image = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 33%;
-  height: 20vh;
-  padding-left: 10%;
+  width: 100%;
+  height: 15vh;
+  padding: 5%;
 `;
+
+S.Rank = styled.img`
+  position: absolute;
+  width: 30%;
+  top: 0;
+  left: 0;
+`;
+
+
+
 
 export default S;

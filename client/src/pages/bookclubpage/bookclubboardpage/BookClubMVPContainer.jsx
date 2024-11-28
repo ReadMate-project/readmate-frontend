@@ -3,6 +3,8 @@ import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import S from './style';
 
 const BookClubMVPContainer = () => {
+
+    
     return (
         <S.Container className='BookClubMVP'>
             <S.TitleContainer className='main'>
@@ -18,18 +20,31 @@ const BookClubMVPContainer = () => {
 
                 <S.TitleButtonContainer className='Guest'>
                     <S.Button>
-                        <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/SeeMembers.png'} />
+                        <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/WriteEssay.png'} />
                     </S.Button>
                     <S.Button>
-                        <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/LeaveBookClub.png'} />
+                        <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/GoToMyEssays.png'} />
                     </S.Button>
                 </S.TitleButtonContainer>
             </S.TitleContainer>
 
             <S.CardSection  className='BookClubMVP'>
-            <S.Image className='type1' src="/global/images/bookclubpage/DefaultLogo.png" alt="Book Club Hero" />
-
-
+            
+            <S.HeroSection>
+                <S.Rank src="/global/images/bookclubpage/1st_Rank.png" alt="Book Club Hero" />
+                <S.Image src="/global/images/bookclubpage/ID_Image2.png" alt="Book Club Hero" />
+            </S.HeroSection>
+            
+            <S.HeroSection>
+                <S.Rank src="/global/images/bookclubpage/2nd_Rank.png" alt="Book Club Hero" />                
+                <S.Image src="/global/images/bookclubpage/ID_Image2.png" alt="Book Club Hero" />
+            </S.HeroSection>
+            
+            <S.HeroSection>
+                <S.Rank src="/global/images/bookclubpage/3rd_Rank.png" alt="Book Club Hero" />
+                <S.Image src="/global/images/bookclubpage/ID_Image2.png" alt="Book Club Hero" />
+            </S.HeroSection>            
+            
             </S.CardSection>
         </S.Container>
     );

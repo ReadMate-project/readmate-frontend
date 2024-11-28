@@ -199,9 +199,9 @@ S.CardSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 2%;
     img{
       padding: 2%;
+      width: 10%;
     }
   }
 `;
@@ -243,20 +243,22 @@ S.Button = styled.button`
 
 
 
+
+
 S.ProgressBarContainer = styled.div`
   width: 100%;
-  height: 30px;
+  height: 4vh;
   background-color: #e0e0df;
   border-radius: 2vw;
   border: 1px solid #999999;
   overflow: hidden;
   position: relative;
   background-image: repeating-linear-gradient(
-    135deg,
-    #e0e0df 0,
-    #e0e0df 10px,
-    #f5f5f5 10px,
-    #f5f5f5 20px
+    90deg,
+    #D9D9D9 0,
+    #D9D9D9 0.9vw,
+    #999999 1vw,
+    #999999 1vw
   );
 `;
 
@@ -264,41 +266,16 @@ S.Filler = styled.div`
   height: 100%;
   width: ${props => props.percentage}%;
   background-color: transparent;
-  transition: width 0.5s ease-in-out, background-position 0.5s ease-in-out;
   text-align: right;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: repeating-linear-gradient(
-    135deg,
-    #feb98e 0,
-    #feb98e 10px,
-    #ffcccc 10px,
-    #ffcccc 20px
-  );
-  background-size: 40px 100%;
-  background-position: 0 0;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
+  position: relative;
+  background-color: #FEBE98;
+
 `;
 
-S.FillerOverlay = styled.div`
-  height: 100%;
-  width: ${props => props.percentage}%;
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
-  clip-path: polygon(calc(100% - 10px) 0, 100% 0, 100% 100%, calc(100% - 10px) 100%);
-  background-image: repeating-linear-gradient(
-    135deg,
-    #feb98e 0,
-    #feb98e 10px,
-    #ffcccc 10px,
-    #ffcccc 20px
-  );
-  background-size: 40px 100%;
-  background-position: 0 0;
-`;
+
+
+
+
 
 
 S.Label = styled.span`

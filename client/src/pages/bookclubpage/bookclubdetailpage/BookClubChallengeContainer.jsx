@@ -25,7 +25,6 @@ const BookClubChallengeContainer = () => {
                             {`${percentage}%`}
                             <S.ProgressBarContainer>
                                 <S.Filler percentage={percentage}>
-                                <S.FillerOverlay percentage={percentage} />
                                     <S.Label>{`${percentage}%`}</S.Label>
                                 </S.Filler>
                             </S.ProgressBarContainer>
