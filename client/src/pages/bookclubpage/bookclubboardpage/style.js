@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../global/theme';
-import { b1, flexCenter, flexCenterColumn, h1 } from '../../../global/common';
+import { b1, b2, b4, flexCenter, flexCenterColumn, h1, h3 } from '../../../global/common';
 
 const S = {};
 
@@ -12,26 +12,25 @@ S.Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
-  &.BookList {
+  &.PostList {
+    width: 100%;
+    height:auto;
+    background-color:${theme.PALETTE.background};
+    /* height:100%; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  &.Noti {
     width: 100%;
     height: 100%;
     background-color: ${theme.PALETTE.background};
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    margin-bottom: 10%;
-  }
-  &.Challenge {
-    width: 100%;
-    height: 100%;
-    background-color: ${theme.PALETTE.background};
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 10%;
   }
 `;
 
@@ -203,6 +202,7 @@ S.HeroSection = styled.div`
   margin-left: 7%;
   margin-right:7%;
   width: 30%;
+  height: 15vh;
   background-color: #FFFFFF;
   position: relative;
 `;
@@ -223,7 +223,188 @@ S.Rank = styled.img`
   left: 0;
 `;
 
+S.PostList = styled.div`
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 15px; /* 게시글 사이의 간격 */
+`;
 
+S.PostItem = styled.div`
+    padding: 1.5%;
+    padding-right: 7%;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* height:100%; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+`;
+S.TitleBody = styled.div`
+    display: flex; 
+    gap: 3px;
+    flex-direction: column;
+`;
+
+S.PostTitle = styled.div`
+    ${h3}; 
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap; 
+`;
+
+S.PostContent = styled.div`
+    ${b4}; 
+    padding-left: 0.5%;
+    color: #717171;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+`;
+
+S.UnderTitleContainer=styled.div`
+    display: flex;
+    align-items: center; 
+    position:relative;
+    
+`
+
+S.PostInfo = styled.div`
+    padding-left: 1%;
+    font-size: ${b4};
+    color: ${theme.PALETTE.darkGray};
+`;
+S.LikeContainer = styled.div`
+
+  display: flex;
+  align-items: center;
+  gap: 3px; /* 아이콘과 좋아요 개수 사이 간격 */
+    cursor: pointer;
+  font-size: ${b4};
+  color: ${theme.PALETTE.gray};
+  svg {
+    font-size: ${b2};
+    transition: color 0.3s ease;
+  }
+
+  span {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+`;
+
+S.CommentContainer = styled.div`
+  
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+  gap: 3px; /* 아이콘과 좋아요 개수 사이 간격 */
+  font-size: ${b4};
+  color: ${theme.PALETTE.gray};
+  svg {
+    font-size: ${b2};
+  }
+
+`;
+S.NotificationContainer=styled.div`
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #999999;
+  border-radius: 0.5rem;
+  flex-direction: column;
+`;
+
+S.NotiSection = styled.div`
+  width: 90%;
+  margin-bottom:2%;
+`
+
+S.NotiTitle = styled.div`
+  width: 90%;
+  font-weight: bold;
+  display: flex;
+  padding-top: 2%;
+  flex-direction:row;
+  color: #FFFFFF;
+  position: relative;
+  font-size: ${h3};
+`;
+
+S.NotiImg = styled.img`
+  display: flex;
+  width: 2%;
+  margin-right: 1%;
+`;
+
+S.PostImage=styled.div`
+    position: absolute;
+    border:none;
+    right:1.5%;
+    
+    img{
+        width:60px;
+        height:55px;
+        object-fit: cover;
+        
+        @media (max-width: 1024px) {
+            width:35px;
+            height:35px;
+        }
+
+        @media (max-width: 768px) {
+            width:25px;
+            height:25px;
+        }
+
+        @media (max-width: 480px) {
+            width:20px;
+            height:20px;
+        }
+    }
+`
+S.LatestPostContainer = styled.div`
+    top:5vh;
+    width: 80%;
+    height:auto;
+    margin-bottom: 10%;
+    padding: 2%;
+    background-color: #D9D9D9;
+    border-radius: 0.5rem;
+  
+`;
+
+S.PaginationContainer = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left:45%;
+    /* gap: 10px; */
+    margin:3% 0;
+    width:10%;
+`;
+
+S.PageButton = styled.button`
+    ${b2}
+    padding: 0% 7%;
+    border-radius: 50%;
+    border: none;
+    background-color: #D9D9D9;
+    color: black;
+    cursor: pointer;
+     background-color: ${({ isActive}) =>
+    isActive ? '#717171' : 'transparent'};
+    color: ${({ isActive}) =>
+    isActive ? 'white' : 'black'};
+    
+`;
 
 
 export default S;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import S from './style';
+import { useParams, useNavigate, Outlet } from 'react-router-dom';
 
 const BookClubMVPContainer = () => {
-
+    
     
     return (
         <S.Container className='BookClubMVP'>
