@@ -43,18 +43,20 @@ const BookClubPage = () => {
                 handleClose={handleCloseSearchModal}
             /> */}
             
-            {/*         
+                    
             <HotBookclubContainer />
             <BookClubListContainer />
             
-            <BookClubDetailContainerForHost />
+            {/* <BookClubDetailContainerForHost />
             <BookClubDetailContainer />
-            <BookListContainer /> */}
-            {/* <BookClubChallengeContainer /> */}
+            <BookListContainer />
+            <BookClubChallengeContainer /> */}
             
-            <BookClubMVPContainer />
+            {/* <BookClubMVPContainer />
             <BookClubNotificationContainer />
-            <BookClubPostListContainer />
+            <BookClubPostListContainer /> */}
+
+
         </div>
     );
 }

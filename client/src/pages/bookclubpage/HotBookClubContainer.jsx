@@ -5,28 +5,32 @@ import S from './style'
 const HotBookclubContainer = () => {
     return (
         <S.Container className='HotBookclub' >
-            <S.TitleContainer className='main'>
+           <S.TitleContainer className='main'>
             
-                <S.TitleHighlight className='main' >
-                    <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'}/>
-                </S.TitleHighlight>
-                
-                <S.TitleButtonContainer >
-                    <S.Button>
-                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/MakeBookClub.png'} />
-                    </S.Button>
-                </S.TitleButtonContainer>
+            <S.TitleHighlight className='main' >
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'}/>
+            </S.TitleHighlight>
             
-            </S.TitleContainer>  
             
+        
+        </S.TitleContainer>  
+        
 
-            <S.TitleContainer className='sub'>
-            
-                <S.TitleHighlight className='sub'>
-                    <h1>인기 있는 북클럽</h1>
-                </S.TitleHighlight>  
-            
-            </S.TitleContainer>
+        <S.TitleContainer className='sub'>
+        
+            <S.TitleHighlight className='sub'>
+                <h1>인기 있는 북클럽</h1>
+            </S.TitleHighlight>  
+
+            <S.TitleButtonContainer className='Guest' >
+                
+                <S.Button>
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/MakeBookClub.png'} />
+                </S.Button>
+                
+            </S.TitleButtonContainer>
+
+        </S.TitleContainer>
 
             <S.CardSection  className='HotBookclub'>
                 <S.Card className='HotBookclub'>

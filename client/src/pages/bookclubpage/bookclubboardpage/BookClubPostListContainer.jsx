@@ -68,7 +68,7 @@ const BookClubPostListContainer = () => {
                             
                         <S.TitleBody>
                             <S.PostTitle>{post.title}</S.PostTitle>
-                            <S.PostContent>{post.content}</S.PostContent>
+                            <S.PostContent className='DoNowrap'>{post.content}</S.PostContent>
                         </S.TitleBody>
                         {post.imageUrls?.[0] && (
                             <S.PostImage>

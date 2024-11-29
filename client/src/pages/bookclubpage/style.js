@@ -55,7 +55,7 @@ S.TitleHighlight = styled.div`
   justify-content: center;
   clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
   ${h1};
-  padding: 1%;
+  padding: 2%;
   }
 `;
 
@@ -87,11 +87,11 @@ S.TitleContainer = styled.div`
 
 S.TitleButtonContainer=styled.div`
     
-  width: 60%;
+  width: 65%;
   display: flex;
   justify-content: flex-end;
-  padding: 0% 0% 0% 50%;
-  gap: 2%; 
+  padding: 0% 0% 0.5% 50%;
+  gap: 1%; 
 `;
 
 S.Button=styled.button`

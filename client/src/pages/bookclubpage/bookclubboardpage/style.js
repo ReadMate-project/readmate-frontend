@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../global/theme';
-import { b1, b2, b4, flexCenter, flexCenterColumn, h1, h3 } from '../../../global/common';
+import { b1, b2, b4, flexCenter, flexCenterColumn, h1, h2, h3 } from '../../../global/common';
 
 const S = {};
 
@@ -199,8 +199,8 @@ S.HeroSection = styled.div`
   border-radius: 5vw;
   padding: 1%;
   margin: 3%;
-  margin-left: 7%;
-  margin-right:7%;
+  margin-left: 10%;
+  margin-right:10%;
   width: 30%;
   height: 15vh;
   background-color: #FFFFFF;
@@ -252,19 +252,30 @@ S.TitleBody = styled.div`
 `;
 
 S.PostTitle = styled.div`
-    ${h3}; 
+    ${h2}; 
     font-weight: bold;
     color: #333;
-    white-space: nowrap; 
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    p{
+      font-size: ${h3};
+      color: ${theme.PALETTE.gray};
+      margin-left: 1%;
+    }
+     
+
 `;
 
 S.PostContent = styled.div`
     ${b4}; 
     padding-left: 0.5%;
     color: #717171;
-    white-space: nowrap; 
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    &.DoNowrap{
+      white-space: nowrap;
+    } 
 `;
 
 S.UnderTitleContainer=styled.div`
