@@ -4,34 +4,25 @@ import S from './style'
 
 const BookClubDetailContainer = () => {
     return (
-         <S.Container className='BookClubDetail' >
-            <S.TitleContainer className='main'>
+        <S.Container className='BookClubDetail' >
+           <S.TitleContainer className='main'>
             
-                <S.TitleHighlight className='main' >
-                    <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'}/>
-                </S.TitleHighlight>
-                
-                
+            <S.TitleHighlight className='main' >
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'}/>
+            </S.TitleHighlight>
             
-            </S.TitleContainer>  
             
+        
+        </S.TitleContainer>  
+        
 
-            <S.TitleContainer className='sub'>
-            
-                <S.TitleHighlight className='sub'>
-                    <h1>열한글자까지들어가요</h1>
-                </S.TitleHighlight>  
+        <S.TitleContainer className='sub'>
+        
+            <S.TitleHighlight className='sub'>
+                여름의 기억을 만들어볼까요?
+            </S.TitleHighlight> 
 
-                <S.TitleButtonContainer className='Guest' >
-                    <S.Button>
-                    <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/SeeMembers.png'} />
-                    </S.Button>
-                    <S.Button>
-                     <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/LeaveBookClub.png'} />
-                    </S.Button>
-                </S.TitleButtonContainer>
-
-            </S.TitleContainer>
+        </S.TitleContainer>
 
             <S.CardSection  className='BookClubDetail'>
                 <S.Card className='BookClubDetail'>
@@ -46,13 +37,8 @@ const BookClubDetailContainer = () => {
                     </S.HeroSection>
                 
                 </S.Card>
-            </S.CardSection>
-
-
-
-
-
-
+            </S.CardSection>    
+    
         </S.Container>
     
     );

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams, useNavigate, Outlet } from 'react-router-dom';
-import S from './style';
+import S from './style'
 
-const BookClubDetailContainerForHost = () => {
+const BookClubDetailContainerForMember = () => {
     return (
-        <S.Container className='BookClubDetail' >
+         <S.Container className='BookClubDetail' >
             <S.TitleContainer className='main'>
             
                 <S.TitleHighlight className='main' >
@@ -22,18 +22,15 @@ const BookClubDetailContainerForHost = () => {
                     여름의 기억을 만들어볼까요?
                 </S.TitleHighlight>  
 
-                <S.TitleButtonContainer className='Host' >
+                <S.TitleButtonContainer className='Member' >
                     <S.Button>
-                     <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/SeeMembers.png'} />
+                    <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/SeeMembers.png'} />
                     </S.Button>
                     <S.Button>
-                     <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/ManageMember.png'} />
-                    </S.Button>
-                    <S.Button>
-                     <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/DeleteBookclub.png'} />
+                     <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/LeaveBookClub.png'} />
                     </S.Button>
                 </S.TitleButtonContainer>
-            
+
             </S.TitleContainer>
 
             <S.CardSection  className='BookClubDetail'>
@@ -49,11 +46,16 @@ const BookClubDetailContainerForHost = () => {
                     </S.HeroSection>
                 
                 </S.Card>
-            </S.CardSection>   
-        
+            </S.CardSection>
+
+
+
+
+
+
         </S.Container>
     
     );
 };
 
-export default BookClubDetailContainerForHost;
+export default BookClubDetailContainerForMember;

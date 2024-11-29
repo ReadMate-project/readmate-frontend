@@ -2,30 +2,30 @@ import React from 'react';
 import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import S from './style'
 
-const BookClubDetailContainer = () => {
+const BookClubCreateContainer = () => {
     return (
-         <S.Container className='BookClubDetail' >
-            <S.TitleContainer className='main'>
+        <S.Container className='BookClubCU' >
+           <S.TitleContainer className='main'>
             
-                <S.TitleHighlight className='main' >
-                    <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'}/>
-                </S.TitleHighlight>
-                
-                
+            <S.TitleHighlight className='main' >
+                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'}/>
+            </S.TitleHighlight>
             
-            </S.TitleContainer>  
             
+        
+        </S.TitleContainer>  
+        
 
-            <S.TitleContainer className='sub'>
-            
-                <S.TitleHighlight className='sub'>
-                    <h1>열한글자까지들어가요</h1>
-                </S.TitleHighlight>  
+        <S.TitleContainer className='sub4'>
+        
+            <S.TitleHighlight className='sub5'>
+                북클럽 생성
+            </S.TitleHighlight> 
 
-            </S.TitleContainer>
+        </S.TitleContainer>
 
-            <S.CardSection  className='BookClubDetail'>
-                <S.Card className='BookClubDetail'>
+            <S.CardSection  className='BookClubCU'>
+                <S.Card className='BookClubCU'>
                 
                     <S.HeroSection>
                         <S.Image className='type1' src="/global/images/bookclubpage/DefaultLogo.png" alt="Book Club Hero" />
@@ -37,16 +37,11 @@ const BookClubDetailContainer = () => {
                     </S.HeroSection>
                 
                 </S.Card>
-            </S.CardSection>
-
-
-
-
-
-
+            </S.CardSection>    
+    
         </S.Container>
     
     );
 };
 
-export default BookClubDetailContainer;
+export default BookClubCreateContainer;

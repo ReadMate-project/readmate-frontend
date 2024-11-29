@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import S from './style';
+
 import BookClubListContainer from './BookClubListContainer';
 import HotBookclubContainer from './HotBookClubContainer';
+
 import BookClubDetailContainer from './bookclubdetailpage/BookClubDetailContainer';
+import BookClubDetailContainerForMember from './bookclubdetailpage/BookClubDetailContainerForMember';
 import BookClubDetailContainerForHost from './bookclubdetailpage/BookClubDetailContainerForHost';
 import BookListContainer from './bookclubdetailpage/BookListContainer';
 import BookClubChallengeContainer from './bookclubdetailpage/BookClubChallengeContainer';
+import BookClubJoinRequestContainer from './bookclubdetailpage/BookClubJoinRequestContainer';
+
 import BookClubMVPContainer from './bookclubboardpage/BookClubMVPContainer';
 import BookClubPostListContainer from './bookclubboardpage/BookClubPostListContainer';
 import BookClubNotificationContainer from './bookclubboardpage/BookClubNotificationContainer';
+
+import BookClubCreateContainer from './bookclubmanagepage/BookClubCreateContainer';
+import BookClubAddBooksContainer from './bookclubmanagepage/BookClubAddBooksContainer';
+
 // import SearchModal from '../searchpage/SearchModal'; // Adjust the path according to your file structure
 // import { Button } from '@mui/material';
 // import SearchIcon from '@mui/icons-material/Search';
@@ -44,19 +53,23 @@ const BookClubPage = () => {
             /> */}
             
                     
-            <HotBookclubContainer />
-            <BookClubListContainer />
+            {/* <HotBookclubContainer />
+            <BookClubListContainer /> */}
             
             {/* <BookClubDetailContainerForHost />
+            <BookClubDetailContainerForMember /> */}
             <BookClubDetailContainer />
             <BookListContainer />
-            <BookClubChallengeContainer /> */}
+            <BookClubChallengeContainer />
+            <BookClubJoinRequestContainer />
             
             {/* <BookClubMVPContainer />
             <BookClubNotificationContainer />
             <BookClubPostListContainer /> */}
-
-
+            
+            {/* <BookClubCreateContainer />
+            <BookClubAddBooksContainer /> */}
+        
         </div>
     );
 }
