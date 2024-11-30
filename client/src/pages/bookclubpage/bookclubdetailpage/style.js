@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../global/theme';
-import { b1, b2, b3, flexCenter, flexCenterColumn, h1, h2, h3 } from '../../../global/common';
+import { b1, b2, b3, b4, flexCenter, flexCenterColumn, h1, h2, h3 } from '../../../global/common';
 
 const S = {};
 
@@ -179,7 +179,7 @@ S.Image = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 20%;
   height: 20vh;
 `;
 
@@ -188,7 +188,7 @@ S.HeroContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 900%;
+  width: 90%;
 `;
 
 S.ContentTop = styled.div`
@@ -204,7 +204,15 @@ S.ContentTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  &.BookClubDetail{
   ${b2};
+  }
+  &.BookList{
+  ${b3};
+  }
+  p {
+  ${b4};
+  }
 `;
 
 S.ContentMore = styled.div`
@@ -249,8 +257,14 @@ S.ContentMiddle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  &.BookClubDetail{
   ${b3};
+  }
+  &.BookList{
+  ${b4};
+  }
 `;
 
 S.ContentFoot = styled.div`
@@ -263,12 +277,17 @@ S.ContentFoot = styled.div`
 `;
 
 S.ContentPeriodContainer = styled.div`
-  width: 30%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  flex-direction: column;
   gap: 0.5vh;
+  &.BookClubDetail{
+  width: 30%;
+  flex-direction: column;
+  }
+  &.BookList{
+  width: 100%;
+  }
 `;
 
 S.ContentPeriod = styled.div`
@@ -277,7 +296,10 @@ S.ContentPeriod = styled.div`
   background-color: #D9D9D9;
   border-radius: 0.3vw;
   align-items: center;
-  ${b2};
+  ${b4};
+  &.white{
+  background-color: #ffffff;
+  }
 `;
 
 S.ContentButtonContainer = styled.div`
@@ -361,6 +383,8 @@ S.Card = styled.div`
   &.BookList {
     margin: 3%; /* 게시글 사이의 간격 */
     background-color: #ffffff;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1); /* drop shadow 효과 추가 */ 
+
   }
   &.Challenge {
     margin: 1%; /* 게시글 사이의 간격 */

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../global/theme';
-import { b1, b2, b3, flexCenter, flexCenterColumn, h1, h2, h3 } from '../../../global/common';
+import { b1, b2, b3, b4, flexCenter, flexCenterColumn, h1, h2, h3 } from '../../../global/common';
 
 const S = {};
 
@@ -159,7 +159,7 @@ S.Image = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 20%;
   height: 20vh;
 `;
 
@@ -168,7 +168,125 @@ S.HeroContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 900%;
+  width: 90%;
+`;
+
+S.ContentTop = styled.div`
+  width: 100%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+S.ContentTitle = styled.div`
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &.BookClubDetail{
+  ${b2};
+  }
+  &.BookList{
+  ${b3};
+  }
+  p {
+  ${b4};
+  }
+`;
+
+S.ContentMore = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5%;
+  ${b2};  
+`;
+
+S.BookCategoryList = styled.div`
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3%; /* 카테고리 간 간격 조정 */
+`;
+
+S.BookCategory = styled.div`
+    
+    flex-direction: row;
+    padding: 1%;
+    color: #2AA871;
+    border:0.01vw solid #2AA871;
+    border-radius: 0.5vw;  
+    
+`;
+
+S.BookClubHost = styled.div`
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #2AA871;
+  ${b3};
+`;
+
+S.ContentMiddle = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  &.BookClubDetail{
+  ${b3};
+  }
+  &.BookList{
+  ${b4};
+  }
+`;
+
+S.ContentFoot = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2%;
+  ${b2};
+`;
+
+S.ContentPeriodContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5vh;
+  &.BookClubDetail{
+  width: 30%;
+  flex-direction: column;
+  }
+  &.BookList{
+  width: 100%;
+  }
+`;
+
+S.ContentPeriod = styled.div`
+  display: flex;
+  white-space: nowrap;
+  background-color: #D9D9D9;
+  border-radius: 0.3vw;
+  align-items: center;
+  ${b4};
+  &.white{
+  background-color: #ffffff;
+  }
+`;
+
+S.ContentButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0% 0% 0% 0%;
 `;
 
 S.left = styled.p`
@@ -217,7 +335,7 @@ S.Card = styled.div`
 `;
 
 S.Button = styled.button`
-  margin: 2%;
+  margin: 1%;
   background-color: transparent;
   border: transparent;
   cursor: pointer;

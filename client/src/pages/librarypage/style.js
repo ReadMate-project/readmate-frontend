@@ -124,6 +124,8 @@ S.BookList = styled.div`
    `;
 
 S.BookSection = styled.div`
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1); /* drop shadow 효과 추가 */ 
+
   &.bestSeller {
     width: 33%;
     padding: 0.5%;

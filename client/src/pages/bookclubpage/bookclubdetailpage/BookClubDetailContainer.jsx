@@ -37,7 +37,7 @@ const BookClubDetailContainer = () => {
                                     
                                 <S.ContentTop>
                                     
-                                    <S.ContentTitle>
+                                    <S.ContentTitle className='BookClubDetail'>
                                         <S.BookCategoryList>
                                             {card.categories.map((category, index) => (
                                             <S.BookCategory
@@ -58,13 +58,13 @@ const BookClubDetailContainer = () => {
                                     </S.ContentMore> 
                                 </S.ContentTop>
 
-                                <S.ContentMiddle>
+                                <S.ContentMiddle className='BookClubDetail'>
                                     {card.text}
                                 </S.ContentMiddle>
                                 
 
                                 <S.ContentFoot>
-                                    <S.ContentPeriodContainer>            
+                                    <S.ContentPeriodContainer className='BookClubDetail'>            
                                     
                                     <S.ContentPeriod>
                                        진행 기간 2024.10.31 ~ 2024.12.31              
