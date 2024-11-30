@@ -73,7 +73,7 @@ const BookClubDetailContainerForMember = () => {
                                 
 
                                 <S.ContentFoot>
-                                    <S.ContentPeriodContainer>            
+                                    <S.ContentPeriodContainer className='BookClubDetail'>            
                                     
                                     <S.ContentPeriod>
                                        진행 기간 2024.10.31 ~ 2024.12.31              

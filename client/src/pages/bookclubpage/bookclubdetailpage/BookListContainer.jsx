@@ -110,7 +110,7 @@ const BookListContainer = () => {
                                 진행 기간:
                                 </S.ContentPeriod>
 
-                                <S.ContentPeriod >
+                                <S.ContentPeriod>
                                 2024.10.31 ~ 2024.12.31 
                                 </S.ContentPeriod>
                                 

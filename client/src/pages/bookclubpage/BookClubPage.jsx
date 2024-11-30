@@ -54,16 +54,16 @@ const BookClubPage = () => {
             
                     
             {/* <HotBookclubContainer />
-            <BookClubListContainer /> */}
+            <BookClubListContainer />
             
-            {/* <BookClubDetailContainerForHost />
-            <BookClubDetailContainerForMember /> */}
-            {/* <BookClubDetailContainer />
-            <BookListContainer /> */}
+            <BookClubDetailContainerForHost />
+            <BookClubDetailContainerForMember />
+            <BookClubDetailContainer />
+            <BookListContainer />
             <BookClubChallengeContainer />
-            {/* <BookClubJoinRequestContainer /> */}
+            <BookClubJoinRequestContainer />
             
-            {/* <BookClubMVPContainer />
+            <BookClubMVPContainer />
             <BookClubNotificationContainer />
             <BookClubPostListContainer /> */}
             

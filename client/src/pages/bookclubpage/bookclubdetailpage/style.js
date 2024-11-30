@@ -31,6 +31,7 @@ S.Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
     margin-bottom: 10%;
   }
   &.JoinRequest {
@@ -169,7 +170,7 @@ S.HeroSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3%;
+  margin: 3% 3% 1% 3%;
   width: 100%;
   gap: 5%;
   ${b2};
@@ -181,6 +182,10 @@ S.Image = styled.img`
   justify-content: center;
   width: 20%;
   height: 20vh;
+  &.Challenge{
+    width: 25%;
+    height: 30vh;
+  }
 `;
 
 S.HeroContent = styled.div`
@@ -199,21 +204,30 @@ S.ContentTop = styled.div`
   justify-content: space-between;
 `;
 
+
 S.ContentTitle = styled.div`
-  width:100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  &.BookClubDetail{
-  ${b2};
+
+  &.BookClubDetail {
+    ${b2};
   }
-  &.BookList{
-  ${b3};
+
+  &.BookList {
+    ${b3};
   }
+
+  &.Challenge {
+    ${h1};
+  }
+
   p {
-  ${b4};
+    ${b4};
   }
 `;
+
 
 S.ContentMore = styled.div`
   width: 100%;
@@ -221,7 +235,31 @@ S.ContentMore = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 5%;
-  ${b2};  
+  ${b2}; 
+`;
+
+
+S.Content = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  ${b4}
+  &.UnderLine{
+    ${h1};
+    position: relative;
+    &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.5vw; /* 텍스트 아래에 언더라인 위치 */
+    width: 100%;
+    height:1vh; /* 언더라인 두께 */
+    background-color: #CFDDC8; /* 언더라인 색상 */
+    border-radius: 0.1vw;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1); /* drop shadow 효과 추가 */
+    
+  }  
 `;
 
 S.BookCategoryList = styled.div`
@@ -281,11 +319,15 @@ S.ContentPeriodContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 0.5vh;
+  gap: 2%;
   &.BookClubDetail{
   width: 30%;
   flex-direction: column;
   }
   &.BookList{
+  width: 100%;
+  }
+  &.Challenge{
   width: 100%;
   }
 `;
@@ -295,10 +337,16 @@ S.ContentPeriod = styled.div`
   white-space: nowrap;
   background-color: #D9D9D9;
   border-radius: 0.3vw;
+  padding: 0.5% 1% 0.5% 1%;
+  margin:2%;
   align-items: center;
-  ${b4};
+  ${b2};
   &.white{
   background-color: #ffffff;
+  }
+  &.Whiteh3{
+  background-color: #ffffff;
+  ${b2};
   }
 `;
 
@@ -314,7 +362,9 @@ S.left = styled.p`
   align-items: center;
   justify-content: flex-start;
   width: 90%;
-  
+  margin-left: 7%;
+  margin-bottom: 1%;
+  ${b1}
 `;
 
 S.CardSection = styled.div`
@@ -337,19 +387,18 @@ S.CardSection = styled.div`
   }
   &.Challenge {
     width: 80%;
-    padding: 0.5%;
-    border-radius: 4vw;
-    background-color: #ffffff;
-    display: flex;
+    height: auto;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    margin-right: 2%; /* 책 사이 간격 추가 */
+    border-radius: 4vw;
+    background-color: #ffffff;
   }
   &.Challenger {
-    width: 95%;
-    
-    border-radius: 2vw;
+    width: 90%;
+    padding: 0.5%;
+    margin-bottom: 2%;
+    margin-left:5%;
+    border-radius: 3vw;
     border: 1px solid #999999;
     display: flex;
     align-items: center;
@@ -387,7 +436,7 @@ S.Card = styled.div`
 
   }
   &.Challenge {
-    margin: 1%; /* 게시글 사이의 간격 */
+    margin: 0.1%; /* 게시글 사이의 간격 */
     background-color: #ffffff;
   }
   &.JoinRequest {
