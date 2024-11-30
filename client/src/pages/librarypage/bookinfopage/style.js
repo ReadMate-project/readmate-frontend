@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../global/theme';
-import { b1, b2, b4, flexCenter, flexCenterColumn, h3 } from "../../../global/common";
+import { h1, h2, h3, b1, b2, b3, b4, flexCenter, flexCenterColumn } from "../../../global/common";
 
 const S = {};
 
@@ -131,12 +131,36 @@ S.TitleButton=styled.div`
 `;
 
 S.CardSection = styled.div`
+  &.BookInfoDetails{
   width: 80%;
-  border-radius: 2vw 2vw;
+  border-radius: 2vw;
   background-color: #FFFFFF;
   display: flex;
   margin-bottom: 1%;
   margin-top: 1%;
+  }
+  &.BookClubList {
+    width: 80%;
+    height: auto;
+    justify-content: space-between;
+    border-radius: 2vw;
+    background-color: #D9D9D9;
+  }
+`;
+
+S.Card = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 2vw;
+  padding: 1%;
+  background-color: #FFFFFF;
+  
+  &.BookClubList {
+  margin: 3% 2% 3% 2%; /* 게시글 사이의 간격 */  
+  }
+  
 `;
 
 S.HeroSection = styled.div`
@@ -145,6 +169,15 @@ S.HeroSection = styled.div`
   align-items: center;
   margin: 1%;
   padding: 1%;
+`;
+
+S.HeroSection2 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1%;
+  gap: 2%;
+  width: 100%;
 `;
 
 S.Image = styled.img`
@@ -156,6 +189,14 @@ S.Image = styled.img`
   
 `;
 
+S.Image2 = styled.img`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20vh;
+`;
+
 S.HeroContent = styled.div`
 
 margin-right: 2%;    
@@ -163,29 +204,118 @@ padding-left: 2%;
 font-weight: bold;
 flex-direction: column;
 justify-content: flex-start;
-font-family: 'Roboto';  
-  h1 {
+  
+`;
+
+S.HeroContent2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  width: 900%;
+`;
+
+S.ContentTop = styled.div`
+  width: 100%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+S.ContentTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  ${h1};
+  &.BookInfoDetails{
     display: inline;
     font-size: 1.5vw;
-    background-color: #CFDDC8;
-    padding: 1% 
+    background-color: #A5D1B6;
+    padding: 1%;
+    border-radius: 0.5vw;
   }
-  p {
-    display: flex;
-    margin: 2% 0% 2% 0%;
-    font-size: 1vw;
-  }
-  a {
-    
-    display: inline-block;
-    padding: 0.375vw 0.75vw;
-    background-color: #D9D9D9;
-    color: #717171;
-    text-decoration: none;
-    border-radius: 0.25vw;  
-    
+`;
 
-  }
+S.ContentMore = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5%;
+  ${b2};  
+`;
+
+S.BookCategoryList = styled.div`
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3%; /* 카테고리 간 간격 조정 */
+`;
+
+S.BookCategory = styled.div`
+    
+    flex-direction: row;
+    padding: 1%;
+    color: #2AA871;
+    border:0.01vw solid #2AA871;
+    border-radius: 0.5vw;  
+    
+`;
+
+S.BookClubHost = styled.div`
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #2AA871;
+  ${b3};
+`;
+
+S.ContentMiddle = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1%;
+  ${b3};
+`;
+
+S.ContentFoot = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5%;
+  ${b2};
+`;
+
+S.ContentPeriodContainer = styled.div`
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.5vh;
+`;
+
+S.ContentPeriod = styled.div`
+  display: flex;
+  white-space: nowrap;
+  background-color: #D9D9D9;
+  border-radius: 0.3vw;
+  align-items: center;
+  
+  ${b2};
+`;
+
+S.ContentButtonContainer = styled.div`
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  padding: 0% 0% 0% 0%;
 `;
 
 S.ContentSection = styled.div`
@@ -193,8 +323,8 @@ S.ContentSection = styled.div`
   height: 100%;
   display: flex;
   margin-top: 1%;
-  padding: 1%;
-  border-radius: 1vw;
+  padding: 2%;
+  border-radius: 1.5vw;
   background-color:  ${theme.PALETTE.background};;
 `;
 
@@ -242,7 +372,8 @@ S.BookContainer=styled.div`
 
 S.TextContainer = styled.div`
     width:90%;
-    margin-left: 2%;
+    display: flex;
+    margin-left: 5%;
     padding:1% 0;
 `;
 

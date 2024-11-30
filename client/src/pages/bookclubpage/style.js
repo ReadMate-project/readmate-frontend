@@ -218,7 +218,7 @@ S.ContentPeriod = styled.div`
 `;
 
 S.ContentButtonContainer = styled.div`
-  width: 30%;
+  justify-content: flex-end;
   display: flex;
   align-items: center;
   padding: 0% 0% 0% 0%;

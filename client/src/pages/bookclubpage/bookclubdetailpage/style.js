@@ -191,6 +191,102 @@ S.HeroContent = styled.div`
   width: 900%;
 `;
 
+S.ContentTop = styled.div`
+  width: 100%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+S.ContentTitle = styled.div`
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  ${b2};
+`;
+
+S.ContentMore = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5%;
+  ${b2};  
+`;
+
+S.BookCategoryList = styled.div`
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3%; /* 카테고리 간 간격 조정 */
+`;
+
+S.BookCategory = styled.div`
+    
+    flex-direction: row;
+    padding: 1%;
+    color: #2AA871;
+    border:0.01vw solid #2AA871;
+    border-radius: 0.5vw;  
+    
+`;
+
+S.BookClubHost = styled.div`
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #2AA871;
+  ${b3};
+`;
+
+S.ContentMiddle = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2%;
+  ${b3};
+`;
+
+S.ContentFoot = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2%;
+  ${b2};
+`;
+
+S.ContentPeriodContainer = styled.div`
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.5vh;
+`;
+
+S.ContentPeriod = styled.div`
+  display: flex;
+  white-space: nowrap;
+  background-color: #D9D9D9;
+  border-radius: 0.3vw;
+  align-items: center;
+  ${b2};
+`;
+
+S.ContentButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0% 0% 0% 0%;
+`;
+
 S.left = styled.p`
   display: flex;
   align-items: center;
@@ -332,6 +428,7 @@ S.TextArea = styled.textarea`
   border: none;
   resize: none;
   outline: none;
+  scrollbar-width: none;
   background-color: transparent;
   ${h2};
   color: #999999;
@@ -343,6 +440,7 @@ S.TextArea = styled.textarea`
 S.CharCount = styled.div`
   width: 100%;
   height: auto;
+  margin-top: 1%;
   text-align: right;
   color: #999999;
   ${h3};

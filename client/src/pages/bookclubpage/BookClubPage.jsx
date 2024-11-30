@@ -57,18 +57,18 @@ const BookClubPage = () => {
             <BookClubListContainer /> */}
             
             {/* <BookClubDetailContainerForHost />
-            <BookClubDetailContainerForMember /> */}
-            <BookClubDetailContainer />
+            <BookClubDetailContainerForMember />
+            <BookClubDetailContainer /> */}
             <BookListContainer />
             <BookClubChallengeContainer />
-            <BookClubJoinRequestContainer />
+            {/* <BookClubJoinRequestContainer /> */}
             
             {/* <BookClubMVPContainer />
             <BookClubNotificationContainer />
             <BookClubPostListContainer /> */}
             
-            {/* <BookClubCreateContainer />
-            <BookClubAddBooksContainer /> */}
+            <BookClubCreateContainer />
+            <BookClubAddBooksContainer />
         
         </div>
     );
