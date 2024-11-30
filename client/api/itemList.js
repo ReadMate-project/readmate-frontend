@@ -18,6 +18,7 @@ async function parseXml(xml) {
 }
 
 export default async function handler(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // CORS 헤더 추가
     const { query } = req;
     const { queryType = 'BestSeller', categoryId = 0, maxResults = 20 } = query;
 
