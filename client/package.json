@@ -31,9 +31,10 @@
   },
   "proxy": "http://3.35.193.132:8080",
   "scripts": {
-    "dev": "concurrently \"yarn run frontend\" \"yarn run backend\"",
-    "frontend": "react-scripts --max-http-header-size=8192 start",
-    "backend": "node server.mjs"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

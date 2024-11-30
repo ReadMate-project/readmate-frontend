@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:5000' : 'https://your-vercel-project.vercel.app';
+const API_BASE_URL = 'https://your-vercel-project.vercel.app';
 
 export const useAladinSearch = () => {
   const [searchResults, setSearchResults] = useState([]);

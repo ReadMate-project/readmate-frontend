@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:5000' : 'https://your-vercel-project.vercel.app';
+const API_BASE_URL = 'https://your-vercel-project.vercel.app';
 
 const useBooksFetch = (queryType = 'BestSeller', categoryId = 0, maxResults = 20) => {
   const [books, setBooks] = useState([]);
