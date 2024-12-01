@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://your-vercel-project.vercel.app/apiServerless'; // Vercel 서버리스 함수의 URL
+const API_BASE_URL = 'https://readmate-ridi.vercel.app/';
+
 const useBooksFetch = (queryType = 'BestSeller', categoryId = 0, maxResults = 20) => {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +12,7 @@ const useBooksFetch = (queryType = 'BestSeller', categoryId = 0, maxResults = 20
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/itemList`, {
+        const response = await axios.get(`${API_BASE_URL}/api/itemList`, {
           params: {
             queryType,
             categoryId,
