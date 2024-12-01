@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://readmate-ridi.vercel.app/';
+const API_BASE_URL = 'https://your-vercel-project.vercel.app';
 
 const useBookDetails = (isbn) => {
   const [bookDetails, setBookDetails] = useState(null);
