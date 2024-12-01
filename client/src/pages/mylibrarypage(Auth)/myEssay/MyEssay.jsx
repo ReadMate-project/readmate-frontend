@@ -80,7 +80,7 @@ const MyEssay = () => {
                 <S.PostContainer>
                   <S.BookContainer>
                       <S.BookImage>
-                          <img src={essay.bookImage} alt="BookCover"/>  
+                          <img src={essay.bookCover} alt="BookCover"/>  
                       </S.BookImage>
                       
                   </S.BookContainer>
