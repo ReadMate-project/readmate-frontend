@@ -303,6 +303,7 @@ S.ContentMiddle = styled.div`
   &.BookList{
   ${b4};
   }
+  
 `;
 
 S.ContentFoot = styled.div`
@@ -346,7 +347,7 @@ S.ContentPeriod = styled.div`
   }
   &.Whiteh3{
   background-color: #ffffff;
-  ${b2};
+  ${h2};
   }
 `;
 
@@ -523,6 +524,147 @@ S.CharCount = styled.div`
 
 S.Label = styled.span`
   color: transparent;
+`;
+
+// Modal
+
+
+
+S.ModalContainer = styled.div`
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+`;
+
+S.GreetingModalContainer = styled(S.ModalContainer)`
+    width: 400px;
+`;
+
+S.ConfirmationModalContainer = styled(S.ModalContainer)`
+    width: 300px;
+`;
+
+S.ModalHeader = styled.div`
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+`;
+
+S.MemberList = styled.ul`
+    list-style: none;
+    padding: 0;
+    margin: 0;
+`;
+
+S.MemberItem = styled.li`
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+`;
+
+S.Avatar = styled.img`
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+`;
+
+S.NewLabel = styled.span`
+    color: green;
+    font-weight: bold;
+    margin-right: 5px;
+`;
+
+S.MemberName = styled.span`
+    flex-grow: 1;
+`;
+
+S.Timestamp = styled.span`
+    color: gray;
+`;
+
+S.JoinButton = styled.button`
+    background-color: #00c853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+`;
+
+S.CloseButton = styled.button`
+    background-color: #00c853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+`;
+
+S.GreetingMessage = styled.p`
+    margin: 10px 0;
+`;
+
+S.ConfirmationMessage = styled.p`
+    margin: 10px 0;
+`;
+
+S.ButtonGroup = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+S.RejectButton = styled.button`
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 45%;
+    cursor: pointer;
+`;
+
+S.ApproveButton = styled.button`
+    background-color: #00c853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 45%;
+    cursor: pointer;
+`;
+
+S.LeaderItem = styled.li`
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: ${({ selected }) => (selected ? "#d1f7c4" : "transparent")};
+    padding: 5px;
+    border-radius: 5px;
+`;
+
+S.LeaderName = styled.span`
+    flex-grow: 1;
+`;
+
+S.SelectedCheck = styled.span`
+    color: green;
+    font-weight: bold;
+`;
+
+S.OpenButton = styled.button`
+    background-color: #00c853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 20px;
 `;
 
 export default S;

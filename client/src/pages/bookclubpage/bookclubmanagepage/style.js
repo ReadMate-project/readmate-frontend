@@ -138,21 +138,23 @@ S.TitleButtonContainer = styled.div`
   }
 `;
 
-S.Button = styled.button`
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-`;
+
 
 S.HeroSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3%;
   width: 100%;
+  &.BookList{
   gap: 5%;
+  margin: 3%;
+
+  }
   ${b2};
+  &.BookClubCU{
+  gap: 0%;
+  margin:2%;
+  }
 `;
 
 S.Image = styled.img`
@@ -161,14 +163,34 @@ S.Image = styled.img`
   justify-content: center;
   width: 20%;
   height: 20vh;
+  &.type1 {
+    width: 100%;
+    height: 20vh;
+  }
+  &.type2 {
+    display: flex;
+    position: relative;
+  }
+  
 `;
+    
+    
+
+S.ImageContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  width: 20%;
+  height: 35vh;
+`
 
 S.HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 85%;
 `;
 
 S.ContentTop = styled.div`
@@ -237,13 +259,39 @@ S.ContentMiddle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1%;
-  margin-bottom: 2%;
-  &.BookClubDetail{
-  ${b3};
+ 
+  &.BookClubCU{
+  ${b2};
+  justify-content: flex-start;
+  gap:2%;
+  padding-left: 5%;
+  margin-bottom: 1%;
   }
   &.BookList{
   ${b4};
+  margin-top: 1%;
+  margin-bottom: 2%;
+  justify-content: space-between;
+  }
+`;
+
+S.ContentInPut = styled.textarea`
+  width: 25%;
+  height: 4vh;
+  ${b4};
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #E9E8E4;
+  border: none;
+  border-radius: 0.5vw;
+  resize: none;
+  overflow: hidden;
+  &.middle{
+  width: 40%;
+  }
+  &.long{
+  width:80%;
   }
 `;
 
@@ -254,6 +302,13 @@ S.ContentFoot = styled.div`
   justify-content: space-between;
   margin-top: 2%;
   ${b2};
+  &.BookClubCU{
+  margin-left:10%;
+  margin-top:1%;
+  ${b4};
+  gap: 2%;
+  justify-content: flex-start;
+  }
 `;
 
 S.ContentPeriodContainer = styled.div`
@@ -303,7 +358,7 @@ S.CardSection = styled.div`
     height: auto;
     justify-content: space-between;
     border-radius: 4vw;
-    background-color: #fafef8;
+    background-color: #FFFFFF;
   }
   &.BookList {
     width: 80%;
@@ -325,7 +380,7 @@ S.Card = styled.div`
   border-radius: 2vw;
   &.BookClubCU {
     margin: 1%; /* 게시글 사이의 간격 */
-    background-color: #fafef8;
+    background-color: #FFFFFF;
   }
   &.BookList {
     margin: 3%; /* 게시글 사이의 간격 */
@@ -348,11 +403,28 @@ S.Button = styled.button`
   &:not(:disabled):hover {
     transform: scale(1.1); // Slight zoom effect on hover when enabled
   }
+  &.BookClubCU {
+    display: flex;
+    position: relative;
+    alignt-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 1vh;
+    left: 35%;
+    bottom: 53%;
+    border-radius: 2vw;
+    
+    
+  }
+  
 `;
 
 
 S.Label = styled.span`
   color: transparent;
 `;
+
+
+
 
 export default S;

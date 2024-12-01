@@ -37,7 +37,7 @@ const BookClubChallengeContainer = () => {
 
                                 </S.ContentTop>
 
-                                <S.ContentMiddle>
+                                <S.ContentMiddle >
                                     
                                     <S.ContentPeriodContainer className='Challenge'>            
                                     <S.ContentPeriod className='Whiteh3'>
@@ -49,7 +49,7 @@ const BookClubChallengeContainer = () => {
                                     </S.ContentPeriodContainer>
                                 </S.ContentMiddle>
                                 
-                                <S.ContentMiddle>
+                                <S.ContentMiddle >
                                     
                                     <S.ContentPeriodContainer className='Challenge'>            
                                     <S.ContentPeriod className='Whiteh3'>
