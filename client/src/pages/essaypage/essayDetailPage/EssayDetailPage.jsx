@@ -8,6 +8,7 @@ import { faHeart as emptyHeart, faComment } from '@fortawesome/free-regular-svg-
 import { useUser } from '../../../context/UserContext';
 import DeletePost from '../../postpage/postdetailpage/DeletePost';
 import Comment from '../../postpage/postdetailpage/comment/Comment';
+import SimpleBook2 from '../../../components/book/SimpleBook2';
 
 const EssayDetailPage = () => {
     const location = useLocation();
@@ -123,6 +124,9 @@ const EssayDetailPage = () => {
                     </S.TitleHeader>
                 </S.TitleContainer>
                 <S.Line></S.Line>
+                <S.BookContainer>
+                    <SimpleBook2 book={post} />
+                </S.BookContainer>
                 
                 <S.BodyContainer>
                     {visible && <DeletePost visible={visible} setVisible={setVisible} />}

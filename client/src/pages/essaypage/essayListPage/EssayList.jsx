@@ -105,7 +105,7 @@ const EssayList = () => {
     <div>
       <S.Container>
       <S.TitleHightlight><img 
-           src={process.env.PUBLIC_URL + '/global/images/essaypage/essayhightlight.png'}  alt="게시판"/>
+           src={process.env.PUBLIC_URL + '/global/images/essaypage/essayhightlight.png'}  alt="에세이"/>
         </S.TitleHightlight>
         <S.TitleContainer>
           

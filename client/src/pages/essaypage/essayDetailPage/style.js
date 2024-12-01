@@ -76,7 +76,14 @@ S.Line=styled.div`
         top:8vh;
     }
 `
-
+S.BookContainer=styled.div`
+    /* position: absolute;
+    top:30vh;
+    left:-7%; */
+    position: relative;
+    left:-55%;
+    top:7.3vh;
+`
 S.BodyContainer=styled.div`
     width: 80%;
     /* height:120vh; */
