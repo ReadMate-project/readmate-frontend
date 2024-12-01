@@ -2,8 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://readmate-ridi.vercel.app/';
-
+const API_BASE_URL = 'https://readmate-frontend.vercel.app/apiServerless'; // Vercel 서버리스 함수의 URL
 export const useAladinSearch = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +12,7 @@ export const useAladinSearch = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/itemSearch`, {
+      const response = await axios.get(`${API_BASE_URL}/itemSearch`, {
         params: { search: query.trim() }
       });
       const searchResults = response.data.object?.item || []; // object에서 item 배열을 추출
