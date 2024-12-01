@@ -20,3 +20,4 @@ client/node_modules
 
 # .env in client folder
 client/.env
+.vercel
