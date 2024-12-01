@@ -8,12 +8,12 @@
     ],
     "routes": [
       {
-        "src": "/apiServerless/(.*)",
+        "src": "/api/(.*)",
         "dest": "/serverless/$1"
       },
       {
         "src": "/(.*)",
-        "dest": "/index.html",
+        "dest": "/",
         "status": 200
       }
     ]
