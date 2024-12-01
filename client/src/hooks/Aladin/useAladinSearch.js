@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://readmate-ridi.vercel.app/';
+const API_BASE_URL = 'https://your-vercel-project.vercel.app';
 
 export const useAladinSearch = () => {
   const [searchResults, setSearchResults] = useState([]);
