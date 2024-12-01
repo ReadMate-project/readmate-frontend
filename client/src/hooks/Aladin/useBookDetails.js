@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://your-vercel-project.vercel.app/apiServerless'; // Vercel 서버리스 함수의 URL
+const API_BASE_URL = 'https://readmate-frontend.vercel.app/apiServerless'; // Vercel 서버리스 함수의 URL
 const useBookDetails = (isbn) => {
   const [bookDetails, setBookDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
