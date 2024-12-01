@@ -2,21 +2,28 @@
   "version": 2,
   "builds": [
     {
-      "src": "serverless/**/*.js", 
+      "src": "serverless/**/*.js",
       "use": "@vercel/node"
     },
     {
-      "src": "build/**", 
+      "src": "build/**",
       "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)", 
+      "src": "/api/(.*)",
       "dest": "/serverless/$1"
     },
     {
-      "src": "/(.*)", 
+      "src": "/(.*)",
+      "dest": "/build/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
       "dest": "/build/index.html"
     }
   ]
