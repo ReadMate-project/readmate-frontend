@@ -128,7 +128,7 @@ const EssayList = () => {
                 <S.PostContainer>
                   <S.BookContainer>
                       <S.BookImage>
-                          <img src={hotEssay.bookImage} alt="BookCover"/>  
+                          <img src={hotEssay.bookCover} alt="BookCover"/>  
                       </S.BookImage>
                       
                   </S.BookContainer>
@@ -174,7 +174,7 @@ const EssayList = () => {
                 <S.PostContainer>
                   <S.BookContainer>
                       <S.BookImage>
-                          <img src={essay.bookImage} alt="BookCover"/>  
+                          <img src={essay.bookCover} alt="BookCover"/>  
                       </S.BookImage>
                       
                   </S.BookContainer>
