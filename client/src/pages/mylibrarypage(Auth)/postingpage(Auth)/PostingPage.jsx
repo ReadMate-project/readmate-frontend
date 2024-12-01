@@ -96,11 +96,7 @@ const PostingPage = () => {
                 <S.Line></S.Line>
                 
                 <S.BookContainer>
-                    {/* {selectedBook ? (
-                        <SimpleBook book={selectedBook} /> // SimpleBook에 선택된 책 전달
-                    ) : (
-                        <p>책을 선택해주세요.</p>
-                    )} */}
+                   
                     {selectedBook&&
                         <SimpleBook book={selectedBook} />
                     }
