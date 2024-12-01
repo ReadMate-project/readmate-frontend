@@ -1,20 +1,21 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "serverless/**/*.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/apiServerless/(.*)",
-      "dest": "/serverless/$1"
-    },
-    {
-      "src": "/[^.]+",
-      "dest": "/",
-      "status": 200
-    }
-  ]
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "serverless/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/apiServerless/(.*)",
+        "dest": "/serverless/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.html",
+        "status": 200
+      }
+    ]
+  }
+  

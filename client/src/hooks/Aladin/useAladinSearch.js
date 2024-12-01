@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://readmate-frontend.vercel.app/apiServerless'; // Vercel 서버리스 함수의 URL
+const API_BASE_URL = 'https://readmate-frontend-1006yunthpy.vercel.app/apiServerless'; // Vercel 서버리스 함수의 URL
 export const useAladinSearch = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
