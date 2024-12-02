@@ -37,6 +37,7 @@ S.GrayBackground=styled.div`
 
 S.Component=styled.div`
     position: relatve;
+   
     z-index:1;
     font-family: 'Pretandard';
     ${h3};
@@ -70,8 +71,8 @@ S.Component=styled.div`
 `
 
 S.Profile=styled.div`
-    width: 60px;  
-    height: 60px;  
+    width: 50px;  
+    height: 50px;  
     overflow: hidden; 
     border-radius: 50%; 
     border: 1px solid #717171;
@@ -81,28 +82,28 @@ S.Profile=styled.div`
         object-fit: cover; 
     }
     @media (max-width: 1024px) {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
 
     @media (max-width: 768px) {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
     }
 
     @media (max-width: 480px) {
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
     }
 `
 S.NickNameContainer=styled.div`
     display: flex;
     justify-content: space-between;
-    width:67%;
+    width:70%;
     position:absolute ;
     /* right:5%; */
-    top:10%;
-    left:19%;
+    top:9.5%;
+    left:17%;
 `
 S.NickName=styled.div`
     ${h3}
@@ -112,8 +113,8 @@ S.Introduce=styled.div`
     ${b4}
     position:absolute ;
     /* right:5%; */
-    top:15%;
-    left:19%;
+    top:14%;
+    left:17%;
 `
 S.ModifyButton=styled.span`
     /* width:13%; */
@@ -130,7 +131,7 @@ S.ImageContainer=styled.div`
     height:45%;
     margin: auto;
     padding:0 10%;
-    margin-top: 5%;
+    margin-top: 8%;
     background-color: rgba(207, 221, 200, 0.3);
     border-radius: 1rem;
     /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
@@ -177,7 +178,7 @@ S.ButtonContainer = styled.div`
     width:75%;
     text-align: center;
     position:relative;
-    top:7%;
+    top:15%;
     left:12.5%;
 `
 S.Button=styled.div`

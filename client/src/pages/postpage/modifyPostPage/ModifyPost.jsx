@@ -44,6 +44,13 @@ const ModifyPost = () => {
     const handleCancle=()=>{
         navigate(-1);
     }
+
+    const handleTitleChange = (e) => {
+        const input = e.target.value;
+        if (input.length <= 10) {
+            setTitle(input);
+        }
+    };
     //저장 버튼 클릭 시 서버에 POST 요청 보내기
     const handleSubmit = async() => {
         if (!title.trim()) {
@@ -108,7 +115,7 @@ const ModifyPost = () => {
                         placeholder='제목' 
                         id="title" 
                         value={title} 
-                        onChange={(e) => setTitle(e.target.value)} 
+                        onChange={handleTitleChange}
                     />
                     <textarea 
                         id="body"

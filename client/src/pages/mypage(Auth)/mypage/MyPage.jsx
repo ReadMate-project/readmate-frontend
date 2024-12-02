@@ -46,20 +46,14 @@ const MyPage = () => {
     //로그아웃
     const handleLogout = async () => {
       try {
-          const accessToken = localStorage.getItem('accessToken');
-
           const response = await axios.post(
               'http://3.35.193.132:8080/api/v1/auth/logout',
               {},
-              // {
-              //   headers: {
-              //       Authorization: `Bearer ${accessToken}`, // 헤더에 토큰 추가
-              //   },
-              // }
+            
           );
 
           if (response.status === 200) {
-            logout(); //UserContext 함수: isMember, accessToken 삭제, user 초기화
+            logout(); 
             navigate('/'); 
           }
       } catch (error) {
@@ -71,15 +65,12 @@ const MyPage = () => {
       <div>
         
         <S.Background >
-          
-        {/* <S.GrayBackground className={visible ? "grayBackground" : ""}> */}
           <S.Component>
-          
-        
+    
           {visible && <DeleteAccount visible={visible} setVisible={setVisible} />}
             <S.Profile>
               <img src={profileImage}/>
-              {/* <img src={process.env.PUBLIC_URL + '/global/images/mypage/defaultProfile.png'}/> */}
+           
             </S.Profile>
             
             <S.NickNameContainer>
@@ -114,7 +105,6 @@ const MyPage = () => {
           )}
           
           </S.Component>
-          {/* </S.GrayBackground> */}
           
         </S.Background>
         
