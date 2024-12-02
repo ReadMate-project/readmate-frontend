@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://readmate-frontend-1006yunthpy.vercel.app/apiServerless'; // Vercel 서버리스 함수의 URL
 const useBookDetails = (isbn) => {
   const [bookDetails, setBookDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -12,9 +11,7 @@ const useBookDetails = (isbn) => {
     const fetchBookDetails = async () => {
       try {
         console.log(`Requesting book details for ISBN: ${isbn}`);
-        const response = await axios.get(`${API_BASE_URL}/itemLookUp`, {
-          params: { isbn }
-        });
+        const response = await axios.get(`http://localhost:5000/api/details?isbn=${isbn}`);
         console.log('API Response:', response.data);
 
         if (response.data.object && response.data.object.item) {
