@@ -1,15 +1,19 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "serverless/**/*.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/apiServerless/(.*)",
-      "dest": "/serverless/$1"
-    }
-  ]
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/**/*.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "pages/**/*.js",
+        "use": "@vercel/next"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/$1"
+      }
+    ]
+  }
