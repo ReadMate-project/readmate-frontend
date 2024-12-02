@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import theme from "../../global/theme";
+import { Link } from "react-router-dom";
 import { b1, b2, b3, flexCenter, flexCenterColumn, h1, h2, h3, h4 } from "../../global/common";
 
 const S = {};
@@ -109,6 +110,7 @@ S.HeroSection = styled.div`
   gap: 2%;
   width: 100%;
 `;
+
 
 
 S.Image = styled.img`
@@ -328,7 +330,11 @@ S.Option = styled.div`
     }
 `;
 
-
+S.styledLink = styled(Link)`
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+`;
 
 
 export default S;

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
+
 import theme from '../../../global/theme';
 import { b1, b2, b4, flexCenter, flexCenterColumn, h1, h2, h3 } from '../../../global/common';
 
@@ -417,5 +419,10 @@ S.PageButton = styled.button`
     
 `;
 
+S.styledLink = styled(Link)`
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+`;
 
 export default S;

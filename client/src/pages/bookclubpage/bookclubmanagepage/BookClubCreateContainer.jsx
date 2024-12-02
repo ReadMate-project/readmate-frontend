@@ -7,9 +7,11 @@ const BookClubCreateContainer = () => {
         <S.Container className='BookClubCU' >
            <S.TitleContainer className='main'>
             
-            <S.TitleHighlight className='main' >
-                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'}/>
-            </S.TitleHighlight>
+           <S.styledLink to={`/bookclubs`}>
+                <S.TitleHighlight className='main'>
+                    <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'} alt="Book Club" />
+                </S.TitleHighlight>
+            </S.styledLink>
             
             
         

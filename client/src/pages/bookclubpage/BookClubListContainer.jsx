@@ -4,18 +4,18 @@ import S from './style';
 
 const BookClubListContainer = () => {
     const cards = [
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
-        { title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:2, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:3, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:4, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:5, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:6, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:7, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:8, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:9, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:10, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:11, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:12, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
+        { bookclubid:13, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }, 
     ];
 
     const pageSize = 6; // 한 페이지에 표시할 게시글 수
@@ -57,7 +57,9 @@ const BookClubListContainer = () => {
                 {currentCards.map((card, index) => (
                     <S.Card className='BookClubList' key={index}>
                         <S.HeroSection>
-                            <S.Image src={card.image} alt="Book Club Hero" />
+                            <S.styledLink to={`/bookclubs/bookclubinfo/${card.bookclubid}`}>
+                                <S.Image src={card.image} alt="Book Club Hero" />
+                            </S.styledLink>
                             <S.HeroContent>
 
                                     
@@ -101,9 +103,11 @@ const BookClubListContainer = () => {
 
                                     <S.ContentButtonContainer>
                 
-                                        <S.Button>
-                                            <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/JoinBookClub.png'} />
-                                        </S.Button>
+                                        <S.styledLink to={`/bookclubs/bookclubinfo/${card.bookclubid}`}>
+                                            <S.Button>
+                                                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/JoinBookClub.png'} alt="Join Book Club" />
+                                            </S.Button>
+                                        </S.styledLink>
                 
                                     </S.ContentButtonContainer>
                                 </S.ContentFoot>
