@@ -11,6 +11,9 @@ import BookClubDetailContainerForHost from './bookclubdetailpage/BookClubDetailC
 import BookListContainer from './bookclubdetailpage/BookListContainer';
 import BookClubChallengeContainer from './bookclubdetailpage/BookClubChallengeContainer';
 import BookClubJoinRequestContainer from './bookclubdetailpage/BookClubJoinRequestContainer';
+import BookClubMemberListModal from './bookclubdetailpage/BookClubMemberListModal';
+import BookClubLeaderSelectionModal from './bookclubdetailpage/BookClubLeaderSelectionModal';
+import BookClubJoinConfirmationModal from './bookclubdetailpage/BookClubJoinConfirmationModal';
 
 import BookClubMVPContainer from './bookclubboardpage/BookClubMVPContainer';
 import BookClubPostListContainer from './bookclubboardpage/BookClubPostListContainer';
@@ -54,21 +57,24 @@ const BookClubPage = () => {
             
                     
             {/* <HotBookclubContainer />
-            <BookClubListContainer />
+            <BookClubListContainer /> */}
             
-            <BookClubDetailContainerForHost />
+            {/* <BookClubDetailContainerForHost />
             <BookClubDetailContainerForMember />
             <BookClubDetailContainer />
             <BookListContainer />
             <BookClubChallengeContainer />
             <BookClubJoinRequestContainer />
-            
-            <BookClubMVPContainer />
+            <BookClubMemberListModal />
+            <BookClubLeaderSelectionModal />
+            <BookClubJoinConfirmationModal /> */}
+
+            {/* <BookClubMVPContainer />
             <BookClubNotificationContainer />
             <BookClubPostListContainer /> */}
             
-            <BookClubCreateContainer />
-            {/* <BookClubAddBooksContainer /> */}
+            {/* <BookClubCreateContainer />
+            <BookClubAddBooksContainer /> */}
         
         </div>
     );

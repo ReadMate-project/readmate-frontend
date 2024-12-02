@@ -62,7 +62,7 @@ const BookClubAddBooksContainer = () => {
                 
                 {currentCards.map((card, index) => (
                 <S.Card className='BookList' key={index}>
-                    <S.HeroSection>
+                    <S.HeroSection className='BookList'>
                         
                         <S.Image src={card.image} alt="Book Club Hero" />
                         

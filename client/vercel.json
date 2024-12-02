@@ -4,16 +4,28 @@
       {
         "src": "api/**/*.js",
         "use": "@vercel/node"
+<<<<<<< HEAD
       },
       {
         "src": "pages/**/*.js",
         "use": "@vercel/next"
+=======
+>>>>>>> 1202yunthpy
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",
+<<<<<<< HEAD
         "dest": "/api/$1"
+=======
+        "dest": "/serverless/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/",
+        "status": 200
+>>>>>>> 1202yunthpy
       }
     ]
   }
