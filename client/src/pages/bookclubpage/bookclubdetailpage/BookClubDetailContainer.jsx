@@ -1,18 +1,20 @@
 import React from 'react';
+
 import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import S from './style'
 
 const BookClubDetailContainer = () => {
-
     const card={ title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: "/global/images/bookclubpage/DefaultLogo.png", categories:['한국소설','SF'], host:'독서핑' }
 
     return (
         <S.Container className='BookClubDetail' >
            <S.TitleContainer className='main'>
             
-            <S.TitleHighlight className='main' >
-                <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'}/>
-            </S.TitleHighlight>
+           <S.styledLink to={`/bookclubs`}>
+                <S.TitleHighlight className='main'>
+                    <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/BookClub.png'} alt="Book Club" />
+                </S.TitleHighlight>
+            </S.styledLink>
             
             
         
@@ -76,13 +78,7 @@ const BookClubDetailContainer = () => {
 
                                     </S.ContentPeriodContainer>
 
-                                    <S.ContentButtonContainer>
-                
-                                        <S.Button>
-                                            <img src={process.env.PUBLIC_URL + '/global/images/bookclubpage/JoinBookClub.png'} />
-                                        </S.Button>
-                
-                                    </S.ContentButtonContainer>
+                                    
                                 </S.ContentFoot>
 
 

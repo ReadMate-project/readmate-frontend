@@ -7,8 +7,11 @@ import LoginPage from "../pages/loginpage/loginPage/LoginPage";
 
 import LibraryPage from "../pages/librarypage/LibraryPage";
 import BookInfoPage from "../pages/librarypage/bookinfopage/BookInfoPage";
+
 import BookClubPage from "../pages/bookclubpage/BookClubPage";
 import BookClubDetailPage from "../pages/bookclubpage/bookclubdetailpage/BookClubDetailPage";
+import BookClubManagePage from "../pages/bookclubpage/bookclubmanagepage/BookClubManagePage";
+import BookClubBoardPage from"../pages/bookclubpage/bookclubboardpage/BookClubBoardPage";
 
 import PostPage from "../pages/postpage/postlistpage/PostPage";
 import PostDetailPage from "../pages/postpage/postdetailpage/PostDetailPage";
@@ -83,16 +86,26 @@ const router = createBrowserRouter([
             path:"/api/v1/auth/oauth2/kakao/code",
             element:<KakaoRedirect/>
         },
+        
         {
             path: "/bookclubs",
             element: <BookClubPage />,
-             children: [
-                {
-                 path: "bookclubinfo/:bookclubid",
-                 element: <BookClubDetailPage />,
-                },
-           ],
+        },    
+        {
+            path: "/bookclubs/bookclubinfo/:bookclubid",
+            element: <BookClubDetailPage />,
         },
+        {
+            path: "/bookclubs/bookclubinfo/:bookclubid/bookclubmanage",
+            element: <BookClubManagePage />,
+        },
+        {
+            path: "/bookclubs/bookclubinfo/:bookclubid/bookclubpost",
+            element: <BookClubBoardPage />,
+        },
+
+
+        
 
         {
            path: "/essay",
