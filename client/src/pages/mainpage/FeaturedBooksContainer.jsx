@@ -2,8 +2,11 @@ import React from 'react';
 import S from './style';
 import Button from '../../components/button/style';
 import { NavLink } from 'react-router-dom';
+import useBooksFetch from '../../hooks/Aladin/useBooksFetch';
 
 const FeaturedBooksContainer = () => {
+    const { books, isLoading, error } = useBooksFetch('BestSeller', 0, 3);
+    console.log(books);
     return (
         <div>
             
@@ -23,10 +26,15 @@ const FeaturedBooksContainer = () => {
                     </NavLink>
                 </S.ShowMoreButton>
                 
-                <S.FB_Component>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <S.FB_Component >
+                    {books.slice(0, 3).map((book, index) => (
+                        <S.BookItem className='bookItem' key={index}>
+                            <img src={book.cover} alt={book.title} />
+                            <div className='fb_bookName'>{book.title}</div>
+                            <div className='fb_author'>{book.author}</div>
+                        </S.BookItem>
+                    ))}
+                   
                 </S.FB_Component>
             </S.Container>
         </div>

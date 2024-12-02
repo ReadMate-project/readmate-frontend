@@ -70,20 +70,39 @@ S.Component=styled.div`
 `
 
 S.Profile=styled.div`
-    width:100%;
-    img{
-        width:12%;
-        border-radius: 50%;
+    width: 60px;  
+    height: 60px;  
+    overflow: hidden; 
+    border-radius: 50%; 
+    border: 1px solid #717171;
+    img {
+        width: 100%;
+        height: 100%; 
+        object-fit: cover; 
+    }
+    @media (max-width: 1024px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media (max-width: 768px) {
+        width: 30px;
+        height: 30px;
+    }
+
+    @media (max-width: 480px) {
+        width: 20px;
+        height: 20px;
     }
 `
 S.NickNameContainer=styled.div`
     display: flex;
     justify-content: space-between;
-    width:62%;
+    width:67%;
     position:absolute ;
     /* right:5%; */
-    top:12%;
-    left:21%;
+    top:10%;
+    left:19%;
 `
 S.NickName=styled.div`
     ${h3}
@@ -93,8 +112,8 @@ S.Introduce=styled.div`
     ${b4}
     position:absolute ;
     /* right:5%; */
-    top:17%;
-    left:21%;
+    top:15%;
+    left:19%;
 `
 S.ModifyButton=styled.span`
     /* width:13%; */

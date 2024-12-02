@@ -12,11 +12,11 @@ S.Container=styled.div`
     position:relative;
     padding: 5% 0% 5% 10%;
     
-    &.hotpost{
-        margin-bottom: 8%;
-   
+    &.lightGreenBg{
+        background-color: ${theme.PALETTE.lightGreen};
+        
     }
-
+   
 `
 S.Title=styled.div`
     /* padding:5% 0; */
@@ -25,7 +25,45 @@ S.Title=styled.div`
         width:20%;
     }
 `
-
+S.Text2=styled.div`
+    position:absolute;
+    top:30%;
+    ${b1}; 
+`
+S.ShowMoreButton2=styled.div`
+    position:absolute;
+    top:15%;
+    left:83%;
+    width:100%;
+    img{
+        position:relative;
+        z-index: 10;
+        width:8%;
+    }
+`
+S.BookClubClip=styled.div`
+    img{
+        width:13%;
+        display: block;
+    }
+    img:first-child {
+        position:relative;
+        /* padding-top:1%; */
+        top:10%;
+        transform: translate(0, -10%);
+        left:-8%;
+        z-index: 10;
+    }
+    img:nth-child(2) {
+        width:11%;
+        bottom:0%;
+        left:85%; 
+        position:relative;
+        transform: translate(0, 55%);
+        z-index: 10;
+        /* margin-bottom: 5%; */
+    }
+`
 S.Text3=styled.div`
     position: absolute;
     ${b1};
@@ -84,25 +122,7 @@ S.BookClubClip2=styled.div`
         /* margin-bottom: 5%; */
     }
 `
-S.Crown=styled.div`
-   width:7%;
-   position: absolute;
-   top:13%;
-   left: 10%;
-   &.crown1 { // 첫 번째 크라운
-        left: 10%;
-    }
 
-    &.crown2 { // 두 번째 크라운
-        left: 60%; // 오른쪽으로 옮기기
-    }
-    img{
-        /* position: relative; */
-        /* left: 60%; */
-        width:100%;
-    }
-    
-`
 S.Box=styled.div`
         width: 36%; 
         height:42%;
@@ -126,100 +146,123 @@ S.FirstLine=styled.div`
     }
 `
 S.Title3 = styled.div`
-    ${h2}
+    ${b4}
     padding-left: 3%;
+    color:#717171;
 `;
 
-S.UserInfo = styled.div`
+S.SecondLine = styled.div`
     position: absolute;
-    top:42%;
+    top:37%;
     display: flex;
-    align-items: center;
-    ${b1}
-    white-space: nowrap;
-    width:10%;
-    justify-content: space-between;
-    img {
-        width: 40px;
-        height:40px;
-        border-radius: 50%;
-        margin-right: 7px;
-        @media (max-width: 1024px) {
-            width: 30px; 
-            height: 30px; 
-        }
-
-        @media (max-width: 768px) {
-            width: 20px; 
-            height: 20px; 
-        }
-
-        @media (max-width: 480px) {
-            width: 15px; 
-            height: 15px;
-        }
-    }
+    flex-direction: column;
+    ${h2}
+    white-space: wrap;
+    width:60%;
+    justify-content: flex-start;
+   & .description{
+    ${b2}
+    color: #717171;
+    padding-top: 2%;
+   }
 `;
 
-S.InteractionContainer = styled.div`
+S.ThirdLine = styled.div`
     position: absolute;
     top:75%;
     display: flex;
     align-items: center;
-    width:55%;
-    justify-content: space-between;
-    ${b2}
-`;
-
-S.LikeContainer = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 3%;
-   
-`;
-
-S.CommentContainer = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 3%;
+    width:60%;
     
+    ${b4}
 `;
-S.TimeContainer=styled.div`
-    display: flex;
-    align-items: center;
-    gap: 3%;
 
-`
-S.PostImage = styled.div`
-    width: 30%;
-    height:80%;
-    height: auto;
-    position: absolute;
-    right: 2%;
-    top: 15%;
-    
-    img{
-        width:140px;
-        height:140px;
-        border-radius: 1vw;
-        object-fit: cover;
+S.Category = styled.div`
+    ${flexCenter}
+    gap: 8%;
+    margin-left: 6%;
+    position: relative;
+    & .tag{
+        color: #717171;
+        border:1px solid #717171;
+        border-radius: 30vw;
         
+        padding: 5% 10%;
+        flex-shrink: 0;
+    }
+    
+`;
+
+S.PeopleContainer=styled.div`
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    white-space: nowrap;
+    position: relative;
+    left:10%;
+    img {
+        width: 35px;
+        /* height:40px; */
+
+        margin-right: 7px;
         @media (max-width: 1024px) {
-            width:80px;
-            height:80px;
+            width: 30px; 
+            /* height: 30px;  */
         }
 
         @media (max-width: 768px) {
-            width:50px;
-            height:50px;
+            width: 20px; 
+            /* height: 20px;  */
         }
 
         @media (max-width: 480px) {
-            width:35px;
-            height:35px;
+            width: 15px; 
+            /* height: 15px; */
+        }
+    }
+`
+S.BookImage = styled.div`
+    /* width: 30%; */
+    /* height:100%; */
+    height: auto;
+    position: absolute;
+    right: 4%;
+    /* top: 15%; */
+    
+    img{
+        /* border:1px solid #717171; */
+        width:115px;
+        height:165px;
+        border-radius: 2px;
+        object-fit: cover;
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+        @media (max-width: 1024px) {
+            width:60px;
+            height:90px;
+        }
+
+        @media (max-width: 768px) {
+            width:40px;
+            height:65px;
+        }
+
+        @media (max-width: 480px) {
+            width:25px;
+            height:40px;
         }
     }
 `;
 
+S.BC_Component=styled.div`
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top:15%;
+    right:0%;
+    /* margin-top: 5%; */
 
+`
 export default S;

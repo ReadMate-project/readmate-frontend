@@ -19,13 +19,30 @@ S.Profile = styled.div`
   gap:0.5%;
 
   span{
-    width:4%;
-    img {
-        width: 100%;
-        /* border:0.5px solid black; */
-        border-radius: 50%;
-    
-    }
+        width: 30px;  
+        height: 30px;  
+        overflow: hidden; 
+        border-radius: 50%; 
+        border: 1px solid #717171;
+        img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+        }
+        @media (max-width: 1024px) {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            width: 15px;
+            height: 15px;
+        }
+
+        @media (max-width: 480px) {
+            width: 10px;
+            height: 10px;
+        }
   }
   
 `;
@@ -97,12 +114,30 @@ S.Comment = styled.div`
   padding: 10px;
   border-bottom: 1px solid #717171;
   span{
-    width:5%;
-    min-width: 5%;
-    img{
-        width:100%;
-        border-radius: 50%;
-    }
+       width: 40px;  
+        height: 40px;  
+        overflow: hidden; 
+        border-radius: 50%; 
+        border: 1px solid #717171;
+        img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+        }
+        @media (max-width: 1024px) {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media (max-width: 768px) {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 480px) {
+            width: 15px;
+            height: 15px;
+        }
   }
   
 `;

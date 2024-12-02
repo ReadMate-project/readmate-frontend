@@ -107,6 +107,10 @@ const router = createBrowserRouter([
                 element:<EssayDetailPage/>
             },
             {
+                path:"/essay/essaydetail/modifyessay",
+                element: <ProtectedRoute element={<ModifyPost />} />,
+             },
+            {
                 path: "/essay/createEssay",
                 element: <ProtectedRoute element={<PostingPage />} />,
             },
@@ -134,11 +138,10 @@ const router = createBrowserRouter([
                     element: <PostPage />,
                 },
                 {
-                //   path: "postinfo/:postid",
                     path:"/posts/postdetail",
                     element: <PostDetailPage />,
                 },
-                {//내가 쓴 postdetail일 때만 보이게 해야함
+                {
                         path:"/posts/postdetail/modifypost",
                         element: <ProtectedRoute element={<ModifyPost />} />,
                 },
