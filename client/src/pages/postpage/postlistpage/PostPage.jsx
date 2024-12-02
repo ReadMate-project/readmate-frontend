@@ -198,7 +198,8 @@ const PostPage = () => {
                   </S.CommentContainer>
 
                   <S.PostInfo>
-                    {new Date(new Date(post.createdAt).getTime() + 9 * 60 * 60 * 1000).toLocaleString('ko-KR')}
+                    {post.nickname} |{" "}
+                     {new Date(new Date(post.createdAt).getTime() + 9 * 60 * 60 * 1000).toLocaleString('ko-KR')}
                   </S.PostInfo>
 
                 </S.UnderTitleContainer>

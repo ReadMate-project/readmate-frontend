@@ -105,18 +105,51 @@ S.FB_Component=styled.div`
     position:absolute;
     top:0%;
     left:15%;
-    div {
+    & .bookItem{
         width: 15%; 
         height: 70%; 
         background-color: white;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); 
         border-radius: 2vw; 
         margin-right: 3%;
-        
+        padding: 1.5%;
     }
     
-
 `
+S.BookItem = styled.div`
+    /* text-align: center; */
+    width:100%;
+    ${flexCenterColumn}
+    justify-content: flex-start;
+    padding:20px;
+    img {
+        width:100%;
+        height:80%;
+        object-fit: cover;
+        margin-bottom: 5%;
+    }
+   
+    & .fb_bookName{
+        ${h3}
+        align-self: flex-start;
+        width:100%;
+        margin-bottom: 3%;
+        height:7%;
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap;
+    }
+    & .fb_author{
+        align-self: flex-start;
+        width:100%;
+        height:8%;
+        ${b1}
+        color:#717171;
+        overflow: hidden; /* 넘치는 내용 숨기기 */
+        text-overflow: ellipsis; /* 넘칠 경우 "..." 처리 */
+        white-space: nowrap;
+    }
+`;
 //BookClubContainer
 S.Text2=styled.div`
     position:absolute;
@@ -178,5 +211,6 @@ S.BC_Component=styled.div`
     }
 
 `
+
 
 export default S;

@@ -117,7 +117,7 @@ const EssayDetailPage = () => {
                         
                         {user?.userId === post.userId && ( // 본인 게시글일 경우에만 표시
                             <S.ButtonContainer>
-                                <S.Button onClick={() => { navigate('/posts/postdetail/modifypost', { state: { post } }) }}>수정</S.Button>
+                                <S.Button onClick={() => { navigate('/essay/essaydetail/modifyessay', { state: { post } }) }}>수정</S.Button>
                                 <S.Button onClick={() => { setVisible(!visible); }}>삭제</S.Button>
                             </S.ButtonContainer>
                         )}

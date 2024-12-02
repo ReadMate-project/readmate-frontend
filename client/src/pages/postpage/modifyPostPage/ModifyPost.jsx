@@ -44,6 +44,13 @@ const ModifyPost = () => {
     const handleCancle=()=>{
         navigate(-1);
     }
+
+    const handleTitleChange = (e) => {
+        const input = e.target.value;
+        if (input.length <= 10) {
+            setTitle(input);
+        }
+    };
     //저장 버튼 클릭 시 서버에 POST 요청 보내기
     const handleSubmit = async() => {
         if (!title.trim()) {
@@ -54,22 +61,23 @@ const ModifyPost = () => {
         const requestData = {
             content,
             title,
-            boardType: 'BOARD',
         };
 
-        console.log(content);
-        console.log(title);
         // FormData 생성
         const formData = new FormData();
-        // 수정
-        formData.append('boardRequest', new Blob([JSON.stringify(requestData)], { type: 'application/json' }));
-
-        // formData.append('boardRequest', JSON.stringify(requestData)); // JSON으로 변환하여 추가
+        formData.append('updateRequest', JSON.stringify(requestData));
+       
         images.forEach((image, index) => {
             formData.append('images', image); // 각 이미지 파일을 추가
         });
+        // FormData 내용 확인
+            console.log("FormData 내용:");
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}:`, value);
+            }
 
         try {
+            console.log(formData);
             const accessToken = localStorage.getItem('accessToken');
             const response = await apiClient.patch(`/v1/board/${boardId}`, formData, {
                 headers: {
@@ -77,7 +85,7 @@ const ModifyPost = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-
+            
             console.log('Post modify successfully:', response.data);
             navigate(-1);
         } catch (error) {
@@ -87,8 +95,6 @@ const ModifyPost = () => {
                 console.error('Network or other error:', error);
             }
         }
-
-        
     };
         
  
@@ -109,7 +115,7 @@ const ModifyPost = () => {
                         placeholder='제목' 
                         id="title" 
                         value={title} 
-                        onChange={(e) => setTitle(e.target.value)} 
+                        onChange={handleTitleChange}
                     />
                     <textarea 
                         id="body"
