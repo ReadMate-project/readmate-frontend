@@ -9,9 +9,9 @@ const SearchForm = ({ onSearch }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (query.trim()) {
-            navigate(`/search?q=${encodeURIComponent(query)}`);
+            navigate(`/search?q=${encodeURIComponent(query.trim())}`);
             if (onSearch) {
-                onSearch(query);
+                onSearch(query.trim());
             }
         }
     };
@@ -25,7 +25,7 @@ const SearchForm = ({ onSearch }) => {
                 placeholder="검색어 입력"
             />
             <S.SearchButton type="submit">
-            <img src={process.env.PUBLIC_URL + '/global/images/searchpage/search_icon.png'} alt='img' />
+                <img src={process.env.PUBLIC_URL + '/global/images/searchpage/search_icon.png'} alt='img' />
             </S.SearchButton>
         </S.SearchForm>
     );
