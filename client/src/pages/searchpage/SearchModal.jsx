@@ -36,9 +36,7 @@ const SearchModal = ({ onBookSelect }) => {
         aria-describedby="search-modal-description"
       >
         <S.ModalBox>
-          <S.CloseButton aria-label="close" onClick={handleClose}>
-            <CloseIcon />
-          </S.CloseButton>
+          
 
           {/* Search Form */}
           <S.SearchForm component="form" onSubmit={onSubmit}>
@@ -46,15 +44,17 @@ const SearchModal = ({ onBookSelect }) => {
               fullWidth
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search for books..."
+              placeholder="검색어를 입력해주세요"
             />
-            <S.SearchButton 
+            <S.Button className='flexible'
+            
               variant="contained" 
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? <CircularProgress size={24} /> : 'Search'}
-            </S.SearchButton>
+              {isLoading ? <CircularProgress size={24} /> :
+               <img src={`${process.env.PUBLIC_URL}/global/images/searchpage/Icon_ModalSearch.png`} alt="Loading" />}
+            </S.Button>
           </S.SearchForm>
 
           {/* Error Message */}
@@ -71,22 +71,46 @@ const SearchModal = ({ onBookSelect }) => {
                 <CircularProgress />
               </S.ResultGrid>
             ) : (
-              <S.ResultGrid>
+              <S.CardSection className='BookList'>
                 {searchResults.map((book) => (
-                  <S.ResultCard key={book.isbn} onClick={() => handleBookClick(book)}>
+                  <S.HeroSection className='Modal' key={book.isbn} onClick={() => handleBookClick(book)}>
+                    
+                    <S.ImageContainer>
                     {book.cover && (
-                      <S.ResultImage 
-                        src={book.cover} 
-                        alt={book.title}
-                      />
+                      <S.Image2 src={book.cover} alt={book.title} />
                     )}
-                    <S.ResultTitle>{book.title}</S.ResultTitle>
-                    <S.ResultAuthor>{book.author}</S.ResultAuthor>
-                  </S.ResultCard>
+                    </S.ImageContainer>
+
+                    <S.HeroContent className='Modal'>
+                    
+                     <S.ContentTop>
+                          
+                          <S.ContentTitle className='Modal'>{book.title}</S.ContentTitle>
+                                          
+                      </S.ContentTop>
+                                 
+      
+                      <S.ContentMiddle className='Modal'>
+                      {book.author} 저  |  {book.publisher}  |  {book.pubDate}
+                      </S.ContentMiddle>
+                            
+                      <S.ContentMiddle className='Modal'>
+                        정가  {book.priceStandard}원
+                      </S.ContentMiddle>
+                      
+                    </S.HeroContent>
+
+                  </S.HeroSection>
                 ))}
-              </S.ResultGrid>
+              </S.CardSection>
             )}
           </S.SearchResults>
+          <S.TitleButtonContainer className='bookList'>
+          <S.CloseButton aria-label="close" onClick={handleClose}>
+            <img src={`${process.env.PUBLIC_URL}/global/images/searchpage/Close.png`} alt="Close" />
+          </S.CloseButton>
+          </S.TitleButtonContainer>
+
         </S.ModalBox>
       </Modal>
     </>

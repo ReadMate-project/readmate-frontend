@@ -49,9 +49,15 @@ const PostingPage = () => {
             return;
         }
 
+        const bookId = selectedBook.book?.isbn13 || selectedBook.isbn13; 
+        if (!bookId) {
+             alert('유효한 책을 선택해주세요.');
+            return;
+        }
+
         const requestBody = {
             userId: user.userId,
-            bookId: selectedBook.book.isbn13,
+            bookId: bookId,
             content,
             title,
             boardType: "FEED",
