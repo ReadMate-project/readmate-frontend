@@ -1,27 +1,16 @@
-// SearchModal.jsx
 import React, { useState } from 'react';
-import { Modal, Box, IconButton, TextField, Button, CircularProgress } from '@mui/material';
+import { Modal, CircularProgress } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useAladinSearch } from '../../hooks/Aladin/useAladinSearch';
+import S from './style';
 
-const SearchModal = ({ open, handleClose }) => {
+const SearchModal = ({ onBookSelect }) => {
+  const [open, setOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const { searchResults, isLoading, error, handleSearch } = useAladinSearch();
 
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '80%',
-    maxWidth: 800,
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
-    maxHeight: '90vh',
-    overflow: 'auto',
-    borderRadius: 2,
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -30,91 +19,77 @@ const SearchModal = ({ open, handleClose }) => {
     }
   };
 
+  const handleBookClick = (book) => {
+    onBookSelect(book);
+    handleClose();
+  };
+
   return (
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="search-modal"
-      aria-describedby="search-modal-description"
-    >
-      <Box sx={style}>
-        <IconButton
-          aria-label="close"
-          onClick={handleClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
+    <>
+      <S.SearchButton onClick={handleOpen}>
+        <img src={`${process.env.PUBLIC_URL}/global/images/bookclubpage/AddBooks.png`} alt="Upload" />
+      </S.SearchButton>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="search-modal"
+        aria-describedby="search-modal-description"
+      >
+        <S.ModalBox>
+          <S.CloseButton aria-label="close" onClick={handleClose}>
+            <CloseIcon />
+          </S.CloseButton>
 
-        {/* Search Form */}
-        <Box component="form" onSubmit={onSubmit} sx={{ mb: 3 }}>
-          <TextField
-            fullWidth
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search for books..."
-            sx={{ mb: 2 }}
-          />
-          <Button 
-            variant="contained" 
-            type="submit"
-            disabled={isLoading}
-          >
-            {isLoading ? <CircularProgress size={24} /> : 'Search'}
-          </Button>
-        </Box>
+          {/* Search Form */}
+          <S.SearchForm component="form" onSubmit={onSubmit}>
+            <S.SearchInput
+              fullWidth
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search for books..."
+            />
+            <S.SearchButton 
+              variant="contained" 
+              type="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? <CircularProgress size={24} /> : 'Search'}
+            </S.SearchButton>
+          </S.SearchForm>
 
-        {/* Error Message */}
-        {error && (
-          <Box sx={{ color: 'error.main', mb: 2, textAlign: 'center' }}>
-            {error}
-          </Box>
-        )}
-
-        {/* Search Results */}
-        <Box sx={{ mt: 2 }}>
-          {isLoading ? (
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-              <CircularProgress />
-            </Box>
-          ) : (
-            <Box sx={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-              gap: 2 
-            }}>
-              {searchResults.map((book) => (
-                <Box
-                  key={book.isbn}
-                  sx={{
-                    p: 2,
-                    border: '1px solid #ddd',
-                    borderRadius: 1,
-                    '&:hover': {
-                      boxShadow: 2,
-                    }
-                  }}
-                >
-                  {book.cover && (
-                    <img 
-                      src={book.cover} 
-                      alt={book.title}
-                      style={{ width: '100%', height: 'auto', marginBottom: '8px' }}
-                    />
-                  )}
-                  <h3 style={{ margin: '8px 0', fontSize: '1rem' }}>{book.title}</h3>
-                  <p style={{ margin: '4px 0', color: '#666' }}>{book.author}</p>
-                </Box>
-              ))}
-            </Box>
+          {/* Error Message */}
+          {error && (
+            <S.ErrorMessage>
+              {error}
+            </S.ErrorMessage>
           )}
-        </Box>
-      </Box>
-    </Modal>
+
+          {/* Search Results */}
+          <S.SearchResults>
+            {isLoading ? (
+              <S.ResultGrid>
+                <CircularProgress />
+              </S.ResultGrid>
+            ) : (
+              <S.ResultGrid>
+                {searchResults.map((book) => (
+                  <S.ResultCard key={book.isbn} onClick={() => handleBookClick(book)}>
+                    {book.cover && (
+                      <S.ResultImage 
+                        src={book.cover} 
+                        alt={book.title}
+                      />
+                    )}
+                    <S.ResultTitle>{book.title}</S.ResultTitle>
+                    <S.ResultAuthor>{book.author}</S.ResultAuthor>
+                  </S.ResultCard>
+                ))}
+              </S.ResultGrid>
+            )}
+          </S.SearchResults>
+        </S.ModalBox>
+      </Modal>
+    </>
   );
 };
 

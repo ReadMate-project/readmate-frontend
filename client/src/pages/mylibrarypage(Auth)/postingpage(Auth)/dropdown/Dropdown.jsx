@@ -3,6 +3,7 @@ import S from './style';
 import Select from 'react-select';
 import Dropdown3 from './Dropdown3';
 import apiClient from '../../../../api/apiClient';
+import SearchModal from '../../../searchpage/SearchModal';
 
 
 const Dropdown = ({ setSelectedBook }) => {
@@ -110,8 +111,11 @@ const Dropdown = ({ setSelectedBook }) => {
           ))}
         </select>
       </S.Dropdown>
-
-    <Dropdown3/>
+      
+      <S.DropdownContainer3>
+        <SearchModal onBookSelect={setSelectedBook}/>
+      </S.DropdownContainer3>
+    
     </S.DropdownContainer>
   );
 };
