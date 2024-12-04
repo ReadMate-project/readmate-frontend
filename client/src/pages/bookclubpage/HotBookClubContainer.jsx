@@ -3,7 +3,7 @@ import S from './style';
 
 const HotBookclubContainer = () => {
     const cards = [
-        { bookclubid: 1, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: `${process.env.PUBLIC_URL}/global/images/bookclubpage/clubcover/clubcover1.png`, categories: ['한국소설', 'SF'], host: '독서핑' },
+        { bookclubid: 1, title: "여름의 기억을 만들어볼까요?", text: '여름은 책 속에서 새로운 세계를 발견하고, 잊지 못할 순간들을 만들기에 완벽한 계절입니다. "여름의 기억을 만들어 볼까요?" 북클럽은 다양한 장르의 책을 함께 읽고, 서로의 생각을 나누며 특별한 여름의 추억을 만들어가는 공간입니다.', image: `${process.env.PUBLIC_URL}/global/images/bookclubpage/DefaultLogo.png`, categories: ['한국소설', 'SF'], host: '독서핑' },
     ];
       
 
